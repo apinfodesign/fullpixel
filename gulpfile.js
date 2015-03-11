@@ -51,7 +51,7 @@ gulp.task('css', function(){
 });
 gulp.task('dev:server', function(){
     nodemon({
-        script: 'server.js',
+        script: 'app.js',
         ect:    'js',
         ignore: ['ng*', 'gulp*', 'assets*']
     });
