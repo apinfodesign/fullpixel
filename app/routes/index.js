@@ -4,7 +4,7 @@ var express = require('express'),
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.sendFile('/public/index.html');
+  res.sendFile('index.html');
 });
 
 
