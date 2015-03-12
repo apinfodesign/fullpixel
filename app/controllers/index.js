@@ -1,5 +1,6 @@
 var router = require('express').Router();
 
-router.use(require('./posts'));
+router.use('/posts',require('./posts'));
+router.use('/', require('./routes'));
 
 module.exports = router;

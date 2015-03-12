@@ -13,13 +13,13 @@ router.get('/posts', function(req, res, next){
 });
 router.post('/posts', function(req, res, next){
     var post = new Post({
-        body : req.body.body
+        "body" : req.body.body
     });
-    post.save(function(err, post){
+    post.save(function(err, posts){
         if(err){
             return next(err)
        }
-        res.status(201).json(post);
+        res.status(201).json(posts);
     });
 });
 

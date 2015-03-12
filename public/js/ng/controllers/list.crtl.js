@@ -6,10 +6,12 @@ angular.module('pullPix')
               body: $scope.listBody
           })
               .success(function(post){
+                  console.log('success');
                   $scope.posts.unshift(post);
                   $scope.listBody = null;
               });
       }
+       console.log('JSON fail.');
    }
     ListSvc.fetch()
         .success(function (posts) {
