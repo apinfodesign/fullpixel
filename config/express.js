@@ -21,7 +21,7 @@ module.exports = function () {
 	app.use(favicon('./public/favicon.ico'));
 	app.use(logger('dev'));
 	app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded());
+	app.use(bodyParser.urlencoded({extended: false}));
 	app.use(cookieParser());
 	app.use(express.static('./public'));
 	//app.use('/', routes);
