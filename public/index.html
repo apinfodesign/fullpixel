@@ -1,9 +1,323 @@
-doctype html
+<!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<meta charset="utf-8">
+	<title>Welcome to Full Pixel</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 </head>
+<style type="text/css">
+	
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, 
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+		font-family: Helvetica, sans-serif;
+		background-color: #ccc;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+	
+
+	html {
+  		box-sizing: border-box;
+	}
+	
+	*, *:before, *:after {
+  		box-sizing: inherit;
+	}
+
+
+	#picture-main {
+		color: #f8f8f8;
+		background: #333;
+		text-align: center;
+		height: 100vh;
+	}
+
+	.heading-wrapper {
+		padding-top: 40vh;
+		padding-bottom: 40vh;
+		height: 20vh;
+	}
+
+	h1 {
+		text-align: center;
+		/*font-size: 4vw;*/
+		color: #f0f0f0;
+		/* The site that can fi: */
+		font-family: Cabin-Regular;
+		font-size: 3.25em;
+		color: #F0F0F0;
+		letter-spacing: 1px;
+		line-height: 63px;
+		text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+	}
+
+	#signUp {
+		font-family: Cabin-Medium;
+		cursor: pointer;
+		margin-top: 5vh;
+		text-align: center;
+		font-size: 2.1em;
+		background-color: rgba(74,74,74,0.25);
+		border-radius: 4px;
+		box-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff;
+		border: none;
+		padding: 0.5em 2em;
+		color: #f2f2f2;
+		letter-spacing: 0.5px;
+		line-height: 40px;
+		outline: none;
+		transition: 250ms;
+	}
+
+	#signUp:hover {
+		background-color: rgba(74,74,74,0.50);
+		/*box-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff;*/
+	}
+
+	#signUp:active,
+	#signUp:focus {
+		background-color: rgba(74,74,74,0.25);
+		box-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff;
+	}
+
+	nav ul {
+		list-style-type: none;
+	}
+
+	nav ul li {
+		color: #efefef;
+		padding-top: 16px;
+		text-shadow: 0px 1px 1px rgba(0,0,0,0.50);
+	}
+
+	nav ul li:first-child {
+		float: left;
+		padding-left: 20px;
+	}
+
+	nav ul li:last-child {
+		float: right;
+		padding-right: 20px;
+	}
+
+	input {
+		display: block;
+		margin: 0 auto 1em;
+		font-family: Cabin, sans-serif;
+		line-height: 40px;
+		width: 90%;
+		font-size: 2em;
+		height: 70px;
+		border-radius: 4px;
+		outline: none;
+		border: 1px solid #f9f9f9;
+		transition: 0.2s;
+	}
+
+	input:active,
+	input:focus {
+		border: 1px solid #07f;
+	}
+
+	#formSubmit {
+		display: block;
+		text-align: center;
+		margin: 0 auto;
+		font-family: Cabin-Medium;
+		cursor: pointer;
+		margin-top: 5vh;
+		text-align: center;
+		font-size: 2.1em;
+		background-color: #07f;
+		border-radius: 4px;
+		border: none;
+		padding: 0.5em 2em;
+		color: #f2f2f2;
+		letter-spacing: 0.5px;
+		line-height: 40px;
+		width: 90%;
+		transition: 0.25s;
+	}
+
+	#formSubmit:hover {
+		box-shadow: inset 0 0 0.1em #fff, inset 0 0 0.1em #fff;
+	}
+
+	.modal {
+		display: none;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background: rgba(0,0,0,0.5);
+		z-index: 100;
+		top: 0;
+  		bottom: 0;
+  		right: 0;
+  		left: 0;
+  		padding: 0;
+  		margin: 0;
+	}
+
+	.modal-content {
+		border-radius: 1px;
+		margin: 22.5vh auto;
+		height: 55vh;
+		width: 30em;
+		border: 1.5px solid black;
+		background: #f9f9f9;
+	}
+
+	#login-form {
+		margin-top: 32px;
+	}
+
+	#form-title {
+		width: 90%;
+		text-align: center;
+		font-size: 3em;
+		margin: 0 auto 0.75em;
+		color: #333;
+	}
+
+
+</style>
+
 <body>
-	<p>HELLO</p>
+	
+	<div id="picture-main">
+
+		<nav>
+			<ul>
+				<li>FullPixel</li>
+				<li>Login</li>
+			</ul>
+		</nav>
+
+		<div class="heading-wrapper">
+			<h1>The site that can finally handle your photos.</h1>
+			<button id="signUp">Sign Up</button>
+		</div>
+
+	</div> <!-- end picture main -->
+
+	<div class="modal" id ="loginModal">
+
+		<div class="modal-content">
+			<form id="login-form" method="" action="">
+				<h3 id="form-title">Sign up for FullPixel</h3>
+				<label for"email"></label>
+				<input type="email" name="email" placeholder="email" autofocus />
+				<label for="password"></label>
+				<input type="password" name="password" placeholder="password" />
+				<button id="formSubmit">submit</button>			
+			</form>
+		</div>
+
+	</div> <!-- end modal -->
+
+	<script>
+	
+		var signUp     = document.getElementById('signUp'),
+			modal      = document.getElementById('loginModal'),
+			picture    = document.getElementById('picture-main'),
+			photos     = ['sky.jpg', 'beach.jpg', 'person-cam.jpg', 'drop.jpg', 'person.jpg', 'trees.jpg', 'field.jpg', 'stones.jpg', 'shore-rock.jpg', 'eagle.jpg'],
+			photoIndex = Math.floor(Math.random() * 11);
+
+		function showModal () {
+			modal.style.display = 'block';
+		}
+
+		function changePhoto (photos) {
+			picture.style.background = "url(img/" + photos[photoIndex] + ") #333 no-repeat center center / cover";
+			if ( photoIndex < photos.length ) { photoIndex ++; }
+			else { photoIndex = 0; }
+			console.log("photo index: " + photoIndex);
+		}
+
+		(function(){ picture.style.background = "url(img/" + photos[photoIndex] + ") #333 no-repeat center center / cover"; })();
+
+		setInterval(function(){ changePhoto(photos); }, 5000);
+
+		signUp.addEventListener('click', showModal, false);
+
+
+
+		// // fade out
+
+		// function fadeOut(el){
+		//   el.style.opacity = 1;
+
+		//   (function fade() {
+		//     if ((el.style.opacity -= .1) < 0) {
+		//       //el.style.display = "none";
+		//     } else {
+		//       requestAnimationFrame(fade);
+		//     }
+		//   })();
+		// }
+
+		// // fade in
+
+		// function fadeIn(el, display){
+		//   el.style.opacity = 0;
+		//   //el.style.display = display || "block";
+
+		//   (function fade() {
+		//     var val = parseFloat(el.style.opacity);
+		//     if (!((val += .1) > 1)) {
+		//       el.style.opacity = val;
+		//       requestAnimationFrame(fade);
+		//     }
+		//   })();
+		// }
+
+		// var el = document.querySelector('.js-fade');
+
+		// // fadeOut(el);
+		// // fadeIn(el);
+		// // fadeIn(el, "inline-block");
+
+
+	</script>
+
 </body>
 </html>
