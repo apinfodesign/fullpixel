@@ -20,14 +20,14 @@ gulp.task('hello',['welcome'], function () {
 });
 
 gulp.task('js', function(){
-    gulp.src(['ng/module.js','ng/**/*.js'])
+    gulp.src(['public/js/ng/controllers/module.js','./public/js/ng/**/*.js'])
         .pipe(concat('app.js'))
         .pipe(ngAnnotate())
         .pipe(uglify())
-        .pipe(gulp.dest('assets'));
+        .pipe(gulp.dest('public'));
 });
 gulp.task('watch:js', ['js'], function(){
-    gulp.watch('ng/**/*.js', ['js']);
+    gulp.watch('public/js/ng/**/*.js', ['js']);
 });
 gulp.task('bower', function(){
     return bower()
