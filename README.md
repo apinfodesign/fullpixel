@@ -1,12 +1,17 @@
-# fullpixel  ......
+# fullpixel - a PCS demonstration project
 
 A big stack of screen filling images (mixed with users’ story texts and ads).
 
 We will...
-... serve the right size image to the right screen.  
-... preload so the user rarely waits for next image.
-... assume but not require full screen use.
-... provide a beautiful, super-simple user interface for photo viewing and sharing.
+
+	... serve the right size image to the right screen.  
+
+	... preload so the user rarely waits for next image.
+
+	... assume but not require full screen use.
+
+	... provide a beautiful, super-simple user interface for photo viewing and sharing.
+
 
 View Modes
 
