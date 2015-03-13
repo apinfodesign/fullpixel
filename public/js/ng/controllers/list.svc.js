@@ -4,8 +4,6 @@ angular.module('pullPix')
             return $http.get('http://localhost:3000/api/posts');
        }
         this.create = function(post){
-            console.log(post + "listsvc");
-            console.log('list service');
             return $http.post('http://localhost:3000/api/posts', post);
         }
     });
