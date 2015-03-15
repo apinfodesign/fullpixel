@@ -53,9 +53,6 @@ gulp.task('dev:server', function(){
         ignore: ['ng*', 'gulp*', 'assets*']
     });
 });
-gulp.task('default', function(){
-    gulp.run('watch:js');
-    gulp.run('watch:css');
-    gulp.run('dev:server');
+gulp.task('default',['watch:js', 'watch:css', 'dev:server'],  function(){
 });
 
