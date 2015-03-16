@@ -10,7 +10,9 @@ var config = require('./config'),
 // 	return db;
 // };
 
-mongoose.connect('mongodb://localhost/test');  //connect to the database
+mongoose.connect('mongodb://localhost/test', function(){
+	console.log('CONNECTED');
+});  //connect to the database
 var express = require('express');
 var router = express.Router();              // get an instance of the express Router
 
