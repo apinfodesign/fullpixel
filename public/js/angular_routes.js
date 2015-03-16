@@ -16,15 +16,16 @@ picApp.config(['$routeProvider',
     $routeProvider.
       when('/', {
         templateUrl: 'partials/not_signed_in.html',
-        controller: 'RegistrationController as regisCtrl'
+        //controller: 'PostController as postCtrl'
       }).
-      when('/home', {
+      when('/home', {   //login page
         templateUrl: 'partials/signed_in_home.html',
         controller: 'LoginController as logCtrl'
-      }).
+
+      }).               //refistration page
       when('/user', {   //will be /user/:username when we get the database working correctly
         templateUrl: 'partials/personal_homepage.html',
-        controller: 'PostController as postCtrl'
+        controller: 'RegistrationController as regisCtrl'
       }).
       when('/edit', {  //again will be edit/:username
         templateUrl: 'partials/personal_edit.html',

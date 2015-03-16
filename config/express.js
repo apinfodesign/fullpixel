@@ -8,6 +8,8 @@ var config       = require('./config'),
 
 
 
+
+
 module.exports = function () {
 
 	var app = express();
@@ -24,7 +26,10 @@ module.exports = function () {
 	app.use(bodyParser.urlencoded({extended: false}));
 	app.use(cookieParser());
 	app.use(express.static('./public'));
+
+
 	//app.use('/', routes);
+	//app.use('mongoose', mongoose)  // used to connect the database
 
 
 

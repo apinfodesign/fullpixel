@@ -1,1 +1,24 @@
 <p>testing 1</p>
+
+<h3> LoginPage </h3>
+
+<p> {{message}} </p>
+<form novalidate>
+	<div>
+		<p>Username: {{username}}</p>
+		<input type="text" name="username" ng-model="username"/>
+	</div>
+	<div>
+		<p>Password: {{password}}</p>
+		<input type="text" name="password" ng-model="password"/>
+	</div>
+	<button ng-click="logCtrl.login()"> Submit </button> 
+		
+</form>
+
+
+<form novalidate>
+	
+	<button ng-click="logCtrl.direct()"> Registration Page </button> 
+		
+</form>
