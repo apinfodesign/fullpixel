@@ -1,0 +1,12 @@
+$bck-clr: #7bc4d9;
+$txt-clr: #0f2b33;
+$font-stack: 'Raleway, san-serif';
+
+body {
+  width: 88.6%;
+  font: 100% $font-stack;
+  background-color: $bck-clr;
+  color: $txt-clr;
+  padding: 5%;
+  border: 1px solid $txt-clr;
+}
