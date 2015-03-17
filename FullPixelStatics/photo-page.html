@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Welcome to Full Pixel</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/photo-page.css">
+	<link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+
+
+
+</head>
+
+
+
+<body>
+	
+	<nav class="menu">
+		<ul class="group">
+			<li>FullPixel</li>
+			<li>Upload</li>
+			<li>Profile</li>
+			<li>Discover</li>
+		</ul>
+	</nav>
+
+		
+	<div id="photo-container">
+		<img src="pics/trees.jpg" class="photo">
+	</div>
+
+
+
+	<div class="info-container">
+		
+		<div class="info-personal group">
+			<img src="pics/avatar.png" class="avatar">
+			<h2 class="photo-title">The Great Outdoors</h2>
+			<h3 class="name">Seth Shober</h3>
+		</div>
+		<div class="caption-container">
+			<h3 class="caption-title">Caption</h3>
+			<p class="caption-description">When we try to pick out anything by itself, we find it hitched to everything else in the Universe. </p>
+		</div>
+
+		<div class="tags">
+			<ul>
+				<li>mountains</li>
+				<li>beauty</li>
+				<li>lakes</li>
+				<li>nature</li>
+				<li>outdoors</li>
+			</ul>
+		</div>
+
+		<div class="info-meta">
+			<h3 class="info-meta-title">Details</h3>
+			<ul>
+				<li>Camera</li>
+				<li>Lumia 920</li>
+			</ul>
+			<ul>
+				<li>Shutter Speed</li>
+				<li>1/460 s</li>
+			</ul>
+			<ul>
+				<li>Aperture</li>
+				<li>f/2</li>
+			</ul>
+			<ul>
+				<li>ISO/Film</li>
+				<li>100</li>
+			</ul>
+			<ul>
+				<li>Taken</li>
+				<li>November 25, 2014</li>
+			</ul>
+		</div>
+
+		<div class="info-location">
+			<h3 class="info-location-title">Location</h3>
+			<h4 class="info-location-geo">Mountains, Earth</h4>
+			<div id="map-canvas"></div>
+			<a href="map-page.html">
+				<img style="margin-top: 0.75em;" src="https://maps.googleapis.com/maps/api/staticmap?center=63.259591,-144.667969&zoom=6&size=300x200&markers=Ccolor:0xFFFF00%7Clabel:C%7CTok,AK">
+			</a>
+		</div>
+
+	</div>
+
+
+<!--
+	<style type="text/css">
+	html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+</style>
+
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?v=3.exp">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: -34.397, lng: 150.644},
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+  -->
+
+
+
+</body>
+</html>
