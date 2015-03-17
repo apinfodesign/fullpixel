@@ -7,15 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="css/photo-page.css">
 	<link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-
-
-
 </head>
-
-
-
 <body>
-	
+
 	<nav class="menu">
 		<ul class="group">
 			<li>FullPixel</li>
@@ -27,7 +21,7 @@
 
 		
 	<div id="photo-container">
-		<img src="pics/trees.jpg" class="photo">
+		<img src="pics/trees.jpg" id="main-photo">
 	</div>
 
 
@@ -35,23 +29,27 @@
 	<div class="info-container">
 		
 		<div class="info-personal group">
-			<img src="pics/avatar.png" class="avatar">
-			<h2 class="photo-title">The Great Outdoors</h2>
-			<h3 class="name">Seth Shober</h3>
-		</div>
-		<div class="caption-container">
-			<h3 class="caption-title">Caption</h3>
-			<p class="caption-description">When we try to pick out anything by itself, we find it hitched to everything else in the Universe. </p>
-		</div>
+			<div class="info-main">
+				<img src="pics/avatar.png" class="avatar">
+				<h2 class="photo-title">The Great Outdoors</h2>
+				<h3 class="name">Seth Shober</h3>
+			</div>
+		
+			<div class="caption">
+				<h3 class="caption-title">Caption</h3>
+				<p class="caption-description">When we try to pick out anything by itself, we find it hitched to everything else in the Universe. </p>
+			</div>
 
-		<div class="tags">
-			<ul>
-				<li>mountains</li>
-				<li>beauty</li>
-				<li>lakes</li>
-				<li>nature</li>
-				<li>outdoors</li>
-			</ul>
+			<div class="tags">
+				<ul>
+					<li>mountains</li>
+					<li>beauty</li>
+					<li>lakes</li>
+					<li>nature</li>
+					<li>outdoors</li>
+				</ul>
+			</div>
+
 		</div>
 
 		<div class="info-meta">
@@ -89,30 +87,7 @@
 
 	</div>
 
-
-<!--
-	<style type="text/css">
-	html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
-</style>
-
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?v=3.exp">
-    </script>
-    <script type="text/javascript">
-      function initialize() {
-        var mapOptions = {
-          center: { lat: -34.397, lng: 150.644},
-          zoom: 8
-        };
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-
-  -->
-
-
+	<footer>FullPixel &hearts;</footer>
 
 </body>
 </html>

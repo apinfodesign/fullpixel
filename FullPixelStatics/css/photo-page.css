@@ -60,16 +60,25 @@ table {
 
 
 html {
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box; /* Safari 3.0 - 5.0, Chrome 1 - 9, Android 2.1 - 3.x */
+  	   -moz-box-sizing: border-box;  
+			box-sizing: border-box;
 }
 
 *, *:before, *:after {
-	box-sizing: inherit;
+	-webkit-box-sizing: inherit; /* Safari 3.0 - 5.0, Chrome 1 - 9, Android 2.1 - 3.x */
+  	   -moz-box-sizing: inherit; 
+			box-sizing: inherit;
 }
 
 body {
 	font-family: 'Cabin', Helvetica, sans-serif;
 	background-color: #fff;
+}
+
+.menu {
+	background-color: #4a4a4a;
+	color: #efefef;
 }
 
 .menu ul {
@@ -91,11 +100,6 @@ body {
 	padding-left: 20px;
 }
 
-.menu {
-	background-color: #4a4a4a;
-	color: #efefef;
-}
-
 /*nav ul li:last-child {
 	float: right;
 	padding-right: 20px;
@@ -106,11 +110,11 @@ body {
 
 
 #photo-container {
-	margin: 2.5% 6%;
+	margin: 0;
 	position: relative;
 }
 
-.photo {
+#main-photo {
 	width: 100%;
 	height: auto;
 }
@@ -118,8 +122,9 @@ body {
 
 .info-container {
 	font-family: 'Nunito', Helvetica, sans-serif;
-	margin: 5% 6%;
+	padding: 8% 5%;
 	color: #333;
+	max-width: 100%;
 }
 
 .photo-title,
@@ -147,8 +152,8 @@ body {
 	margin-right: 50em;
 }
 
-.caption-container {
-	margin-top: 2em;
+.caption {
+	margin-top: 3em;
 	font-size: 1.25em;
 }
 
@@ -159,6 +164,7 @@ body {
 .caption-description {
 	margin-top: 1em;
 	font-weight: 300;
+	line-height: 1.2;
 }
 
 
@@ -182,13 +188,12 @@ body {
 
 .info-meta {
 	color: #666;
+	margin-top: 2em;
 }
 
 .info-meta-title {
 	color: #333;
 	font-size: 1.25em;
-	margin-top: 2em;
-	margin-bottom: 1em;
 }
 
 .info-meta ul {
@@ -198,6 +203,7 @@ body {
 .info-meta ul li:first-child {
 	font-weight: 400;
 	margin-bottom: 0.5em;
+	margin-top: 1em;
 }
 
 .info-meta ul li:last-child {
@@ -220,9 +226,68 @@ body {
 	font-weight: 300;
 }
 
+footer {
+	background-color: #f9f9f9;
+	text-align: center;
+	padding: 1.5em;
+	font-size: 1em;
+	color: #9b9b9b;
+}
+
+
+
+
 #map-canvas {
 
 }
+
+
+/* DEFAULT SMALL SCREEN */
+@media screen and (min-width: 35.5em) {}
+
+
+/* MEDIUM SCREEN */
+@media screen and (min-width: 48em) {}
+
+
+/* LARGE SCREEN */
+@media screen and (min-width: 64em) {
+
+	.info-personal,
+	.info-meta,
+	.info-location {
+		display: inline-block;
+		margin: 0 auto;
+	}
+
+	.info-meta,
+	.info-location {
+		width: 26%;
+	}
+
+	.info-personal {
+		width: 38%;
+	}
+
+	.info-meta {
+		text-align: right;
+		padding-right: 5em;
+	}
+
+	.info-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+}
+
+/* XL SCREEN */
+@media screen and (min-width: 80em) {}
+
+
+
+
+
 
 
 
