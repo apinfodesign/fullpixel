@@ -6,7 +6,7 @@ router.use(function(req, res, next){
     next();
 });
 router.get('/', function(req, res){
-    res.sendFile('/Users/matthewcordeiro/Desktop/PCS-projects/FullPixel/public/partials/index.html');
+    res.sendFile('/Users/mileshochstein/Documents/ProjectsPCS2015/p42fullpix/public/partials/index.html');
     console.log('home page.');
 });
 
