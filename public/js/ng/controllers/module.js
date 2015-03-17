@@ -1,1 +1,3 @@
-var pullPix = angular.module('pullPix',[]);
+var pullPix = angular.module('pullPix',[
+    'ngRoute'
+]);
