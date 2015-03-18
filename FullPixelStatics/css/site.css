@@ -1,19 +1,73 @@
+/* RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color: #ccc;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* END RESET */
+
 
 html {
-		box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+  	   -moz-box-sizing: border-box;  
+			box-sizing: border-box;
 }
 
 *, *:before, *:after {
-		box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+  	   -moz-box-sizing: inherit; 
+			box-sizing: inherit;
 }
 
 body {
-	font-family: 'Cabin', Helvetica, sans-serif;
+	background-color: white;
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
 }
 
 #picture-main {
 	color: #f8f8f8;
-	background: #333;
+	background: #333 url('../pics/person.jpg') no-repeat center center / cover;
 	text-align: center;
 	height: 100vh;
 }
@@ -24,11 +78,10 @@ body {
 	height: 20vh;
 }
 
-h1 {
+#main-callout {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
 	text-align: center;
-	/*font-size: 4vw;*/
 	color: #f0f0f0;
-	/* The site that can fi: */
 	font-size: 3.25em;
 	color: #F0F0F0;
 	letter-spacing: 1px;
@@ -37,7 +90,8 @@ h1 {
 }
 
 #signUp {
-	font-family: Cabin-Medium;
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 400;
 	cursor: pointer;
 	margin-top: 5vh;
 	text-align: center;
@@ -56,7 +110,6 @@ h1 {
 
 #signUp:hover {
 	background-color: rgba(74,74,74,0.50);
-	/*box-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff;*/
 }
 
 #signUp:active,
@@ -65,25 +118,27 @@ h1 {
 	box-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff;
 }
 
-/*	nav ul {
+nav ul {
 	list-style-type: none;
 }
 
 nav ul li {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	float: right;
 	color: #efefef;
-	padding-top: 16px;
-	text-shadow: 0px 1px 1px rgba(0,0,0,0.50);
-}*/
-
-/*	nav ul li:first-child {
-	float: left;
-	padding-left: 20px;
+	margin-top: 1em;
+	margin-right: 1.5em;
+	text-shadow: 0px 1px 0.5px rgba(0,0,0,0.50);
 }
 
-nav ul li:last-child {
-	float: right;
-	padding-right: 20px;
-}*/
+nav ul li:first-child {
+	float: left;
+	margin-left: 1em;
+}
+
+nav ul li:nth-child(2) {
+	margin-right: 1em;
+}
 
 input {
 	display: block;
@@ -166,9 +221,11 @@ input:focus {
 
 .callout-text {
 	margin: 8em auto;
+	padding-left: 0.75em;
+	padding-right: 0.75em;
 	color: #333;
 	text-align: center;
-	font-family: 'Nunito', Helvetica, sans-serif;
+	font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .callout-text-heading {
@@ -178,7 +235,6 @@ input:focus {
 	margin: 0 auto;
 	font-weight: 400;
 	line-height: 1.15;
-	/*font-family: 'Nunito', Helvetica, sans-serif;*/
 }
 
 .callout-text-body {
@@ -187,13 +243,13 @@ input:focus {
 	font-weight: 300;
 	max-width: 650px;
 	line-height: 1.25;
-	/*font-family: 'Nunito', Helvetica, sans-serif;*/
 }
 
 footer {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
 	background-color: #f9f9f9;
 	text-align: center;
-	padding: 1.8em;
+	padding: 1.5em;
 	font-size: 1em;
 	color: #9b9b9b;
 }
@@ -209,8 +265,21 @@ footer {
 	margin-bottom: 6px;
 }
 
+.button {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	padding: 0.75em 1.15em;
+	border-radius: 3px;
+	cursor: pointer;
+	width: 85%;
+}
+
+.button:active,
+.button:focus {
+	outline: none;
+}
+
 .bottom-buttons {
-	margin: 5em auto;
+	margin: 2.5em auto;
 	text-align: center;
 }
 
@@ -218,8 +287,8 @@ footer {
 	background: transparent;
 	border: 1.5px solid #28C2F7;
 	color: #28C2F7;
-	margin-right: 24px;
 	font-size: 1.5em;
+	margin-bottom: 1em;
 }
 
 .button-gray {
@@ -238,92 +307,37 @@ footer {
 
 
 
+/* DEFAULT SMALL SCREEN */
+@media screen and (min-width: 35.5em) {}
 
 
+/* MEDIUM SCREEN */
+@media screen and (min-width: 48em) {
 
+	footer {
+		padding: 1.8em;
+	}
 
+	.button {
+		width: initial;
+	}
 
+	.button-blue {
+		margin-right: 24px;
+		margin-bottom: 0;
+	}
 
-/*START NAV*/
-
-.custom-wrapper {
-	background: transparent;
-    color: #efefef;
-	text-shadow: 0px 1px 1px rgba(0,0,0,0.50);
-    margin-bottom: 1em;
-    -webkit-font-smoothing: antialiased;
-    height: 2.1em;
-    overflow: hidden;
-    -webkit-transition: height 0.5s;
-    -moz-transition: height 0.5s;
-    -ms-transition: height 0.5s;
-    transition: height 0.5s;
-}
-
-.custom-wrapper.open {
-    height: 14em;
-}
-
-.custom-menu-3 {
-    text-align: right;
-}
-
-.custom-toggle {
-    width: 34px;
-    height: 34px;
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: none;
-}
-
-.custom-toggle .bar {
-    background-color: #777;
-    display: block;
-    width: 20px;
-    height: 2px;
-    border-radius: 100px;
-    position: absolute;
-    top: 18px;
-    right: 7px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    transition: all 0.5s;
-}
-
-.custom-toggle .bar:first-child {
-    -webkit-transform: translateY(-6px);
-    -moz-transform: translateY(-6px);
-    -ms-transform: translateY(-6px);
-    transform: translateY(-6px);
-}
-
-.custom-toggle.x .bar {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-.custom-toggle.x .bar:first-child {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-
-@media (max-width: 47.999em) {
-
-    .custom-menu-3 {
-        text-align: left;
-    }
-
-    .custom-toggle {
-        display: block;
-    }
+	.bottom-buttons {
+		margin: 5em auto;
+	}
 
 }
 
-/*END NAV*/
+
+/* LARGE SCREEN */
+@media screen and (min-width: 64em) {
+
+}
+
+/* XL SCREEN */
+@media screen and (min-width: 80em) {}
