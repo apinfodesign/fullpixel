@@ -1,24 +1,49 @@
 angular.module('pullPix')
-    	.controller('UploadCtrl', [ '$scope', '$upload', function($scope, $upload) {
-  $scope.onFileSelect = function($files) {
+  .controller('UploadCtrl', function($scope, $upload) {
+ 
+   $scope.onFileSelect = function(files) {
     //$files: an array of files selected, each file has name, size, and type.
-    for (var i = 0; i < $files.length; i++) {
-      var file = $files[i];
+    //for (var i = 0; i < $files.length; i++) {
+      var file = files;
+
       $scope.upload = $upload.upload({
-        url: '/imageBucket', //upload.php script, node.js route, or servlet url
+        url: '/api/user/upload',  
+        method: 'POST',
         data: {myObj: $scope.myModelObj},
-        file: file,
+        file: files,  //number files uploaded
+
+
+
       }).progress(function(evt) {
+
+         $scope.fileout = file[0].name;
+         $upload.fileout = file[0].name;
+
+        $scope.fileoutSize = file[0].size;
+        $upload.fileoutSize = file[0].size;
+
+        $scope.fileoutLast = file[0].lastModified;
+        $upload.fileoutLast = file[0].lastModified;
+
+
+        console.log("........");
         console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+        console.log(file);
+        console.log(file[0].name + " is file");
+
+        //console.log(data + " is data ");
+
+ 
       }).success(function(data, status, headers, config) {
         // file is uploaded successfully
-        console.log(data);
-      });
-    }
+          console.log('file ' + config.file.name + 'is uploaded successfully. Response: ' + data);
+
+        // console.log(data + " is data ");
+        // console.log(status + " is status ");
+    });
+  //  }
   };
-}]);  
 
 
- 
- 
- 
+
+});
