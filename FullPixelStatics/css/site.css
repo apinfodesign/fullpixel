@@ -65,6 +65,28 @@ body {
 	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
 }
 
+nav ul {
+	list-style-type: none;
+}
+
+nav ul li {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	float: right;
+	color: #efefef;
+	margin-top: 1em;
+	margin-right: 1.5em;
+	text-shadow: 0px 1px 0.5px rgba(0,0,0,0.50);
+}
+
+nav ul li:first-child {
+	float: left;
+	margin-left: 1em;
+}
+
+nav ul li:nth-child(2) {
+	margin-right: 1em;
+}
+
 #picture-main {
 	color: #f8f8f8;
 	background: #333 url('../pics/person.jpg') no-repeat center center / cover;
@@ -116,107 +138,6 @@ body {
 #signUp:focus {
 	background-color: rgba(74,74,74,0.25);
 	box-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff;
-}
-
-nav ul {
-	list-style-type: none;
-}
-
-nav ul li {
-	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
-	float: right;
-	color: #efefef;
-	margin-top: 1em;
-	margin-right: 1.5em;
-	text-shadow: 0px 1px 0.5px rgba(0,0,0,0.50);
-}
-
-nav ul li:first-child {
-	float: left;
-	margin-left: 1em;
-}
-
-nav ul li:nth-child(2) {
-	margin-right: 1em;
-}
-
-input {
-	display: block;
-	margin: 0 auto 1em;
-	font-family: Cabin, sans-serif;
-	line-height: 40px;
-	width: 90%;
-	font-size: 2em;
-	height: 70px;
-	border-radius: 4px;
-	outline: none;
-	border: 1px solid #f9f9f9;
-	transition: 0.2s;
-}
-
-input:active,
-input:focus {
-	border: 1px solid #07f;
-}
-
-#formSubmit {
-	display: block;
-	text-align: center;
-	margin: 0 auto;
-	font-family: Cabin-Medium;
-	cursor: pointer;
-	margin-top: 5vh;
-	text-align: center;
-	font-size: 2.1em;
-	background-color: #07f;
-	border-radius: 4px;
-	border: none;
-	padding: 0.5em 2em;
-	color: #f2f2f2;
-	letter-spacing: 0.5px;
-	line-height: 40px;
-	width: 90%;
-	transition: 0.25s;
-}
-
-#formSubmit:hover {
-	box-shadow: inset 0 0 0.1em #fff, inset 0 0 0.1em #fff;
-}
-
-.modal {
-	display: none;
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	background: rgba(0,0,0,0.5);
-	z-index: 100;
-	top: 0;
-		bottom: 0;
-		right: 0;
-		left: 0;
-		padding: 0;
-		margin: 0;
-}
-
-.modal-content {
-	border-radius: 1px;
-	margin: 22.5vh auto;
-	height: 55vh;
-	width: 30em;
-	border: 1.5px solid black;
-	background: #f9f9f9;
-}
-
-#login-form {
-	margin-top: 32px;
-}
-
-#form-title {
-	width: 90%;
-	text-align: center;
-	font-size: 3em;
-	margin: 0 auto 0.75em;
-	color: #333;
 }
 
 .callout-text {
@@ -341,3 +262,41 @@ footer {
 
 /* XL SCREEN */
 @media screen and (min-width: 80em) {}
+
+
+
+
+/* DEAL WITH IOS7 ISSUES REGARDING VH/VW */
+
+/** 
+ * iPad with portrait orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+  #picture-main,
+  .heading-wrapper {
+    height: 1024px;
+  }
+}
+ 
+/** 
+ * iPad with landscape orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
+  #picture-main,
+  .heading-wrapper {
+    height: 768px;
+  }
+}
+ 
+/**
+ * iPhone 5
+ * You can also target devices with aspect ratio.
+ */
+@media screen and (device-aspect-ratio: 40/71) {
+  #picture-main,
+  .heading-wrapper {
+    height: 500px;
+  }
+}
+
+/* END IOS STUFF */
