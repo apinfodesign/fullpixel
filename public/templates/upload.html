@@ -1,16 +1,11 @@
 <div ng-controller="UploadCtrl">
-
   <h1>Full Pix. Add your image now...</h1>
-
-
   <input type="file" ng-file-select="onFileSelect($files)" >
-
-
   <p>The file is: {{ fileout }} </p>
-
   <p>The file size is: {{ fileoutSize }} </p>
-
   <p>The file was last modified on: {{ fileoutLast }} </p>
-
+  
+  <img src= "/uploads/{{fileout}}" width="400" >
+  
 
 </div>
