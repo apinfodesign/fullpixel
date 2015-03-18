@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+<body>
+<h1>device detect</h1>
+<p>Is it mobile?</p>
+<div class ='mobile'>Is it mobile?</div>
+
+<p>Complete device name?</p>
+<div class='devicetype'> Complete device name? </div>
+
+<p>Form factor?</p>
+<div class ='formfactor'>Form factor </div>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<script type='text/javascript' src="http://wurfl.io/wurfl.js"></script>
+
+<script> console.log(WURFL) </script>
+
+<script> 
+
+$(
+	function () {
+ 	$(".mobile").text( WURFL.is_mobile);
+ 	$(".devicetype").text(WURFL.complete_device_name);
+ 	$(".formfactor").text(  WURFL.form_factor )
+
+  //   if (WURFL.is_mobile)
+		// { $(".devicetype").text("You are on a desktop device, not mobile." )  }
+		// else 
+		// { $(".devicetype").text("You are on a mobile device." )  }
+
+
+	}
+);
+
+ 
+
+</script>
+
+ 
+</body>
+
+
+</html>
