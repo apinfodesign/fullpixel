@@ -37,7 +37,7 @@ router.post('/api/user/upload', function(req, res, next){
 		  			console.log(data.Signature);
 		  			console.log("...............");
 		  			console.log("All EXIF DATA... ");
-		  			console.log(data);
+		  			console.log(data["Profile-EXIF"].Make);
 		  			} 
 		});
 
