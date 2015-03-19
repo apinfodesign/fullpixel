@@ -11,6 +11,8 @@ angular.module('pullPix')
             return $http.post('/sessions', {
                 username: username, password: password
             }).then(function (response) {
+                console.log("Res data " + response.data);
+                $window.localStorage.setItem('access_token', response.data);
                 svc.token = response.data
                 $http.defaults.headers.common['X-Auth'] = response.data;
                 return svc.getUser();
