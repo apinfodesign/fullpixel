@@ -1,0 +1,229 @@
+/* RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color: #ccc;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* END RESET */
+
+
+html {
+	-webkit-box-sizing: border-box;
+  	   -moz-box-sizing: border-box;  
+			box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: inherit;
+  	   -moz-box-sizing: inherit; 
+			box-sizing: inherit;
+}
+
+body {
+	background-color: white;
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+}
+
+nav ul {
+	list-style-type: none;
+}
+
+nav ul li {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	float: right;
+	color: white;
+	margin-top: 1em;
+	margin-right: 1.5em;
+	text-shadow: 0px 1px 0.5px rgba(0,0,0,0.50);
+}
+
+nav ul li:first-child {
+	float: left;
+	margin-left: 1em;
+}
+
+nav ul li:nth-child(2) {
+	margin-right: 1em;
+}
+
+#banner-photo,
+#picture-main,
+#picture-main-overlay {
+	width: 100%;
+	height: 25em;
+}
+
+#banner-photo {
+	z-index: 10;
+	background: #333 url('../pics/ocean.jpg') no-repeat center center / cover;
+	position: absolute;
+}
+
+#picture-main {
+	z-index: 30;
+	position: absolute;
+	color: #f8f8f8;
+	text-align: center;
+}
+
+#picture-main-overlay {
+	z-index: 20;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.25); 
+}
+
+#avatar-container {
+	margin-top: 5em;
+}
+
+#avatar {
+	border-radius: 50%;
+	margin: 1em auto;
+	box-shadow: 0px 0px 5px 0px #f9f9f9;
+}
+
+#avatar-name,
+#avatar-location,
+#avatar-camera {
+	text-shadow: 0px 1px 0.5px rgba(0,0,0,0.50);
+	color: #f9f9f9;
+	font-size: 1.5em;
+	padding-bottom: 0.25em;
+}
+
+
+
+footer {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	background-color: #f9f9f9;
+	text-align: center;
+	padding: 1.5em;
+	font-size: 1em;
+	color: #9b9b9b;
+}
+
+#gallery {
+	margin-right: 0;
+	margin-left: 0;
+}
+
+#gallery img {
+	float: left;
+	margin-right: 6px;
+	margin-bottom: 6px;
+}
+
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+/* DEFAULT SMALL SCREEN */
+@media screen and (min-width: 35.5em) {}
+
+
+/* MEDIUM SCREEN */
+@media screen and (min-width: 48em) {
+
+	footer {
+		padding: 1.8em;
+	}
+
+}
+
+
+/* LARGE SCREEN */
+@media screen and (min-width: 64em) {
+
+}
+
+/* XL SCREEN */
+@media screen and (min-width: 80em) {}
+
+
+
+
+/* DEAL WITH IOS7 ISSUES REGARDING VH/VW */
+
+/** 
+ * iPad with portrait orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+  #picture-main,
+  .heading-wrapper {
+    height: 1024px;
+  }
+}
+ 
+/** 
+ * iPad with landscape orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
+  #picture-main,
+  .heading-wrapper {
+    height: 768px;
+  }
+}
+ 
+/**
+ * iPhone 5
+ * You can also target devices with aspect ratio.
+ */
+@media screen and (device-aspect-ratio: 40/71) {
+  #picture-main,
+  .heading-wrapper {
+    height: 500px;
+  }
+}
+
+/* END IOS STUFF */
