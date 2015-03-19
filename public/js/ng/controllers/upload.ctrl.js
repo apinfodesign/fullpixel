@@ -2,8 +2,8 @@ angular.module('pullPix')
   .controller('UploadCtrl', function($scope, $upload) {
  
    $scope.onFileSelect = function(files) {
-    //$files: an array of files selected, each file has name, size, and type.
-    //for (var i = 0; i < $files.length; i++) {
+//$files: an array of files selected, each file has name, size, and type.
+//for (var i = 0; i < $files.length; i++) {
       var file = files;
 
       $scope.upload = $upload.upload({
@@ -30,11 +30,6 @@ angular.module('pullPix')
 
         console.log("........");
         console.log("successful upload");
-
     });
-  //  }
   };
-
-
-
 });
