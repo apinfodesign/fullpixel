@@ -32,6 +32,8 @@ angular.module('pullPix')
         console.log("eeeeeeee");
         console.log(data);
         console.log("successful upload");
+        console.log(cameraModel);
+
     });
   };
 });
