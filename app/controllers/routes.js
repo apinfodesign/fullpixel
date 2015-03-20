@@ -6,7 +6,9 @@ router.use(function(req, res, next){
     next();
 });
 router.get('/', function(req, res){
+
     res.sendFile('/Users/michaelmontero/Desktop/fullpixel/public/partials/index.html');
+
     console.log('home page.');
 });
 

@@ -1,22 +1,36 @@
-# fullpixel  ...
+# fullpixel - a PCS demonstration project
 
-1
-Non-registered user front page  >>> fullpix.com
+A big stack of screen filling images (mixed with users’ story texts and ads).
+
+We will...
+
+	... serve the right size image to the right screen.  
+
+	... preload so the user rarely waits for next image.
+
+	... assume but not require full screen use.
+
+	... provide a beautiful, super-simple user interface for photo viewing and sharing.
 
 
-2
-Non-registered user with specific url front page >>> fullpix.com/someuser
+View Modes
 
+1  Non-registered user front page  >>> fullpix.com
 
-3
-Fullscreen slideviewer, after first page....   fullpix.com/someuser
-(registered and nonregistered, logged in and not logged in)
+2  Non-registered user with specific url front page >>> fullpix.com/someuser
 
+3  All-users - Fullscreen slideviewer, after first page....   fullpix.com/someuser
+	
+	First user page includes public user profile
 
-4
-Registered (logged in) user dashboard  >>> fullpix.com/someuser/dashboard  
+	Second and subsequent pages are picture viewing pages (full screen or in browser viewing)
+ 
 
-5
-Registered user dashboard about me >>> fullpix.com/someuser/about  (view and edit versions)
+4  Registered (logged in) user dashboard  >>> fullpix.com/someuser/dashboard
+	
+	Upload and edit picture display modes
+	
+	Edit user profile  
+
 
 
