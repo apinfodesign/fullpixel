@@ -29,7 +29,8 @@ angular.module('pullPix')
         $scope.fileoutLast = files[0].lastModified;
      //   $upload.fileoutLast = file[0].lastModified;
 
-        console.log("........");
+        console.log("eeeeeeee");
+        console.log(data);
         console.log("successful upload");
     });
   };
