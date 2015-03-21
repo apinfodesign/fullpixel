@@ -1,0 +1,342 @@
+/* RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: Helvetica, sans-serif;
+	background-color: #ccc;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* END RESET */
+
+
+
+/* CLEARFIX */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+html {
+	-webkit-box-sizing: border-box;
+  	   -moz-box-sizing: border-box;  
+			box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: inherit;
+  	   -moz-box-sizing: inherit; 
+			box-sizing: inherit;
+}
+
+body {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	background-color: #fff;
+}
+
+
+
+/* NAVIGATION */
+.menu {
+	background-color: #4a4a4a;
+	color: #efefef;
+}
+
+.menu ul {
+	list-style-type: none;
+	padding-top: 1.4em;
+	padding-bottom: 1.4em;
+}
+
+.menu ul li {
+	display: inline-block;
+	color: #efefef;
+	/*text-shadow: 0px 1px 1px rgba(0,0,0,0.50);*/
+	float: right;
+	padding-right: 1.5em;
+}
+
+
+/* BRAND */
+.menu ul li:first-child {
+	float: left;
+	padding-left: 1.25em;
+}
+
+
+/* TOP RIGHT MENU SELECT (2nd because of float) */
+.menu ul li:nth-child(2) {
+	padding-right: 1.25em;
+}
+
+/*nav ul li:last-child {
+	float: right;
+	padding-right: 20px;
+}*/
+
+/* END NAVIGATION */
+
+
+
+
+
+#photo-container {
+	margin: 0;
+	position: relative;
+}
+
+#main-photo {
+	width: 100%;
+	height: auto;
+}
+
+
+.info-container {
+	font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
+	padding: 8% 5%;
+	color: #333;
+	max-width: 100%;
+}
+
+.photo-title,
+.name {
+	margin-left: 5em;
+	font-size: 1.5em;
+}
+
+.photo-title {
+	font-weight: 400;
+	padding-top: 0.7em;
+	padding-bottom: 0.5em;
+}
+
+.name {
+	font-weight: 300;
+}
+
+.avatar {
+	float: left;
+	border-radius: 50%;
+}
+
+.avatar::after {
+	margin-right: 50em;
+}
+
+.caption {
+	margin-top: 3em;
+	font-size: 1.25em;
+}
+
+.caption-title {
+	font-weight: 400;
+}
+
+.caption-description {
+	margin-top: 1em;
+	font-weight: 300;
+	line-height: 1.2;
+}
+
+
+.tags {
+	font-size: 1em;
+	margin-top: 2em;
+}
+
+.tags ul {
+	list-style-type: none;
+}
+
+.tags ul li {
+	display: inline;
+	color: #bbb;
+}
+
+.tags ul li::before {
+	content: "#";
+}
+
+.info-meta-title {
+	font-size: 1.25em;
+	margin-bottom: 0.9em;
+}
+
+.info-meta {
+	color: #666;
+	margin-top: 2em;
+}
+
+.info-meta:first-child {
+	margin-top: 1em;
+}
+
+.info-meta ul {
+	margin-bottom: 1em;
+}
+
+.info-meta ul li {
+	display: inline;
+}
+
+.info-meta ul li:first-child::after {
+	content: ": ";
+}
+
+.info-meta ul li:first-child {
+	font-weight: 400;
+	margin-bottom: 0.5em;
+	margin-top: 1em;
+}
+
+
+.info-meta ul li:last-child {
+	font-weight: 300;
+	margin-bottom: 0;
+}
+
+.info-location {
+	font-size: 1.25em;
+	color: #666;
+	margin-top: 2em;
+}
+
+.info-location-title {
+	font-weight: 400;
+}
+
+.info-location-geo {
+	margin-top: 1em;
+	font-weight: 300;
+}
+
+#info-location-map {
+	margin-top: 0.75em;
+	display: inline-block;
+	width: 300px;
+	height: 200px;
+	background: #eee url("https://maps.googleapis.com/maps/api/staticmap?center=63.259591,-144.667969&zoom=6&size=300x200&markers=Ccolor:0xFFFF00%7Clabel:C%7CTok,AK") no-repeat center center / cover;
+}
+
+footer {
+	background-color: #f9f9f9;
+	text-align: center;
+	padding: 1.25em;
+	font-size: 1em;
+	color: #9b9b9b;
+}
+
+
+#map-canvas {
+
+}
+
+
+/* DEFAULT SMALL SCREEN */
+@media screen and (min-width: 35.5em) {}
+
+
+/* MEDIUM SCREEN */
+@media screen and (min-width: 48em) {
+	.info-meta ul li {
+		display: block;
+	}
+
+	.info-meta-title {
+		margin-bottom: 0;
+	}
+
+	.info-meta ul li:first-child::after {
+		content: "";
+	}
+
+	footer {
+		padding: 1.5em;
+	}
+}
+
+
+/* LARGE SCREEN */
+@media screen and (min-width: 64em) {
+
+	.info-personal,
+	.info-meta,
+	.info-location {
+		display: inline-block;
+		margin: 0 auto;
+	}
+
+	.info-meta,
+	.info-location {
+		width: 26%;
+	}
+
+	.info-personal {
+		width: 38%;
+	}
+
+	.info-meta {
+		text-align: right;
+		padding-right: 5em;
+	}
+
+	.info-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+}
+
+/* XL SCREEN */
+@media screen and (min-width: 80em) {}
+
+
+
+
+
+
+
+
+
