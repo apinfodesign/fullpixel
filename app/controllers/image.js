@@ -6,39 +6,30 @@ var gm = require('gm');
 
 router.post('/api/user/upload', function(req, res, next){
 	var fstream;
+	var cameraModel;
 	req.pipe(req.busboy);
 	req.busboy.on('file', function(fieldname, file, filename){
-		console.log('uploading........' +filename);
+		console.log('uploading........ (image.js)' +filename);
 		fstream = fs.createWriteStream('./public/uploads/' + filename);
 		file.pipe(fstream);
 
-
-		gm('./public/uploads/' + filename)
-		.identify(function (err, data) {
-		  if (!err) {
-		  			console.log("Seleted EXIF elements: ");
-		  			console.log(data.Compression);
-		  			console.log(data.Signature);
-		  			console.log("...............");
-		  			console.log("All EXIF DATA... ");
-		  			console.log(data["Profile-EXIF"].Model);
-		  			} 
-		});
-
-
 		fstream.on('close', function(){
-			console.log('upload stream closed');
-			//res.redirect('back');
-			res.json('woo hoo');
+			console.log('upload stream closed(from image.js)');
+		
+			gm('./public/uploads/' + filename)
+			.identify(function (err, data) {
+			  if (!err) {
+			  	cameraModel = data["Profile-EXIF"].Model;
+	  			console.log("Seleted EXIF elements: ");
+	  			console.log('1 '+data.Compression);
+	  			console.log('2 '+ data.Signature);
+  	  			console.log('3 ' + cameraModel);
+
+		  		res.json('!!! ' + cameraModel + ' !!!');
+
+			  	} 
+			});
 		});
 	});
-
-
-
 });
-
- 
-
-
-
 module.exports = router;
