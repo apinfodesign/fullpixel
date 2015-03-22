@@ -1,7 +1,7 @@
-var router = require('express').Router();
-var busboy = require('connect-busboy');
-var fs = require('fs');
-var gm = require('gm');
+var router 	= require('express').Router();
+var busboy 	= require('connect-busboy');
+var fs 		= require('fs');
+var gm 		= require('gm');
 
 router.post('/api/user/upload', function(req, res, next){
 	var fstream;
@@ -21,17 +21,13 @@ router.post('/api/user/upload', function(req, res, next){
 				  			console.log("Selected EXIF elements: ");
 		 		  			cameraModel = data["Profile-EXIF"].Model;
 				  			console.log(cameraModel);
+				  			console.log(filename);
 				  			}
-
-				  	res.json(cameraModel);
-
+				  	//res.json(cameraModel);
 					});
-					
-
-				});  //close fstream
-			});
+				}); //close fstream
+		});
 });
-
 module.exports = router;
 
 
