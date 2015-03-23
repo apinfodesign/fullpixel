@@ -5,7 +5,6 @@ angular.module('pullPix')
                 .then(function(user){
                     $scope.$emit('login', user);
                     $location.path('/');
-                });
+            });
         };
-
     });
