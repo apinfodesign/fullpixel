@@ -19,6 +19,7 @@ angular.module('pullPix')
         //console.log(data + " is data ");
 
       }).success(function(data, status, headers, config) {
+        console.log('success fileout');
         // file is uploaded successfully
         $scope.fileout = files[0].name;
         $scope.fileoutSize = files[0].size;
