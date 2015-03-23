@@ -20,12 +20,17 @@ router.post('/api/user/upload', function(req, res, next){
 			.identify(function (err, data) {
 			  if (!err) {
 			  	cameraModel = data["Profile-EXIF"].Model;
-	  			console.log("Seleted EXIF elements: ");
-	  			console.log('1 '+data.Compression);
-	  			console.log('2 '+ data.Signature);
-  	  			console.log('3 ' + cameraModel);
 
-		  		res.json('!!! ' + cameraModel + ' !!!');
+
+	  			console.log("Seleted EXIF elements: ");
+	  			console.log(data);
+	  			
+	  			console.log('1 '+data.Compression);  //jpeg
+	  			console.log('2 '+ data.Signature);  //
+  	  			console.log('3 ' + cameraModel);  //nexus
+
+		  	//	res.json('!!! ' + cameraModel + ' !!!');
+		  		res.json(data);
 
 			  	} 
 			});

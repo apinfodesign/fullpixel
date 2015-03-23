@@ -29,9 +29,13 @@ angular.module('pullPix')
         $scope.fileoutLast = files[0].lastModified;
      //   $upload.fileoutLast = file[0].lastModified;
 
-         $scope.fileoutCamera= data;
+       $scope.fileoutCamera = data["Profile-EXIF"].Model;
+  //  $scope.fileoutCamera = JSON.stringify(data);
  
-        console.log("data start >>> " + data + " <<< data end...from upload.ctrl.js");
+   // $scope.fileoutCamera =  data.Signature;
+
+
+        console.log("data start >>> " + data["Profile-EXIF"] + " <<< data end...from upload.ctrl.js");
         console.log("successful upload (from upload.ctrl.js)");
     });
   };
