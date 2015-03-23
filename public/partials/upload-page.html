@@ -1,0 +1,64 @@
+
+
+    <nav class="menu">
+        <ul class="group">
+            <li>FullPixel</li>
+            <li>Upload</li>
+            <li>Profile</li>
+            <li>Discover</li>
+        </ul>
+    </nav>
+
+
+
+    <div id="upload-container">
+
+
+        <div id="upload-main">
+            <h1 id="main-title">Upload A Photo</h1>
+            <button id="upload-button">Choose Photo</button>
+            <div id="photo"></div>
+        </div>
+        <div id="upload-meta">
+            <form method="" action="" id="upload-form">
+                
+                <fieldset name="description">
+                    <label for="title" id="label-title">Title</label>
+                    <input type="text" name="title" id="input-title">
+                    <label for="caption" id="label-caption">Caption</label>
+                    <textarea name="caption" rows="4" id="caption"></textarea>
+                    <label for="tags" id="label-tags">Tags</label>
+                    <input type="text" name="tags" id="input-tags">
+                </fieldset>
+
+                <fieldset name="exif" id="exif">
+                    <label id="label-exif">EXIF</label>
+                    <label for="camera">Camera:</label>
+                    <input name="camera">
+                    <br>
+                    <label for="shutter-speed">Shutter Speed:</label>
+                    <input name="shutter-speed">
+                    <br>
+                    <label for="aperture">Aperture:</label>
+                    <input name="aperture">
+                    <br>
+                    <label for="iso">ISO:</label>
+                    <input name="iso">
+                    <br>
+                    <label for="taken">Taken</label>
+                    <input name="taken">
+                </fieldset>
+                <label id="label-location">Location</label>
+                <a href="map-page.html">
+                    <div id="info-location-map"></div>
+                </a>
+                <input type="submit" value="Submit Photo" id="photo-submit">
+            </form>
+
+        </div>
+
+
+    </div>
+        
+    <footer>FullPixel &hearts;</footer>
+
