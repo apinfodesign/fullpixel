@@ -11,6 +11,7 @@ router.get('/posts', function(req, res, next){
            res.json(posts);
        });
 });
+
 router.post('/posts', function(req, res, next){
     var post = new Post({
         "body" : req.body.body

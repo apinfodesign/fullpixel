@@ -10,5 +10,6 @@ angular.module('pullPix')
             .when('/photo',    {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'})
             .when('/profile',  {controller: '', templateUrl: '/partials/profile-page.html'}) 
             .when('/photo-map',{controller: '', templateUrl: '/partials/map-page.html'})
-            .when('/upload-page',{controller: 'UploadCtrl', templateUrl: '/partials/upload-page.html'}); 
-    });
+            .when('/upload-page',{controller: 'UploadCtrl', templateUrl: '/partials/upload-page.html'})
+            .when('/photo-map',{controller: '', templateUrl: '/partials/map-page.html'}); 
+     });
