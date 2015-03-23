@@ -1,0 +1,302 @@
+/* RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color: #ccc;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* END RESET */
+
+
+html {
+	-webkit-box-sizing: border-box;
+  	   -moz-box-sizing: border-box;  
+			box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: inherit;
+  	   -moz-box-sizing: inherit; 
+			box-sizing: inherit;
+}
+
+body {
+	background-color: white;
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+}
+
+nav ul {
+	list-style-type: none;
+}
+
+nav ul li {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	float: right;
+	color: #efefef;
+	margin-top: 1em;
+	margin-right: 1.5em;
+	text-shadow: 0px 1px 0.5px rgba(0,0,0,0.50);
+}
+
+nav ul li:first-child {
+	float: left;
+	margin-left: 1em;
+}
+
+nav ul li:nth-child(2) {
+	margin-right: 1em;
+}
+
+#picture-main {
+	color: #f8f8f8;
+	background: #333 url('../pics/person.jpg') no-repeat center center / cover;
+	text-align: center;
+	height: 100vh;
+}
+
+.heading-wrapper {
+	padding-top: 40vh;
+	padding-bottom: 40vh;
+	height: 20vh;
+}
+
+#main-callout {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	text-align: center;
+	color: #f0f0f0;
+	font-size: 3.25em;
+	color: #F0F0F0;
+	letter-spacing: 1px;
+	line-height: 63px;
+	text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+}
+
+#signUp {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 400;
+	cursor: pointer;
+	margin-top: 5vh;
+	text-align: center;
+	font-size: 2.1em;
+	background-color: rgba(74,74,74,0.25);
+	border-radius: 4px;
+	box-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff;
+	border: none;
+	padding: 0.5em 2em;
+	color: #f2f2f2;
+	letter-spacing: 0.5px;
+	line-height: 40px;
+	outline: none;
+	transition: 250ms;
+}
+
+#signUp:hover {
+	background-color: rgba(74,74,74,0.50);
+}
+
+#signUp:active,
+#signUp:focus {
+	background-color: rgba(74,74,74,0.25);
+	box-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff;
+}
+
+.callout-text {
+	margin: 8em auto;
+	padding-left: 0.75em;
+	padding-right: 0.75em;
+	color: #333;
+	text-align: center;
+	font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.callout-text-heading {
+	text-transform: uppercase;
+	font-size: 4em;
+	max-width: 950px;
+	margin: 0 auto;
+	font-weight: 400;
+	line-height: 1.15;
+}
+
+.callout-text-body {
+	margin: 1em auto 0;
+	font-size: 3em;
+	font-weight: 300;
+	max-width: 650px;
+	line-height: 1.25;
+}
+
+footer {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	background-color: #f9f9f9;
+	text-align: center;
+	padding: 1.5em;
+	font-size: 1em;
+	color: #9b9b9b;
+}
+
+#gallery {
+	margin-right: 0;
+	margin-left: 0;
+}
+
+#gallery img {
+	float: left;
+	margin-right: 6px;
+	margin-bottom: 6px;
+}
+
+.button {
+	font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+	padding: 0.75em 1.15em;
+	border-radius: 3px;
+	cursor: pointer;
+	width: 85%;
+}
+
+.button:active,
+.button:focus {
+	outline: none;
+}
+
+.bottom-buttons {
+	margin: 2.5em auto;
+	text-align: center;
+}
+
+.button-blue {
+	background: transparent;
+	border: 1.5px solid #28C2F7;
+	color: #28C2F7;
+	font-size: 1.5em;
+	margin-bottom: 1em;
+}
+
+.button-gray {
+	background: transparent;
+	border: 1px solid #4a4a4a;
+	color: #4a4a4a;
+	font-size: 1.5em;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+/* DEFAULT SMALL SCREEN */
+@media screen and (min-width: 35.5em) {}
+
+
+/* MEDIUM SCREEN */
+@media screen and (min-width: 48em) {
+
+	footer {
+		padding: 1.8em;
+	}
+
+	.button {
+		width: initial;
+	}
+
+	.button-blue {
+		margin-right: 24px;
+		margin-bottom: 0;
+	}
+
+	.bottom-buttons {
+		margin: 5em auto;
+	}
+
+}
+
+
+/* LARGE SCREEN */
+@media screen and (min-width: 64em) {
+
+}
+
+/* XL SCREEN */
+@media screen and (min-width: 80em) {}
+
+
+
+
+/* DEAL WITH IOS7 ISSUES REGARDING VH/VW */
+
+/** 
+ * iPad with portrait orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+  #picture-main,
+  .heading-wrapper {
+    height: 1024px;
+  }
+}
+ 
+/** 
+ * iPad with landscape orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
+  #picture-main,
+  .heading-wrapper {
+    height: 768px;
+  }
+}
+ 
+/**
+ * iPhone 5
+ * You can also target devices with aspect ratio.
+ */
+@media screen and (device-aspect-ratio: 40/71) {
+  #picture-main,
+  .heading-wrapper {
+    height: 500px;
+  }
+}
+
+/* END IOS STUFF */
