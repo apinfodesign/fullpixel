@@ -1,5 +1,4 @@
 
-
     <nav class="menu">
         <ul class="group">
             <li>FullPixel</li>
@@ -20,7 +19,7 @@
             <div id="photo"></div>
         </div>
         <div id="upload-meta">
-            <form method="" action="" id="upload-form">
+            <form method="" action="" class="group" id="upload-form">
                 
                 <fieldset name="description">
                     <label for="title" id="label-title">Title</label>
@@ -48,10 +47,12 @@
                     <label for="taken">Taken</label>
                     <input name="taken">
                 </fieldset>
-                <label id="label-location">Location</label>
-                <a href="map-page.html">
-                    <div id="info-location-map"></div>
-                </a>
+                <fieldset name="location" id="location">
+                    <label id="label-location">Location</label>
+                    <a href="/partials/map-page.html">
+                        <div id="info-location-map"></div>
+                    </a>
+                </fieldset>
                 <input type="submit" value="Submit Photo" id="photo-submit">
             </form>
 

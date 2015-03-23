@@ -166,6 +166,7 @@ body {
 	max-width: 500px;
 	border: 1px solid #f2f2f2;
 	margin: 4em auto;
+	background: #fff url('../pics/mountain-lake.jpeg') no-repeat center center / cover;
 }
 
 #upload-meta {
@@ -174,8 +175,7 @@ body {
 }
 
 #upload-form {
-
-	padding: 4em 0;
+	padding: 4em 0 2em;
 }
 
 label {
@@ -237,7 +237,7 @@ textarea:active {
 }
 
 #exif {
-	width: 100%;
+
 }
 
 #exif #label-exif {
@@ -269,6 +269,9 @@ textarea:active {
 	border: 1px solid #f2f2f2;
 }
 
+#location {
+
+}
 
 #label-location {
 	margin-top: 1.25em;
@@ -332,6 +335,17 @@ footer {
 
 	#photo {
 		height: 400px;
+	}
+
+	#exif {
+		display: inline-block;
+		float: left;
+	}
+
+	#location {
+		display: inline-block;
+		float: right;
+		margin-bottom: 2em;
 	}
 
 	footer {
