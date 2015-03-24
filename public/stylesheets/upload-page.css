@@ -1,0 +1,373 @@
+/* RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color: #ccc;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* END RESET */
+
+
+/* CLEARFIX */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+html {
+	-webkit-box-sizing: border-box;
+  	   -moz-box-sizing: border-box;  
+			box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: inherit;
+  	   -moz-box-sizing: inherit; 
+			box-sizing: inherit;
+}
+
+body {
+	font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 300;
+	background-color: #fff;
+}
+
+
+/* NAVIGATION */
+.menu {
+	background-color: #4a4a4a;
+	color: #efefef;
+}
+
+.menu ul {
+	list-style-type: none;
+	padding-top: 1.4em;
+	padding-bottom: 1.4em;
+}
+
+.menu ul li {
+	display: inline-block;
+	color: #efefef;
+	/*text-shadow: 0px 1px 1px rgba(0,0,0,0.50);*/
+	float: right;
+	padding-right: 1.5em;
+}
+
+
+/* BRAND */
+.menu ul li:first-child {
+	float: left;
+	padding-left: 1.25em;
+}
+
+
+/* TOP RIGHT MENU SELECT (2nd because of float) */
+.menu ul li:nth-child(2) {
+	padding-right: 1.25em;
+}
+
+/*nav ul li:last-child {
+	float: right;
+	padding-right: 20px;
+}*/
+
+/* END NAVIGATION */
+
+
+#upload-container {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+#upload-main {
+	background-color: white;
+	text-align: center;
+	padding: 1em;
+}
+
+#main-title {
+	font-size: 3em;
+	color: #333;
+	margin: 1em auto;
+}
+
+#upload-button,
+input[type="file"] {
+	font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 300;
+	border-radius: 4px;
+	background-color: #58D4FF;
+	font-size: 1.5em;
+	color: #fff;
+	padding: 0.8em 1.5em;
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: 250ms;
+}
+
+input[type="file"]:hover,
+input[type="file"]:active,
+input[type="file"]:focus,
+#upload-button:hover,
+#upload-button:active,
+#upload-button:focus {
+	outline: none;
+	border-radius: 4px;
+	background-color: transparent;
+	font-size: 1.5em;
+	color: #58D4FF;
+	padding: 0.8em 1.5em;
+	border: 2px solid #58D4FF;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#photo {
+	height: 275px;
+	max-width: 500px;
+	border: 1px solid #f2f2f2;
+	margin: 4em auto;
+	background: #fff url('../pics/mountain-lake.jpeg') no-repeat center center / cover;
+}
+
+#upload-meta {
+	padding: 1em;
+	background-color: #f9f9f9;
+}
+
+#upload-form {
+	padding: 4em 0 2em;
+}
+
+label {
+	display: block;
+	font-size: 1.5em;
+	color: #58D4FF;
+	text-transform: uppercase;
+}
+
+input {
+	font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 300;
+	display: block;
+	width: 100%;
+	line-height: 1.75;
+	font-size: 1.5em;
+	color: #4a4a4a;
+	border: none;
+	transition: 250ms;
+}
+
+input:focus,
+input:active {
+	outline: #58D4FF solid 1px;
+}
+
+textarea:focus,
+textarea:active {
+	outline: #58D4FF solid 1px;;
+}
+
+#label-title {
+	margin-bottom: 0.75em;
+}
+
+#input-title {
+	
+}
+
+#label-caption {
+	margin-top: 1.25em;
+	margin-bottom: 0.75em;
+}
+
+#caption {
+	width: 100%;
+	font-size: 1.5em;
+	border: none;
+	transition: 250ms;
+}
+
+#label-tags {
+	margin-top: 1.25em;
+	margin-bottom: 0.75em;
+}
+
+#input-tags {
+
+}
+
+#exif {
+
+}
+
+#exif #label-exif {
+	font-size: 1.5em;
+	margin-top: 1.25em;
+	margin-bottom: 0.75em;
+	display: block;
+	color: #58D4FF;
+}
+
+#exif label {
+	width: initial;
+	display: inline-block;
+	font-size: 1.25em;
+	color: #4a4a4a;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-right: 0.5em;
+	text-transform: initial;
+}
+
+#exif input {
+	width: initial;
+	display: inline-block;
+	font-size: 1.25em;
+	color: #979797;
+	line-height: initial;
+	background-color: #f9f9f9;
+	border: 1px solid #f2f2f2;
+}
+
+#location {
+
+}
+
+#label-location {
+	margin-top: 1.25em;
+	margin-bottom: 0.75em;
+}
+
+#info-location-map {
+	display: inline-block;
+	width: 300px;
+	height: 200px;
+	background: #eee url("https://maps.googleapis.com/maps/api/staticmap?center=63.259591,-144.667969&zoom=6&size=300x200&markers=Ccolor:0xFFFF00%7Clabel:C%7CTok,AK") no-repeat center center / cover;
+}
+
+
+
+#photo-submit {
+	outline: none;
+	margin-top: 1.5em;
+	font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 300;
+	border-radius: 4px;
+	background-color: transparent;
+	font-size: 1.5em;
+	color: #58D4FF;
+	padding: 0.6em 1.20em;
+	border: 2px solid #58D4FF;
+	cursor: pointer;
+	transition: 250ms;
+}
+
+#photo-submit:hover,
+#photo-submit:active,
+#photo-submit:focus {
+	background-color: #58D4FF;
+	color: #FFF;
+	border: 2px solid transparent;
+}
+
+
+
+footer {
+	background-color: #f9f9f9;
+	text-align: center;
+	padding: 1.25em;
+	font-size: 1em;
+	color: #9b9b9b;
+}
+
+
+/* DEFAULT SMALL SCREEN */
+@media screen and (min-width: 35.5em) {}
+
+
+/* MEDIUM SCREEN */
+@media screen and (min-width: 48em) {
+
+	#main-title {
+		font-size: 4em;
+		margin: 1.25em auto;
+	}
+
+	#photo {
+		height: 400px;
+	}
+
+	#exif {
+		display: inline-block;
+		float: left;
+	}
+
+	#location {
+		display: inline-block;
+		float: right;
+		margin-bottom: 2em;
+	}
+
+	footer {
+		padding: 1.5em;
+	}
+}
+
+
+/* LARGE SCREEN */
+@media screen and (min-width: 64em) {
+
+	#upload-form {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+
+}
+
+/* XL SCREEN */
+@media screen and (min-width: 80em) {}

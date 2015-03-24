@@ -1,3 +1,18 @@
+<div ng-controller="UploadCtrl">
+  <h1>Full Pix. Add your image now...</h1>
+  <input type="file" ng-file-select="onFileSelect($files)" >
+  <p>The file is: {{ fileout }} </p>
+  <p>The file size is: {{ fileoutSize }} </p>
+  <p>The file was last modified on: {{ fileoutLast }} </p>
+  <p>EXIF camera type is: {{ fileoutCamera}}</p>    
+  <p>EXIF Longitude is: {{ fileoutLongitude}}</p>   
+  <p>EXIF Latitude is: {{ fileoutLatitude}}</p> 
+  
+  <img src= "/uploads/{{fileout}}" width="600" >
+
+</div>
+
+
 <div ng-controller="ImgMetaCtrl as imgctrl" class="meta-container">
     <h1>Add in your image meta information.</h1>
     <form novalidate class="img-meta-form">
@@ -5,8 +20,11 @@
         Image Path: <input type="text" ng-model="metadata.imgpath" /><br>
         Image Title: <input type="text" ng-model="metadata.imgtitle" /><br>
         Image Description: <input type="text" ng-model="metadata.imgdesc" /><br>
-        Image Tag: <input type="text" ng-model="metadata.imgtag" /><br>
+        Image Tag: <input type="text" ng-model="metadata.imgtag" /> <br>
+        Camera Model: <input type="text" ng-model="metadata.imgtag" /> <br>
         <input type="submit" ng-click="imgctrl.ImgUpdate(metadata)" value="Save"/>
     </form>
     <pre>form = {{metadata | json}}</pre>
 </div>
+
+
