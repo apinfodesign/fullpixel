@@ -12,7 +12,7 @@
  
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body ng-app="pullPix" ng-controller="ApplicationCtrl">
+<body ng-app="pullPix" ng-controller="ApplicationCtrl as appctrl">
 <nav class='navbar navbar-default'>
     <div class='container'>
         <ul class='nav navbar-nav'>
@@ -23,8 +23,8 @@
             <li><a href='/#/upload'>Upload</a></li>
             
         </ul>
-        <p ng-if='currentUser' style="display: block; float: right; background-color: #ffffff; padding: 25px;" class='myuser'>
-            Signed in as {{currentUser.username}}
+        <p ng-if='appctrl.currentUser' style="display: block; float: right; background-color: #ffffff; padding: 25px;" class='myuser'>
+            Signed in as {{appctrl.currentUser.username}}
         </p>
     </div>
 </nav>

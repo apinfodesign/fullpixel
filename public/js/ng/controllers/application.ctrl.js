@@ -1,6 +1,7 @@
 angular.module('pullPix')
-    .controller('ApplicationCtrl', function($scope){
-        $scope.$on('login', function(_, user){
-            $scope.currentUser = user;
+    .controller('ApplicationCtrl', function(){
+        var vm = this;
+        vm.$on('login', function(_, user){
+            vm.currentUser = user;
     });
 });
