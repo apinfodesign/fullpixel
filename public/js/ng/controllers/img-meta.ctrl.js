@@ -21,6 +21,12 @@ angular.module('pullPix')
                     .success(function(imgmeta){
                        console.table(imgmeta);
                         metadata = null;
+
+
+        $scope.fileoutCamera = data["Profile-EXIF"].Model;
+        $scope.fileoutLongitude = data["Profile-EXIF"]['GPS Latitude'];
+        $scope.fileoutLatitude = data["Profile-EXIF"]['GPS Longitude'];
+                        
                     });
             }
 
