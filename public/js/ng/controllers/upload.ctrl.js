@@ -19,13 +19,14 @@ angular.module('pullPix')
         //console.log(data + " is data ");
 
       }).success(function(data, status, headers, config) {
+        console.log('success fileout');
         // file is uploaded successfully
         $scope.fileout = files[0].name;
         $scope.fileoutSize = files[0].size;
         $scope.fileoutLast = files[0].lastModified;
-        $scope.fileoutCamera = data["Profile-EXIF"].Model;
-        $scope.fileoutLongitude = data["Profile-EXIF"]['GPS Latitude'];
-        $scope.fileoutLatitude = data["Profile-EXIF"]['GPS Longitude'];
+        // $scope.fileoutCamera = data["Profile-EXIF"].Model;
+        // $scope.fileoutLongitude = data["Profile-EXIF"]['GPS Latitude'];
+        // $scope.fileoutLatitude = data["Profile-EXIF"]['GPS Longitude'];
 
       //$scope.fileoutCamera = JSON.stringify(data);
       //$scope.fileoutCamera =  data.Signature;
