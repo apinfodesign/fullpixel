@@ -1,19 +1,20 @@
 angular.module('pullPix')
     .controller('ListCtrl',function(ListSvc){
-   ListAdd = function () {
-      if (this.listBody) {
+        var vm = this;
+   vm.ListAdd = function () {
+      if (vm.listBody) {
           ListSvc.create({
-              body: this.listBody
+              body: vm.listBody
           })
               .success(function(post){
-                  this.posts.unshift(post);
-                  this.listBody = null;
+                  vm.posts.unshift(post);
+                  vm.listBody = null;
               });
       }
    }
     ListSvc.fetch()
         .success(function (posts) {
-           this.posts = posts
+           vm.posts = posts
         });
 
 });
