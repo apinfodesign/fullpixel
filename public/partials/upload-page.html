@@ -13,39 +13,41 @@
     <div id="upload-container">
 
 
-        <div id="upload-main">
+        <div id="upload-main" ng-controller="UploadCtrl">
             <h1 id="main-title">Upload A Photo</h1>
-            <button id="upload-button">Choose Photo</button>
-            <div id="photo"></div>
+            <input id="upload-button" type="file" ng-file-select="onFileSelect($files)" >
+            <!-- <button id="upload-button">Choose Photo</button> -->
+            <img src= "/uploads/{{fileout}}" width="600" >
+            <!-- <div id="photo"></div> -->
         </div>
-        <div id="upload-meta">
-            <form method="" action="" class="group" id="upload-form">
+        <div ng-controller="ImgMetaCtrl" id="upload-meta">
+            <form novalidate class="group" id="upload-form">
                 
                 <fieldset name="description">
                     <label for="title" id="label-title">Title</label>
-                    <input type="text" name="title" id="input-title">
+                    <input type="text" ng-model="metadata.title" id="input-title">
                     <label for="caption" id="label-caption">Caption</label>
-                    <textarea name="caption" rows="4" id="caption"></textarea>
-                    <label for="tags" id="label-tags">Tags</label>
+                    <textarea name="caption" ng-model="metadata.caption" rows="4" id="caption"></textarea>
+                    <label for="tags" ng-model="metadata.tags" id="label-tags">Tags</label>
                     <input type="text" name="tags" id="input-tags">
                 </fieldset>
 
                 <fieldset name="exif" id="exif">
                     <label id="label-exif">EXIF</label>
                     <label for="camera">Camera:</label>
-                    <input name="camera">
+                    <input name="camera" ng-model="metadata.camera">
                     <br>
                     <label for="shutter-speed">Shutter Speed:</label>
-                    <input name="shutter-speed">
+                    <input name="shutter-speed" ng-model="metadata.shutter">
                     <br>
                     <label for="aperture">Aperture:</label>
-                    <input name="aperture">
+                    <input name="aperture" ng-model="metadata.aperture">
                     <br>
                     <label for="iso">ISO:</label>
-                    <input name="iso">
+                    <input name="iso" ng-model="metadata.iso">
                     <br>
-                    <label for="taken">Taken</label>
-                    <input name="taken">
+                    <label for="date">Taken On:</label>
+                    <input name="date" ng-model="metadata.date">
                 </fieldset>
                 <fieldset name="location" id="location">
                     <label id="label-location">Location</label>
@@ -53,7 +55,7 @@
                         <div id="info-location-map"></div>
                     </a>
                 </fieldset>
-                <input type="submit" value="Submit Photo" id="photo-submit">
+                <input type="submit" ng-click="ImgUpdate(metadata)" value="Submit Photo" id="photo-submit">
             </form>
 
         </div>
@@ -62,4 +64,5 @@
     </div>
         
     <footer>FullPixel &hearts;</footer>
+
 
