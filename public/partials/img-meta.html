@@ -1,4 +1,4 @@
-<div ng-controller="ImgMetaCtrl" class="meta-container">
+<div ng-controller="ImgMetaCtrl as imgctrl" class="meta-container">
     <h1>Add in your image meta information.</h1>
     <form novalidate class="img-meta-form">
         User Name: <input type="text" ng-model="metadata.userid" /><br>
@@ -6,7 +6,7 @@
         Image Title: <input type="text" ng-model="metadata.imgtitle" /><br>
         Image Description: <input type="text" ng-model="metadata.imgdesc" /><br>
         Image Tag: <input type="text" ng-model="metadata.imgtag" /><br>
-        <input type="submit" ng-click="ImgUpdate(metadata)" value="Save"/>
+        <input type="submit" ng-click="imgctrl.ImgUpdate(metadata)" value="Save"/>
     </form>
     <pre>form = {{metadata | json}}</pre>
 </div>
