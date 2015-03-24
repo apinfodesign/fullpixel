@@ -10,12 +10,22 @@ router.get('/img-meta', function(req, res, next){
 });
 router.post('/img-meta', function(req, res, next){
     var imgmeta = new ImgMeta({
-        userid     : req.body.userid,
-        imgpath    : req.body.imgpath,
-        imgtitle   : req.body.imgtitle,
-        imgdesc    : req.body.imgdesc,
-        imgtag     : req.body.tag
+        // userid                 : req.body.userid,    HANDLE LATER
+        // meta.path              : req.body.imgpath,   HANDLE LATER
+        title                    : req.body.title,
+        caption              : req.body.caption,
+        tags                 : req.body.tags,
+        camera          : req.body.camera,
+        shutter         : req.body.shutter,
+        aperture        : req.body.aperture,
+        iso             : req.body.iso,
+        date            : req.body.date
+        // lat    : req.body.lat,
+        // latRef : req.body.latRef,
+        // lon    : req.body.lon,
+        // lonRef : req.body.lonRef
     });
+
     imgmeta.save(function(err, imgmetas){
         if(err){ return next(err); }
         res.status(201).json(imgmetas);

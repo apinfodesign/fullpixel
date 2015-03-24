@@ -6,7 +6,7 @@ router.get('/posts', function(req, res, next){
        .sort('-date')
        .exec(function(err, posts){
            if(err){
-               return next(err)
+               return next(err);
            }
            res.json(posts);
        });
@@ -18,7 +18,7 @@ router.post('/posts', function(req, res, next){
     });
     post.save(function(err, posts){
         if(err){
-            return next(err)
+            return next(err);
        }
         res.status(201).json(posts);
     });
