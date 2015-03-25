@@ -1,7 +1,7 @@
 angular.module('pullPix')
-    .controller('ImgMetaCtrl', function(ImgMetaSvc){
+    .controller('ImgMetaCtrl', function($scope, ImgMetaSvc){
         var vm = this;
-        vm.ImgUpdate = function(metadata){
+        $scope.ImgUpdate = function(metadata){
             if(metadata){
                 ImgMetaSvc.create({
                     // userid                 : metadata.userid,      HANDLE LATER

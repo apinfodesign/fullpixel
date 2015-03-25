@@ -7,7 +7,7 @@ var gm = require('gm');
 router.post('/api/user/upload', function(req, res, next){
 	var fstream;
 	var cameraModel;
-	req.pipe(req.busboy);
+    req.pipe(req.busboy);
 	req.busboy.on('file', function(fieldname, file, filename){
 		console.log('uploading........ (image.js)' +filename);
 		fstream = fs.createWriteStream('./public/uploads/' + filename);

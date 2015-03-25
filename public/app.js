@@ -10,9 +10,9 @@ angular.module('pullPix')
 }]);
 
 angular.module('pullPix')
-    .controller('ImgMetaCtrl', ["ImgMetaSvc", function(ImgMetaSvc){
+    .controller('ImgMetaCtrl', ["$scope", "ImgMetaSvc", function($scope, ImgMetaSvc){
         var vm = this;
-        vm.ImgUpdate = function(metadata){
+        $scope.ImgUpdate = function(metadata){
             if(metadata){
                 ImgMetaSvc.create({
                     // userid                 : metadata.userid,      HANDLE LATER
@@ -112,19 +112,20 @@ angular.module('pullPix')
             .when('/photo-map',{controller: '', templateUrl: '/partials/map-page.html'}); 
      }]);
 
+
+
 angular.module('pullPix')
 
   .controller('UploadCtrl', ["$scope", "$upload", function($scope, $upload) {
  
    $scope.onFileSelect = function(files) {
-//$files: an array of files selected, each file has name, size, and type.
-    //   var file = files[0];
+
 
       $scope.upload = $upload.upload({
         url: '/api/user/upload',  
         method: 'POST',
-        data: {myObj: vm.myModelObj},
-        file: files,  //number files uploaded
+        data: {myObj: $scope.myModelObj},
+        file: files  //number files uploaded
 
       }).progress(function(evt) {
         console.log(evt.loaded + " is loaded");
@@ -135,17 +136,12 @@ angular.module('pullPix')
 
       }).success(function(data, status, headers, config) {
         console.log('success fileout');
-        // file is uploaded successfully
+
 
         $scope.fileout = files[0].name;
         $scope.fileoutSize = files[0].size;
         $scope.fileoutLast = files[0].lastModified;
-        // $scope.fileoutCamera = data["Profile-EXIF"].Model;
-        // $scope.fileoutLongitude = data["Profile-EXIF"]['GPS Latitude'];
-        // $scope.fileoutLatitude = data["Profile-EXIF"]['GPS Longitude'];
 
-      //$scope.fileoutCamera = JSON.stringify(data);
-      //$scope.fileoutCamera =  data.Signature;
         console.log("data start >>> " + data["Profile-EXIF"] + " <<< data end...from upload.ctrl.js");
         console.log("successful upload (from upload.ctrl.js)");
     });

@@ -13,3 +13,5 @@ angular.module('pullPix')
             .when('/upload-page',{controller: 'UploadCtrl', templateUrl: '/partials/upload-page.html'})
             .when('/photo-map',{controller: '', templateUrl: '/partials/map-page.html'}); 
      });
+
+
