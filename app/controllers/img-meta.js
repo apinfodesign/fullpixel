@@ -15,7 +15,7 @@ router.post('/img-meta', function(req, res, next){
         title                    : req.body.title,
         caption              : req.body.caption,
         tags                 : req.body.tags,
-        camera          : req.body.cameraModel,
+        camera          : req.body.camera,
         shutter         : req.body.shutter,
         aperture        : req.body.aperture,
         iso             : req.body.iso,

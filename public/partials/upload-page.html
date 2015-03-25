@@ -8,8 +8,6 @@
         </ul>
     </nav>
 
-
-
     <div id="upload-container">
 
 
@@ -17,7 +15,12 @@
             <h1 id="main-title">Upload A Photo</h1>
             <input id="upload-button" type="file" ng-file-select="onFileSelect($files)" >
             <!-- <button id="upload-button">Choose Photo</button> -->
-            <img src= "/uploads/{{fileout}}" width="600" >
+            <img src= "/uploads/{{fileout}}" width="300"  >
+            
+              <p>EXIF camera type is: {{ fileoutCamera}}</p>    
+              <p>EXIF Longitude is: {{ fileoutLongitude}}</p>   
+              <p>EXIF Latitude is: {{ fileoutLatitude}}</p> 
+
             <!-- <div id="photo"></div> -->
         </div>
         <div ng-controller="ImgMetaCtrl" id="upload-meta">
@@ -34,7 +37,7 @@
 
                 <fieldset name="exif" id="exif">
                     <label id="label-exif">EXIF</label>
-                    <label for="camera">Camera:</label>
+                    <label for="camera">Camera:{{ fileoutCamera}}</label>
                     <input name="camera" ng-model="metadata.camera">
                     <br>
                     <label for="shutter-speed">Shutter Speed:</label>
@@ -61,9 +64,6 @@
         </div>
 
 
-  <p>EXIF camera type is: {{ fileoutCamera}}</p>    
-  <p>EXIF Longitude is: {{ fileoutLongitude}}</p>   
-  <p>EXIF Latitude is: {{ fileoutLatitude}}</p> 
 
     </div>
         
