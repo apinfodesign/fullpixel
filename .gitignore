@@ -6,3 +6,4 @@ config.js
 public/uploads/*.jpg
 public/uploads/*.jpeg
 public/uploads/*.JPEG
+googlemaps.html

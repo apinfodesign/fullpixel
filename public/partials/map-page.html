@@ -1,6 +1,8 @@
 
   
  
+        <p>{{lat}} and {{lon}}</p>
+        
   <div id="map-canvas"></div>
 
   <style type="text/css">
@@ -10,13 +12,13 @@
   
   <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?v=3.exp">
-  </script>
+  </script> ADDED
   
 
   <script type="text/javascript">
     function initialize() {
 
-     var myLatlng = new google.maps.LatLng(45.531843333333335,-122.67429);
+     var myLatlng = new google.maps.LatLng( {{lat}} ,{{lon}});
  
       var mapOptions = {
         center: myLatlng,
@@ -32,6 +34,6 @@
       });
     }
 
-    google.maps.event.addDomListener(window, 'load', initialize);
+    // google.maps.event.addDomListener(window, 'load', initialize);
   </script>
 

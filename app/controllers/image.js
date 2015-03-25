@@ -14,14 +14,20 @@ router.post('/api/user/upload', function(req, res, next){
 		file.pipe(fstream);
 		
 		fstream.on('close', function(){
-			console.log('upload stream closed(from image.js)');
-			console.log(filename + " is filename.");
-			console.log(fstream.path + " is filepath.");
-
+			//console.log('upload stream closed(from image.js)');
+			//console.log(filename + " is filename.");
+			//console.log(fstream.path + " is filepath.");
  			var	uploadPath = './public/uploads/' + filename;
-
 			console.log(uploadPath + " is uploadPath");
  
+ 		// 	var writeStream = fs.createWriteStream('./public/uploads/resized');		 
+			// // gm(uploadPath).resize(100,100)
+			// // 			.write(writeStream, function(err){
+			// // 				if (!err) 
+			// // 				console.log('hooray');
+			// // 				else console.log('error time');
+			// // 			});
+
  			gm(uploadPath)
  				.identify(function (error, data) {
 			  	if (!error) {
@@ -37,13 +43,16 @@ router.post('/api/user/upload', function(req, res, next){
 	  		  		}
 	  		  	else{console.log("gm error: " + error);}
 
-	  		  	console.log(data);
+	  		  	console.log(data + " is EXIF blob");
 				console.log(latOut + " is latOut");
 				console.log(lonOut + " is lonOut");
 	  			console.log('1 '+ data.Compression);//jpeg
   	  			console.log('2 '+ cameraModel);  	//nexus
  		  		
  		  		res.json(data );
+
+ 		  	 
+
  				});
 		});
 	});

@@ -16,11 +16,12 @@
             <!-- <button id="upload-button">Choose Photo</button> -->
             <img src= "/uploads/{{fileout}}" width="300"  >
 
-             <p> Lat is {{lat}}</p>
-             <p> Lon is {{lon}}</p>
+<p>{{lat}} and {{lon}}</p>
+
+            <!-- // add map below photo -->
+  
 
 
-            <!-- <div id="photo"></div> -->
         </div>
 
         <div ng-controller="ImgMetaCtrl" id="upload-meta">
@@ -52,12 +53,18 @@
                     <label for="date">Taken On:</label>
                     <input name="date" ng-model="metadata.date">
                 </fieldset>
+
                 <fieldset name="location" id="location">
+
                     <label id="label-location">Location</label>
+                     <p> Latitude: {{lat}} - Longitude: {{lon}}</p>
+
                     <a href="/partials/map-page.html">
                         <div id="info-location-map"></div>
                     </a>
                 </fieldset>
+
+
                 <input type="submit" ng-click="ImgUpdate(metadata)" value="Submit Photo" id="photo-submit">
             </form>
 
