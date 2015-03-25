@@ -23,6 +23,10 @@
             <form novalidate class="group" id="upload-form">
                 
                 <fieldset name="description">
+                    <label for="title" id="label-userid">UserId</label>
+                    <input type="text" ng-model="metadata.userid" id="input-userid">
+                    <label for="title" id="label-imgpath">Path</label>
+                    <input type="text" ng-model="metadata.path" id="input-path">
                     <label for="title" id="label-title">Title</label>
                     <input type="text" ng-model="metadata.title" id="input-title">
                     <label for="caption" id="label-caption">Caption</label>
