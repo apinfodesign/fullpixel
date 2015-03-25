@@ -17,6 +17,9 @@ angular.module('pullPix')
                     .success(function(imgmeta){
                        console.table(imgmeta);
                         metadata = null;
+
+
+                        
                     });
             }
 

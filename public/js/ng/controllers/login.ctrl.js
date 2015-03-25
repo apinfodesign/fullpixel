@@ -1,5 +1,5 @@
 angular.module('pullPix')
-    .controller('LoginCtrl', function($scope, UserSvc, $location){
+     .controller('LoginCtrl', function($scope, UserSvc, $location){
         var vm = this;
         vm.login = function(username, password){
             UserSvc.login(username, password)
@@ -7,6 +7,7 @@ angular.module('pullPix')
                     $scope.$emit('login', user);
                     console.log('User ' + user);
                     $location.path('/');
-                });
+
+            	});
         };
     });

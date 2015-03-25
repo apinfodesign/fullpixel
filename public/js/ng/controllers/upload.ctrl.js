@@ -3,8 +3,7 @@ angular.module('pullPix')
   .controller('UploadCtrl', function($scope, $upload, ImgMetaSvc, CurrentUser) {
  
    $scope.onFileSelect = function(files) {
-
-
+ 
       $scope.upload = $upload.upload({
         url: '/api/user/upload',  
         method: 'POST',
@@ -15,11 +14,20 @@ angular.module('pullPix')
 
 
       }).success(function(data, status, headers, config) {
-
-
         $scope.fileout = files[0].name;
         $scope.currentuser = CurrentUser.userid;
-    });
+       
+        console.log('success fileout');
+ 
+        // convert deg to dec here
+        var lat = data["Profile-EXIF"]['GPS Latitude'];
+        var latDirection = data["Profile-EXIF"]['GPS Latitude Ref'];        
+        var lon = data["Profile-EXIF"]['GPS Longitude'];
+        var lonDirection = data["Profile-EXIF"]['GPS Longitude Ref'];
+        $scope.lat =degreeToDecimal(lat, latDirection );
+        $scope.lon = degreeToDecimal(lon, lonDirection);
+
+     });
   }
   $scope.ImgUpdate = function(metadata){
             if(metadata){
@@ -41,6 +49,6 @@ angular.module('pullPix')
                         metadata = null;
                     });
             }
-
   };
 });
+

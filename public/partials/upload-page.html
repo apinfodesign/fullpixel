@@ -1,14 +1,20 @@
 <div id="upload-container" ng-controller="UploadCtrl">
 
 
-        <div id="upload-main">
+         <div id="upload-main">
+ 
             <h1 id="main-title">Upload A Photo</h1>
             <input id="upload-button" type="file" ng-file-select="onFileSelect($files)" >
             <!-- <button id="upload-button">Choose Photo</button> -->
-            <img src= "/uploads/{{fileout}}" width="600" >
-            <!-- <div id="photo"></div> -->
+            <img src= "/uploads/{{fileout}}" width="300"  >
+
+            <p>{{lat}} and {{lon}}</p>
+
+            <!-- // add map below photo -->
+
         </div>
-        <div  id="upload-meta">
+ 
+        <div ng-controller="ImgMetaCtrl" id="upload-meta"> 
             <form novalidate class="group" id="upload-form">
                 <span>{{fileout}}</span>
                 <span>{{currentuser}}</span>
@@ -25,16 +31,44 @@
                     <label for="tags"id="label-tags">Tags</label>
                     <input type="text" name="tags" id="input-tags" ng-model="metadata.tags" >
                 </fieldset>
+ 
+                <fieldset name="exif" id="exif">
+                    <label id="label-exif">EXIF</label>
+                    <label for="camera">Camera: </label>
+                    <input name="camera" ng-model="metadata.camera">
+                    <br>
+                    <label for="shutter-speed">Shutter Speed:</label>
+                    <input name="shutter-speed" ng-model="metadata.shutter">
+                    <br>
+                    <label for="aperture">Aperture:</label>
+                    <input name="aperture" ng-model="metadata.aperture">
+                    <br>
+                    <label for="iso">ISO:</label>
+                    <input name="iso" ng-model="metadata.iso">
+                    <br>
+                    <label for="date">Taken On:</label>
+                    <input name="date" ng-model="metadata.date">
+                </fieldset>
 
+                <fieldset name="location" id="location">
 
+                    <label id="label-location">Location</label>
+                     <p> Latitude: {{lat}} - Longitude: {{lon}}</p>
+
+                    <a href="/partials/map-page.html">
+                        <div id="info-location-map"></div>
+                    </a>
+                </fieldset>
+
+ 
                 <input type="submit" ng-click="ImgUpdate(metadata)" value="Submit Photo" id="photo-submit">
             </form>
 
         </div>
 
 
-</div>
-        
+ </div>
+ 
 <footer>FullPixel &hearts;</footer>
 
 
