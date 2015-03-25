@@ -10,12 +10,22 @@ angular.module('pullPix')
 }]);
 
 angular.module('pullPix')
-    .controller('ImgMetaCtrl', ["$scope", "ImgMetaSvc", function($scope, ImgMetaSvc){
-        var vm = this;
+    .factory('CurrentUser', function(){
+        var currentuser = {
+            'userid' : 666
+        }
+        return currentuser;
+    });
+angular.module('pullPix')
+    .controller('ImgMetaCtrl', ["$scope", "ImgMetaSvc", "CurrentUser", function($scope, ImgMetaSvc, CurrentUser){
         $scope.ImgUpdate = function(metadata){
             if(metadata){
                 ImgMetaSvc.create({
+<<<<<<< HEAD
                     userid          : metadata.userid,
+=======
+                    userid          : CurrentUser.currentuser.userid,
+>>>>>>> 27ba9833151eefd7ee5033c77878687d91b2df33
                     path            : metadata.path,
                     title           : metadata.title,
                     caption         : metadata.caption,
@@ -112,7 +122,7 @@ angular.module('pullPix')
 
 angular.module('pullPix')
 
-  .controller('UploadCtrl', ["$scope", "$upload", function($scope, $upload) {
+  .controller('UploadCtrl', ["$scope", "$upload", "ImgMetaSvc", "CurrentUser", function($scope, $upload, ImgMetaSvc, CurrentUser) {
  
    $scope.onFileSelect = function(files) {
 
@@ -124,23 +134,35 @@ angular.module('pullPix')
         file: files  //number files uploaded
 
       }).progress(function(evt) {
-        console.log(evt.loaded + " is loaded");
-        console.log(evt.total + " is total ");
-        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-        console.log(files);
-        //console.log(data + " is data ");
+
 
       }).success(function(data, status, headers, config) {
-        console.log('success fileout');
 
 
         $scope.fileout = files[0].name;
-        $scope.fileoutSize = files[0].size;
-        $scope.fileoutLast = files[0].lastModified;
-
-        console.log("data start >>> " + data["Profile-EXIF"] + " <<< data end...from upload.ctrl.js");
-        console.log("successful upload (from upload.ctrl.js)");
+        $scope.currentuser = CurrentUser.userid;
     });
+  }
+  $scope.ImgUpdate = function(metadata){
+            if(metadata){
+                ImgMetaSvc.create({
+                    userid          : metadata.userid,
+                    path            : metadata.imgpath,
+                    title           : metadata.imgtitle,
+                    caption         : metadata.imgdesc,
+                    tags            : metadata.imgtags
+                })
+                    .success(function(imgmeta){
+                        console.table(imgmeta);
+                        console.log(metadata.userid);
+                        console.log(metadata.imgpath);
+                        console.log(metadata.imgtitle);
+                        console.log(metadata.imgdesc);
+                        console.log(metadata.imgtags);
+                        metadata = null;
+                    });
+            }
+
   };
 }]);
 

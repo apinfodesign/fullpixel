@@ -52,5 +52,4 @@ var ImgMeta = db.model('ImgMeta', {
 	    		}
 });
 
-
 module.exports = ImgMeta;

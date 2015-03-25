@@ -20,6 +20,7 @@ router.post('/img-meta', function(req, res, next){
         aperture        : req.body.aperture,
         iso             : req.body.iso,
         date            : req.body.date
+
     });
 
     imgmeta.save(function(err, imgmetas){
