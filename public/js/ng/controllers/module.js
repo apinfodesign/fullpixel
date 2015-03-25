@@ -1,4 +1,5 @@
 angular.module('pullPix',[
     'ngRoute',
-    'angularFileUpload'
+    'angularFileUpload',
+    'ngAnimate'
 ]);

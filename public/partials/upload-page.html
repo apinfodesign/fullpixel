@@ -1,7 +1,8 @@
 
-    <nav class="menu">
+    <nav ng-controller="ApplicationCtrl" class="menu">
         <ul class="group">
             <li>FullPixel</li>
+            <li ng-if='currentUser'>Signed in as {{currentUser.username}}</li>
             <li>Upload</li>
             <li>Profile</li>
             <li>Discover</li>
@@ -17,7 +18,7 @@
             <h1 id="main-title">Upload A Photo</h1>
             <input id="upload-button" type="file" ng-file-select="onFileSelect($files)" >
             <!-- <button id="upload-button">Choose Photo</button> -->
-            <img src= "/uploads/{{fileout}}" width="600" >
+            <img src= "/uploads/{{fileout}}" width="500" >
             <!-- <div id="photo"></div> -->
         </div>
         <div ng-controller="ImgMetaCtrl" id="upload-meta">
