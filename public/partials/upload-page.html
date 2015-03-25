@@ -16,14 +16,13 @@
             <!-- <button id="upload-button">Choose Photo</button> -->
             <img src= "/uploads/{{fileout}}" width="300"  >
 
-<!--               <p>EXIF camera type is: {{ fileoutCamera}}</p>    
-              <p>EXIF Longitude is: {{ fileoutLongitude}}</p>   
-              <p>EXIF Latitude is: {{ fileoutLatitude}}</p>  -->
+             <p> Lat is {{lat}}</p>
+             <p> Lon is {{lon}}</p>
 
 
             <!-- <div id="photo"></div> -->
         </div>
-        
+
         <div ng-controller="ImgMetaCtrl" id="upload-meta">
             <form novalidate class="group" id="upload-form">
                 

@@ -43,7 +43,7 @@ router.post('/api/user/upload', function(req, res, next){
 	  			console.log('1 '+ data.Compression);//jpeg
   	  			console.log('2 '+ cameraModel);  	//nexus
  		  		
- 		  		res.json(data);
+ 		  		res.json(data );
  				});
 		});
 	});
