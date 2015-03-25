@@ -3,4 +3,6 @@ node_modules
 .idea
 bower_components
 config.js
-public/uploads
+public/uploads/*.jpg
+public/uploads/*.jpeg
+public/uploads/*.JPEG
