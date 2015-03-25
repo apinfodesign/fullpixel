@@ -6,14 +6,14 @@
 		<nav class="menu">
 			<ul class="group">
 				<li><a href="/#/">FullPixel</a></li>
-				<li><a href="/#/splash#login-check">Sign Up</a></li>
-				<li><a href="/#/splash#login-check">Login</a></li>
+				<li><a href="/#/splash#form-signup">Sign Up</a></li>
+				<li><a href="/#/splash#form-signup">Login</a></li>
 			</ul>
 		</nav>
 
 		<div class="heading-wrapper">
 			<h1 id="main-callout">The site that can finally handle your photos.</h1>
-			<button id="signUp"><a href="/#/splash#login-check">Get Started</a></button>
+			<button id="signUp"><a href="/#/splash#form-signup">Get Started</a></button>
 		</div>
 
 	</div> <!-- end picture main -->
@@ -47,9 +47,6 @@
 	</div>
 	<!-- HIDE/SHOW LOGIN SIGNUP -->
 	<!-- SIGNUP -->
-
-	Already Signed Up? 
-	<input type="checkbox" ng-model="checked" id="login-check">
 		<div>
 		  <!-- Show: -->
 		  <div class="check-element animate-show" ng-show="checked">
@@ -83,6 +80,9 @@
 
 		  </div>
 		</div>
+
+	<p>Already Signed Up?</p>
+	<input type="checkbox" ng-model="checked" id="login-check">
 
 
 

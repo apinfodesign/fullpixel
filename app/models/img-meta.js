@@ -9,9 +9,9 @@ var ImgMeta = db.model('ImgMeta', {
     	// required : true     PLEASE HANDLE ME LATER IN CONTROLLER
     },
 	    path : {
-	    	type : String,
-	    	trim : true,
-	    	unique: true
+	    	type : String
+	    	// trim : true,
+	    	// unique: true
 	    	// required : true   PLEASE HANDLE ME LATER
 	    },
 	    title : {

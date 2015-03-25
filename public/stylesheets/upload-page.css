@@ -187,7 +187,8 @@ label {
 	text-transform: uppercase;
 }
 
-input {
+input,
+textarea {
 	font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
 	font-weight: 300;
 	display: block;
