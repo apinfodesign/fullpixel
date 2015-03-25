@@ -21,11 +21,7 @@ angular.module('pullPix')
         $scope.ImgUpdate = function(metadata){
             if(metadata){
                 ImgMetaSvc.create({
-<<<<<<< HEAD
                     userid          : metadata.userid,
-=======
-                    userid          : CurrentUser.currentuser.userid,
->>>>>>> 27ba9833151eefd7ee5033c77878687d91b2df33
                     path            : metadata.path,
                     title           : metadata.title,
                     caption         : metadata.caption,
@@ -147,18 +143,19 @@ angular.module('pullPix')
             if(metadata){
                 ImgMetaSvc.create({
                     userid          : metadata.userid,
-                    path            : metadata.imgpath,
-                    title           : metadata.imgtitle,
-                    caption         : metadata.imgdesc,
-                    tags            : metadata.imgtags
+                    path            : metadata.path,
+                    title           : metadata.title,
+                    caption         : metadata.caption,
+                    tags            : metadata.tags,
+                    camera          : metadata.camera,
+                    shutter         : metadata.shutter,
+                    aperture        : metadata.aperture,
+                    iso             : metadata.iso,
+                    date            : metadata.date
                 })
                     .success(function(imgmeta){
                         console.table(imgmeta);
-                        console.log(metadata.userid);
-                        console.log(metadata.imgpath);
-                        console.log(metadata.imgtitle);
-                        console.log(metadata.imgdesc);
-                        console.log(metadata.imgtags);
+
                         metadata = null;
                     });
             }
