@@ -1,67 +1,39 @@
-
-    <nav class="menu">
-        <ul class="group">
-            <li>FullPixel</li>
-            <li>Upload</li>
-            <li>Profile</li>
-            <li>Discover</li>
-        </ul>
-    </nav>
+<div id="upload-container" ng-controller="UploadCtrl">
 
 
-    <div id="upload-container">
-
-
-        <div id="upload-main" ng-controller="UploadCtrl">
+        <div id="upload-main">
             <h1 id="main-title">Upload A Photo</h1>
             <input id="upload-button" type="file" ng-file-select="onFileSelect($files)" >
             <!-- <button id="upload-button">Choose Photo</button> -->
             <img src= "/uploads/{{fileout}}" width="600" >
             <!-- <div id="photo"></div> -->
         </div>
-        <div ng-controller="ImgMetaCtrl" id="upload-meta">
+        <div  id="upload-meta">
             <form novalidate class="group" id="upload-form">
-                
+                <span>{{fileout}}</span>
+                <span>{{currentuser}}</span>
                 <fieldset name="description">
+                    <label for="userid">UserID</label>
+                    <input type="text" ng-model="metadata.userid" id="input-userid" >{{currentuser}}
+                    <label for="path">Path</label>
+                    <input type="text" ng-model="metadata.imgpath" id="input-path" >{{fileout}}
                     <label for="title" id="label-title">Title</label>
-                    <input type="text" ng-model="metadata.title" id="input-title">
+                    <input type="text" ng-model="metadata.imgtitle" id="input-title">
                     <label for="caption" id="label-caption">Caption</label>
-                    <textarea name="caption" ng-model="metadata.caption" rows="4" id="caption"></textarea>
-                    <label for="tags" ng-model="metadata.tags" id="label-tags">Tags</label>
+                    <textarea name="caption" ng-model="metadata.imgdesc" rows="4" id="caption"></textarea>
+                    <label for="tags" ng-model="metadata.imgtags" id="label-tags">Tags</label>
                     <input type="text" name="tags" id="input-tags">
                 </fieldset>
 
-                <fieldset name="exif" id="exif">
-                    <label id="label-exif">EXIF</label>
-                    <label for="camera">Camera:</label>
-                    <input name="camera" ng-model="metadata.camera">
-                    <br>
-                    <label for="shutter-speed">Shutter Speed:</label>
-                    <input name="shutter-speed" ng-model="metadata.shutter">
-                    <br>
-                    <label for="aperture">Aperture:</label>
-                    <input name="aperture" ng-model="metadata.aperture">
-                    <br>
-                    <label for="iso">ISO:</label>
-                    <input name="iso" ng-model="metadata.iso">
-                    <br>
-                    <label for="date">Taken On:</label>
-                    <input name="date" ng-model="metadata.date">
-                </fieldset>
-                <fieldset name="location" id="location">
-                    <label id="label-location">Location</label>
-                    <a href="/partials/map-page.html">
-                        <div id="info-location-map"></div>
-                    </a>
-                </fieldset>
+
                 <input type="submit" ng-click="ImgUpdate(metadata)" value="Submit Photo" id="photo-submit">
             </form>
 
         </div>
 
 
-    </div>
+</div>
         
-    <footer>FullPixel &hearts;</footer>
+<footer>FullPixel &hearts;</footer>
 
 
