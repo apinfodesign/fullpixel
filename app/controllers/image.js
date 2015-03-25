@@ -20,16 +20,10 @@ router.post('/api/user/upload', function(req, res, next){
  			var	uploadPath = './public/uploads/' + filename;
 			console.log(uploadPath + " is uploadPath");
  
- 		// 	var writeStream = fs.createWriteStream('./public/uploads/resized');		 
-			// // gm(uploadPath).resize(100,100)
-			// // 			.write(writeStream, function(err){
-			// // 				if (!err) 
-			// // 				console.log('hooray');
-			// // 				else console.log('error time');
-			// // 			});
-
+ 	
  			gm(uploadPath)
  				.identify(function (error, data) {
+ 				// console.log(Date.now()+ " is 1");
 			  	if (!error) {
 			   		var cameraModel = data["Profile-EXIF"].Model;
 
@@ -49,11 +43,24 @@ router.post('/api/user/upload', function(req, res, next){
 	  			console.log('1 '+ data.Compression);//jpeg
   	  			console.log('2 '+ cameraModel);  	//nexus
  		  		
+ 		  		// console.log(Date.now()+ " is 2");
+
  		  		res.json(data );
 
- 		  	 
 
- 				});
+ 			})
+				// .gm(uploadPath).resize(100,100)
+				// 		.write(writeStream, function(err){
+				// 			if (!err) 
+				// 			console.log('hooray');
+				// 			else console.log('error time');
+				// 		});
+				// console.log(Date.now()+ " is 4");
+
+				//var writeStream = fs.createWriteStream('./public/uploads/resized');	//console.log(Date.now()+ " is 3");
+
+
+ 				;
 		});
 	});
 });
