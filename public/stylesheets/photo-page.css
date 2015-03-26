@@ -79,7 +79,8 @@ body {
 
 
 /* NAVIGATION */
-.menu {
+
+#photo-menu {
 	background-color: #4a4a4a;
 	color: #efefef;
 }

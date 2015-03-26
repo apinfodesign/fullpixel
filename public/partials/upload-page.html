@@ -1,6 +1,6 @@
 <div id="upload-container" ng-controller="UploadCtrl">
 
-    <nav class="menu">
+    <nav class="menu" id="upload-menu">
         <ul class="group">
             <li><a href="/#/">FullPixel</a></li>
             <li ng-if='currentUser'><a>{{currentUser.username}}</a></li>
@@ -64,7 +64,7 @@
                 <label id="label-location">Location</label>
                  <p> Latitude: {{lat}} - Longitude: {{lon}}</p>
 
-                <a href="/partials/map-page.html">
+                <a href="/#/photo-page">
                     <div id="info-location-map"></div>
                 </a>
             </fieldset>
