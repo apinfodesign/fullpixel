@@ -13,38 +13,16 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/upload-page.css">
     <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-<!-- 
-    <style type="text/css">
-        html, body, #map-canvas { height: 200px; margin: 0; padding: 0; }
-    </style>
- -->
 </head>
 
 <body ng-app="pullPix" ng-controller="ApplicationCtrl">
 
+    <div ng-view></div>
 
-<!-- <nav class='menu'>
-        <ul class='nav navbar-nav'>
-            <li><a href='/#/'>Posts</a></li>
-            <li><a href='/#/register'>Register</a></li>
-            <li><a href='/#/login'>Login</a></li>
-            <li><a href='/#/imagemeta'>Image Meta</a> </li>
-            <li><a href='/#/upload'>Upload</a></li>
-            
-        </ul>
-      <p ng-if='currentUser' style="display: block; float: right; background-color: #ffffff; padding: 25px;" class='myuser'>
-            Signed in as {{currentUser.username}}
-        </p>
-</nav> -->
-
-<div ng-view></div>
-
-    <script src="/js/lib/ng-file-upload/angular-file-upload-shim.min.js"></script> 
-    <script src="/js/lib/ng-file-upload/angular-file-upload.min.js"></script> 
-    <script src="/js/lib/angular-animate/angular-animate.min.js"></script> 
+    <script src="/js/lib/bower_components/ng-file-upload/angular-file-upload-shim.min.js"></script> 
+    <script src="/js/lib/bower_components/ng-file-upload/angular-file-upload.min.js"></script> 
+    <script src="/js/lib/bower_components/angular-animate/angular-animate.min.js"></script> 
     <script src="/app.js"></script>
-
-   
-
+    
 </body>
 </html>
