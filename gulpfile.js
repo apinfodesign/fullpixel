@@ -25,7 +25,7 @@ gulp.task('js', function(){
     gulp.src(['public/js/ng/controllers/module.js','./public/js/ng/**/*.js'])
         .pipe(concat('app.js'))
         .pipe(ngAnnotate())
-        .pipe(uglify())
+       // .pipe(uglify())
         .pipe(gulp.dest('public'));
 });
 gulp.task('watch:js', ['js'], function(){

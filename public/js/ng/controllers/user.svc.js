@@ -1,5 +1,5 @@
 angular.module('pullPix')
-    .service('UserSvc', function ($http) {
+    .service('UserSvc', function ($http, $window) {
         var svc = this;
         svc.getUser = function () {
             return $http.get('/users')
