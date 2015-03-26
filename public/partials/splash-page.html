@@ -49,7 +49,7 @@
 	<!-- SIGNUP -->
 		<div>
 		  <!-- Show: -->
-		  <div class="check-element animate-show" ng-show="checked">
+		  <div class="check-element animate-show" ng-show="checked" ng-controller="LoginCtrl">
 		    
 		    <form ng-submit="login(username, password)" id="form-login">
 	        	<label>Username</label>
@@ -66,7 +66,7 @@
 
 		<div>
 		 <!--  Hide: -->
-		  <div class="check-element animate-show" ng-hide="checked">
+		  <div class="check-element animate-show" ng-hide="checked" ng-controller="RegisterCtrl">
 		    
 		    <form ng-submit="register(username, password)" id="form-signup">
 	        	<label>Username</label>
