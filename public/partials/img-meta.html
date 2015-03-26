@@ -4,16 +4,15 @@
   <p>The file is: {{ fileout }} </p>
   <p>The file size is: {{ fileoutSize }} </p>
   <p>The file was last modified on: {{ fileoutLast }} </p>
-  <p>EXIF camera type is: {{ fileoutCamera}}</p>    
-  <p>EXIF Longitude is: {{ fileoutLongitude}}</p>   
-  <p>EXIF Latitude is: {{ fileoutLatitude}}</p> 
+   
+  <img src= "/uploads/{{fileout}}" width="300" >
+  <p> Lat is {{$scope.lat}}</p>
+  <p> Lon is {{$scope.lon}}</p>
   
-  <img src= "/uploads/{{fileout}}" width="600" >
-
 </div>
 
 
-<div ng-controller="ImgMetaCtrl" class="meta-container">
+<div ng-controller="ImgMetaCtrl as imgctrl" class="meta-container">
     <h1>Add in your image meta information.</h1>
     <form novalidate class="img-meta-form">
         User Name: <input type="text" ng-model="metadata.userid" /><br>
@@ -22,8 +21,7 @@
         Image Description: <input type="text" ng-model="metadata.imgdesc" /><br>
         Image Tag: <input type="text" ng-model="metadata.imgtag" /> <br>
         Camera Model: <input type="text" ng-model="metadata.imgtag" /> <br>
-
-        <input type="submit" ng-click="ImgUpdate(metadata)" value="Save"/>
+        <input type="submit" ng-click="imgctrl.ImgUpdate(metadata)" value="Save"/>
     </form>
     <pre>form = {{metadata | json}}</pre>
 </div>
