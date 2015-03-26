@@ -4,8 +4,8 @@
 		<nav class="menu">
 			<ul class="group">
 				<li><a href="/#/">FullPixel</a></li>
-				<li><a href="/#/splash#form-signup">Sign Up</a></li>
-				<li><a href="/#/splash#form-signup">Login</a></li>
+				<li><a href="/#/#form-signup">Sign Up</a></li>
+				<li><a href="/#/#form-signup">Login</a></li>
 			</ul>
 		</nav>
 
@@ -16,33 +16,47 @@
 
 	</div> <!-- end picture main -->
 
-	<div class="callout-text">
+	<div id="callout-text">
 		
-		<h2 class="callout-text-heading">The Premiere Photo Site</h2>
-		<h3 class="callout-text-body">Your pictures are beautiful. Let everyone know it.</h3>
+		<h2 id="callout-text-heading">The Premiere Photo Site</h2>
+		<h3 id="callout-text-body">Your pictures are beautiful. Let everyone know it.</h3>
 
 	</div>
 
 
 	<div id="gallery" class="group">
     	<img src="pics/beach.jpg" alt="beach" width="450" height="auto">
+    	<img src="pics/mountain-lake.jpeg" alt="beach" width="450" height="auto">
+    	<img src="pics/ocean.jpg" alt="beach" width="450" height="auto">
+    	<img src="pics/person-cam.jpg" alt="beach" width="450" height="auto">
+    	<img src="pics/person.jpg" alt="beach" width="450" height="auto">
     	<img src="pics/beach.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/beach.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/beach.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/beach.jpg" alt="beach" width="475" height="auto">
-    	<img src="pics/beach.jpg" alt="beach" width="475" height="auto">
-    	<img src="pics/beach.jpg" alt="beach" width="475" height="auto">
-    	<img src="pics/beach.jpg" alt="beach" width="475" height="auto">
-    	<img src="pics/beach.jpg" alt="beach" width="475" height="auto">
-    	<img src="pics/beach.jpg" alt="beach" width="475" height="auto">
-    	<img src="pics/beach.jpg" alt="beach" width="475" height="auto">
-    	<img src="pics/beach.jpg" alt="beach" width="475" height="auto">
+    	<img src="pics/mountain-lake.jpeg" alt="beach" width="450" height="auto">
+    	<img src="pics/ocean.jpg" alt="beach" width="450" height="auto">
+    	<img src="pics/person-cam.jpg" alt="beach" width="450" height="auto">
+    	<img src="pics/pier.jpg" alt="beach" width="450" height="auto">
+    	<img src="pics/box.jpg" alt="beach" width="450" height="auto">
+    	<img src="pics/rig.jpg" alt="beach" width="450" height="auto">
+
+
+	<!-- <div class="photo">
+			<div class="photo-overlay"></div>
+			<div class="photo-overlay-text">
+				<h2>Beauty</h2>
+				<h2><span>by </span>Seth</h2>
+			</div>
+		</div> -->
+
 	</div>
 
-	<div class="bottom-buttons">
+<!-- 	<div class="bottom-buttons">
 		<button class="button button-blue">Sign up for FullPixel</button>
 		<button class="button button-gray">Explore more photos</button>
-	</div>
+	</div> -->
+
+
+<div id="signup-form-container">
+
 	<!-- HIDE/SHOW LOGIN SIGNUP -->
 	<!-- SIGNUP -->
 		<div>
@@ -56,7 +70,7 @@
 	        	<label>Password</label>
 	        	<input class="form-control" type="password" ng-model="password">
 	    
-	    		<input class="btn btn-success btn-lg btn-block" type="submit" value="Login">
+	    		<input type="submit" value="Login to FullPixel" id="login-submit">
 			</form>
 
 		  </div>
@@ -73,14 +87,21 @@
 	        	<label>Password</label>
 	        	<input class="form-control" type="password" ng-model="password">
 	    	
-	    		<input class="btn btn-success btn-lg btn-block" type="submit" value="Register">
+	    		<input type="submit" value="Sign up for FullPixel" id="signup-submit">
 			</form>
 
 		  </div>
 		</div>
 
-	<p>Already Signed Up?</p>
-	<input type="checkbox" ng-model="checked" id="login-check">
+		<div id="check-container">
+			<p id="check-title">Already signed up?</p>
+			<input type="checkbox" ng-model="checked" id="login-check">
+		</div>
+
+		<h4 id="not-ready-title">Not ready to signup?</h4>
+		<button class="button button-gray" id="explore-more-button"><a href="">Explore more photos</a></button>
+
+</div>
 
 
 

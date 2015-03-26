@@ -1,6 +1,6 @@
 <div id="upload-container" ng-controller="UploadCtrl">
 
-    <nav class="menu">
+    <nav class="menu" id="upload-menu">
         <ul class="group">
             <li><a href="/#/">FullPixel</a></li>
             <li ng-if='currentUser'><a>{{currentUser.username}}</a></li>
@@ -18,15 +18,15 @@
         <img src= "/uploads/{{fileout}}" width="500" id="photo">
         <!-- <div id="photo"></div> -->
 
-        <p>{{lat}} and {{lon}}</p>
+        <p>{{lat}}{{lon}}</p>
 
         <!-- // add map below photo -->
     </div>
  
     <div ng-controller="ImgMetaCtrl" id="upload-meta"> 
         <form novalidate class="group" id="upload-form">
-            <span>{{fileout}}</span>
-            <span>{{currentuser}}</span>
+<!--             <span>{{fileout}}</span>
+            <span>{{currentuser}}</span> -->
             <fieldset name="description">
                 <label for="title" id="label-userid">UserId</label>
                 <input type="text" ng-model="metadata.userid" id="input-userid">
