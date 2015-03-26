@@ -18,15 +18,15 @@
         <img src= "/uploads/{{fileout}}" width="500" id="photo">
         <!-- <div id="photo"></div> -->
 
-        <p>{{lat}} and {{lon}}</p>
+        <p>{{lat}}{{lon}}</p>
 
         <!-- // add map below photo -->
     </div>
  
     <div ng-controller="ImgMetaCtrl" id="upload-meta"> 
         <form novalidate class="group" id="upload-form">
-            <span>{{fileout}}</span>
-            <span>{{currentuser}}</span>
+<!--             <span>{{fileout}}</span>
+            <span>{{currentuser}}</span> -->
             <fieldset name="description">
                 <label for="title" id="label-userid">UserId</label>
                 <input type="text" ng-model="metadata.userid" id="input-userid">
@@ -64,7 +64,7 @@
                 <label id="label-location">Location</label>
                  <p> Latitude: {{lat}} - Longitude: {{lon}}</p>
 
-                <a href="/#/photo-page">
+                <a href="/partials/map-page.html">
                     <div id="info-location-map"></div>
                 </a>
             </fieldset>
