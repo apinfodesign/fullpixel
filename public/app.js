@@ -125,7 +125,7 @@ angular.module('pullPix')
     .config(["$routeProvider", function ($routeProvider){
         $routeProvider
             .when('/',           {controller: 'LoginCtrl',   templateUrl: '/partials/splash-page.html'})
-            .when('/upload',     {controller: 'UploadCtrl',  templateUrl: '/partials/upload-page.html'})
+            .when('/upload',     {controller: 'UploadCtrl', controllerAs: 'vm', templateUrl: '/partials/upload-page.html'})
             .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'})
             .when('/profile',    {controller: '',            templateUrl: '/partials/profile-page.html'}) 
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'});
@@ -133,24 +133,40 @@ angular.module('pullPix')
 
 
 
-angular.module('pullPix')
+angular
+  .module('pullPix')
+  .controller('UploadCtrl', Upload);
 
-  .controller('UploadCtrl', ["$scope", "$upload", "ImgMetaSvc", "CurrentUser", function($scope, $upload, ImgMetaSvc, CurrentUser) {
+
+  Upload.$inject = ['$upload', 'ImgMetaSvc', 'CurrentUser'];
+
+  function Upload($upload, ImgMetaSvc, CurrentUser) {
  
-   $scope.onFileSelect = function(files) {
+
+    var vm = this;
+    vm.fileout = null;
+    vm.currentuser = null;
+    vm.lat = null;
+    vm.lon = null;
+    vm.upload = null;
+    vm.onFileSelect = onFileSelect;
+    vm.imgUpdate = imgUpdate;
+
+
+   function onFileSelect(files) {
  
-      $scope.upload = $upload.upload({
+      vm.upload = $upload.upload({
         url: '/api/user/upload',  
         method: 'POST',
-        data: {myObj: $scope.myModelObj},
+        // data: {myObj: $scope.myModelObj},
         file: files  //number files uploaded
 
       }).progress(function(evt) {
 
 
       }).success(function(data, status, headers, config) {
-        $scope.fileout = files[0].name;
-        $scope.currentuser = CurrentUser.userid;
+        vm.fileout = "/uploads/" + files[0].name;
+        vm.currentuser = CurrentUser.userid;
        
         console.log('success fileout');
  
@@ -182,12 +198,13 @@ angular.module('pullPix')
 
         }
 
-        $scope.lat = degreeToDecimal(lat, latDirection);
-        $scope.lon = degreeToDecimal(lon, lonDirection);
+        vm.lat = degreeToDecimal(lat, latDirection);
+        vm.lon = degreeToDecimal(lon, lonDirection);
 
      });
   }
-  $scope.ImgUpdate = function(metadata){
+
+  function imgUpdate(metadata){
             if(metadata){
                 ImgMetaSvc.create({
                   userid          : metadata.userid,
@@ -207,7 +224,7 @@ angular.module('pullPix')
                 });
             }
   };
-}]);
+}
 
 
 
