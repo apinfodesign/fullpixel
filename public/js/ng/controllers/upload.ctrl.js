@@ -3,9 +3,9 @@ angular
   .controller('UploadCtrl', Upload);
 
 
-  Upload.$inject = ['$upload', 'ImgMetaSvc', 'CurrentUser'];
+  Upload.$inject = ['$upload', 'ImgMetaSvc'];
 
-  function Upload($upload, ImgMetaSvc, CurrentUser) {
+  function Upload($upload, ImgMetaSvc) {
  
 
     var vm = this;

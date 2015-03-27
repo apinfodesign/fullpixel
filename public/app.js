@@ -3,6 +3,7 @@ angular.module('pullPix',[
     'angularFileUpload',
     'ngAnimate'
 ]);
+
 angular.module('pullPix')
 .controller('ModalCtrl', ["$scope", "ModalService", function ($scope, ModalService) {    
     $scope.show = function() {
@@ -114,9 +115,9 @@ angular
   .controller('UploadCtrl', Upload);
 
 
-  Upload.$inject = ['$upload', 'ImgMetaSvc', 'CurrentUser'];
+  Upload.$inject = ['$upload', 'ImgMetaSvc'];
 
-  function Upload($upload, ImgMetaSvc, CurrentUser) {
+  function Upload($upload, ImgMetaSvc) {
  
 
     var vm = this;
@@ -234,7 +235,6 @@ angular.module('pullPix')
             });
         };
     }]);
-
 
 
 angular.module('pullPix')
