@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 var router = require('express').Router();
 var busboy = require('connect-busboy');
 var fs = require('fs');
 var gm = require('gm');
 var degreeToDecimal = require('./degreeToDecimal'); //mh gps conversion function
  
+=======
+var router = require('express').Router(),
+    busboy = require('connect-busboy'),
+    fs     = require('fs'),
+    gm     = require('gm');
+
+>>>>>>> mattc
 router.post('/api/user/upload', function(req, res, next){
 	var fstream;
 	var cameraModel;

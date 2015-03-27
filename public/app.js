@@ -35,12 +35,38 @@ angular.module('pullPix')
 }]);
 
 angular.module('pullPix')
+<<<<<<< HEAD
     .factory('CurrentUser', function(){
         var currentuser = {
             'userid' : 666
         }
         return currentuser;
     });
+=======
+    .controller('ImgMetaCtrl', ["$scope", "ImgMetaSvc", "CurrentUser", function($scope, ImgMetaSvc, CurrentUser){
+        $scope.ImgUpdate = function(metadata){
+            if(metadata){
+                ImgMetaSvc.create({
+                    userid          : metadata.userid,
+                    path            : metadata.path,
+                    title           : metadata.title,
+                    caption         : metadata.caption,
+                    tags            : metadata.tags,
+                    camera          : metadata.camera,
+                    shutter         : metadata.shutter,
+                    aperture        : metadata.aperture,
+                    iso             : metadata.iso,
+                    date            : metadata.date
+                })
+                    .success(function(imgmeta){
+                       console.table(imgmeta);
+                        metadata = null;
+                    });
+            }
+
+        };
+    }]);
+>>>>>>> mattc
 angular.module('pullPix')
     .controller('ListCtrl',["ListSvc", function(ListSvc){
         var vm = this;
@@ -62,6 +88,7 @@ angular.module('pullPix')
 
 }]);
 angular.module('pullPix')
+<<<<<<< HEAD
     .service('ListSvc', ["$http", function($http){
        this.fetch = function(){
             return $http.get('http://localhost:3000/api/posts');
@@ -75,6 +102,11 @@ angular.module('pullPix')
 angular.module('pullPix')
      .controller('LoginCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.login = function(username, password){
+=======
+    .controller('LoginCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
+        var vm = this;
+        vm.login = function(username, password){
+>>>>>>> mattc
             UserSvc.login(username, password)
                 .then(function(user){
                     $scope.$emit('login', user);
@@ -83,8 +115,6 @@ angular.module('pullPix')
             	});
         };
     }]);
-
-
 
 angular.module('pullPix')
     .controller('RegisterCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
@@ -174,6 +204,7 @@ angular
 
         }
 
+<<<<<<< HEAD
         vm.lat = degreeToDecimal(lat, latDirection);
         vm.lon = degreeToDecimal(lon, lonDirection);
 
@@ -181,6 +212,13 @@ angular
   }
 
   function imgUpdate(metadata){
+=======
+        $scope.fileout = files[0].name;
+        $scope.currentuser = CurrentUser.userid;
+    });
+  };
+  $scope.ImgUpdate = function(metadata){
+>>>>>>> mattc
             if(metadata){
                 ImgMetaSvc.create({
                   userid          : metadata.userid,
@@ -200,7 +238,57 @@ angular
                 });
             }
   };
+<<<<<<< HEAD
 }
+=======
+}]);
+angular.module('pullPix')
+    .controller('MemberListCtrl', ["MemberSvc", function(MemberSvc){
+        var vm =this;
+        vm.MemberListAdd = function(){
+            if(vm.username){
+                MemberSvc.create({
+                    body: vm.username
+                })
+                    .success(function(member){
+                        vm.members.unshift(member);
+                    })
+            }
+        };
+        MemberSvc.fetch()
+            .success(function(members){
+                vm.members = members
+            });
+    }]);
+
+
+angular.module('pullPix')
+    .factory('CurrentUser', function(){
+        var currentuser = {
+            'userid' : 666
+        }
+        return currentuser;
+    });
+angular.module('pullPix')
+    .service('ImgMetaSvc', ["$http", function($http){
+        this.fetch = function(){
+            return $http.get('/img-meta');
+        };
+        this.create = function(imgmeta){
+            return $http.post('/img-meta', imgmeta);
+        }
+    }]);
+angular.module('pullPix')
+    .service('ListSvc', ["$http", function($http){
+       this.fetch = function(){
+            return $http.get('http://localhost:3000/api/posts');
+       };
+        this.create = function(post){
+            return $http.post('http://localhost:3000/api/posts', post);
+        };
+    }]);
+
+>>>>>>> mattc
 
 
 
@@ -233,16 +321,4 @@ angular.module('pullPix')
                 return svc.login(username, password);
             });
         };
-    }]);
-
-
-
-angular.module('pullPix')
-    .service('ImgMetaSvc', ["$http", function($http){
-        this.fetch = function(){
-            return $http.get('/img-meta');
-        };
-        this.create = function(imgmeta){
-            return $http.post('/img-meta', imgmeta);
-        }
     }]);
