@@ -35,39 +35,6 @@ angular.module('pullPix')
 }]);
 
 angular.module('pullPix')
-<<<<<<< HEAD
-    .factory('CurrentUser', function(){
-        var currentuser = {
-            'userid' : 666
-        }
-        return currentuser;
-    });
-=======
-    .controller('ImgMetaCtrl', ["$scope", "ImgMetaSvc", "CurrentUser", function($scope, ImgMetaSvc, CurrentUser){
-        $scope.ImgUpdate = function(metadata){
-            if(metadata){
-                ImgMetaSvc.create({
-                    userid          : metadata.userid,
-                    path            : metadata.path,
-                    title           : metadata.title,
-                    caption         : metadata.caption,
-                    tags            : metadata.tags,
-                    camera          : metadata.camera,
-                    shutter         : metadata.shutter,
-                    aperture        : metadata.aperture,
-                    iso             : metadata.iso,
-                    date            : metadata.date
-                })
-                    .success(function(imgmeta){
-                       console.table(imgmeta);
-                        metadata = null;
-                    });
-            }
-
-        };
-    }]);
->>>>>>> mattc
-angular.module('pullPix')
     .controller('ListCtrl',["ListSvc", function(ListSvc){
         var vm = this;
    vm.ListAdd = function () {
@@ -88,25 +55,8 @@ angular.module('pullPix')
 
 }]);
 angular.module('pullPix')
-<<<<<<< HEAD
-    .service('ListSvc', ["$http", function($http){
-       this.fetch = function(){
-            return $http.get('http://localhost:3000/api/posts');
-       };
-        this.create = function(post){
-            return $http.post('http://localhost:3000/api/posts', post);
-        };
-    }]);
-
-
-angular.module('pullPix')
      .controller('LoginCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.login = function(username, password){
-=======
-    .controller('LoginCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
-        var vm = this;
-        vm.login = function(username, password){
->>>>>>> mattc
             UserSvc.login(username, password)
                 .then(function(user){
                     $scope.$emit('login', user);
@@ -116,6 +66,13 @@ angular.module('pullPix')
         };
     }]);
 
+angular.module('pullPix')
+    .controller('MemberListCtrl', ["$scope", "MemberListSvc", function($scope, MemberListSvc){
+        MemberListSvc.fetch()
+            .success(function(users){
+                $scope.members = users;
+            });
+    }]);
 angular.module('pullPix')
     .controller('RegisterCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.register = function (username, password){
@@ -182,43 +139,38 @@ angular
         var lon = data["Profile-EXIF"]['GPS Longitude'];
         var lonDirection = data["Profile-EXIF"]['GPS Longitude Ref'];
 
-        function degreeToDecimal(coord, compass){ 
+        function degreeToDecimal(coord, compass) {
 
-          //transorms standard degree min sec EXIF coord to decimal value, latitude or longitude
-          //N and E compass positive, S and W compass negative
-          var direction = 1; // N or E
-          var decimalCoord; // return value
-          var elements = coord.split(",");//should give 3 element array>>> 45/1,31/1,54636/1000
-          var degrees = elements[0].split("/"); //should give 2 element array 45,1 
-          var finalDegrees = degrees[0]/degrees[1];
-          var minutes = elements[1].split("/"); //should give 2 element array 31,1
-          var finalMinutes = minutes[0]/minutes[1];
-          var seconds = elements[2].split("/");  //should give 2 element array 54636/1000
-          var finalSeconds = seconds[0]/seconds[1];
-          
-          if ( compass === "S" || compass === "W" ){ direction = -1 }; 
-          
-          decimalCoord = direction * ( Math.abs(finalDegrees) + (finalMinutes/60.0) + (finalSeconds / 3600.0) );
-          
-          return decimalCoord;
+            //transorms standard degree min sec EXIF coord to decimal value, latitude or longitude
+            //N and E compass positive, S and W compass negative
+            var direction = 1; // N or E
+            var decimalCoord; // return value
+            var elements = coord.split(",");//should give 3 element array>>> 45/1,31/1,54636/1000
+            var degrees = elements[0].split("/"); //should give 2 element array 45,1
+            var finalDegrees = degrees[0] / degrees[1];
+            var minutes = elements[1].split("/"); //should give 2 element array 31,1
+            var finalMinutes = minutes[0] / minutes[1];
+            var seconds = elements[2].split("/");  //should give 2 element array 54636/1000
+            var finalSeconds = seconds[0] / seconds[1];
 
+            if (compass === "S" || compass === "W") {
+                direction = -1
+            }
+            ;
+
+            decimalCoord = direction * ( Math.abs(finalDegrees) + (finalMinutes / 60.0) + (finalSeconds / 3600.0) );
+
+            return decimalCoord;
         }
+            vm.lat = degreeToDecimal(lat, latDirection);
+            vm.lon = degreeToDecimal(lon, lonDirection);
 
-<<<<<<< HEAD
-        vm.lat = degreeToDecimal(lat, latDirection);
-        vm.lon = degreeToDecimal(lon, lonDirection);
+        });
+       // $scope.fileout = files[0].name;
+       // $scope.currentuser = CurrentUser.userid;
 
-     });
   }
-
-  function imgUpdate(metadata){
-=======
-        $scope.fileout = files[0].name;
-        $scope.currentuser = CurrentUser.userid;
-    });
-  };
   $scope.ImgUpdate = function(metadata){
->>>>>>> mattc
             if(metadata){
                 ImgMetaSvc.create({
                   userid          : metadata.userid,
@@ -238,28 +190,9 @@ angular
                 });
             }
   };
-<<<<<<< HEAD
 }
-=======
-}]);
-angular.module('pullPix')
-    .controller('MemberListCtrl', ["MemberSvc", function(MemberSvc){
-        var vm =this;
-        vm.MemberListAdd = function(){
-            if(vm.username){
-                MemberSvc.create({
-                    body: vm.username
-                })
-                    .success(function(member){
-                        vm.members.unshift(member);
-                    })
-            }
-        };
-        MemberSvc.fetch()
-            .success(function(members){
-                vm.members = members
-            });
-    }]);
+
+
 
 
 angular.module('pullPix')
@@ -288,9 +221,14 @@ angular.module('pullPix')
         };
     }]);
 
->>>>>>> mattc
 
 
+angular.module('pullPix')
+    .service('MemberListSvc', ["$http", function($http){
+        this.fetch = function(){
+            return $http.get('http://localhost:3000/member');
+        }
+    }]);
 
 
 

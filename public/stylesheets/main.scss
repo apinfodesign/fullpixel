@@ -2,11 +2,33 @@ $bck-clr: #7bc4d9;
 $txt-clr: #0f2b33;
 $font-stack: 'Raleway, san-serif';
 
-body {
-  width: 88.6%;
-  font: 100% $font-stack;
-  background-color: $bck-clr;
-  color: $txt-clr;
-  padding: 5%;
-  border: 1px solid $txt-clr;
+.members {
+  display: block;
+  float: left;
+  width: 100%;
+  background: #7d7d72 ;
+}
+.members-title {
+  text-align: center;
+  color: #FFFFF0;
+}
+.members-list li {
+  position: relative;
+  display: block;
+  float: left;
+  width: 30%;
+  margin: 1%;
+  border: 1px solid #102035;
+}
+.members-list img {
+  width: 100%;
+}
+.members-list h2 {
+  z-index: 1;
+  width: 100%;
+  position: absolute;
+  top: 15px;
+  font-size: 35px;
+  text-align: center;
+  color: #ff00ff;
 }

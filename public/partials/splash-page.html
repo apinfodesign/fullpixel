@@ -23,36 +23,17 @@
 
 	</div>
 
-
-	<div id="gallery" class="group">
-    	<img src="pics/beach.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/mountain-lake.jpeg" alt="beach" width="450" height="auto">
-    	<img src="pics/ocean.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/person-cam.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/person.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/beach.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/mountain-lake.jpeg" alt="beach" width="450" height="auto">
-    	<img src="pics/ocean.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/person-cam.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/pier.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/box.jpg" alt="beach" width="450" height="auto">
-    	<img src="pics/rig.jpg" alt="beach" width="450" height="auto">
-
-
-	<!-- <div class="photo">
-			<div class="photo-overlay"></div>
-			<div class="photo-overlay-text">
-				<h2>Beauty</h2>
-				<h2><span>by </span>Seth</h2>
-			</div>
-		</div> -->
-
-	</div>
-
-<!-- 	<div class="bottom-buttons">
-		<button class="button button-blue">Sign up for FullPixel</button>
-		<button class="button button-gray">Explore more photos</button>
-	</div> -->
+    <div class="members" ng-controller="MemberListCtrl">
+        <h1 class="members-title">Members</h1>
+        <ul class="members-list">
+            <li ng-repeat="user in members | orderBy: '-date'">
+                <a href="/{{user.username}}">
+                    <img ng-src="assets/imgs/hydralogo0.png">
+                    <h2>{{user.username}}</h2>
+                </a>
+            </li>
+        </ul>
+    </div>
 
 
 	<div id="signup-form-container">

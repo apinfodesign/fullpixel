@@ -1,7 +1,32 @@
-body {
-  width: 88.6%;
-  font: 100% 'Raleway, san-serif';
-  background-color: #7bc4d9;
-  color: #0f2b33;
-  padding: 5%;
-  border: 1px solid #0f2b33; }
+.members {
+  display: block;
+  float: left;
+  width: 100%;
+  background: #7d7d72; }
+
+.members-title {
+  text-align: center;
+  color: #FFFFF0;
+  font-size: 55px;
+  margin: 10px;
+}
+
+.members-list li {
+  position: relative;
+  display: block;
+  float: left;
+  width: 31.3%;
+  margin: 1%;
+  border: 1px solid #102035; }
+
+.members-list img {
+  width: 100%; }
+
+.members-list h2 {
+  z-index: 1;
+  width: 100%;
+  position: absolute;
+  top: 15px;
+  font-size: 35px;
+  text-align: center;
+  color: #ff00ff; }
