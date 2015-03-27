@@ -20,7 +20,7 @@ angular.module('pullPix')
         $scope.fileout = files[0].name;
         $scope.currentuser = CurrentUser.userid;
     });
-  }
+  };
   $scope.ImgUpdate = function(metadata){
             if(metadata){
                 ImgMetaSvc.create({

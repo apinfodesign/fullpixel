@@ -1,14 +1,15 @@
-var gulp = require('gulp'),
-concat = require('gulp-concat'),
-uglify = require('gulp-uglify'),
-ngAnnotate = require('gulp-ng-annotate'),
-nodemon = require('gulp-nodemon'),
-sass = require('gulp-sass'),
-notify = require('gulp-notify'),
-bower = require('gulp-bower'),
-gutil = require('gulp-util'),
-livereload = require('gulp-livereload'),
-config = {
+var gulp       = require('gulp'),
+    concat     = require('gulp-concat'),
+    uglify     = require('gulp-uglify'),
+    ngAnnotate = require('gulp-ng-annotate'),
+    nodemon    = require('gulp-nodemon'),
+    sass       = require('gulp-sass'),
+    notify     = require('gulp-notify'),
+    bower      = require('gulp-bower'),
+    gutil      = require('gulp-util'),
+    livereload = require('gulp-livereload');
+
+var config = {
     sassPath: 'public/stylesheets/*.scss',
     bowerDir: './bower_components'
 };
