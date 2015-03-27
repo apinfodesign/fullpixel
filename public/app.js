@@ -144,6 +144,7 @@ angular.module('pullPix')
 }]);
 
 
+
 angular.module('pullPix')
     .factory('CurrentUser', function(){
         var currentuser = {
