@@ -1,7 +1,8 @@
 angular.module('pullPix',[
     'ngRoute',
     'angularFileUpload',
-    'ngAnimate'
+    'ngAnimate',
+    'ui.bootstrap'
 ]);
 angular.module('pullPix')
 .controller('ModalCtrl', ["$scope", "ModalService", function ($scope, ModalService) {    
@@ -34,6 +35,31 @@ angular.module('pullPix')
     });
 }]);
 
+angular.module('pullPix').controller('SlideCtrl', ["$scope", function ($scope) {
+  $scope.myInterval = 1000;
+  var slides = $scope.slides = [ 
+    {
+      image: 'http://lorempixel.com/400/200/food'
+    },
+    {
+      image: 'http://lorempixel.com/400/200/sports'
+    },
+    {
+      image: 'http://lorempixel.com/400/200/people'
+    }
+    ];
+  // $scope.addSlide = function() {
+  //   var newWidth = 600 + slides.length + 1;
+  //   slides.push({
+  //     image: '/uploads/002.JPG',
+  //     text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+  //       ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+  //   });
+  // };
+  // for (var i=0; i<4; i++) {
+  //   $scope.addSlide();
+  // }
+}]);
 angular.module('pullPix')
     .factory('CurrentUser', function(){
         var currentuser = {
@@ -103,7 +129,9 @@ angular.module('pullPix')
             .when('/upload',     {controller: 'UploadCtrl', controllerAs: 'vm', templateUrl: '/partials/upload-page.html'})
             .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'})
             .when('/profile',    {controller: '',            templateUrl: '/partials/profile-page.html'}) 
-            .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'});
+            .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
+            .when('/photo-page',  {controller: '',            templateUrl: '/partials/photo-page.html'})
+            .when('/slide',  	{controller: 'SlideCtrl',    templateUrl: '/partials/carousel.html'});
      }]);
 
 
@@ -235,8 +263,6 @@ angular.module('pullPix')
         };
     }]);
 
-
-
 angular.module('pullPix')
     .service('ImgMetaSvc', ["$http", function($http){
         this.fetch = function(){
@@ -246,3 +272,5 @@ angular.module('pullPix')
             return $http.post('/img-meta', imgmeta);
         }
     }]);
+
+
