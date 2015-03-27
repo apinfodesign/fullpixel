@@ -1,6 +1,6 @@
 <div id="upload-container">
 
-    <nav class="menu" id="upload-menu">
+    <nav class="menu" id="upload-menu" ng-controller="ApplicationCtrl">
         <ul class="group">
             <li><a href="/#/">FullPixel</a></li>
             <li ng-if='currentUser'><a>{{vm.currentUser.username}}</a></li>
@@ -22,7 +22,7 @@
 
     </div>
  
-    <div ng-controller="ImgMetaCtrl" id="upload-meta"> 
+    
         <form novalidate class="group" id="upload-form">
             <fieldset name="description">
                 <label for="title" id="label-userid">UserId</label>
@@ -67,10 +67,10 @@
             </fieldset>
 
 
-            <input type="submit" ng-click="ImgUpdate(metadata)" value="Submit Photo" id="photo-submit">
+            <input type="submit" ng-click="vm.imgUpdate(metadata)" value="Submit Photo" id="photo-submit">
         </form>
 
-    </div>
+   
 
 
  </div>

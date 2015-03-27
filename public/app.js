@@ -42,30 +42,6 @@ angular.module('pullPix')
         return currentuser;
     });
 angular.module('pullPix')
-    .controller('ImgMetaCtrl', ["$scope", "ImgMetaSvc", "CurrentUser", function($scope, ImgMetaSvc, CurrentUser){
-        $scope.ImgUpdate = function(metadata){
-            if(metadata){
-                ImgMetaSvc.create({
-                    userid          : metadata.userid,
-                    path            : metadata.path,
-                    title           : metadata.title,
-                    caption         : metadata.caption,
-                    tags            : metadata.tags,
-                    camera          : metadata.camera,
-                    shutter         : metadata.shutter,
-                    aperture        : metadata.aperture,
-                    iso             : metadata.iso,
-                    date            : metadata.date
-                })
-                .success(function(imgmeta){
-                    console.table(imgmeta);
-                    metadata = null;   
-                });
-            }
-
-        };
-    }]);
-angular.module('pullPix')
     .controller('ListCtrl',["ListSvc", function(ListSvc){
         var vm = this;
    vm.ListAdd = function () {
