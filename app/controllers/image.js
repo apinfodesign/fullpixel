@@ -1,8 +1,7 @@
-var router = require('express').Router();
-var busboy = require('connect-busboy');
-var fs = require('fs');
-var gm = require('gm');
-
+var router = require('express').Router(),
+    busboy = require('connect-busboy'),
+    fs     = require('fs'),
+    gm     = require('gm');
 
 router.post('/api/user/upload', function(req, res, next){
 	var fstream;

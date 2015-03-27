@@ -1,4 +1,4 @@
-var User = require('./user.js'),
+var User   = require('./user.js'),
     router = require('express').Router();
 
 router.post('/user',function(req, res, next){

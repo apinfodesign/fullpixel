@@ -1,5 +1,5 @@
-var ImgMeta = require('../models/img-meta')
-var router = require('express').Router();
+var ImgMeta = require('../models/img-meta'),
+    router  = require('express').Router();
 
 router.get('/img-meta', function(req, res, next){
     ImgMeta.find()
