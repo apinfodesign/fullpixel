@@ -18,7 +18,21 @@
         <img ng-src= "{{vm.fileout}}" width="500" id="photo" ng-show="vm.fileout">
         <!-- <div id="photo"></div> -->
 
-        <p>{{vm.lat}}{{vm.lon}}</p>
+        <p> -- {{vm.lat}}{{vm.lon}} --</p>
+
+
+        <iframe
+              width="450"
+              height="150"
+              frameborder="0" style="border:0"
+              src="https://www.google.com/maps/embed/v1/view
+                      ?key=AIzaSyBrxXM1q0dXwvpzPfy44FFX0bAzkDpvsiY
+                      &center=-33.8569,151.2152
+                      &zoom=18
+                      &maptype=satellite
+                      &output=embed">
+        </iframe>
+            
 
     </div>
  
