@@ -42,30 +42,6 @@ angular.module('pullPix')
         return currentuser;
     });
 angular.module('pullPix')
-    .controller('ImgMetaCtrl', ["$scope", "ImgMetaSvc", "CurrentUser", function($scope, ImgMetaSvc, CurrentUser){
-        $scope.ImgUpdate = function(metadata){
-            if(metadata){
-                ImgMetaSvc.create({
-                    userid          : metadata.userid,
-                    path            : metadata.path,
-                    title           : metadata.title,
-                    caption         : metadata.caption,
-                    tags            : metadata.tags,
-                    camera          : metadata.camera,
-                    shutter         : metadata.shutter,
-                    aperture        : metadata.aperture,
-                    iso             : metadata.iso,
-                    date            : metadata.date
-                })
-                .success(function(imgmeta){
-                    console.table(imgmeta);
-                    metadata = null;   
-                });
-            }
-
-        };
-    }]);
-angular.module('pullPix')
     .controller('ListCtrl',["ListSvc", function(ListSvc){
         var vm = this;
    vm.ListAdd = function () {
@@ -109,7 +85,6 @@ angular.module('pullPix')
     }]);
 
 
-
 angular.module('pullPix')
     .controller('RegisterCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.register = function (username, password){
@@ -139,9 +114,9 @@ angular
   .controller('UploadCtrl', Upload);
 
 
-  Upload.$inject = ['$upload', 'ImgMetaSvc', 'CurrentUser'];
+  Upload.$inject = ['$upload', 'ImgMetaSvc', '$location'];
 
-  function Upload($upload, ImgMetaSvc, CurrentUser) {
+  function Upload($upload, ImgMetaSvc, $location) {
  
 
     var vm = this;
@@ -221,6 +196,7 @@ angular
                 .success(function(imgmeta){
                   console.table(imgmeta);
                   metadata = null;
+                  $location.path('/profile');
                 });
             }
   };

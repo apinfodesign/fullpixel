@@ -4,9 +4,9 @@ angular
   .controller('UploadCtrl', Upload);
 
 
-  Upload.$inject = ['$upload', 'ImgMetaSvc', 'CurrentUser'];
+  Upload.$inject = ['$upload', 'ImgMetaSvc', '$location'];
 
-  function Upload($upload, ImgMetaSvc, CurrentUser) {
+  function Upload($upload, ImgMetaSvc, $location) {
  
 
     var vm = this;
@@ -86,6 +86,7 @@ angular
                 .success(function(imgmeta){
                   console.table(imgmeta);
                   metadata = null;
+                  $location.path('/profile');
                 });
             }
   };
