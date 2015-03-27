@@ -3,7 +3,6 @@ angular.module('pullPix',[
     'angularFileUpload',
     'ngAnimate'
 ]);
-
 angular.module('pullPix')
 .controller('ModalCtrl', ["$scope", "ModalService", function ($scope, ModalService) {    
     $scope.show = function() {
@@ -86,7 +85,6 @@ angular.module('pullPix')
     }]);
 
 
-
 angular.module('pullPix')
     .controller('RegisterCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.register = function (username, password){
@@ -115,9 +113,9 @@ angular
   .controller('UploadCtrl', Upload);
 
 
-  Upload.$inject = ['$upload', 'ImgMetaSvc'];
+  Upload.$inject = ['$upload', 'ImgMetaSvc', '$location'];
 
-  function Upload($upload, ImgMetaSvc) {
+  function Upload($upload, ImgMetaSvc, $location) {
  
 
     var vm = this;
@@ -198,6 +196,7 @@ angular
                 .success(function(imgmeta){
                   console.table(imgmeta);
                   metadata = null;
+                  $location.path('/profile');
                 });
             }
   };
@@ -235,6 +234,7 @@ angular.module('pullPix')
             });
         };
     }]);
+
 
 
 angular.module('pullPix')
