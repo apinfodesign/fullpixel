@@ -1,5 +1,6 @@
 angular.module('pullPix',[
     'ngRoute',
     'angularFileUpload',
-    'ngAnimate'
+    'ngAnimate',
+    'ui.bootstrap'
 ]);
