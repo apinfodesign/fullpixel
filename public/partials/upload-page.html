@@ -17,16 +17,18 @@
         <img ng-src= "{{vm.fileout}}" width="500" id="photo" ng-show="vm.fileout">
         <!-- <div id="photo"></div> -->
 
-        <p> -- {{vm.lat}}{{vm.lon}} --</p>
+        <p> - - {{vm.lat}}{{vm.lon}} - -</p>
 
 
-<img src="https://maps.googleapis.com/maps/api/staticmap?center=40.702147,-74.015794&zoom=13&size=300x200&maptype=roadmap">
+<img src="https://maps.googleapis.com/maps/api/staticmap?center={{vm.lat}},{{vm.lon}}&zoom=17&size=700x400&markers=color:blue%7Clabel:S%7C{{vm.lat}},{{vm.lon}}&maptype=roadmap">
 </img>
 
+
+<!-- 
 <img src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
 &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
 &markers=color:red%7Clabel:C%7C40.718217,-73.998284"></img>
-
+ -->
 <!-- 
 
         <href src = "https://maps.googleapis.com/maps/AIzaSyBrxXM1q0dXwvpzPfy44FFX0bAzkDpvsiY/staticmap?center=40.714728,-73.998672&zoom=12&size=400x400"></href> -->
