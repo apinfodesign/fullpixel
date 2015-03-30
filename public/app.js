@@ -12,7 +12,7 @@ angular.module('pullPix')
     });
 }]);
 
-angular.module('pullPix').controller('SlideCtrl', ["$scope", "Lightbox", function ($scope, Lightbox) {
+angular.module('pullPix').controller('LightboxCtrl', ["$scope", "Lightbox", function ($scope, Lightbox) {
   $scope.images = [
     {
       'url': 'http://upload.wikimedia.org/wikipedia/commons/8/87/Waynejunction0810b.JPG',
@@ -46,10 +46,6 @@ angular.module('pullPix').controller('SlideCtrl', ["$scope", "Lightbox", functio
       'url': 'https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Joan_Colom_Agust%C3%AD_-_Estaci%C3%B3_de_Fran%C3%A7a_-_Google_Art_Project.jpg/1256px-Joan_Colom_Agust%C3%AD_-_Estaci%C3%B3_de_Fran%C3%A7a_-_Google_Art_Project.jpg',
       'thumbUrl': 'https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Joan_Colom_Agust%C3%AD_-_Estaci%C3%B3_de_Fran%C3%A7a_-_Google_Art_Project.jpg/120px-Joan_Colom_Agust%C3%AD_-_Estaci%C3%B3_de_Fran%C3%A7a_-_Google_Art_Project.jpg',
       'caption': 'The next image does not exist and shows how loading errors are handled by default.'
-    },
-    {
-      'url': '/does-not-exist.jpg',
-      'thumbUrl': 'http://upload.wikimedia.org/wikipedia/commons/0/00/404_Symbol.png'
     },
     {
       'url': 'https://upload.wikimedia.org/wikipedia/en/d/dd/Nicola_Fabricatore_-_Last_Purchases_-_Google_Art_Project.jpg',
@@ -124,7 +120,7 @@ angular.module('pullPix')
             .when('/profile',    {controller: '',            templateUrl: '/partials/profile-page.html'}) 
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
             .when('/photo-page',  {controller: '',            templateUrl: '/partials/photo-page.html'})
-            .when('/slide',  	{controller: 'SlideCtrl',    templateUrl: '/partials/carousel.html'});
+            .when('/lightbox',  	{controller: 'LightboxCtrl',    templateUrl: '/partials/lightbox.html'});
      }]);
 
 

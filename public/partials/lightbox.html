@@ -1,5 +1,5 @@
 <h1>PARAGRAPH</h1>
-<ul id="gallery" ng-app="demo1" ng-controller="SlideCtrl">
+<ul id="gallery" ng-controller="LightboxCtrl">
   <li ng-repeat="image in images">
     <a ng-click="openLightboxModal($index)">
       <img ng-src="{{image.thumbUrl}}" class="img-thumbnail" alt="">
