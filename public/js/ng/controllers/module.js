@@ -2,5 +2,6 @@ angular.module('pullPix',[
     'ngRoute',
     'angularFileUpload',
     'ngAnimate',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'bootstrapLightbox'
 ]);
