@@ -78,26 +78,6 @@ table {
   text-align: center;
   color: #FFFFF0; }
 
-/* CLEARFIX */
-.group:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit; }
-
-body {
-  font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
-  background-color: #fff; }
-
 /* NAVIGATION */
 #photo-menu {
   background-color: #4a4a4a;
@@ -1888,27 +1868,6 @@ footer {
   background: white;
 }*/
 /* END IOS STUFF */
-/* CLEARFIX */
-.group:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit; }
-
-body {
-  font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: 300;
-  background-color: #fff; }
-
 nav#upload-menu {
   background-color: #4a4a4a; }
 
