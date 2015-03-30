@@ -10,7 +10,7 @@ router.get('/img-meta', function(req, res, next){
 });
 router.post('/img-meta', function(req, res, next){
     var imgmeta = new ImgMeta({
-        userid          : req.body.userid,
+        username        : username.body.username,
         path            : req.body.path,
         title           : req.body.title,
         caption         : req.body.caption,
