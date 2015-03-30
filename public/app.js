@@ -61,13 +61,6 @@ angular.module('pullPix').controller('SlideCtrl', ["$scope", function ($scope) {
   // }
 }]);
 angular.module('pullPix')
-    .factory('CurrentUser', function(){
-        var currentuser = {
-            'userid' : 666
-        }
-        return currentuser;
-    });
-angular.module('pullPix')
     .controller('ListCtrl',["ListSvc", function(ListSvc){
         var vm = this;
    vm.ListAdd = function () {
@@ -88,17 +81,6 @@ angular.module('pullPix')
 
 }]);
 angular.module('pullPix')
-    .service('ListSvc', ["$http", function($http){
-       this.fetch = function(){
-            return $http.get('http://localhost:3000/api/posts');
-       };
-        this.create = function(post){
-            return $http.post('http://localhost:3000/api/posts', post);
-        };
-    }]);
-
-
-angular.module('pullPix')
      .controller('LoginCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.login = function(username, password){
             UserSvc.login(username, password)
@@ -110,7 +92,13 @@ angular.module('pullPix')
         };
     }]);
 
-
+angular.module('pullPix')
+    .controller('MemberListCtrl', ["$scope", "MemberListSvc", function($scope, MemberListSvc){
+        MemberListSvc.fetch()
+            .success(function(users){
+                $scope.members = users;
+            });
+    }]);
 angular.module('pullPix')
     .controller('RegisterCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.register = function (username, password){
@@ -137,12 +125,14 @@ angular.module('pullPix')
 
 
 angular
-  .module('pullPix')
-  .controller('UploadCtrl', Upload);
+    .module('pullPix')
+    .controller('UploadCtrl', Upload);
 
   Upload.$inject = ['$upload', 'ImgMetaSvc', '$location'];
 
+ 
   function Upload($upload, ImgMetaSvc, $location) {
+ 
  
     var vm = this;
     vm.fileout = null;
@@ -159,7 +149,7 @@ angular
     vm.onFileSelect = onFileSelect;
     vm.imgUpdate = imgUpdate;
 
-   function onFileSelect(files) {
+    function onFileSelect(files) {
  
       vm.upload = $upload.upload({
         url: '/api/user/upload',  
@@ -266,12 +256,50 @@ angular
                   console.table(imgmeta);
                   metadata = null;
                   $location.path('/profile');
+ 
                 });
-            }
-  };
+        }
+    };
 }
 
 
+
+
+
+angular.module('pullPix')
+    .factory('CurrentUser', function(){
+        var currentuser = {
+            'userid' : 666
+        }
+        return currentuser;
+    });
+angular.module('pullPix')
+    .service('ImgMetaSvc', ["$http", function($http){
+        this.fetch = function(){
+            return $http.get('/img-meta');
+        };
+        this.create = function(imgmeta){
+            return $http.post('/img-meta', imgmeta);
+        }
+    }]);
+angular.module('pullPix')
+    .service('ListSvc', ["$http", function($http){
+       this.fetch = function(){
+            return $http.get('http://localhost:3000/api/posts');
+       };
+        this.create = function(post){
+            return $http.post('http://localhost:3000/api/posts', post);
+        };
+    }]);
+
+
+
+angular.module('pullPix')
+    .service('MemberListSvc', ["$http", function($http){
+        this.fetch = function(){
+            return $http.get('http://localhost:3000/member');
+        }
+    }]);
 
 
 
@@ -302,16 +330,4 @@ angular.module('pullPix')
                 return svc.login(username, password);
             });
         };
-    }]);
-
-
-
-angular.module('pullPix')
-    .service('ImgMetaSvc', ["$http", function($http){
-        this.fetch = function(){
-            return $http.get('/img-meta');
-        };
-        this.create = function(imgmeta){
-            return $http.post('/img-meta', imgmeta);
-        }
     }]);

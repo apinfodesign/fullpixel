@@ -10,6 +10,7 @@ app.use(busboy() );
 app.use('/api', require( './app/controllers/posts'));
 
 
+app.use(require('./app/controllers/member'));
 app.use(require('./app/controllers/routes'));
 app.use(require('./app/controllers/sessions'));
 app.use(require('./app/controllers/user'));

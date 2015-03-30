@@ -1,6 +1,6 @@
-var User = require('../models/user'),
+var User   = require('../models/user'),
     bcrypt = require('bcrypt'),
-    jwt = require('jwt-simple'),
+    jwt    = require('jwt-simple'),
     router = require('express').Router(),
     config = require('../../config');
 

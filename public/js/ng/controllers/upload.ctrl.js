@@ -1,10 +1,12 @@
 angular
-  .module('pullPix')
-  .controller('UploadCtrl', Upload);
+    .module('pullPix')
+    .controller('UploadCtrl', Upload);
 
   Upload.$inject = ['$upload', 'ImgMetaSvc', '$location'];
 
+ 
   function Upload($upload, ImgMetaSvc, $location) {
+ 
  
     var vm = this;
     vm.fileout = null;
@@ -21,7 +23,7 @@ angular
     vm.onFileSelect = onFileSelect;
     vm.imgUpdate = imgUpdate;
 
-   function onFileSelect(files) {
+    function onFileSelect(files) {
  
       vm.upload = $upload.upload({
         url: '/api/user/upload',  
@@ -128,8 +130,8 @@ angular
                   console.table(imgmeta);
                   metadata = null;
                   $location.path('/profile');
+ 
                 });
-            }
-  };
+        }
+    };
 }
-
