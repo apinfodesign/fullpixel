@@ -16,12 +16,7 @@
         <!-- <button id="upload-button">Choose Photo</button> -->
         <img ng-src= "{{vm.fileout}}" width="500" id="photo" ng-show="vm.fileout">
         <!-- <div id="photo"></div> -->
-
- 
-<!-- simplest form of map - a static map 
- -->
- 
-     <!-- BLOCKED BY X FRAME OPTIONS SETTING OF SAME ORIGINS
+       <!-- BLOCKED BY X FRAME OPTIONS SETTING OF SAME ORIGINS
             <iframe
                   width="450"
                   height="150"
@@ -33,11 +28,8 @@
                           &maptype=satellite
                           &output=embed">
             </iframe> -->
-            
+       </div>
 
-    </div>
- 
-    
         <form novalidate class="group" id="upload-form">
             <fieldset name="description">
                 <label for="title" id="label-userid">UserId</label>
@@ -59,7 +51,7 @@
                 <input name="camera" ng-model="metadata.camera">
                 {{vm.cameraModel}}
                 <br>
-                <label for="shutter-speed">*Shutter Speed:</label>
+                <label for="shutter-speed">Shutter Speed:</label>
                 <input name="shutter-speed" ng-model="metadata.shutter">
                 {{vm.shutterSpeed}}
                 <br>
@@ -77,7 +69,7 @@
             </fieldset>
 
             <fieldset name="location" id="location">
-<p>
+ 
                 <label id="label-location">Location</label>
         <p> Latitude: {{vm.lat}} - Longitude: {{vm.lon}}</p>
 
@@ -86,12 +78,10 @@
 </img>
 </p>
 
- 
-<!-- 
-
-                <a href="/partials/map-page.html">
+ <!-- <a href="/partials/map-page.html">
                     <div id="info-location-map"></div>
                 </a> -->
+
             </fieldset>
 
 

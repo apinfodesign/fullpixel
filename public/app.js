@@ -186,9 +186,21 @@ angular
         var lonDirection = data["Profile-EXIF"]['GPS Longitude Ref'];
         var iso = data["Profile-EXIF"]['ISO Speed Ratings'];
         var cameraModel = data["Profile-EXIF"].Model;
-        var aperture = data["Profile-EXIF"]['Shutter Speed Value'];
-        var shutterSpeed = data["Profile-EXIF"]['Aperture Value'];
+        var shutterSpeed = data["Profile-EXIF"]['Shutter Speed Value'];
+        var aperture = data["Profile-EXIF"]['Aperture Value'];
         var timeDate = data["Profile-EXIF"]['Date Time'];
+
+        var shutterCalc = function (shutterSpeed){
+            var speed=  (Math.pow(2,(shutterSpeed[0]/shutterSpeed[1]) ) ) ;
+            // DON'T YET KNOW IF THIS FORMULA IS RIGHT - IT IS SOMETHING LIKE THIS
+            return speed;
+        };
+
+        var apertureCalc = function (aperture){
+            var aperture= (Math.pow(1.4142, (aperture[0]/aperture[1]) ) );
+            // DON'T YET KNOW IF THIS FORMULA IS RIGHT - IT IS SOMETHING LIKE THIS
+            return aperture;
+        };
 
         var degreeToDecimal = function (coord, compass){ 
           if (coord != null && compass != null)  //handles missing EXIF data error
@@ -211,16 +223,17 @@ angular
           return decimalCoord;
        };
         console.log("generate lat lon");
-       
 
+   console.log( shutterSpeed[0] + " and shutter Speed 1 is " + shutterSpeed[1] );
+   console.log( aperture[0] + " and aperture 1 is " + aperture[1] );
  
 
         vm.lat = degreeToDecimal(lat, latDirection);
         vm.lon = degreeToDecimal(lon, lonDirection);
         
         vm.cameraModel = cameraModel;
-        vm.shutterSpeed = shutterSpeed;
-        vm.aperture = aperture;
+        vm.shutterSpeed = shutterCalc(shutterSpeed);
+        vm.aperture = apertureCalc(aperture);
         vm.iso = iso;
         vm.timeDate = timeDate;
         
