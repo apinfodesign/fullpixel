@@ -43,10 +43,10 @@ gulp.task('css', function(){
          .pipe(gulp.dest('public'))
          .pipe(livereload());
 });
-gulp.task('watch:css',['css'], function(){
-    livereload.listen();
-    gulp.watch('public/stylesheets/*.scss',['css']);
-});
+//gulp.task('watch:css',['css'], function(){
+//    livereload.listen();
+//    gulp.watch('public/stylesheets/*.scss',['css']);
+//});
 gulp.task('dev:server', function(){
     nodemon({
         script: 'server.js',

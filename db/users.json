@@ -1,0 +1,10 @@
+{"__v":0,"_id":{"$oid":"5518c8f4ee65c77a58ad015c"},"password":"$2a$10$u8XmLj9OcGvJ1MqfyMQCAeIcjGE/JcuhDNY0bDlwtBvypabVkX9Cy","username":"Ansel Adams","userphoto":"ansel.jpg"}
+{"__v":0,"_id":{"$oid":"5518c90dee65c77a58ad015d"},"password":"$2a$10$mfugTubON1w437Ofhvj1QeN7zggTNjAPPMaYMpRwp.mT9fBbBGktK","username":"Annie Leibovitz","userphoto":"annie.jpg"}
+{"__v":0,"_id":{"$oid":"5518c91bee65c77a58ad015e"},"password":"$2a$10$J1dujM6NT3WtQ91Z0MLdoODoJ3Ph.6u/PVZzT6ACXmXL5aJQT5CpC","username":"Helmut Newton","userphoto":"helmut.jpg"}
+{"__v":0,"_id":{"$oid":"5518c966ee65c77a58ad015f"},"password":"$2a$10$./d1/gP2L6YF0dul0j4MruZxLRC88iIwo1UcKsW402TgZuwhwN8KC","username":"Henri Cartier-BVresson","userphoto":"henri.jpg"}
+{"__v":0,"_id":{"$oid":"5518c9c4ee65c77a58ad0160"},"password":"$2a$10$5gFl6mTVT8BM8/fNtkpb3u0/kkxsw3yY76kgNvnJMhdLM8mz1JX8q","username":"Steve McCurry","userphoto":"steve.jpg"}
+{"__v":0,"_id":{"$oid":"5518c9d9ee65c77a58ad0161"},"password":"$2a$10$91GlnY7qjU3qWEhC3NCT4uVUkSoOG3.Ul2k3w3dw2qQc625DLdEGi","username":"Irving Penn","userphoto":"irving.jpg"}
+{"__v":0,"_id":{"$oid":"5518c9f6ee65c77a58ad0162"},"password":"$2a$10$j4sfcfy53My3Urcsqet/H.YB8ind6flRIxdqO2NVUju0phKh11fdC","username":"Man Ray","userphoto":"man.jpg"}
+{"__v":0,"_id":{"$oid":"5518ca12ee65c77a58ad0163"},"password":"$2a$10$JjqdyPQKLmD0duCR4QuWtemhU5Q5rU0XC6s0uJBXUU2Jk/z57Lz0m","username":"Mary Ellen Mark","userphoto":"mary.jpg"}
+{"__v":0,"_id":{"$oid":"5518ca4bee65c77a58ad0164"},"password":"$2a$10$lF8.nwjxyzq9S4HGYQL7GOiyW2VmfNOTtB2n.OR2/cELU1DJFTyy6","username":"Herb Ritts","userphoto":"herb.jpg"}
+{"__v":0,"_id":{"$oid":"5518ca73ee65c77a58ad0165"},"password":"$2a$10$kFdQYa02OGPgJoZu6D3glu3oGsv9tQoKStqmmX.x/kaM9K6vFys4e","username":"linus torvalds","userphoto":"linus.jpg"}

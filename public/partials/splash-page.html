@@ -28,7 +28,7 @@
         <ul class="members-list">
             <li ng-repeat="user in members | orderBy: '-date'">
                 <a href="/{{user.username}}">
-                    <img ng-src="assets/imgs/hydralogo0.png">
+                    <img ng-src="assets/mbr-imgs/{{user.userphoto}}">
                     <h2>{{user.username}}</h2>
                 </a>
             </li>
@@ -36,7 +36,7 @@
     </div>
 
 
-	<div id="signup-form-container">
+	<div class='signup' id="signup-form-container">
 
 	<!-- HIDE/SHOW LOGIN SIGNUP -->
 	<!-- SIGNUP -->
