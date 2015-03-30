@@ -269,8 +269,6 @@ angular
 
 
 
-
-
 angular.module('pullPix')
     .factory('CurrentUser', function(){
         var currentuser = {
@@ -336,18 +334,3 @@ angular.module('pullPix')
             });
         };
     }]);
-<<<<<<< HEAD
-
-
-
-angular.module('pullPix')
-    .service('ImgMetaSvc', ["$http", function($http){
-        this.fetch = function(){
-            return $http.get('/img-meta');
-        };
-        this.create = function(imgmeta){
-            return $http.post('/img-meta', imgmeta);
-        }
-    }]);
-=======
->>>>>>> master
