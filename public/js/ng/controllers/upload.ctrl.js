@@ -11,7 +11,13 @@ angular
     vm.currentuser = null;
     vm.lat = null;
     vm.lon = null;
+    vm.cameraModel = null;
+    vm.shutterSpeed = null;
+    vm.aperture = null;
+    vm.iso = null;
+    vm.timeDate = null;
     vm.upload = null;
+    vm.geometry = null;
     vm.onFileSelect = onFileSelect;
     vm.imgUpdate = imgUpdate;
 
@@ -33,12 +39,18 @@ angular
         //TEMP DELETE NOT WORKING vm.currentuser = CurrentUser.userid;
        
         console.log('success fileout 2');
- 
+        console.log(data);
+  
         // convert deg to dec here
         var lat = data["Profile-EXIF"]['GPS Latitude'];
         var latDirection = data["Profile-EXIF"]['GPS Latitude Ref'];        
         var lon = data["Profile-EXIF"]['GPS Longitude'];
         var lonDirection = data["Profile-EXIF"]['GPS Longitude Ref'];
+        var iso = data["Profile-EXIF"]['ISO Speed Ratings'];
+        var cameraModel = data["Profile-EXIF"].Model;
+        var aperture = data["Profile-EXIF"]['Shutter Speed Value'];
+        var shutterSpeed = data["Profile-EXIF"]['Aperture Value'];
+        var timeDate = data["Profile-EXIF"]['Date Time'];
 
         var degreeToDecimal = function (coord, compass){ 
           if (coord != null && compass != null)  //handles missing EXIF data error
@@ -61,8 +73,26 @@ angular
           return decimalCoord;
        };
         console.log("generate lat lon");
+       
+
+ 
+
         vm.lat = degreeToDecimal(lat, latDirection);
         vm.lon = degreeToDecimal(lon, lonDirection);
+        
+        vm.cameraModel = cameraModel;
+        vm.shutterSpeed = shutterSpeed;
+        vm.aperture = aperture;
+        vm.iso = iso;
+        vm.timeDate = timeDate;
+        
+        console.log(iso + " is iso");
+        console.log(cameraModel + " is cameraModel");
+        console.log(aperture + " is aperture");
+        console.log(shutterSpeed + " is shutterSpeed");
+        console.log(lat + " is lat");
+        console.log(lon + " is lon");
+
 
      });
   }
