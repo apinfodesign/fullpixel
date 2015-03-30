@@ -6,16 +6,13 @@
 
 .members-title {
   text-align: center;
-  color: #FFFFF0;
-  font-size: 55px;
-  margin: 10px;
-}
+  color: #FFFFF0; }
 
 .members-list li {
   position: relative;
   display: block;
   float: left;
-  width: 31.3%;
+  width: 30%;
   margin: 1%;
   border: 1px solid #102035; }
 
