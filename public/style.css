@@ -1,3 +1,49 @@
+/*RESET*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+body {
+  background-color: white;
+  font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif; }
+
+body {
+  line-height: 1;
+  background-color: #ccc; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* END RESET */
 .members {
   display: block;
   float: left;
@@ -227,41 +273,6 @@ footer {
 
 /* XL SCREEN */
 
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit; }
-
-body {
-  background-color: white;
-  font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif; }
-
-.menu {
-  background: transparent; }
-
-nav ul {
-  list-style-type: none; }
-
-nav ul li {
-  font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
-  float: right;
-  color: white;
-  margin-top: 1em;
-  margin-right: 1.5em;
-  text-shadow: 0px 1px 0.5px rgba(0, 0, 0, 0.5); }
-
-nav ul li:first-child {
-  float: left;
-  margin-left: 1em; }
-
-nav ul li:nth-child(2) {
-  margin-right: 1em; }
-
 #banner-photo, #banner-main, #banner-main-overlay {
   width: 100%;
   height: 25em; }
@@ -300,34 +311,8 @@ nav ul li:nth-child(2) {
   font-size: 1.5em;
   padding-bottom: 0.25em; }
 
-footer {
-  font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
-  background-color: #f9f9f9;
-  text-align: center;
-  padding: 1.5em;
-  font-size: 1em;
-  color: #9b9b9b; }
-
-#gallery {
-  margin-right: 0;
-  margin-left: 0; }
-
-#gallery img {
-  float: left;
-  margin-right: 6px;
-  margin-bottom: 6px; }
-
-.group:after {
-  content: "";
-  display: table;
-  clear: both; }
-
 /* DEFAULT SMALL SCREEN */
 /* MEDIUM SCREEN */
-@media screen and (min-width: 48em) {
-  footer {
-    padding: 1.8em; } }
-
 /* LARGE SCREEN */
 /* XL SCREEN */
 /* DEAL WITH IOS7 ISSUES REGARDING VH/VW */
@@ -354,17 +339,17 @@ footer {
     height: 500px; } }
 
 /* END IOS STUFF */
-/*!
+/*
 Pure v0.5.0
 Copyright 2014 Yahoo! Inc. All rights reserved.
 Licensed under the BSD License.
 https://github.com/yui/pure/blob/master/LICENSE.md
 */
-/*!
+/*
 normalize.css v1.1.3 | MIT License | git.io/normalize
 Copyright (c) Nicolas Gallagher and Jonathan Neal
 */
-/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
+/*normalize.css v1.1.3 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -802,28 +787,28 @@ table {
   text-rendering: optimizespeed;
   /* Webkit: fixes text-rendering: optimizeLegibility */
   /*
-    Sets the font stack to fonts known to work properly with the above letter
-    and word spacings. See: https://github.com/yui/pure/issues/41/
+  Sets the font stack to fonts known to work properly with the above letter
+  and word spacings. See: https://github.com/yui/pure/issues/41/
 
-    The following font stack makes Pure Grids work on all known environments.
+  The following font stack makes Pure Grids work on all known environments.
 
-    * FreeSans: Ships with many Linux distros, including Ubuntu
+  * FreeSans: Ships with many Linux distros, including Ubuntu
 
-    * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
-      Arial to get picked up by the browser, even though neither is available
-      in Chrome OS.
+  * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
+    Arial to get picked up by the browser, even though neither is available
+    in Chrome OS.
 
-    * Droid Sans: Ships with all versions of Android.
+  * Droid Sans: Ships with all versions of Android.
 
-    * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
-    */
+  * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+  */
   font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
   /*
-    Use flexbox when possible to avoid `letter-spacing` side-effects.
+  Use flexbox when possible to avoid `letter-spacing` side-effects.
 
-    NOTE: Firefox (as of 25) does not currently support flex-wrap, so the
-    `-moz-` prefix version is omitted.
-    */
+  NOTE: Firefox (as of 25) does not currently support flex-wrap, so the
+  `-moz-` prefix version is omitted.
+  */
   display: -webkit-flex;
   -webkit-flex-flow: row wrap;
   /* IE10 uses display: flexbox */
@@ -1581,3 +1566,562 @@ striping:
 
 .pure-table-horizontal tbody > tr:last-child td {
   border-bottom-width: 0; }
+
+nav.menu {
+  margin-top: 0;
+  background: transparent; }
+
+nav.menu ul {
+  margin-top: 0;
+  list-style-type: none; }
+
+nav.menu ul li {
+  margin-top: 0; }
+
+nav.menu ul li a {
+  text-decoration: none;
+  font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+  float: right;
+  color: #f9f9f9;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  text-shadow: 0px 1px 0.5px rgba(0, 0, 0, 0.75); }
+
+nav.menu ul li a:first-child {
+  float: left; }
+
+nav.menu ul li a:nth-child(2) {
+  margin-right: 1em; }
+
+#picture-main {
+  color: #f8f8f8;
+  background: #333 url('../pics/person.jpg') no-repeat center center/cover;
+  text-align: center;
+  height: 100vh; }
+
+.heading-wrapper {
+  padding-top: 30vh;
+  padding-bottom: 50vh;
+  height: 20vh; }
+
+#main-callout {
+  font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+  color: #f0f0f0;
+  font-size: 3.25em;
+  color: #F0F0F0;
+  letter-spacing: 1px;
+  line-height: 63px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); }
+
+#signUp a {
+  text-decoration: none;
+  color: #f2f2f2;
+  outline: none; }
+
+#signUp {
+  font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  margin-top: 5vh;
+  text-align: center;
+  font-size: 2.1em;
+  background-color: rgba(74, 74, 74, 0.25);
+  border-radius: 4px;
+  box-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff;
+  border: none;
+  padding: 0.5em 2em;
+  color: #f2f2f2;
+  letter-spacing: 0.5px;
+  line-height: 40px;
+  outline: none;
+  transition: 250ms; }
+
+#signUp:hover {
+  background-color: rgba(74, 74, 74, 0.5); }
+
+#signUp:active, #signUp:focus {
+  background-color: rgba(74, 74, 74, 0.25);
+  box-shadow: 0 0 0.1em #fff, 0 0 0.1em #fff; }
+
+#callout-text {
+  margin: 5em auto;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  color: #333;
+  text-align: center;
+  font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif; }
+
+#callout-text-heading {
+  text-transform: uppercase;
+  font-size: 2.5em;
+  max-width: 950px;
+  margin: 0 auto;
+  font-weight: 400;
+  line-height: 1.15; }
+
+#callout-text-body {
+  margin: 1em auto 0;
+  font-size: 1.75em;
+  font-weight: 300;
+  max-width: 650px;
+  line-height: 1.25; }
+
+footer {
+  font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 1.5em;
+  font-size: 1em;
+  color: #9b9b9b; }
+
+#gallery {
+  display: relative;
+  margin-right: 0;
+  margin-left: 0; }
+
+#gallery img {
+  width: 100%;
+  margin-bottom: 6px; }
+
+/*.photo {
+	position: relative;
+	height: 400px;
+	width: 500px;
+	background: url('pics/mountain-lake.jpeg') no-repeat center center / cover;
+}
+
+
+.photo-overlay {
+	position: absolute;
+	height: 150px;
+	right:0;
+	bottom:0;
+	left:0;
+	background: rgba(74,73,74,0.00);
+	background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 0%, #000000 100%);
+}*/
+.button {
+  font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
+  padding: 0.75em 1.15em;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 85%; }
+
+.button:active, .button:focus {
+  outline: none; }
+
+.bottom-buttons {
+  margin: 2.5em auto;
+  text-align: center; }
+
+.button-blue {
+  background: transparent;
+  border: 1.5px solid #28C2F7;
+  color: #28C2F7;
+  font-size: 1.5em;
+  margin-bottom: 1em; }
+
+.button-gray {
+  background: transparent;
+  border: 1px solid #4a4a4a;
+  color: #4a4a4a;
+  font-size: 1.5em; }
+
+#signup-form-container {
+  background-color: #f9f9f9;
+  padding: 3em 1em 3em;
+  margin-top: 4em; }
+
+#form-login input, #form-signup input {
+  margin: 0.75em auto 1.25em;
+  border-radius: 2.5px;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em; }
+
+#login-submit, #signup-submit {
+  background-color: #58D4FF;
+  color: #fff;
+  transition: 250ms; }
+
+#login-submit:hover, #signup-submit:hover {
+  background-color: #28C2F7; }
+
+#check-title {
+  display: inline;
+  font-size: 1.5em;
+  color: #333; }
+
+#login-check {
+  display: inline;
+  width: 25px;
+  margin-left: 0.5em; }
+
+#login-check:active, #login-check:focus {
+  outline: none; }
+
+#not-ready-title {
+  font-size: 2.5em;
+  color: #4a4a4a;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  text-align: center; }
+
+#explore-more-button {
+  display: block;
+  margin: 0 auto; }
+
+#explore-more-button a {
+  text-decoration: none;
+  color: #4a4a4a;
+  outline: none; }
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* DEFAULT SMALL SCREEN */
+/* MEDIUM SCREEN */
+@media screen and (min-width: 48em) {
+  #callout-text {
+    margin: 6em auto; }
+  #callout-text-heading {
+    font-size: 3em; }
+  #callout-text-body {
+    font-size: 2em; }
+  .button {
+    width: initial; }
+  .button-blue {
+    margin-right: 24px;
+    margin-bottom: 0; }
+  .bottom-buttons {
+    margin: 5em auto; }
+  footer {
+    padding: 1.8em; } }
+
+/* LARGE SCREEN */
+@media screen and (min-width: 64em) {
+  #gallery img {
+    width: 49.5%; }
+  #callout-text {
+    margin: 8em auto; }
+  #callout-text-heading {
+    font-size: 4em; }
+  #callout-text-body {
+    font-size: 3em; }
+  #signup-form-container {
+    margin-top: 8em;
+    padding: 5em 1em 5em; }
+  #form-login, #form-signup, #check-container {
+    margin: 0 auto;
+    max-width: 800px; } }
+
+/* LARGE SCREEN ONLY */
+@media screen and (min-width: 64em) and (max-width: 80em) {
+  #gallery img:nth-child(even) {
+    margin-right: 0; } }
+
+/* XL SCREEN */
+@media screen and (min-width: 80em) {
+  #gallery img {
+    width: 32.8%;
+    margin-right: 6px; }
+  /*	#gallery img:nth-child(odd) {
+		margin-right: 0;
+	}
+
+	#gallery img:nth-child(even) {
+		margin-right: 0;
+	}*/
+  #gallery img:nth-child(3n+0) {
+    margin-right: 0; } }
+
+/* DEAL WITH IOS7 ISSUES REGARDING VH/VW */
+/** 
+ * iPad with portrait orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+  #picture-main, .heading-wrapper {
+    height: 1024px; } }
+
+/** 
+ * iPad with landscape orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+  #picture-main, .heading-wrapper {
+    height: 768px; } }
+
+/**
+ * iPhone 5
+ * You can also target devices with aspect ratio.
+ */
+@media screen and (device-aspect-ratio: 40/71) {
+  #picture-main, .heading-wrapper {
+    height: 500px; } }
+
+/* ng-show / ng-hide */
+/*.animate-show {
+  line-height: 20px;
+  opacity: 1;
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+
+.check-element {
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+}*/
+/* END IOS STUFF */
+/* CLEARFIX */
+.group:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+body {
+  font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+  background-color: #fff; }
+
+nav#upload-menu {
+  background-color: #4a4a4a; }
+
+/* NAVIGATION */
+.menu {
+  background-color: #4a4a4a;
+  color: #efefef; }
+
+.menu ul {
+  list-style-type: none;
+  padding-top: 1.4em;
+  padding-bottom: 1.4em; }
+
+.menu ul li {
+  display: inline-block;
+  color: #efefef;
+  /*text-shadow: 0px 1px 1px rgba(0,0,0,0.50);*/
+  float: right;
+  padding-right: 1.5em; }
+
+/* BRAND */
+.menu ul li:first-child {
+  float: left;
+  padding-left: 1.25em; }
+
+/* TOP RIGHT MENU SELECT (2nd because of float) */
+.menu ul li:nth-child(2) {
+  padding-right: 1.25em; }
+
+/*nav ul li:last-child {
+	float: right;
+	padding-right: 20px;
+}*/
+/* END NAVIGATION */
+#upload-container {
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+#upload-main {
+  background-color: white;
+  text-align: center;
+  padding: 1em; }
+
+#main-title {
+  font-size: 3em;
+  color: #333;
+  margin: 1em auto; }
+
+#upload-button {
+  margin: 0 auto;
+  max-width: 500px;
+  font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+  border-radius: 4px;
+  background-color: #58D4FF;
+  font-size: 1.5em;
+  color: #fff;
+  padding: 0.8em 1.5em;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 250ms; }
+
+#upload-button:hover, #upload-button:active, #upload-button:focus {
+  outline: none;
+  border-radius: 4px;
+  background-color: transparent;
+  font-size: 1.5em;
+  color: #58D4FF;
+  padding: 0.8em 1.5em;
+  border: 2px solid #58D4FF;
+  border-radius: 4px;
+  cursor: pointer; }
+
+#photo {
+  height: auto;
+  max-width: 100%;
+  border: 1px solid #f2f2f2;
+  margin: 4em auto;
+  /*background: #fff url('../pics/mountain-lake.jpeg') no-repeat center center / cover;*/ }
+
+#upload-meta {
+  padding: 1em;
+  background-color: #f9f9f9; }
+
+#upload-form {
+  padding: 4em 0 2em; }
+
+label {
+  display: block;
+  font-size: 1.5em;
+  color: #58D4FF;
+  text-transform: uppercase; }
+
+input, textarea {
+  font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+  display: block;
+  width: 100%;
+  line-height: 1.75;
+  font-size: 1.5em;
+  color: #4a4a4a;
+  border: none;
+  transition: 250ms; }
+
+input:focus, input:active {
+  outline: #58D4FF solid 1px; }
+
+textarea:focus, textarea:active {
+  outline: #58D4FF solid 1px; }
+
+#label-title {
+  margin-bottom: 0.75em; }
+
+#label-caption {
+  margin-top: 1.25em;
+  margin-bottom: 0.75em; }
+
+#caption {
+  width: 100%;
+  font-size: 1.5em;
+  border: none;
+  transition: 250ms; }
+
+#label-tags {
+  margin-top: 1.25em;
+  margin-bottom: 0.75em; }
+
+#exif #label-exif {
+  font-size: 1.5em;
+  margin-top: 1.25em;
+  margin-bottom: 0.75em;
+  display: block;
+  color: #58D4FF; }
+
+#exif label {
+  width: initial;
+  display: inline-block;
+  font-size: 1.25em;
+  color: #4a4a4a;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+  text-transform: initial; }
+
+#exif input {
+  width: initial;
+  display: inline-block;
+  font-size: 1.25em;
+  color: #979797;
+  line-height: initial;
+  background-color: #f9f9f9;
+  border: 1px solid #f2f2f2; }
+
+#label-location {
+  margin-top: 1.25em;
+  margin-bottom: 0.75em; }
+
+#info-location-map {
+  display: inline-block;
+  width: 300px;
+  height: 200px;
+  background: #eee url("https://maps.googleapis.com/maps/api/staticmap?center=63.259591,-144.667969&zoom=6&size=300x200&markers=Ccolor:0xFFFF00%7Clabel:C%7CTok,AK") no-repeat center center/cover; }
+
+#photo-submit {
+  outline: none;
+  margin-top: 1.5em;
+  font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+  border-radius: 4px;
+  background-color: transparent;
+  font-size: 1.5em;
+  color: #58D4FF;
+  padding: 0.6em 1.2em;
+  border: 2px solid #58D4FF;
+  cursor: pointer;
+  transition: 250ms; }
+
+#photo-submit:hover, #photo-submit:active, #photo-submit:focus {
+  background-color: #58D4FF;
+  color: #FFF;
+  border: 2px solid transparent; }
+
+footer {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 1.25em;
+  font-size: 1em;
+  color: #9b9b9b; }
+
+/* DEFAULT SMALL SCREEN */
+/* MEDIUM SCREEN */
+@media screen and (min-width: 48em) {
+  #main-title {
+    font-size: 4em;
+    margin: 1.25em auto; }
+  #photo {
+    height: 400px;
+    width: auto; }
+  #exif {
+    display: inline-block;
+    float: left; }
+  #location {
+    display: inline-block;
+    float: right;
+    margin-bottom: 2em; }
+  footer {
+    padding: 1.5em; } }
+
+/* LARGE SCREEN */
+@media screen and (min-width: 64em) {
+  #upload-form {
+    max-width: 800px;
+    margin: 0 auto; } }
+
+/* XL SCREEN */
