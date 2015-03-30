@@ -1,9 +1,9 @@
-var router = require('express').Router();
-var busboy = require('connect-busboy');
-var fs = require('fs');
-var gm = require('gm');
-var degreeToDecimal = require('./degreeToDecimal'); //mh gps conversion function
- 
+var router          = require('express').Router(),
+    busboy          = require('connect-busboy'),
+    fs              = require('fs'),
+    gm              = require('gm'),
+    degreeToDecimal = require('./degreeToDecimal'); //mh gps conversion function
+
 router.post('/api/user/upload', function(req, res, next){
 	var fstream;
 	var cameraModel;
@@ -38,8 +38,8 @@ router.post('/api/user/upload', function(req, res, next){
 	  		  	else { console.log("gm error: " + error); }
 
 	  		  	console.log(data + " is EXIF blob");
-				console.log(latOut + " is latOut");
-				console.log(lonOut + " is lonOut");
+				console.log(latOut + " is latOut..........");
+				console.log(lonOut + " is lonOut..........");
 	  			console.log('1 '+ data.Compression);//jpeg
   	  			console.log('2 '+ cameraModel);  	//nexus
  		  		
@@ -52,7 +52,7 @@ router.post('/api/user/upload', function(req, res, next){
 				// .gm(uploadPath).resize(100,100)
 				// 		.write(writeStream, function(err){
 				// 			if (!err) 
-				// 			console.log('hooray');
+		 		// 			console.log('hooray');
 				// 			else console.log('error time');
 				// 		});
 				// console.log(Date.now()+ " is 4");

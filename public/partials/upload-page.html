@@ -16,12 +16,20 @@
         <!-- <button id="upload-button">Choose Photo</button> -->
         <img ng-src= "{{vm.fileout}}" width="500" id="photo" ng-show="vm.fileout">
         <!-- <div id="photo"></div> -->
+       <!-- BLOCKED BY X FRAME OPTIONS SETTING OF SAME ORIGINS
+            <iframe
+                  width="450"
+                  height="150"
+                  frameborder="0" style="border:0"
+                  src="https://www.google.com/maps/embed/v1/view
+                          ?key=AIzaSyBrxXM1q0dXwvpzPfy44FFX0bAzkDpvsiY
+                          &center={{vm.lat}},{{vm.lon}}
+                          &zoom=18
+                          &maptype=satellite
+                          &output=embed">
+            </iframe> -->
+       </div>
 
-        <p>{{vm.lat}}{{vm.lon}}</p>
-
-    </div>
- 
-    
         <form novalidate class="group" id="upload-form">
             <fieldset name="description">
                 <label for="title" id="label-userid">UserId</label>
@@ -39,30 +47,41 @@
 
             <fieldset name="exif" id="exif">
                 <label id="label-exif">EXIF</label>
-                <label for="camera">Camera: </label>
+                <label for="camera">Camera:  </label>
                 <input name="camera" ng-model="metadata.camera">
+                {{vm.cameraModel}}
                 <br>
                 <label for="shutter-speed">Shutter Speed:</label>
                 <input name="shutter-speed" ng-model="metadata.shutter">
+                {{vm.shutterSpeed}}
                 <br>
                 <label for="aperture">Aperture:</label>
                 <input name="aperture" ng-model="metadata.aperture">
+                {{vm.aperture}}
                 <br>
                 <label for="iso">ISO:</label>
                 <input name="iso" ng-model="metadata.iso">
+                {{vm.iso}}
                 <br>
                 <label for="date">Taken On:</label>
                 <input name="date" ng-model="metadata.date">
+                {{vm.timeDate}}
             </fieldset>
 
             <fieldset name="location" id="location">
-
+ 
                 <label id="label-location">Location</label>
-                 <p> Latitude: {{lat}} - Longitude: {{lon}}</p>
+        <p> Latitude: {{vm.lat}} - Longitude: {{vm.lon}}</p>
 
-                <a href="/partials/map-page.html">
+            </br>
+<img src="https://maps.googleapis.com/maps/api/staticmap?center={{vm.lat}},{{vm.lon}}&zoom=17&size=600x400&markers=color:blue%7Clabel:S%7C{{vm.lat}},{{vm.lon}}&maptype=roadmap">
+</img>
+</p>
+
+ <!-- <a href="/partials/map-page.html">
                     <div id="info-location-map"></div>
-                </a>
+                </a> -->
+
             </fieldset>
 
 
