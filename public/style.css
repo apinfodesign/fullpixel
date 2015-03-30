@@ -1770,8 +1770,13 @@ footer {
   clear: both; }
 
 /* DEFAULT SMALL SCREEN */
+.members-list li {
+  width: 98%; }
+
 /* MEDIUM SCREEN */
 @media screen and (min-width: 48em) {
+  .members-list li {
+    width: 48%; }
   #callout-text {
     margin: 6em auto; }
   #callout-text-heading {
@@ -1790,6 +1795,8 @@ footer {
 
 /* LARGE SCREEN */
 @media screen and (min-width: 64em) {
+  .members-list li {
+    width: 31.3%; }
   #gallery img {
     width: 49.5%; }
   #callout-text {
