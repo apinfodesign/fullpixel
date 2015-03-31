@@ -12,6 +12,7 @@ router.get('/users', function(req, res, next){
     var auth =jwt.decode(req.headers['x-auth'], config.secret);
     User.findOne({username: auth.username},function(err, user){
         if(err){ return next(err); }
+        console.log(auth.username + ' Im authorized!');
         res.json(user);
     });
 });

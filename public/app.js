@@ -8,7 +8,7 @@ angular.module('pullPix',[
 angular.module('pullPix')
     .controller('ApplicationCtrl', ["$scope", function($scope){
         $scope.$on('login', function(_, user){
-            $scope.currentUser = user.username;
+            $scope.currentUser = user;
             console.log('appctrl ' + user.username);
     });
 }]);
@@ -88,7 +88,7 @@ angular.module('pullPix')
             UserSvc.login(username, password)
                 .then(function(user){
                     $scope.$emit('login', user);
-                    console.log('User ' + user.username);
+                    console.log('User ' + user);
                     $location.path('/upload');
             	});
         };
@@ -315,9 +315,10 @@ angular.module('pullPix')
     .service('UserSvc', ["$http", "$window", function ($http, $window) {
         var svc = this;
         svc.getUser = function () {
-            return $http.get('/users')
+            return $http.get('/users',{
+                headers: {'X-Auth': this.token}
+            })
                 .then(function (response) {
-                    console.log('I got here ' + reponse.data);
                     return response.data;
                 });
         };

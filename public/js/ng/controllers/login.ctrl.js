@@ -4,7 +4,7 @@ angular.module('pullPix')
             UserSvc.login(username, password)
                 .then(function(user){
                     $scope.$emit('login', user);
-                    console.log('User ' + user.username);
+                    console.log('User ' + user);
                     $location.path('/upload');
             	});
         };

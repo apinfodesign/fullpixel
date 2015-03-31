@@ -2,9 +2,10 @@ angular.module('pullPix')
     .service('UserSvc', function ($http, $window) {
         var svc = this;
         svc.getUser = function () {
-            return $http.get('/users')
+            return $http.get('/users',{
+                headers: {'X-Auth': this.token}
+            })
                 .then(function (response) {
-                    console.log('I got here ' + reponse.data);
                     return response.data;
                 });
         };
