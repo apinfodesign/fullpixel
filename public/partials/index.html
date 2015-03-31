@@ -9,14 +9,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-
-    <!-- added for the lightbox -->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/js/lib/angular-loading-bar/build/loading-bar.css">
-    <link rel="stylesheet" href="/js/lib/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
- 
-     
     <!-- compiled scss -->
     <link rel="stylesheet" type="text/css" href="style.css">
  </head>
@@ -25,21 +18,17 @@
 <body ng-app="pullPix" ng-controller="ApplicationCtrl">
 
     <div ng-view></div>
- 
+    <!-- added for file upload -->
     <script src="/js/lib/ng-file-upload/angular-file-upload-shim.min.js"></script> 
     <script src="/js/lib/ng-file-upload/angular-file-upload.min.js"></script> 
+
+    <!-- added for ng-animations -->
     <script src="/js/lib/angular-animate/angular-animate.min.js"></script> 
 
+    <!-- added for full screen -->
+    <script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
     <script src="/js/lib/angular-bootstrap/ui-bootstrap.min.js"></script> 
-  
     <script src="/js/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-
-
-    <!-- added for the lightbox -->
-    <script src="/js/lib/angular-touch/angular-touch.js"></script>
-    <script src="/js/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="/js/lib/angular-loading-bar/build/loading-bar.js"></script>
-    <script src="/js/lib/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>
 
     <script src="/app.js"></script>
 
