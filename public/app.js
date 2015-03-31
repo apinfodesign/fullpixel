@@ -5,74 +5,6 @@ angular.module('pullPix',[
     'ui.bootstrap',
     'bootstrapLightbox'
 ]);
-
-angular.module('pullPix')
-    .factory('CurrentUser', function(){
-        var currentuser = {
-            'userid' : 666
-        }
-        return currentuser;
-    });
-angular.module('pullPix')
-    .service('ImgMetaSvc', ["$http", function($http){
-        this.fetch = function(){
-            return $http.get('/img-meta');
-        };
-        this.create = function(imgmeta){
-            return $http.post('/img-meta', imgmeta);
-        }
-    }]);
-angular.module('pullPix')
-    .service('ListSvc', ["$http", function($http){
-       this.fetch = function(){
-            return $http.get('http://localhost:3000/api/posts');
-       };
-        this.create = function(post){
-            return $http.post('http://localhost:3000/api/posts', post);
-        };
-    }]);
-
-
-
-angular.module('pullPix')
-    .service('MemberListSvc', ["$http", function($http){
-        this.fetch = function(){
-            return $http.get('http://localhost:3000/member');
-        }
-    }]);
-
-
-
-angular.module('pullPix')
-    .service('UserSvc', ["$http", "$window", function ($http, $window) {
-        var svc = this;
-        svc.getUser = function () {
-            return $http.get('/users')
-                .then(function (response) {
-                    return response.data;
-                });
-        };
-        svc.login = function (username, password) {
-            return $http.post('/sessions', {
-                username: username, password: password
-            }).then(function (response) {
-                console.log("Res data " + response.data);
-                $window.localStorage.setItem('access_token', response.data);
-                svc.token = response.data
-                $http.defaults.headers.common['X-Auth'] = response.data;
-                return svc.getUser();
-            });
-        };
-        svc.register = function (username, password) {
-            return $http.post('/users', {
-                username: username, password: password
-            }).then(function () {
-                return svc.login(username, password);
-            });
-        };
-    }]);
-
-
 angular.module('pullPix')
     .controller('ApplicationCtrl', ["$scope", function($scope){
         $scope.$on('login', function(_, user){
@@ -342,3 +274,71 @@ angular
         }
     };
 }
+
+
+
+angular.module('pullPix')
+    .factory('CurrentUser', function(){
+        var currentuser = {
+            'userid' : 666
+        }
+        return currentuser;
+    });
+angular.module('pullPix')
+    .service('ImgMetaSvc', ["$http", function($http){
+        this.fetch = function(){
+            return $http.get('/img-meta');
+        };
+        this.create = function(imgmeta){
+            return $http.post('/img-meta', imgmeta);
+        }
+    }]);
+angular.module('pullPix')
+    .service('ListSvc', ["$http", function($http){
+       this.fetch = function(){
+            return $http.get('http://localhost:3000/api/posts');
+       };
+        this.create = function(post){
+            return $http.post('http://localhost:3000/api/posts', post);
+        };
+    }]);
+
+
+
+angular.module('pullPix')
+    .service('MemberListSvc', ["$http", function($http){
+        this.fetch = function(){
+            return $http.get('http://localhost:3000/member');
+        }
+    }]);
+
+
+
+angular.module('pullPix')
+    .service('UserSvc', ["$http", "$window", function ($http, $window) {
+        var svc = this;
+        svc.getUser = function () {
+            return $http.get('/users')
+                .then(function (response) {
+                    return response.data;
+                });
+        };
+        svc.login = function (username, password) {
+            return $http.post('/sessions', {
+                username: username, password: password
+            }).then(function (response) {
+                console.log("Res data " + response.data);
+                $window.localStorage.setItem('access_token', response.data);
+                svc.token = response.data
+                $http.defaults.headers.common['X-Auth'] = response.data;
+                return svc.getUser();
+            });
+        };
+        svc.register = function (username, password) {
+            return $http.post('/users', {
+                username: username, password: password
+            }).then(function () {
+                return svc.login(username, password);
+            });
+        };
+    }]);

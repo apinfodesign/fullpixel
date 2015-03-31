@@ -22,7 +22,10 @@
  </head>
 
 
-<body ng-app="pullPix" ng-controller="ApplicationCtrl">
+<body ng-app="pullPix" >
+<div class="currentuser" ng-controller="ApplicationCtrl">
+    <span ng-if="currentUser">Signed in as {{currentUser.username}}</span>
+</div>
 
 
     <div class="ang-view" ng-view></div>
