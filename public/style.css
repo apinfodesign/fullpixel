@@ -99,6 +99,10 @@ table {
   text-align: center;
   color: #FFFFF0; }
 
+.ang-view {
+  display: block;
+  float: left; }
+
 /* NAVIGATION */
 #photo-menu {
   background-color: #4a4a4a;
@@ -340,6 +344,27 @@ footer {
     height: 500px; } }
 
 /* END IOS STUFF */
+.profileview {
+  display: block;
+  float: left;
+  width: 100%; }
+
+.profilelist li {
+  position: relative; }
+
+.profilelist img {
+  display: block;
+  float: left;
+  width: 100%; }
+
+.profilelist span {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  bottom: 25px;
+  color: red;
+  text-align: center; }
+
 /*
 Pure v0.5.0
 Copyright 2014 Yahoo! Inc. All rights reserved.
@@ -569,7 +594,7 @@ dd {
  * Address paddings set differently in IE 6/7.
  */
 menu, ol, ul {
-  padding: 0 0 0 40px; }
+  padding: 0; }
 
 /**
  * Correct list images handled incorrectly in IE 7.

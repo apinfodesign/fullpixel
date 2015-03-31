@@ -168,6 +168,18 @@ angular.module('pullPix')
                 $scope.members = users;
             });
     }]);
+angular
+    .module('pullPix')
+    .controller('ProfileCtrl',["$scope", "ImgMetaSvc", function($scope, ImgMetaSvc) {
+
+        ImgMetaSvc.fetch()
+            .success(function(imgmetas){
+                $scope.imgmetas = imgmetas
+            });
+
+    }]);
+
+
 angular.module('pullPix')
     .controller('RegisterCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.register = function (username, password){
