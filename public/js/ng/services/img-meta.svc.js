@@ -1,6 +1,6 @@
 angular.module('pullPix')
     .service('ImgMetaSvc', function($http){
-        this.fetch = function(username){
+        this.fetch = function(){
             return $http.get('/img-meta');
         };
         this.create = function(imgmeta){

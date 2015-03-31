@@ -27,7 +27,7 @@
         <h1 class="members-title">Members</h1>
         <ul class="members-list">
             <li ng-repeat="user in members | orderBy: '-date'">
-                <a href="/{{user.username}}">
+                <a href="/#/profile">
                     <img ng-src="assets/mbr-imgs/{{user.userphoto}}">
                     <h2>{{user.username}}</h2>
                 </a>

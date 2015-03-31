@@ -1,0 +1,24 @@
+.profileview {
+  display: block;
+  float: left;
+  width: 100%;
+
+}
+.profilelist li {
+  position: relative;
+}
+.profilelist img {
+  display: block;
+  float: left;
+  width: 100%;
+
+}
+.profilelist span {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  bottom: 25px;
+  color: red;
+  text-align: center;
+
+}

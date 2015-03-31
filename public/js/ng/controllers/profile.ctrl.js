@@ -1,10 +1,11 @@
 angular
-    .module('PullPix')
-    .controller('ProfileCtrl', Profile);
+    .module('pullPix')
+    .controller('ProfileCtrl',function($scope, ImgMetaSvc) {
 
-    Profile.$inject = ['ProfileSvc','$location'];
+        ImgMetaSvc.fetch()
+            .success(function(imgmetas){
+                $scope.imgmetas = imgmetas
+            });
 
-    function Profile(ProfileSvc, $location){
-        var vm = this;
+    });
 
-    }

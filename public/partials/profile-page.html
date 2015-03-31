@@ -1,7 +1,6 @@
 
 
 <div style="position: relative">
-	<div id="banner-photo"></div>
 	<div id="banner-main-overlay"></div>
 	
 	<div id="banner-main">
@@ -22,6 +21,14 @@
 		</div>
 		
 	</div> <!-- end banner main -->
+	<div class="profileview" ng-controller="ProfileCtrl">
+       <ul class="profilelist">
+           <li ng-repeat="imgmeta in imgmetas | orderBy: '-date'">
+               <span>{{imgmeta.username}}</span>
+               <img ng-src="uploads/{{imgmeta.path}}"></img>
+           </li>
+       </ul>
+    </div>
 
 </div>
 

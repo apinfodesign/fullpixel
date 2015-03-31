@@ -101,15 +101,17 @@ angular.module('pullPix')
             });
     }]);
 angular
-    .module('PullPix')
-    .controller('ProfileCtrl', Profile);
+    .module('pullPix')
+    .controller('ProfileCtrl',["$scope", "ImgMetaSvc", function($scope, ImgMetaSvc) {
 
-    Profile.$inject = ['ProfileSvc','$location'];
+        ImgMetaSvc.fetch()
+            .success(function(imgmetas){
+                $scope.imgmetas = imgmetas
+            });
 
-    function Profile(ProfileSvc, $location){
-        var vm = this;
+    }]);
 
-    }
+
 angular.module('pullPix')
     .controller('RegisterCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.register = function (username, password){
@@ -284,7 +286,7 @@ angular.module('pullPix')
     });
 angular.module('pullPix')
     .service('ImgMetaSvc', ["$http", function($http){
-        this.fetch = function(username){
+        this.fetch = function(){
             return $http.get('/img-meta');
         };
         this.create = function(imgmeta){
@@ -309,16 +311,6 @@ angular.module('pullPix')
             return $http.get('http://localhost:3000/member');
         }
     }]);
-angular
-    .module('PullPix')
-    .factory('ProfileSvc', ["$http", function($http){
-        this.fetch = function(username){
-            return $http.get('/')
-        }
-    }]);
-
-/// use image meta service????
-
 
 
 
