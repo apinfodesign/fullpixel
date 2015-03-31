@@ -8,7 +8,8 @@ angular.module('pullPix',[
 angular.module('pullPix')
     .controller('ApplicationCtrl', ["$scope", function($scope){
         $scope.$on('login', function(_, user){
-            $scope.currentUser = user;
+            $scope.currentUser = user.username;
+            console.log('appctrl ' + user.username);
     });
 }]);
 
@@ -87,7 +88,7 @@ angular.module('pullPix')
             UserSvc.login(username, password)
                 .then(function(user){
                     $scope.$emit('login', user);
-                    console.log('User ' + user);
+                    console.log('User ' + user.username);
                     $location.path('/upload');
             	});
         };
@@ -304,22 +305,19 @@ angular.module('pullPix')
     }]);
 
 
-
 angular.module('pullPix')
     .service('MemberListSvc', ["$http", function($http){
         this.fetch = function(){
             return $http.get('http://localhost:3000/member');
         }
     }]);
-
-
-
 angular.module('pullPix')
     .service('UserSvc', ["$http", "$window", function ($http, $window) {
         var svc = this;
         svc.getUser = function () {
             return $http.get('/users')
                 .then(function (response) {
+                    console.log('I got here ' + reponse.data);
                     return response.data;
                 });
         };
@@ -329,7 +327,7 @@ angular.module('pullPix')
             }).then(function (response) {
                 console.log("Res data " + response.data);
                 $window.localStorage.setItem('access_token', response.data);
-                svc.token = response.data
+                svc.token = response.data;
                 $http.defaults.headers.common['X-Auth'] = response.data;
                 return svc.getUser();
             });

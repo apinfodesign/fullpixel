@@ -101,7 +101,8 @@ table {
 
 .ang-view {
   display: block;
-  float: left; }
+  float: left;
+  width: 100%; }
 
 /* NAVIGATION */
 #photo-menu {

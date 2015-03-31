@@ -4,6 +4,7 @@ angular.module('pullPix')
         svc.getUser = function () {
             return $http.get('/users')
                 .then(function (response) {
+                    console.log('I got here ' + reponse.data);
                     return response.data;
                 });
         };
@@ -13,7 +14,7 @@ angular.module('pullPix')
             }).then(function (response) {
                 console.log("Res data " + response.data);
                 $window.localStorage.setItem('access_token', response.data);
-                svc.token = response.data
+                svc.token = response.data;
                 $http.defaults.headers.common['X-Auth'] = response.data;
                 return svc.getUser();
             });
