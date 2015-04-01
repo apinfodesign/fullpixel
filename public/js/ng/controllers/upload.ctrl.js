@@ -38,7 +38,7 @@ angular
         vm.fileout = "/uploads/" + files[0].name;
         //TEMP DELETE NOT WORKING vm.currentuser = CurrentUser.userid;
 
-        
+
         try
           {
           console.log('success fileout 2');
@@ -116,7 +116,7 @@ angular
           vm.iso = null;
           vm.timeDate = null;
       }
-
+      //end try catch
 
      });
   }
