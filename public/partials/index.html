@@ -1,6 +1,6 @@
 <!doctype>
 <html>
-<head>
+<head id="index">
     <meta charset="UTF-8">
     <title>Full Pixel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
@@ -15,17 +15,20 @@
  </head>
 
 
-<body ng-app="pullPix" ng-controller="ApplicationCtrl">
+<body ng-app="pullPix" >
+<div class="currentuser" ng-controller="ApplicationCtrl">
+    <div class="ang-view" ng-view></div>
+</div>
 
-    <div ng-view></div>
-    <!-- added for file upload -->
+
+    <!-- used to ng file upload -->
     <script src="/js/lib/ng-file-upload/angular-file-upload-shim.min.js"></script> 
     <script src="/js/lib/ng-file-upload/angular-file-upload.min.js"></script> 
 
     <!-- added for ng-animations -->
     <script src="/js/lib/angular-animate/angular-animate.min.js"></script> 
 
-    <!-- added for full screen -->
+    <!-- added for fullscreen viewer -->
     <script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
     <script src="/js/lib/angular-bootstrap/ui-bootstrap.min.js"></script> 
     <script src="/js/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
