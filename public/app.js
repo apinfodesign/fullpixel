@@ -120,6 +120,51 @@ angular.module('pullPix')
                 $scope.members = users;
             });
     }]);
+angular.module('pullPix')
+.controller('ModalDemoCtrl', ["$scope", "$modal", function ($scope, $modal) {
+
+
+  $scope.open = function (size) {
+
+    var modalInstance = $modal.open({
+      templateUrl: 'myModalContent.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+    });
+  };
+}]);
+
+
+
+
+// Please note that $modalInstance represents a modal window (instance) dependency.
+// It is not the same as the $modal service used above.
+
+angular.module('pullPix')
+.controller('ModalInstanceCtrl', ["$scope", "UserSvc", "$location", "$modalInstance", function ($scope, UserSvc, $location, $modalInstance) {
+
+  $scope.register = function (username, password){
+            UserSvc.register(username, password)
+                .then(function(user){
+                    console.log('WORK');
+                    $scope.$emit('login', user);
+                    $location.path('/upload');
+            });
+  };
+
+  $scope.login = function(username, password){
+            UserSvc.login(username, password)
+                .then(function(user){
+                    $scope.$emit('login', user);
+                    console.log('User ' + user);
+                    $location.path('/upload');
+              });
+  };
+  
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+}]);
 angular
     .module('pullPix')
     .controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", function($scope, ImgMetaSvc, $routeParams) {
@@ -147,10 +192,9 @@ angular.module('pullPix')
 angular.module('pullPix')
     .config(["$routeProvider", function ($routeProvider){
         $routeProvider
-            .when('/',           {controller: 'LoginCtrl',   templateUrl: '/partials/splash-page.html'})
+            .when('/',           {controller: 'ModalDemoCtrl',   templateUrl: '/partials/splash-page.html'})
             .when('/upload',     {controller: 'UploadCtrl', controllerAs: 'vm', templateUrl: '/partials/upload-page.html'})
-            .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'})
-            
+            .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'}) 
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
             .when('/fullscreen', {controller: 'FullscreenCtrl',    templateUrl: '/partials/fullscreen.html'})

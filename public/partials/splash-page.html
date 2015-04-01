@@ -11,8 +11,60 @@
 
 		<div class="heading-wrapper">
 			<h1 id="main-callout">The site that can finally handle your photos.</h1>
+			
+
 			<!-- Modal for the button -->
-			<button id="signUp"><a href="/#/#signup-form-container">Get Started</a></button>
+			<div ng-controller="ModalDemoCtrl">
+			    <script type="text/ng-template" id="myModalContent.html">
+
+			        <div class='signup'>
+				        <div class="modal-body" class="check-element animate-show" ng-show="checked">
+			    
+			    			<form ng-submit="login(username, password)" id="form-login">
+		        				<label>Username</label>
+					        	<input class="form-control" type="text" ng-model="username">
+					    	
+					        	<label>Password</label>
+					        	<input class="form-control" type="password" ng-model="password">
+					    
+					    		<input type="submit" value="Login to FullPixel" id="login-submit" ng-click="cancel()">
+							</form>
+
+			  			</div>
+
+
+
+			            <div class="modal-body" class="check-element animate-show" ng-hide="checked">
+		    
+		    				<form ng-submit="register(username, password)" id="form-signup">
+					        	<label>Username</label>
+					        	<input class="form-control" type="text" ng-model="username">
+					    	
+					        	<label>Password</label>
+					        	<input class="form-control" type="password" ng-model="password">
+					    	
+					    		<input type="submit" value="Sign up for FullPixel" id="signup-submit" ng-click="cancel()">
+							</form>
+			        	</div>
+
+			        	<div id="check-container">
+							<p id="check-title">Already signed up?</p>
+							<input type="checkbox" ng-model="checked" id="login-check">
+						</div>
+
+			        </div>
+
+			        <div class="modal-footer">
+			            
+			            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+			        </div>
+			    </script>
+
+			    <button id="signUp" ng-click="open()">Get Started!</button>
+			    
+			    
+			</div>
+
 		</div>
 
 	</div> <!-- end picture main -->
@@ -76,7 +128,7 @@
 		</div>
 
 		<div id="check-container">
-			<p id="check-title">Already signed up?</p>
+			<p id="check-title">  Already signed up?</p>
 			<input type="checkbox" ng-model="checked" id="login-check">
 		</div>
 

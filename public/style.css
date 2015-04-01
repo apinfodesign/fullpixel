@@ -1841,7 +1841,8 @@ footer {
     padding: 5em 1em 5em; }
   #form-login, #form-signup, #check-container {
     margin: 0 auto;
-    max-width: 800px; } }
+    max-width: 800px;
+    padding: 10px; } }
 
 /* LARGE SCREEN ONLY */
 @media screen and (min-width: 64em) and (max-width: 80em) {
