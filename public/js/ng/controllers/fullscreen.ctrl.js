@@ -16,7 +16,7 @@ angular.module('pullPix')
     }
 
     function nextSlide() {
-        $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
+        $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 1;
         $timeout(nextSlide, INTERVAL);
     }
 

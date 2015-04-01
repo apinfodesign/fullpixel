@@ -30,7 +30,7 @@ angular.module('pullPix')
     }
 
     function nextSlide() {
-        $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
+        $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 1;
         $timeout(nextSlide, INTERVAL);
     }
 
@@ -309,7 +309,6 @@ angular
 }
 
 
-
 angular.module('pullPix')
     .factory('CurrentUser', function(){
         var currentuser = {
@@ -374,3 +373,4 @@ angular.module('pullPix')
             });
         };
     }]);
+
