@@ -1,0 +1,9 @@
+
+
+<div ng-controller="FullscreenCtrl">
+    <img ng-show="loaded" bg-image class="fullBg" ng-repeat="slide in slides"
+         ng-if="isCurrentSlideIndex($index)" 
+         ng-src="{{slide.src}}">
+
+</div>
+

@@ -11,6 +11,7 @@
 
 		<div class="heading-wrapper">
 			<h1 id="main-callout">The site that can finally handle your photos.</h1>
+			<!-- Modal for the button -->
 			<button id="signUp"><a href="/#/#signup-form-container">Get Started</a></button>
 		</div>
 
@@ -28,7 +29,7 @@
         <ul class="members-list">
             <li ng-repeat="user in members | orderBy: '-date'">
                 <a href="/#/{{user.username}}">
-                    <img ng-src="assets/mbr-imgs/{{user.userphoto}}">
+                    <img ng-src="assets/mbr-imgs/{{user.userphoto || 'default.jpg'}}">
                     <h2>{{user.username}}</h2>
                 </a>
             </li>
