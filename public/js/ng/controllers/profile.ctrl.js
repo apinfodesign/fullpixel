@@ -6,6 +6,7 @@ angular
         ImgMetaSvc.fetch($scope.userName)
             .success(function(imgmetas){
                 $scope.imgmetas = imgmetas
+                console.log('profilectrl ' + imgmetas);
             });
 
     });

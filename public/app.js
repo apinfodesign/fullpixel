@@ -128,6 +128,7 @@ angular
         ImgMetaSvc.fetch($scope.userName)
             .success(function(imgmetas){
                 $scope.imgmetas = imgmetas
+                console.log('profilectrl ' + imgmetas);
             });
 
     }]);
@@ -299,8 +300,8 @@ angular
                 })
                 .success(function(imgmeta){
                   console.table(imgmeta);
-                  metadata = null;
-                  $location.path('/profile');
+                  //metadata = null;
+                  $location.path('/' + metadata.username);
  
                 });
         }
