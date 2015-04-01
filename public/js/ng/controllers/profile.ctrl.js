@@ -1,6 +1,7 @@
 angular
     .module('pullPix')
-    .controller('ProfileCtrl',function($scope, ImgMetaSvc) {
+    .controller('ProfileCtrl',function($scope, ImgMetaSvc, $routeParams) {
+        $scope.userName = $routeParams.userName;
 
         ImgMetaSvc.fetch()
             .success(function(imgmetas){
