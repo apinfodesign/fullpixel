@@ -9,6 +9,7 @@ angular.module('pullPix')
     .controller('ApplicationCtrl', ["$scope", function($scope){
         $scope.$on('login', function(_, user){
             $scope.currentUser = user;
+            console.log('appctrl ' + user.username);
     });
 }]);
 
@@ -100,6 +101,19 @@ angular.module('pullPix')
                 $scope.members = users;
             });
     }]);
+angular
+    .module('pullPix')
+    .controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", function($scope, ImgMetaSvc, $routeParams) {
+        $scope.userName = $routeParams.userName;
+
+        ImgMetaSvc.fetch()
+            .success(function(imgmetas){
+                $scope.imgmetas = imgmetas
+            });
+
+    }]);
+
+
 angular.module('pullPix')
     .controller('RegisterCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.register = function (username, password){
@@ -117,7 +131,7 @@ angular.module('pullPix')
             .when('/',           {controller: 'LoginCtrl',   templateUrl: '/partials/splash-page.html'})
             .when('/upload',     {controller: 'UploadCtrl', controllerAs: 'vm', templateUrl: '/partials/upload-page.html'})
             .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'})
-            .when('/profile',    {controller: '',            templateUrl: '/partials/profile-page.html'}) 
+            .when('/:userName',    {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'})
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
             .when('/photo-page',  {controller: '',            templateUrl: '/partials/photo-page.html'})
             .when('/lightbox',  	{controller: 'LightboxCtrl',    templateUrl: '/partials/lightbox.html'});
@@ -292,21 +306,19 @@ angular.module('pullPix')
     }]);
 
 
-
 angular.module('pullPix')
     .service('MemberListSvc', ["$http", function($http){
         this.fetch = function(){
             return $http.get('http://localhost:3000/member');
         }
     }]);
-
-
-
 angular.module('pullPix')
     .service('UserSvc', ["$http", "$window", function ($http, $window) {
         var svc = this;
         svc.getUser = function () {
-            return $http.get('/users')
+            return $http.get('/users',{
+                headers: {'X-Auth': this.token}
+            })
                 .then(function (response) {
                     return response.data;
                 });
@@ -317,7 +329,7 @@ angular.module('pullPix')
             }).then(function (response) {
                 console.log("Res data " + response.data);
                 $window.localStorage.setItem('access_token', response.data);
-                svc.token = response.data
+                svc.token = response.data;
                 $http.defaults.headers.common['X-Auth'] = response.data;
                 return svc.getUser();
             });

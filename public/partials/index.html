@@ -1,6 +1,6 @@
 <!doctype>
 <html>
-<head>
+<head id="index">
     <meta charset="UTF-8">
     <title>Full Pixel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
@@ -22,10 +22,13 @@
  </head>
 
 
-<body ng-app="pullPix" ng-controller="ApplicationCtrl">
+<body ng-app="pullPix" >
+<div class="currentuser" ng-controller="ApplicationCtrl">
+    <div class="ang-view" ng-view></div>
+</div>
 
-    <div ng-view></div>
- 
+
+
     <script src="/js/lib/ng-file-upload/angular-file-upload-shim.min.js"></script> 
     <script src="/js/lib/ng-file-upload/angular-file-upload.min.js"></script> 
     <script src="/js/lib/angular-animate/angular-animate.min.js"></script> 

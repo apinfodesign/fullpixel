@@ -2,7 +2,9 @@ angular.module('pullPix')
     .service('UserSvc', function ($http, $window) {
         var svc = this;
         svc.getUser = function () {
-            return $http.get('/users')
+            return $http.get('/users',{
+                headers: {'X-Auth': this.token}
+            })
                 .then(function (response) {
                     return response.data;
                 });
@@ -13,7 +15,7 @@ angular.module('pullPix')
             }).then(function (response) {
                 console.log("Res data " + response.data);
                 $window.localStorage.setItem('access_token', response.data);
-                svc.token = response.data
+                svc.token = response.data;
                 $http.defaults.headers.common['X-Auth'] = response.data;
                 return svc.getUser();
             });
