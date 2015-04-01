@@ -141,13 +141,13 @@ angular.module('pullPix')
 // It is not the same as the $modal service used above.
 
 angular.module('pullPix')
-.controller('ModalInstanceCtrl', ["$scope", "UserSvc", "$location", "$modalInstance", function ($scope, UserSvc, $location, $modalInstance) {
+.controller('ModalInstanceCtrl', ["$scope", "$rootScope", "UserSvc", "$location", "$modalInstance", function ($scope, $rootScope, UserSvc, $location, $modalInstance) {
 
   $scope.register = function (username, password){
             UserSvc.register(username, password)
                 .then(function(user){
                     console.log('WORK');
-                    $scope.$emit('login', user);
+                    $rootScope.$emit('login', user);
                     $location.path('/upload');
             });
   };
@@ -155,7 +155,7 @@ angular.module('pullPix')
   $scope.login = function(username, password){
             UserSvc.login(username, password)
                 .then(function(user){
-                    $scope.$emit('login', user);
+                    $rootScope.$emit('login', user);
                     console.log('User ' + user);
                     $location.path('/upload');
               });
@@ -192,7 +192,7 @@ angular.module('pullPix')
 angular.module('pullPix')
     .config(["$routeProvider", function ($routeProvider){
         $routeProvider
-            .when('/',           {controller: 'ModalDemoCtrl',   templateUrl: '/partials/splash-page.html'})
+            .when('/',           {controller: 'ApplicationCtrl',   templateUrl: '/partials/splash-page.html'})
             .when('/upload',     {controller: 'UploadCtrl', controllerAs: 'vm', templateUrl: '/partials/upload-page.html'})
             .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'}) 
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
@@ -342,7 +342,6 @@ angular
 }
 
 
-
 angular.module('pullPix')
     .factory('CurrentUser', function(){
         var currentuser = {
@@ -406,3 +405,4 @@ angular.module('pullPix')
             });
         };
     }]);
+

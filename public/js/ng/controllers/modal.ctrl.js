@@ -19,13 +19,13 @@ angular.module('pullPix')
 // It is not the same as the $modal service used above.
 
 angular.module('pullPix')
-.controller('ModalInstanceCtrl', function ($scope, UserSvc, $location, $modalInstance) {
+.controller('ModalInstanceCtrl', function ($scope, $rootScope, UserSvc, $location, $modalInstance) {
 
   $scope.register = function (username, password){
             UserSvc.register(username, password)
                 .then(function(user){
                     console.log('WORK');
-                    $scope.$emit('login', user);
+                    $rootScope.$emit('login', user);
                     $location.path('/upload');
             });
   };
@@ -33,7 +33,7 @@ angular.module('pullPix')
   $scope.login = function(username, password){
             UserSvc.login(username, password)
                 .then(function(user){
-                    $scope.$emit('login', user);
+                    $rootScope.$emit('login', user);
                     console.log('User ' + user);
                     $location.path('/upload');
               });
