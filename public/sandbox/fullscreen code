@@ -1,0 +1,133 @@
+
+    <script>
+                                (function(d,ng){
+                        ng.module('demo').directive('fullscreenContainer', fullscreenContainer);
+
+                        function fullscreenContainer(){
+                            //Notice that we're not doing an isolate scope here - there's really no reason to.
+                            var directiveCfg = {
+                                restrict: 'EA',
+                                controller: fullscreenContainerCtrl
+                            };
+
+                            function fullscreenContainerCtrl($scope, $element, $attrs){
+                                //get a handle to the native DOM element
+                                var el = $element[0];
+                                //alias "this" for use in event handlers, etc...
+                                var thisCtrl = this;
+
+                                var fullScreenState = {
+                                    isFullScreen: false
+                                };
+
+                                //add in a hook in case the child directive wants to react
+                                //when this element enters/exits fullscreen state
+                                //note we're adding the property to "this" and not $scope
+                                thisCtrl.onFullScreenChange = null;
+
+                                //populate whether the fullscreen API is even supported
+                                fullScreenState.canDoFullScreen = d.fullscreenEnabled || 
+                                    d.webkitFullscreenEnabled || 
+                                    d.mozFullScreenEnabled || 
+                                    d.msFullscreenEnabled;
+
+                                if(fullScreenState.canDoFullScreen) {
+                                    //get the function on the element for making it fullscreen
+                                    //currently, still varied by vendor
+                                    var fullScreenFn = 
+                                        (el.requestFullscreen && 'requestFullscreen') ||
+                                        (el.mozRequestFullScreen && 'mozRequestFullScreen') ||
+                                        (el.webkitRequestFullscreen && 'webkitRequestFullscreen') ||
+                                        (el.msRequestFullscreen && 'msRequestFullscreen');
+
+                                    //again, expose a method so that the child directive can access it
+                                    thisCtrl.makeElementFullScreen = function() {
+                                        el[fullScreenFn]();
+                                    };
+
+                                    //document emits an event when fullscreen state changes
+                                    //also still varied by vendor
+                                    var fsChangeFns = [
+                                        'fullscreenchange', 
+                                        'webkitfullscreenchange', 
+                                        'mozfullscreenchange', 
+                                        'MSFullscreenChange'
+                                    ];
+
+                                    //event handler
+                                    function fsChanged(evt){
+                                        //Obtain the fullscreen element (if there is one)
+                                        //again, varies by vendor
+                                        var fullScreenEl = d.fullscreenElement ||
+                                            d.webkitFullscreenElement ||
+                                            d.mozFullScreenElement ||
+                                            d.msFullscreenElement;
+
+                                        var oldState = fullScreenState.isFullScreen;
+                                        fullScreenState.isFullScreen = (fullScreenEl && fullScreenEl === el);
+                                        if(oldState !== fullScreenState && typeof thisCtrl.onFullScreenChange === 'function') {
+                                            //if the child directive provided a callback, invoke it and provide the new state
+                                            thisCtrl.onFullScreenChange(fullScreenState.isFullScreen);
+                                        }                    
+                                     }
+
+                                    //add event listener for each of those events
+                                    fsChangeFns.forEach(function addFullScreenChangeEvtListener(fsEvtName){
+                                        d.addEventListener(fsEvtName, fsChanged);
+                                    });
+                                } else {
+                                    //here, we could have a fallback for when the FullScreen API isn't supported
+                                    //maybe absolutely position the element, add a backdrop, w/e
+                                }
+                            }
+
+                            return directiveCfg;
+                        }
+                    })(document, angular);
+
+
+
+
+
+
+                    (function(d, ng){
+                        ng.directive('fullscreenToggle', fullscreenToggle);
+
+                        function fullscreenToggle(){
+                            return {
+                                restrict: 'EA',
+                                //here's where we "require" the controller of the fullscreenContainer directive!
+                                //prefixed symbols, such as "^", are essentially telling angular where to look for the required controller 
+                                //i.e. on same element, on a parent element, etc...
+                                require: '^fullscreenContainer',
+                                //Now, if the required controller is found, it's passed into the arguments for the link function!
+                                link: function(scope, element, attrs, fullscreenContainerCtrl) {
+                                    //we only care to attach event handlers, etc.. 
+                                    //if the parent ctrl has the "makeElementFullScreen" function defined
+                                    if(typeof fullscreenContainerCtrl.makeElementFullScreen === 'function') {
+                                        //wire up event handler for when the element is clicked
+                                        element.on('click', function fullscreenToggleClicked() {
+                                            fullscreenContainerCtrl.makeElementFullScreen();
+                                        });
+                                        //also populate the callback function for when fullscreen state changes
+                                        fullscreenContainerCtrl.onFullScreenChange = function fullscreenStateChanged(isFullScreen) {
+                                            //if this element's ancestor is fullscreen, hide the toggle
+                                            if(isFullScreen){
+                                                element.hide();
+                                            } else {
+                                                element.show();
+                                            }                        
+                                        };                    
+                                    } else {
+                                        //then there is no method for making the ancestor fullscreen - either API or fallback...
+                                        element.hide();
+                                    }
+                                }
+                            };
+                        }
+                    })(document, angular);
+
+
+
+    </script>
+

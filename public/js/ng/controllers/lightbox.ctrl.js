@@ -1,4 +1,5 @@
 angular.module('pullPix').controller('LightboxCtrl', function ($scope, Lightbox) {
+  
   $scope.images = [
     {
       'url': 'http://upload.wikimedia.org/wikipedia/commons/8/87/Waynejunction0810b.JPG',
