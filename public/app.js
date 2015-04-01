@@ -109,6 +109,7 @@ angular
         ImgMetaSvc.fetch()
             .success(function(imgmetas){
                 $scope.imgmetas = imgmetas
+                console.log('profilectrl ' + imgmetas);
             });
 
     }]);
