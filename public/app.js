@@ -106,7 +106,7 @@ angular
     .controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", function($scope, ImgMetaSvc, $routeParams) {
         $scope.userName = $routeParams.userName;
 
-        ImgMetaSvc.fetch()
+        ImgMetaSvc.fetch($scope.userName)
             .success(function(imgmetas){
                 $scope.imgmetas = imgmetas
             });
@@ -288,13 +288,14 @@ angular.module('pullPix')
     });
 angular.module('pullPix')
     .service('ImgMetaSvc', ["$http", function($http){
-        this.fetch = function(){
-            return $http.get('/img-meta');
+        this.fetch = function(username){
+            return $http.get('/img-meta/' + username);
         };
         this.create = function(imgmeta){
             return $http.post('/img-meta', imgmeta);
         }
     }]);
+
 angular.module('pullPix')
     .service('ListSvc', ["$http", function($http){
        this.fetch = function(){
