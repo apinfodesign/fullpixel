@@ -37,6 +37,7 @@ angular
         console.log('success fileout 1');
         vm.fileout = "/uploads/" + files[0].name;
         //TEMP DELETE NOT WORKING vm.currentuser = CurrentUser.userid;
+ 
 
 
         try
@@ -88,6 +89,7 @@ angular
             return decimalCoord;
          };
           console.log("generate lat lon");
+ 
 
           vm.lat = degreeToDecimal(lat, latDirection);
           vm.lon = degreeToDecimal(lon, lonDirection);
@@ -124,7 +126,7 @@ angular
   function imgUpdate(metadata){
             if(metadata){
                 ImgMetaSvc.create({
-                  userid          : metadata.userid,
+                  username        : metadata.username,
                   path            : metadata.path,
                   title           : metadata.title,
                   caption         : metadata.caption,

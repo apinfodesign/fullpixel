@@ -1,8 +1,8 @@
 var ImgMeta = require('../models/img-meta'),
     router  = require('express').Router();
 
-router.get('/img-meta', function(req, res, next){
-    ImgMeta.find({"username": "AnselAdams"})
+router.get('/img-meta/:username', function(req, res, next){
+    ImgMeta.find({"username": req.params.username})
         .exec(function(err, imgmetas){
             console.log('exp cont' + imgmetas);
             if(err){ return next(err); }
@@ -11,7 +11,7 @@ router.get('/img-meta', function(req, res, next){
 });
 router.post('/img-meta', function(req, res, next){
     var imgmeta = new ImgMeta({
-        username        : username.body.username,
+        username        : req.body.username,
         path            : req.body.path,
         title           : req.body.title,
         caption         : req.body.caption,

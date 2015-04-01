@@ -125,7 +125,7 @@ angular
     .controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", function($scope, ImgMetaSvc, $routeParams) {
         $scope.userName = $routeParams.userName;
 
-        ImgMetaSvc.fetch()
+        ImgMetaSvc.fetch($scope.userName)
             .success(function(imgmetas){
                 $scope.imgmetas = imgmetas
             });
@@ -150,10 +150,10 @@ angular.module('pullPix')
             .when('/',           {controller: 'LoginCtrl',   templateUrl: '/partials/splash-page.html'})
             .when('/upload',     {controller: 'UploadCtrl', controllerAs: 'vm', templateUrl: '/partials/upload-page.html'})
             .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'})
-            .when('/:userName',    {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'})
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
-            .when('/fullscreen', {controller: 'FullscreenCtrl',    templateUrl: '/partials/fullscreen.html'});
+            .when('/fullscreen', {controller: 'FullscreenCtrl',    templateUrl: '/partials/fullscreen.html'})
+            .when('/:userName',    {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      }]);
 
 
@@ -197,6 +197,7 @@ angular
         console.log('success fileout 1');
         vm.fileout = "/uploads/" + files[0].name;
         //TEMP DELETE NOT WORKING vm.currentuser = CurrentUser.userid;
+ 
 
 
         try
@@ -248,6 +249,7 @@ angular
             return decimalCoord;
          };
           console.log("generate lat lon");
+ 
 
           vm.lat = degreeToDecimal(lat, latDirection);
           vm.lon = degreeToDecimal(lon, lonDirection);
@@ -284,7 +286,7 @@ angular
   function imgUpdate(metadata){
             if(metadata){
                 ImgMetaSvc.create({
-                  userid          : metadata.userid,
+                  username        : metadata.username,
                   path            : metadata.path,
                   title           : metadata.title,
                   caption         : metadata.caption,
@@ -315,13 +317,14 @@ angular.module('pullPix')
     });
 angular.module('pullPix')
     .service('ImgMetaSvc', ["$http", function($http){
-        this.fetch = function(){
-            return $http.get('/img-meta');
+        this.fetch = function(username){
+            return $http.get('/img-meta/' + username);
         };
         this.create = function(imgmeta){
             return $http.post('/img-meta', imgmeta);
         }
     }]);
+
 angular.module('pullPix')
     .service('ListSvc', ["$http", function($http){
        this.fetch = function(){
