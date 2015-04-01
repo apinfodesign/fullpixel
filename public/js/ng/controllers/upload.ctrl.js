@@ -139,8 +139,8 @@ angular
                 })
                 .success(function(imgmeta){
                   console.table(imgmeta);
-                  metadata = null;
-                  $location.path('/profile');
+                  //metadata = null;
+                  $location.path('/' + metadata.username);
  
                 });
         }
