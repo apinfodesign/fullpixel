@@ -10,50 +10,30 @@
 				<li><a href="/#/">FullPixel</a></li>
 				<li><a href="/#/upload">Upload</a></li>
 				<li><a href="">Discover</a></li>
+				<li ng-if="currentUser"><a href="/#/{{currentUser.username}}">{{currentUser.username}}</a></li>
 			</ul>
 		</nav>
 
-		<div id="avatar-container">
-			<img src="pics/avatar.png" id="avatar">
-			<h2 id="avatar-name">Seth Shober</h2>
-			<h3 id="avatar-location">The Americas!</h3>
-			<h3 id="avatar-camera">Nokia Lumia 920</h3>
+		<div id="avatar-container" ng-controller="MemberListCtrl">
+			
+			<h1>{{user.username}}</h1>
 		</div>
 		
 	</div> <!-- end banner main -->
-	<div class="profileview" ng-controller="ProfileCtrl">
+	<div ng-controller="ProfileCtrl">
+		<slider imgmetas="imgmetas"></slider>
+	</div>
+	<!--<div class="profileview" ng-controller="ProfileCtrl">
        <ul class="profilelist">
            <li ng-repeat="imgmeta in imgmetas | orderBy: '-date'">
                <span>{{imgmeta.username}}</span>
                <img ng-src="uploads/{{imgmeta.path}}"></img>
            </li>
        </ul>
-    </div>
+    </div> -->
 
-<p>zzzzzzzzzzzzz</p> 
  
-<script>
-		 $(document).ready(function () {
-		 	console.log("document ready");
-		    $("body").keydown(function(e) {
-		      if(e.which == 37) { // left     
-		          $(".previous a").trigger("click");
-		      }
-		      else if(e.which == 39) { // right     
-		          $(".next a").trigger("click");
-		      }
-		    });
-		    $(".previous a").on("click",function(){
-		        // your scripts for previous click here
-		        console.log("left click");
-		        window.location = 'http://www.google.com';  
-		    });
-		    $(".next a").on("click",function(){
-		        // your scripts for next click here
-		        console.log("right click");
-		        window.location = 'http://sg.yahoo.com/';   
-		    });
-		});
-</script>
+</div>
+ 
 
 <footer>FullPixel &hearts;</footer>

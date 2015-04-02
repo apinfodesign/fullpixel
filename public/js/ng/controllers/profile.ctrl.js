@@ -1,12 +1,12 @@
 angular
     .module('pullPix')
-    .controller('ProfileCtrl',function($scope, ImgMetaSvc, $routeParams) {
+    .controller('ProfileCtrl',function($scope, ImgMetaSvc, $routeParams, $rootScope) {
         $scope.userName = $routeParams.userName;
 
         ImgMetaSvc.fetch($scope.userName)
             .success(function(imgmetas){
-                $scope.imgmetas = imgmetas
-                console.log('profilectrl ' + imgmetas);
+               $rootScope.imgmetas = imgmetas;
+                console.log(imgmetas);
             });
 
     });

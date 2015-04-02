@@ -286,7 +286,7 @@ footer {
   text-align: center; }
 
 #banner-main-overlay {
-  z-index: 20;
+  z-index: 0;
   position: absolute;
   top: 0;
   right: 0;
@@ -1582,6 +1582,44 @@ striping:
 .pure-table-horizontal tbody > tr:last-child td {
   border-bottom-width: 0; }
 
+.mc-slider {
+  position: relative;
+  padding: 1px;
+  margin: auto;
+  width: 100%; }
+
+.slide {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.slide img {
+  width: 100%;
+  height: 100%; }
+
+.arrows {
+  position: absolute;
+  top: 300px;
+  right: 200px;
+  z-index: 31; }
+
+.arrows img {
+  height: 32px; }
+
+.slide.ng-hide-add, .slide.ng-hide-remove {
+  -webkit-transition: all linear 0.5s;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  display: block !important; }
+
+.slide.ng-hide-add.ng-hide-add-active, .slide.ng-hide-remove {
+  opacity: 0; }
+
+.slide.ng-hide-add, .slide.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1; }
+
 nav.menu {
   margin-top: 0;
   background: transparent; }
@@ -1841,7 +1879,8 @@ footer {
     padding: 5em 1em 5em; }
   #form-login, #form-signup, #check-container {
     margin: 0 auto;
-    max-width: 800px; } }
+    max-width: 800px;
+    padding: 10px; } }
 
 /* LARGE SCREEN ONLY */
 @media screen and (min-width: 64em) and (max-width: 80em) {
@@ -1974,7 +2013,8 @@ nav#upload-menu {
   width: 100%; }
 
 #upload-main {
-  background-color: white;
+  /*background-color: white;*/
+  background-color: #F6F6F6;
   text-align: center;
   padding: 1em; }
 
@@ -2012,21 +2052,22 @@ nav#upload-menu {
   height: auto;
   max-width: 100%;
   border: 1px solid #f2f2f2;
-  margin: 4em auto;
-  /*background: #fff url('../pics/mountain-lake.jpeg') no-repeat center center / cover;*/ }
+  margin: 4em auto; }
 
 #upload-meta {
   padding: 1em;
   background-color: #f9f9f9; }
 
 #upload-form {
-  padding: 4em 0 2em; }
+  padding: 4em 0 2em;
+  background-color: #F6F6F6; }
 
 label {
   display: block;
   font-size: 1.5em;
   color: #58D4FF;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  background-color: #F6F6F6; }
 
 input, textarea {
   font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
@@ -2062,6 +2103,13 @@ textarea:focus, textarea:active {
   margin-top: 1.25em;
   margin-bottom: 0.75em; }
 
+#exif {
+  background-color: #F6F6F6;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: left; }
+
 #exif #label-exif {
   font-size: 1.5em;
   margin-top: 1.25em;
@@ -2085,8 +2133,12 @@ textarea:focus, textarea:active {
   font-size: 1.25em;
   color: #979797;
   line-height: initial;
-  background-color: #f9f9f9;
+  background-color: #FFFFFF;
   border: 1px solid #f2f2f2; }
+
+#location {
+  background-color: #F6F6F6;
+  width: 100%; }
 
 #label-location {
   margin-top: 1.25em;
@@ -2095,8 +2147,7 @@ textarea:focus, textarea:active {
 #info-location-map {
   display: inline-block;
   width: 300px;
-  height: 200px;
-  background: #eee url("https://maps.googleapis.com/maps/api/staticmap?center=63.259591,-144.667969&zoom=6&size=300x200&markers=Ccolor:0xFFFF00%7Clabel:C%7CTok,AK") no-repeat center center/cover; }
+  background-color: #F6F6F6; }
 
 #photo-submit {
   outline: none;
