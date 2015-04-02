@@ -122,13 +122,14 @@ angular.module('pullPix')
     }]);
 angular
     .module('pullPix')
-    .controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", "$rootScope", function($scope, ImgMetaSvc, $routeParams, $rootScope) {
+    .controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", function($scope, ImgMetaSvc, $routeParams) {
         $scope.userName = $routeParams.userName;
 
         ImgMetaSvc.fetch($scope.userName)
             .success(function(imgmetas){
-               $rootScope.imgmetas = imgmetas;
-                console.log(imgmetas);
+               $scope.imgmetas = imgmetas;
+                $scope.loadingIsDone = true;
+                console.log('Pro ctrl ' +  imgmetas);
             });
 
     }]);
@@ -309,6 +310,59 @@ angular
 }
 
 
+angular
+    .module('pullPix')
+    .directive('slider', ["$timeout", function($timeout){
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                imgmetas: '='
+            },
+            link: function(scope, elem, attrs){
+
+                scope.currentIndex = 0;
+                console.log('slid-dir ' + scope.imgmetas);
+                scope.next = function($event){
+                    if($event){$event.preventDefault();}
+                   scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+                };
+
+                scope.prev = function($event){
+                    $event.preventDefault();
+                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
+                };
+
+                scope.$watch('currentIndex', function(){
+                    scope.imgmetas.forEach(function(imgmeta){
+                        imgmeta.visible = false;
+                    });
+                    scope.imgmetas[scope.currentIndex].visible = true;
+                });
+
+                /* Start: For Automatic slideshow*/
+
+                var timer;
+
+                var sliderFunc=function(){
+                    timer=$timeout(function(){
+                        scope.next();
+                        timer=$timeout(sliderFunc,5000);
+                    },5000);
+                };
+
+                sliderFunc();
+
+                scope.$on('$destroy',function(){
+                    $timeout.cancel(timer);
+                });
+
+                /* End : For Automatic slideshow*/
+            },
+            templateUrl: 'partials/slider.html'
+        }
+    }]);
+
 angular.module('pullPix')
     .factory('CurrentUser', function(){
         var currentuser = {
@@ -372,53 +426,4 @@ angular.module('pullPix')
                 return svc.login(username, password);
             });
         };
-    }]);
-
-
-angular
-    .module('pullPix')
-    .directive('slider', ["$timeout", function($timeout){
-        return {
-            restrict: 'AE',
-            replace: true,
-            scope: { imgmetas: '=imgmetas'},
-            link: function(scope, elem, attrs){
-                scope.currentIndex = 0;
-                console.log('slid-dir ' + scope.imgmetas);
-                scope.next = function(){
-                   scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
-                };
-
-                scope.prev = function(){
-                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
-                };
-
-                scope.$watch('currentIndex', function(){
-                    scope.imgmetas.forEach(function(imgmeta){
-                        imgmeta.visible = false;
-                    });
-                    scope.imgmetas[scope.currentIndex].visible = true;
-                });
-
-                /* Start: For Automatic slideshow*/
-
-                var timer;
-
-                var sliderFunc=function(){
-                    timer=$timeout(function(){
-                        scope.next();
-                        timer=$timeout(sliderFunc,5000);
-                    },5000);
-                };
-
-                sliderFunc();
-
-                scope.$on('$destroy',function(){
-                    $timeout.cancel(timer);
-                });
-
-                /* End : For Automatic slideshow*/
-            },
-            templateUrl: 'partials/slider.html'
-        }
     }]);

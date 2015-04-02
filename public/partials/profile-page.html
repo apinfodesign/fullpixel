@@ -22,16 +22,11 @@
 		
 	</div> <!-- end banner main -->
 	<div ng-controller="ProfileCtrl">
-		<slider imgmetas="imgmetas"></slider>
+		<div ng-if="loadingIsDone">
+			<slider imgmetas="imgmetas"/>
+		</div>
 	</div>
-	<!--<div class="profileview" ng-controller="ProfileCtrl">
-       <ul class="profilelist">
-           <li ng-repeat="imgmeta in imgmetas | orderBy: '-date'">
-               <span>{{imgmeta.username}}</span>
-               <img ng-src="uploads/{{imgmeta.path}}"></img>
-           </li>
-       </ul>
-    </div> -->
+
 
 </div>
 

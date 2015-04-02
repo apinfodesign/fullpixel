@@ -1582,7 +1582,7 @@ striping:
 .pure-table-horizontal tbody > tr:last-child td {
   border-bottom-width: 0; }
 
-.mc-slider {
+.slider {
   position: relative;
   padding: 1px;
   margin: auto;
