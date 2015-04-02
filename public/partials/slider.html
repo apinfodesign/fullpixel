@@ -1,0 +1,13 @@
+<div class="mc-slider">
+    <div class="slide" ng-repeat="imgmeta in imgmetas | orderBy: '-date'" ng-show="imgmeta.visible">
+        <img ng-src="uploads/{{imgmeta.path}}"/>
+    </div>
+    <div class="arrows">
+       <a href="#" ng-click="prev()">
+           <img src="assets/imgs/left-arrow.png"/>
+       </a>
+       <a href="#" ng-click="next()">
+           <img src="assets/imgs/right-arrow.png"/>
+       </a>
+    </div>
+</div>

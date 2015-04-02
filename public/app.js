@@ -15,11 +15,11 @@ angular.module('pullPix')
 angular.module('pullPix')
     .controller('FullscreenCtrl', ["$scope", "$timeout", "QueueService", function ($scope, $timeout, QueueService) {
         var INTERVAL = 3000,
-        slides = [{id:"image00", src:"./images/image00.jpg"},
-        {id:"image01", src:"./images/image01.jpg"},
-        {id:"image02", src:"./images/image02.jpg"},
-        {id:"image03", src:"./images/image03.jpg"},
-        {id:"image04", src:"./images/image04.jpg"}];
+        slides = [{id:"image00", src:"./uploads/ansel1.jpg"},
+                  {id:"image01", src:"./uploads/ansel2.jpg"},
+                  {id:"image02", src:"./uploads/ansel3.jpg"},
+                  {id:"image03", src:"./uploads/ansel4.jpg"},
+                  {id:"image04", src:"./uploads/ansel5.jpg"}];
 
     function setCurrentSlideIndex(index) {
         $scope.currentIndex = index;
@@ -76,7 +76,7 @@ angular.module('pullPix')
     return {
         loadManifest: loadManifest
     }
-}])
+}]);
 
 
 
@@ -169,13 +169,13 @@ angular.module('pullPix')
 
 angular
     .module('pullPix')
-    .controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", function($scope, ImgMetaSvc, $routeParams) {
+    .controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", "$rootScope", function($scope, ImgMetaSvc, $routeParams, $rootScope) {
         $scope.userName = $routeParams.userName;
 
         ImgMetaSvc.fetch($scope.userName)
             .success(function(imgmetas){
-                $scope.imgmetas = imgmetas
-                console.log('profilectrl ' + imgmetas);
+               $rootScope.imgmetas = imgmetas;
+                console.log(imgmetas);
             });
 
     }]);
@@ -356,7 +356,6 @@ angular
 }
 
 
-
 angular.module('pullPix')
     .factory('CurrentUser', function(){
         var currentuser = {
@@ -420,4 +419,53 @@ angular.module('pullPix')
                 return svc.login(username, password);
             });
         };
+    }]);
+
+
+angular
+    .module('pullPix')
+    .directive('slider', ["$timeout", function($timeout){
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: { imgmetas: '=imgmetas'},
+            link: function(scope, elem, attrs){
+                scope.currentIndex = 0;
+                console.log('slid-dir ' + scope.imgmetas);
+                scope.next = function(){
+                   scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+                };
+
+                scope.prev = function(){
+                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
+                };
+
+                scope.$watch('currentIndex', function(){
+                    scope.imgmetas.forEach(function(imgmeta){
+                        imgmeta.visible = false;
+                    });
+                    scope.imgmetas[scope.currentIndex].visible = true;
+                });
+
+                /* Start: For Automatic slideshow*/
+
+                var timer;
+
+                var sliderFunc=function(){
+                    timer=$timeout(function(){
+                        scope.next();
+                        timer=$timeout(sliderFunc,5000);
+                    },5000);
+                };
+
+                sliderFunc();
+
+                scope.$on('$destroy',function(){
+                    $timeout.cancel(timer);
+                });
+
+                /* End : For Automatic slideshow*/
+            },
+            templateUrl: 'partials/slider.html'
+        }
     }]);
