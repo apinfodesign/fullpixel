@@ -1860,7 +1860,10 @@ footer {
   .bottom-buttons {
     margin: 5em auto; }
   footer {
-    padding: 1.8em; } }
+    display: block;
+    float: left;
+    height: 6px;
+    width: 100%; } }
 
 /* LARGE SCREEN */
 @media screen and (min-width: 64em) {
