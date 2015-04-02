@@ -302,7 +302,11 @@ footer {
 	}
 
 	footer {
-		padding: 1.8em;
+		display: block;
+		float: left;
+		height: 6px;
+		width: 100%;
+		
 	}
 
 }
@@ -340,6 +344,7 @@ footer {
 	#check-container {
 		margin: 0 auto;
 		max-width: 800px;
+		padding: 10px;
 	}
 }
 

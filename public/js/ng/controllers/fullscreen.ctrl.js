@@ -1,11 +1,14 @@
 angular.module('pullPix')
     .controller('FullscreenCtrl', function ($scope, $timeout, QueueService) {
         var INTERVAL = 3000,
+ 
         slides = [{id:"image00", src:"./uploads/ansel1.jpg"},
                   {id:"image01", src:"./uploads/ansel2.jpg"},
                   {id:"image02", src:"./uploads/ansel3.jpg"},
                   {id:"image03", src:"./uploads/ansel4.jpg"},
                   {id:"image04", src:"./uploads/ansel5.jpg"}];
+ 
+
 
     function setCurrentSlideIndex(index) {
         $scope.currentIndex = index;
@@ -16,7 +19,7 @@ angular.module('pullPix')
     }
 
     function nextSlide() {
-        $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
+        $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 1;
         $timeout(nextSlide, INTERVAL);
     }
 
@@ -44,7 +47,21 @@ angular.module('pullPix')
     $scope.isCurrentSlideIndex = isCurrentSlideIndex;
     
     loadSlides();
-});
+})
+
+
+.controller('ProfileCtrl',function($scope, ImgMetaSvc, $routeParams) {
+        $scope.userName = $routeParams.userName;
+
+        ImgMetaSvc.fetch($scope.userName)
+            .success(function(imgmetas){
+                $scope.imgmetas = imgmetas
+                console.log('profilectrl ' + imgmetas);
+            });
+    })
+
+;
+
 
 angular.module('pullPix')
 .service('QueueService', function($rootScope){
