@@ -1,11 +1,13 @@
 angular.module('pullPix')
     .controller('FullscreenCtrl', function ($scope, $timeout, QueueService) {
         var INTERVAL = 3000,
-        slides = [{id:"image00", src:"./images/image00.jpg"},
+        slides = [
+        {id:"image00", src:"./images/image00.jpg"},
         {id:"image01", src:"./images/image01.jpg"},
         {id:"image02", src:"./images/image02.jpg"},
         {id:"image03", src:"./images/image03.jpg"},
         {id:"image04", src:"./images/image04.jpg"}];
+
 
     function setCurrentSlideIndex(index) {
         $scope.currentIndex = index;
@@ -44,7 +46,21 @@ angular.module('pullPix')
     $scope.isCurrentSlideIndex = isCurrentSlideIndex;
     
     loadSlides();
-});
+})
+
+
+.controller('ProfileCtrl',function($scope, ImgMetaSvc, $routeParams) {
+        $scope.userName = $routeParams.userName;
+
+        ImgMetaSvc.fetch($scope.userName)
+            .success(function(imgmetas){
+                $scope.imgmetas = imgmetas
+                console.log('profilectrl ' + imgmetas);
+            });
+    })
+
+;
+
 
 angular.module('pullPix')
 .service('QueueService', function($rootScope){

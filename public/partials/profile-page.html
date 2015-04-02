@@ -30,7 +30,30 @@
        </ul>
     </div>
 
-</div>
-
+<p>zzzzzzzzzzzzz</p> 
  
+<script>
+		 $(document).ready(function () {
+		 	console.log("document ready");
+		    $("body").keydown(function(e) {
+		      if(e.which == 37) { // left     
+		          $(".previous a").trigger("click");
+		      }
+		      else if(e.which == 39) { // right     
+		          $(".next a").trigger("click");
+		      }
+		    });
+		    $(".previous a").on("click",function(){
+		        // your scripts for previous click here
+		        console.log("left click");
+		        window.location = 'http://www.google.com';  
+		    });
+		    $(".next a").on("click",function(){
+		        // your scripts for next click here
+		        console.log("right click");
+		        window.location = 'http://sg.yahoo.com/';   
+		    });
+		});
+</script>
+
 <footer>FullPixel &hearts;</footer>
