@@ -302,7 +302,11 @@ footer {
 	}
 
 	footer {
-		padding: 1.8em;
+		display: block;
+		float: left;
+		height: 6px;
+		width: 100%;
+		
 	}
 
 }
