@@ -1,0 +1,14 @@
+<div class="mc-slider">
+    <h1>This is a slider??</h1>
+    <div class="slide" ng-repeat="imgArray in imgArrays | orderBy: '-date'" ng-show="imgArray.visible">
+        <img ng-src="uploads/{{imgArray.path}}"/>
+    </div>
+    <div class="arrows">
+       <a href="#" ng-click="prev()">
+           <img src="assets/imgs/left-arrow.png"/>
+       </a>
+       <a href="#" ng-click="next()">
+           <img src="assets/imgs/right-arrow.png"/>
+       </a>
+    </div>
+</div>
