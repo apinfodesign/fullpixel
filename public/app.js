@@ -193,17 +193,13 @@ angular.module('pullPix')
 angular.module('pullPix')
     .config(["$routeProvider", function ($routeProvider){
         $routeProvider
-            .when('/',           {controller: 'ApplicationCtrl',   templateUrl: '/partials/splash-page.html'})
+            .when('/',           {controller: 'ModalDemoCtrl',   templateUrl: '/partials/splash-page.html'})
             .when('/upload',     {controller: 'UploadCtrl', controllerAs: 'vm', templateUrl: '/partials/upload-page.html'})
-<<<<<<< HEAD
             .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'}) 
-=======
-            .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'})
->>>>>>> master
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
             .when('/fullscreen', {controller: 'FullscreenCtrl',    templateUrl: '/partials/fullscreen.html'})
-            .when('/:userName',    {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
+            .when('/:userName',  {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      }]);
 
 
