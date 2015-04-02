@@ -90,53 +90,11 @@
     </div>
 
 
-	<div class='signup' id="signup-form-container">
+	<!-- <!-- <!-- <div class='signup' id="signup-form-container">
 
 	<!-- HIDE/SHOW LOGIN SIGNUP -->
 	<!-- SIGNUP -->
-		<div>
-		  <!-- Show: -->
-		  <div class="check-element animate-show" ng-show="checked" ng-controller="LoginCtrl">
-		    
-		    <form ng-submit="login(username, password)" id="form-login">
-	        	<label>Username</label>
-	        	<input class="form-control" type="text" ng-model="username">
-	    	
-	        	<label>Password</label>
-	        	<input class="form-control" type="password" ng-model="password">
-	    
-	    		<input type="submit" value="Login to FullPixel" id="login-submit">
-			</form>
-
-		  </div>
-		</div>
-
-		<div>
-		 <!--  Hide: -->
-		  <div class="check-element animate-show" ng-hide="checked" ng-controller="RegisterCtrl">
-		    
-		    <form ng-submit="register(username, password)" id="form-signup">
-	        	<label>Username</label>
-	        	<input class="form-control" type="text" ng-model="username">
-	    	
-	        	<label>Password</label>
-	        	<input class="form-control" type="password" ng-model="password">
-	    	
-	    		<input type="submit" value="Sign up for FullPixel" id="signup-submit">
-			</form>
-
-		  </div>
-		</div>
-
-		<div id="check-container">
-			<p id="check-title">  Already signed up?</p>
-			<input type="checkbox" ng-model="checked" id="login-check">
-		</div>
-
-		<h4 id="not-ready-title">Not ready to signup?</h4>
-		<button class="button button-gray" id="explore-more-button"><a href="">Explore more photos</a></button>
-
-	</div>
+	
 	
 	<footer>FullPixel &hearts;</footer>
 

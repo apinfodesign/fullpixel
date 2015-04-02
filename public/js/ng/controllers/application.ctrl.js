@@ -1,7 +1,7 @@
 angular.module('pullPix')
-    .controller('ApplicationCtrl', function($scope){
-        $scope.$on('login', function(_, user){
-            $scope.currentUser = user;
+    .controller('ApplicationCtrl', function($rootScope){
+        $rootScope.$on('login', function(_, user){
+            $rootScope.currentUser = user; //
             console.log('appctrl ' + user.username);
     });
 });
