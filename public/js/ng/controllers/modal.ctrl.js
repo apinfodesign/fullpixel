@@ -43,3 +43,4 @@ angular.module('pullPix')
     $modalInstance.dismiss('cancel');
   };
 });
+

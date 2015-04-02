@@ -165,6 +165,8 @@ angular.module('pullPix')
     $modalInstance.dismiss('cancel');
   };
 }]);
+
+
 angular
     .module('pullPix')
     .controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", function($scope, ImgMetaSvc, $routeParams) {

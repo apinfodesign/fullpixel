@@ -15,9 +15,7 @@
 
 		<div id="avatar-container">
 			<img src="pics/avatar.png" id="avatar">
-			<h2 id="avatar-name">Seth Shober</h2>
-			<h3 id="avatar-location">The Americas!</h3>
-			<h3 id="avatar-camera">Nokia Lumia 920</h3>
+			<h2 ng-if="currentUser">{{currentUser.username}}</h2>
 		</div>
 		
 	</div> <!-- end banner main -->
