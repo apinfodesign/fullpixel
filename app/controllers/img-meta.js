@@ -3,8 +3,10 @@ var ImgMeta = require('../models/img-meta'),
 
 router.get('/img-meta/:username', function(req, res, next){
     ImgMeta.find({"username": req.params.username})
+        .lean()
         .exec(function(err, imgmetas){
-            console.log('exp cont' + imgmetas);
+
+//            console.log(typeof imgmetas);
             if(err){ return next(err); }
             res.json(imgmetas);
         });
