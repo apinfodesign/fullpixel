@@ -1,7 +1,6 @@
 <div class="mc-slider">
-    <h1>This is a slider??</h1>
-    <div class="slide" ng-repeat="imgArray in imgArrays | orderBy: '-date'" ng-show="imgArray.visible">
-        <img ng-src="uploads/{{imgArray.path}}"/>
+    <div class="slide" ng-repeat="imgmeta in imgmetas | orderBy: '-date'" ng-show="imgmeta.visible">
+        <img ng-src="uploads/{{imgmeta.path}}"/>
     </div>
     <div class="arrows">
        <a href="#" ng-click="prev()">

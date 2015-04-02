@@ -4,25 +4,23 @@ angular
         return {
             restrict: 'AE',
             replace: true,
-            scope: {
-                imgArrays: '='
-            },
+            scope: { imgmetas: '=imgmetas'},
             link: function(scope, elem, attrs){
                 scope.currentIndex = 0;
-
+                console.log('slid-dir ' + scope.imgmetas);
                 scope.next = function(){
-                   scope.currentIndex < scope.imgArrays.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+                   scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
                 };
 
                 scope.prev = function(){
-                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgArrays.length - 1;
+                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
                 };
 
                 scope.$watch('currentIndex', function(){
-                    scope.imgArrays.forEach(function(imgArray){
-                        imgArray.visible = false;
+                    scope.imgmetas.forEach(function(imgmeta){
+                        imgmeta.visible = false;
                     });
-                    scope.imgArrays[scope.currentIndex].visible = true;
+                    scope.imgmetas[scope.currentIndex].visible = true;
                 });
 
                 /* Start: For Automatic slideshow*/
