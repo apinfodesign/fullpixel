@@ -27,6 +27,9 @@ angular
                     });
                     scope.imgmetas[scope.currentIndex].visible = true;
                 });
+                scope.fullScreen = function(){
+
+                }
 
                 /* Start: For Automatic slideshow*/
 

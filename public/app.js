@@ -2,7 +2,8 @@ angular.module('pullPix',[
     'ngRoute',
     'angularFileUpload',
     'ngAnimate',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angularScreenfull'
 ]);
 angular.module('pullPix')
     .controller('ApplicationCtrl', ["$rootScope", function($rootScope){
@@ -418,6 +419,9 @@ angular
                     });
                     scope.imgmetas[scope.currentIndex].visible = true;
                 });
+                scope.fullScreen = function(){
+
+                }
 
                 /* Start: For Automatic slideshow*/
 
