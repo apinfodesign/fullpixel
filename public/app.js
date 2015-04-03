@@ -102,6 +102,19 @@ angular.module('pullPix')
 
 }]);
 angular.module('pullPix')
+.controller('LoginCollapseCtrl', ["$scope", "UserSvc", "$rootScope", "$location", function ($scope, UserSvc, $rootScope, $location) {
+  $scope.isCollapsed = true;
+
+  $scope.login = function(username, password){
+            UserSvc.login(username, password)
+                .then(function(user){
+                    $rootScope.$emit('login', user);
+                    console.log('User ' + user);
+                    $location.path('/upload');
+              });
+  			};
+  		}]);
+angular.module('pullPix')
      .controller('LoginCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.login = function(username, password){
             UserSvc.login(username, password)
@@ -206,6 +219,19 @@ angular.module('pullPix')
 
 
 
+angular.module('pullPix')
+.controller('SignupCollapseCtrl', ["$scope", "UserSvc", "$rootScope", "$location", function ($scope, UserSvc, $rootScope, $location) {
+  $scope.isCollapsed = true;
+
+  $scope.register = function (username, password){
+            UserSvc.register(username, password)
+                .then(function(user){
+                    console.log('WORK');
+                    $rootScope.$emit('login', user);
+                    $location.path('/upload');
+            });
+  };
+}]);
 angular
     .module('pullPix')
     .controller('UploadCtrl', Upload);
