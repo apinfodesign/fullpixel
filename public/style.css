@@ -67,7 +67,7 @@ table {
 
 .openme button {
   display: block;
-  float: left;
+  margin: 0 auto;
   width: 100px;
   padding: 10px 7px 7px 6px;
   color: #000011; }
@@ -75,7 +75,8 @@ table {
 .opened {
   position: absolute;
   top: 5px;
-  right: 5px; }
+  right: 5px;
+  z-index: 20; }
 
 .members {
   display: block;
