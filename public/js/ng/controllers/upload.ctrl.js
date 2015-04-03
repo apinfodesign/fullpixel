@@ -59,11 +59,14 @@ angular
           var shutterCalc = function (shutterSpeed){
               var speed=  (Math.pow(2,(shutterSpeed[0]/shutterSpeed[1]) ) ) ;
               // DON'T YET KNOW IF THIS FORMULA IS RIGHT - IT IS SOMETHING LIKE THIS
+              speed = truncateDecimals(speed, 1);
               return speed;
           };
 
           var apertureCalc = function (aperture){
               var aperture= (Math.pow(1.4142, (aperture[0]/aperture[1]) ) );
+
+              aperture = truncateDecimals(aperture, 2);
               // DON'T YET KNOW IF THIS FORMULA IS RIGHT - IT IS SOMETHING LIKE THIS
               return aperture;
           };
@@ -86,6 +89,8 @@ angular
                 {direction=-1 }; 
               decimalCoord = direction * (Math.abs(finalDegrees) + (finalMinutes/60.0) + (finalSeconds / 3600.0) );
             }
+
+            decimalCoord = truncateDecimals(decimalCoord, 7);
             return decimalCoord;
          };
           console.log("generate lat lon");
@@ -145,4 +150,15 @@ angular
                 });
         }
     };
+}
+
+
+function truncateDecimals (num, digits) {
+    var numS = num.toString(),
+        decPos = numS.indexOf('.'),
+        substrLength = decPos == -1 ? numS.length : 1 + decPos + digits,
+        trimmedResult = numS.substr(0, substrLength),
+        finalResult = isNaN(trimmedResult) ? 0 : trimmedResult;
+
+    return parseFloat(finalResult);
 }

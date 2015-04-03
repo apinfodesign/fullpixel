@@ -23,6 +23,7 @@ body {
 	font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
 	font-weight: 300;
 	background-color: #D8D8D8;
+
 }
  
 nav#upload-menu {
@@ -77,8 +78,11 @@ nav#upload-menu {
 }
 
 #upload-main {
-	background-color: white;
-	text-align: center;
+	/*background-color: white;*/
+			background-color: #F6F6F6;
+;
+
+ 	text-align: center;
 	padding: 1em;
 }
 
@@ -122,7 +126,7 @@ nav#upload-menu {
 	max-width: 100%;
 	border: 1px solid #f2f2f2;
 	margin: 4em auto;
-	/*background: #fff url('../pics/mountain-lake.jpeg') no-repeat center center / cover;*/
+	 
 }
 
 #upload-meta {
@@ -132,6 +136,9 @@ nav#upload-menu {
 
 #upload-form {
 	padding: 4em 0 2em;
+
+		background-color: #F6F6F6;
+
 }
 
 label {
@@ -139,6 +146,9 @@ label {
 	font-size: 1.5em;
 	color: #58D4FF;
 	text-transform: uppercase;
+
+		background-color: #F6F6F6;
+
 }
 
 input,
@@ -152,6 +162,8 @@ textarea {
 	color: #4a4a4a;
 	border: none;
 	transition: 250ms;
+
+
 }
 
 input:focus,
@@ -194,7 +206,11 @@ textarea:active {
 }
 
 #exif {
-
+background-color: #F6F6F6;
+width: 100%;
+margin-top: 1em;
+margin-bottom: 1em;
+text-align: left;
 }
 
 #exif #label-exif {
@@ -203,6 +219,7 @@ textarea:active {
 	margin-bottom: 0.75em;
 	display: block;
 	color: #58D4FF;
+
 }
 
 #exif label {
@@ -222,24 +239,28 @@ textarea:active {
 	font-size: 1.25em;
 	color: #979797;
 	line-height: initial;
-	background-color: #f9f9f9;
+	background-color: #FFFFFF;
 	border: 1px solid #f2f2f2;
+
 }
 
 #location {
+	background-color: #F6F6F6;
+	width: 100%;
 
 }
 
 #label-location {
 	margin-top: 1.25em;
 	margin-bottom: 0.75em;
+
 }
 
 #info-location-map {
 	display: inline-block;
-	width: 300px;
-	height: 200px;
-	background: #eee url("https://maps.googleapis.com/maps/api/staticmap?center=63.259591,-144.667969&zoom=6&size=300x200&markers=Ccolor:0xFFFF00%7Clabel:C%7CTok,AK") no-repeat center center / cover;
+	width: 300px; 
+	background-color: #F6F6F6;
+
 }
 
 

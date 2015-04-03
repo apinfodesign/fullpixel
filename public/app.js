@@ -2,7 +2,8 @@ angular.module('pullPix',[
     'ngRoute',
     'angularFileUpload',
     'ngAnimate',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angularScreenfull'
 ]);
 angular.module('pullPix')
     .controller('ApplicationCtrl', ["$rootScope", function($rootScope){
@@ -15,11 +16,14 @@ angular.module('pullPix')
 angular.module('pullPix')
     .controller('FullscreenCtrl', ["$scope", "$timeout", "QueueService", function ($scope, $timeout, QueueService) {
         var INTERVAL = 3000,
+ 
         slides = [{id:"image00", src:"./uploads/ansel1.jpg"},
                   {id:"image01", src:"./uploads/ansel2.jpg"},
                   {id:"image02", src:"./uploads/ansel3.jpg"},
                   {id:"image03", src:"./uploads/ansel4.jpg"},
                   {id:"image04", src:"./uploads/ansel5.jpg"}];
+ 
+
 
     function setCurrentSlideIndex(index) {
         $scope.currentIndex = index;
@@ -30,7 +34,7 @@ angular.module('pullPix')
     }
 
     function nextSlide() {
-        $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
+        $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 1;
         $timeout(nextSlide, INTERVAL);
     }
 
@@ -58,7 +62,21 @@ angular.module('pullPix')
     $scope.isCurrentSlideIndex = isCurrentSlideIndex;
     
     loadSlides();
-}]);
+}])
+
+
+.controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", function($scope, ImgMetaSvc, $routeParams) {
+        $scope.userName = $routeParams.userName;
+
+        ImgMetaSvc.fetch($scope.userName)
+            .success(function(imgmetas){
+                $scope.imgmetas = imgmetas
+                console.log('profilectrl ' + imgmetas);
+            });
+    }])
+
+;
+
 
 angular.module('pullPix')
 .service('QueueService', ["$rootScope", function($rootScope){
@@ -182,13 +200,14 @@ angular.module('pullPix')
 
 angular
     .module('pullPix')
-    .controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", "$rootScope", function($scope, ImgMetaSvc, $routeParams, $rootScope) {
+    .controller('ProfileCtrl',["$scope", "ImgMetaSvc", "$routeParams", function($scope, ImgMetaSvc, $routeParams) {
         $scope.userName = $routeParams.userName;
 
         ImgMetaSvc.fetch($scope.userName)
             .success(function(imgmetas){
-               $rootScope.imgmetas = imgmetas;
-                console.log(imgmetas);
+               $scope.imgmetas = imgmetas;
+                $scope.loadingIsDone = true;
+                console.log('Pro ctrl ' +  imgmetas);
             });
 
     }]);
@@ -293,11 +312,14 @@ angular
           var shutterCalc = function (shutterSpeed){
               var speed=  (Math.pow(2,(shutterSpeed[0]/shutterSpeed[1]) ) ) ;
               // DON'T YET KNOW IF THIS FORMULA IS RIGHT - IT IS SOMETHING LIKE THIS
+              speed = truncateDecimals(speed, 1);
               return speed;
           };
 
           var apertureCalc = function (aperture){
               var aperture= (Math.pow(1.4142, (aperture[0]/aperture[1]) ) );
+
+              aperture = truncateDecimals(aperture, 2);
               // DON'T YET KNOW IF THIS FORMULA IS RIGHT - IT IS SOMETHING LIKE THIS
               return aperture;
           };
@@ -320,6 +342,8 @@ angular
                 {direction=-1 }; 
               decimalCoord = direction * (Math.abs(finalDegrees) + (finalMinutes/60.0) + (finalSeconds / 3600.0) );
             }
+
+            decimalCoord = truncateDecimals(decimalCoord, 7);
             return decimalCoord;
          };
           console.log("generate lat lon");
@@ -382,21 +406,36 @@ angular
 }
 
 
+function truncateDecimals (num, digits) {
+    var numS = num.toString(),
+        decPos = numS.indexOf('.'),
+        substrLength = decPos == -1 ? numS.length : 1 + decPos + digits,
+        trimmedResult = numS.substr(0, substrLength),
+        finalResult = isNaN(trimmedResult) ? 0 : trimmedResult;
+
+    return parseFloat(finalResult);
+}
+
 angular
     .module('pullPix')
     .directive('slider', ["$timeout", function($timeout){
         return {
             restrict: 'AE',
             replace: true,
-            scope: { imgmetas: '=imgmetas'},
+            scope: {
+                imgmetas: '='
+            },
             link: function(scope, elem, attrs){
+
                 scope.currentIndex = 0;
                 console.log('slid-dir ' + scope.imgmetas);
-                scope.next = function(){
+                scope.next = function($event){
+                    if($event){$event.preventDefault();}
                    scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
                 };
 
-                scope.prev = function(){
+                scope.prev = function($event){
+                    $event.preventDefault();
                     scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
                 };
 
@@ -406,6 +445,9 @@ angular
                     });
                     scope.imgmetas[scope.currentIndex].visible = true;
                 });
+                scope.fullScreen = function(){
+
+                }
 
                 /* Start: For Automatic slideshow*/
 

@@ -4,15 +4,20 @@ angular
         return {
             restrict: 'AE',
             replace: true,
-            scope: { imgmetas: '=imgmetas'},
+            scope: {
+                imgmetas: '='
+            },
             link: function(scope, elem, attrs){
+
                 scope.currentIndex = 0;
                 console.log('slid-dir ' + scope.imgmetas);
-                scope.next = function(){
+                scope.next = function($event){
+                    if($event){$event.preventDefault();}
                    scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
                 };
 
-                scope.prev = function(){
+                scope.prev = function($event){
+                    $event.preventDefault();
                     scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
                 };
 
@@ -22,6 +27,9 @@ angular
                     });
                     scope.imgmetas[scope.currentIndex].visible = true;
                 });
+                scope.fullScreen = function(){
+
+                }
 
                 /* Start: For Automatic slideshow*/
 
