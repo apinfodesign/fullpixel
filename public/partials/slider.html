@@ -1,14 +1,22 @@
 <div class="slider">
     <div class="slide" ng-repeat="imgmeta in imgmetas" ng-show="imgmeta.visible">
         <img ng-src="uploads/{{imgmeta.path}}"/>
+        <div class="membername">
+            <h1>{{imgmeta.username}}</h1>
+        </div>
     </div>
-    <div class="arrows">
+
+    <div class="arrows leftarrow">
        <a href="#" ng-click="prev($event)">
-           <img src="assets/imgs/left-arrow.png"/>
+           <img src="assets/imgs/cut-left.svg"/>
        </a>
+    </div>
+    <div class="arrows rightarrow">
        <a href="#" ng-click="next($event)">
-           <img src="assets/imgs/right-arrow.png"/>
+           <img src="assets/imgs/cut-right.svg"/>
        </a>
-        <button class="fs" ngsf-toggle-fullscreen>FS</button>
+    </div>
+    <div class="fsbutton">
+        <button class="fs" ngsf-toggle-fullscreen></button>
     </div>
 </div>

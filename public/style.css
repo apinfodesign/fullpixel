@@ -52,6 +52,9 @@ table {
   border-spacing: 0; }
 
 /* END RESET */
+.logo {
+  font-size: 43px; }
+
 .members {
   display: block;
   float: left;
@@ -102,8 +105,7 @@ table {
 
 .menu ul {
   list-style-type: none;
-  padding-top: 1.4em;
-  padding-bottom: 1.4em; }
+  padding-top: 1.4em; }
 
 .menu ul li {
   display: inline-block;
@@ -293,9 +295,6 @@ footer {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.25); }
-
-#avatar-container {
-  margin-top: 5em; }
 
 #avatar {
   border-radius: 50%;
@@ -1606,14 +1605,39 @@ striping:
   width: 100%;
   height: 100%; }
 
-.arrows {
+.leftarrow {
+  height: 100%;
+  width: 100px;
   position: absolute;
-  top: 300px;
-  right: 200px;
+  top: 0;
+  left: 0;
   z-index: 31; }
 
+.rightarrow {
+  height: 100%;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 31; }
+
+.arrows a {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  margin-top: 300px;
+  height: 55px;
+  width: 55px; }
+
 .arrows img {
-  height: 32px; }
+  height: 52px;
+  width: 52px; }
+
+.fsbutton {
+  position: absolute;
+  bottom: 9px;
+  right: 9px;
+  z-index: 31; }
 
 .slide.ng-hide-add, .slide.ng-hide-remove {
   -webkit-transition: all linear 0.5s;
@@ -1627,6 +1651,11 @@ striping:
 
 .slide.ng-hide-add, .slide.ng-hide-remove.ng-hide-remove-active {
   opacity: 1; }
+
+.fs {
+  height: 50px;
+  width: 50px;
+  background: url("assets/imgs/move.svg") no-repeat; }
 
 nav.menu {
   margin-top: 0;
@@ -1994,8 +2023,7 @@ nav#upload-menu {
 
 .menu ul {
   list-style-type: none;
-  padding-top: 1.4em;
-  padding-bottom: 1.4em; }
+  padding-top: 1.4em; }
 
 .menu ul li {
   display: inline-block;
