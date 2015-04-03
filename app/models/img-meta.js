@@ -1,8 +1,8 @@
 var db = require('./db');
 
 var ImgMeta = db.model('ImgMeta', {
-        username: {type: String, required: true},
-	    path:     {type: String, required: true},
+        username: {type: String},
+	    path:     {type: String},
 	    title:    {type: String},
 	    caption:  {type: String},
 	    tags:     {type: String},
