@@ -16,25 +16,25 @@
 
 <body ng-app="pullPix" >
 <div class="currentuser" ng-controller="ApplicationCtrl">
-    
+
     <div class="ang-view" ng-view>
     </div>
 </div>
 
     <!-- for clicking through slides from profile-page -->
-    <script src="/js/lib/jquery/dist/jquery.min.js"></script> 
+    <script src="/js/lib/jquery/dist/jquery.min.js"></script>
 
 
     <!-- used to ng file upload -->
-    <script src="/js/lib/ng-file-upload/angular-file-upload-shim.min.js"></script> 
-    <script src="/js/lib/ng-file-upload/angular-file-upload.min.js"></script> 
+    <script src="/js/lib/ng-file-upload/angular-file-upload-shim.min.js"></script>
+    <script src="/js/lib/ng-file-upload/angular-file-upload.min.js"></script>
 
     <!-- added for ng-animations -->
-    <script src="/js/lib/angular-animate/angular-animate.min.js"></script> 
+    <script src="/js/lib/angular-animate/angular-animate.min.js"></script>
 
     <!-- added for fullscreen viewer -->
     <script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
-    <script src="/js/lib/angular-bootstrap/ui-bootstrap.min.js"></script> 
+    <script src="/js/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="/js/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="/js/lib/screenfull/dist/screenfull.js"></script>
 <script src="/js/lib/angular-screenfull/dist/angular-screenfull.min.js"></script>
@@ -42,16 +42,16 @@
 
 <script>
          $(document).ready(function () {
-            
+
             console.log("document ready");
 
             $("body").keydown(function(e) {
-              if(e.which == 37) { // left     
+              if(e.which == 37) { // left
                 $(".previous a").trigger("click");
                 console.log("left click");
 
               }
-              else if(e.which == 39) { // right     
+              else if(e.which == 39) { // right
                  $(".next a").trigger("click");
                  console.log("right click");
               }
@@ -60,17 +60,17 @@
             // $(".previous a").on("click",function(){
             //     // your scripts for previous click here
             //     console.log("left click");
-            //     window.location = 'http://www.google.com';  
+            //     window.location = 'http://www.google.com';
             // });
             // $(".next a").on("click",function(){
             //     // your scripts for next click here
             //     console.log("right click");
-            //     window.location = 'http://sg.yahoo.com/';   
+            //     window.location = 'http://sg.yahoo.com/';
             // });
         });
 </script>
 
 
-    
+
 </body>
 </html>
