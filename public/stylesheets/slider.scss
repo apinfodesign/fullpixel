@@ -1,6 +1,9 @@
-.my-fullscreen {
+#myfullscreen {
   width: 100%;
   height: 100%;
+}
+.gears {
+  background: url("assets/imgs/gears.svg");
 }
 
 .slider{
@@ -8,6 +11,7 @@
   padding:1px;
   margin: auto;
   width: 100%;
+  height: 100%;
 }
 .slide{
   width: 100%;
