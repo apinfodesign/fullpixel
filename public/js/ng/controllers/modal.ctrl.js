@@ -7,7 +7,7 @@ angular.module('pullPix')
     var modalInstance = $modal.open({
       templateUrl: 'myModalContent.html',
       controller: 'ModalInstanceCtrl',
-      size: size,
+      size: size
     });
   };
 });

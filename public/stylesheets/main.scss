@@ -73,12 +73,35 @@ $font-stack: 'Raleway, san-serif';
 
 .logo {
   font-size: 43px;
+  padding-bottom: 24px;
 }
+.smallnav {
+  margin-top: 14px!important;
+}
+.openme {
+  position: relative;
+  width: 105px;
+  height: 67px;
+  margin: 0 10px;
+}
+.openme button {
+  display: block;
+  float: left;
+  width: 100px;
+  padding: 10px 7px 7px 6px;
+  color: #000011;
+}
+.opened {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 .members {
   display: block;
   float: left;
   width: 100%;
-  padding: 40px 0;
+  padding: 17px 0;
   background: #7d7d72 ;
 }
 .members-title {
