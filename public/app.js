@@ -120,6 +120,19 @@ angular.module('pullPix')
 
 }]);
 angular.module('pullPix')
+.controller('LoginCollapseCtrl', ["$scope", "UserSvc", "$rootScope", "$location", function ($scope, UserSvc, $rootScope, $location) {
+  $scope.isCollapsed = true;
+
+  $scope.login = function(username, password){
+            UserSvc.login(username, password)
+                .then(function(user){
+                    $rootScope.$emit('login', user);
+                    console.log('User ' + user);
+                    $location.path('/upload');
+              });
+  			};
+  		}]);
+angular.module('pullPix')
      .controller('LoginCtrl', ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
         $scope.login = function(username, password){
             UserSvc.login(username, password)
@@ -225,6 +238,19 @@ angular.module('pullPix')
 
 
 
+angular.module('pullPix')
+.controller('SignupCollapseCtrl', ["$scope", "UserSvc", "$rootScope", "$location", function ($scope, UserSvc, $rootScope, $location) {
+  $scope.isCollapsed = true;
+
+  $scope.register = function (username, password){
+            UserSvc.register(username, password)
+                .then(function(user){
+                    console.log('WORK');
+                    $rootScope.$emit('login', user);
+                    $location.path('/upload');
+            });
+  };
+}]);
 angular
     .module('pullPix')
     .controller('UploadCtrl', Upload);
@@ -390,6 +416,62 @@ function truncateDecimals (num, digits) {
     return parseFloat(finalResult);
 }
 
+angular
+    .module('pullPix')
+    .directive('slider', ["$timeout", function($timeout){
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                imgmetas: '='
+            },
+            link: function(scope, elem, attrs){
+
+                scope.currentIndex = 0;
+                console.log('slid-dir ' + scope.imgmetas);
+                scope.next = function($event){
+                    if($event){$event.preventDefault();}
+                   scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+                };
+
+                scope.prev = function($event){
+                    $event.preventDefault();
+                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
+                };
+
+                scope.$watch('currentIndex', function(){
+                    scope.imgmetas.forEach(function(imgmeta){
+                        imgmeta.visible = false;
+                    });
+                    scope.imgmetas[scope.currentIndex].visible = true;
+                });
+                scope.fullScreen = function(){
+
+                }
+
+                /* Start: For Automatic slideshow*/
+
+                var timer;
+
+                var sliderFunc=function(){
+                    timer=$timeout(function(){
+                        scope.next();
+                        timer=$timeout(sliderFunc,5000);
+                    },5000);
+                };
+
+                sliderFunc();
+
+                scope.$on('$destroy',function(){
+                    $timeout.cancel(timer);
+                });
+
+                /* End : For Automatic slideshow*/
+            },
+            templateUrl: 'partials/slider.html'
+        }
+    }]);
+
 angular.module('pullPix')
     .factory('CurrentUser', function(){
         var currentuser = {
@@ -453,61 +535,4 @@ angular.module('pullPix')
                 return svc.login(username, password);
             });
         };
-    }]);
-
-
-angular
-    .module('pullPix')
-    .directive('slider', ["$timeout", function($timeout){
-        return {
-            restrict: 'AE',
-            replace: true,
-            scope: {
-                imgmetas: '='
-            },
-            link: function(scope, elem, attrs){
-
-                scope.currentIndex = 0;
-                console.log('slid-dir ' + scope.imgmetas);
-                scope.next = function($event){
-                    if($event){$event.preventDefault();}
-                   scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
-                };
-
-                scope.prev = function($event){
-                    $event.preventDefault();
-                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
-                };
-
-                scope.$watch('currentIndex', function(){
-                    scope.imgmetas.forEach(function(imgmeta){
-                        imgmeta.visible = false;
-                    });
-                    scope.imgmetas[scope.currentIndex].visible = true;
-                });
-                scope.fullScreen = function(){
-
-                }
-
-                /* Start: For Automatic slideshow*/
-
-                var timer;
-
-                var sliderFunc=function(){
-                    timer=$timeout(function(){
-                        scope.next();
-                        timer=$timeout(sliderFunc,5000);
-                    },5000);
-                };
-
-                sliderFunc();
-
-                scope.$on('$destroy',function(){
-                    $timeout.cancel(timer);
-                });
-
-                /* End : For Automatic slideshow*/
-            },
-            templateUrl: 'partials/slider.html'
-        }
     }]);

@@ -1,13 +1,52 @@
 
 	<div id="picture-main">
 
-		<nav class="menu">
-			<ul class="group">
-				<li><a href="/#/">FullPixel</a></li>
-				<li><a href="/#/#signup-form-container">Sign Up</a></li>
-				<li><a href="/#/#signup-form-container">Login</a></li>
-			</ul>
-		</nav>
+		
+
+			<nav class="menu">
+				<ul class="group">
+					<li><a href="/#/">FullPixel</a></li>
+					<li>
+						<div ng-controller="SignupCollapseCtrl">
+						<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">SignUp</button>
+						<hr>
+						<div collapse="isCollapsed">
+							<div class="well well-lg"> 
+		    					<form ng-submit="register(username, password)" id="form-signup">
+	        					<label>Username</label>
+				        		<input class="form-control" type="text" ng-model="username">
+				        		<label>Password</label>
+				        		<input class="form-control" type="password" ng-model="password">
+				    			<input type="submit" value="Register for FullPixel" id="signup-submit">
+								</form>
+								</div> 
+						</div>
+						</div>
+					</li>
+
+					<li>
+						<div ng-controller="LoginCollapseCtrl">
+						<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Login</button>
+						<hr>
+						<div collapse="isCollapsed">
+							<div class="well well-lg"> 
+		    					<form ng-submit="login(username, password)" id="form-login">
+	        					<label>Username</label>
+				        		<input class="form-control" type="text" ng-model="username">
+				        		<label>Password</label>
+				        		<input class="form-control" type="password" ng-model="password">
+				    			<input type="submit" value="Login to FullPixel" id="login-submit">
+								</form>
+								</div> 
+						</div>
+						</div>
+					</li>
+					
+				</ul>
+			</nav>
+
+		
+
 
 		<div class="heading-wrapper">
 
