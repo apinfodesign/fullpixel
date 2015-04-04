@@ -19,7 +19,7 @@
     <nav class="menu">
         <ul class="group">
             <li class="logo"><a href="/#/">FullPixel</a></li>
-            <li ng-if="!currentUser" class="openme">
+          <!--  <li ng-if="!currentUser" class="openme">
                 <div class="opened" ng-controller="SignupCollapseCtrl">
                     <button class="" ng-click="isCollapsed = !isCollapsed">SignUp</button>
                     <div collapse="isCollapsed">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> -->
             <li class="smallnav" ng-if="currentUser"><a href="/#/upload">Upload</a></li>
             <li class="smallnav"><a href="/#/members">Discover</a></li>
             <li class="smallnav" ng-if="currentUser"><a href="/#/{{currentUser.username}}">{{currentUser.username}}</a></li>

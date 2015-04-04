@@ -11,26 +11,28 @@ var gulp       = require('gulp'),
 
 var config = {
     sassPath: 'public/stylesheets/*.scss',
-    bowerDir: './bower_components'
+    jsPath: 'public/js/ng/**/*.js',
+    bowerDir: './bower_components',
+    htmlPath: 'public/partials/*.html'
 };
 
-gulp.task('welcome', function(){
-    console.log('Welcome to Gulp!');
-});
-
-gulp.task('hello',['welcome'], function () {
-    console.log('Hello World.');
-});
-
 gulp.task('js', function(){
-    gulp.src(['public/js/ng/controllers/module.js','./public/js/ng/**/*.js'])
+    gulp.src(['public/js/ng/controllers/module.js', config.jsPath])
         .pipe(concat('app.js'))
         .pipe(ngAnnotate())
        // .pipe(uglify())
         .pipe(gulp.dest('public'));
 });
 gulp.task('watch:js', ['js'], function(){
-    gulp.watch('public/js/ng/**/*.js', ['js']);
+    gulp.watch(config.jsPath, ['js']);
+});
+gulp.task('html', function(){
+    gulp.src(config.htmlPath)
+        .pipe(livereload());
+});
+gulp.task('watch:html',['html'], function(){
+    livereload.listen();
+    gulp.watch(config.htmlpath,['html']);
 });
 gulp.task('bower', function(){
     return bower()
@@ -45,7 +47,7 @@ gulp.task('css', function(){
 });
 gulp.task('watch:css',['css'], function(){
     livereload.listen();
-    gulp.watch('public/stylesheets/*.scss',['css']);
+    gulp.watch(config.sassPath,['css']);
 });
 gulp.task('dev:server', function(){
     nodemon({
@@ -54,6 +56,6 @@ gulp.task('dev:server', function(){
         ignore: ['ng*', 'gulp*', 'assets*']
     });
 });
-gulp.task('default',['watch:js', 'watch:css', 'dev:server'],  function(){
+gulp.task('default',['watch:js', 'watch:css','watch:html', 'dev:server'],  function(){
 });
 
