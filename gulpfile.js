@@ -30,10 +30,10 @@ gulp.task('html', function(){
     gulp.src(config.htmlPath)
         .pipe(livereload());
 });
-gulp.task('watch:html',['html'], function(){
-    livereload.listen();
-    gulp.watch(config.htmlpath,['html']);
-});
+//gulp.task('watch:html',['html'], function(){
+//    livereload.listen();
+//    gulp.watch(config.htmlpath,['html']);
+//});
 gulp.task('bower', function(){
     return bower()
         .pipe(gulp.dest(config.bowerDir));
