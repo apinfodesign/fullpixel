@@ -1,18 +1,19 @@
-var gulp       = require('gulp'),
-    concat     = require('gulp-concat'),
-    uglify     = require('gulp-uglify'),
-    ngAnnotate = require('gulp-ng-annotate'),
-    nodemon    = require('gulp-nodemon'),
-    sass       = require('gulp-sass'),
-    notify     = require('gulp-notify'),
-    bower      = require('gulp-bower'),
-    gutil      = require('gulp-util'),
-    livereload = require('gulp-livereload');
+var gulp           = require('gulp'),
+    concat         = require('gulp-concat'),
+    uglify         = require('gulp-uglify'),
+    ngAnnotate     = require('gulp-ng-annotate'),
+    nodemon        = require('gulp-nodemon'),
+    sass           = require('gulp-sass'),
+    notify         = require('gulp-notify'),
+    bower          = require('gulp-bower'),
+    gutil          = require('gulp-util'),
+    livereload     = require('gulp-livereload'),
+    mainBowerFiles = require('main-bower-files');
 
 var config = {
     sassPath: 'public/stylesheets/*.scss',
     jsPath: 'public/js/ng/**/*.js',
-    bowerDir: './bower_components',
+    bowerPath: 'public/js/lib',
     htmlPath: 'public/partials/*.html'
 };
 
@@ -26,17 +27,19 @@ gulp.task('js', function(){
 gulp.task('watch:js', ['js'], function(){
     gulp.watch(config.jsPath, ['js']);
 });
-gulp.task('html', function(){
-    gulp.src(config.htmlPath)
-        .pipe(livereload());
-});
+//gulp.task('html', function(){
+//    gulp.src(config.htmlPath)
+//        .on('change')
+//        .pipe(livereload());
+//});
 //gulp.task('watch:html',['html'], function(){
 //    livereload.listen();
 //    gulp.watch(config.htmlpath,['html']);
 //});
 gulp.task('bower', function(){
-    return bower()
-        .pipe(gulp.dest(config.bowerDir));
+     gulp.src(mainBowerFiles(),{base: config.bowerPath})
+        .pipe(concat('bower.js'))
+        .pipe(gulp.dest('public'));
 });
 gulp.task('css', function(){
      gulp.src(config.sassPath)
@@ -56,6 +59,6 @@ gulp.task('dev:server', function(){
         ignore: ['ng*', 'gulp*', 'assets*']
     });
 });
-gulp.task('default',['watch:js', 'watch:css','watch:html', 'dev:server'],  function(){
+gulp.task('default',['bower','watch:js', 'watch:css', 'dev:server'],  function(){
 });
 
