@@ -2,12 +2,11 @@ angular.module('pullPix')
 .controller('ModalDemoCtrl', function ($scope, $modal) {
 
 
-  $scope.open = function (size) {
-
-    var modalInstance = $modal.open({
-      templateUrl: 'myModalContent.html',
-      controller: 'ModalInstanceCtrl',
-      size: size
+  $scope.open = function ($event) {
+     $event.preventDefault();
+     var modalInstance = $modal.open({
+        templateUrl: 'partials/signin-up.html',
+        controller: 'ModalInstanceCtrl'
     });
   };
 });

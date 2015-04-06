@@ -17,39 +17,12 @@
     <nav class="menu">
         <ul class="group">
             <li class="logo"><a href="/#/">FullPixel</a></li>
-          <!--  <li ng-if="!currentUser" class="openme">
-                <div class="opened" ng-controller="SignupCollapseCtrl">
-                    <button class="" ng-click="isCollapsed = !isCollapsed">SignUp</button>
-                    <div collapse="isCollapsed">
-                        <div class="well well-lg">
-                            <form ng-submit="register(username, password)" id="form-signup">
-                                <label>Username</label>
-                                <input class="form-control" type="text" ng-model="username">
-                                <label>Password</label>
-                                <input class="form-control" type="password" ng-model="password">
-                                <input type="submit" value="Register for FullPixel" id="signup-submit">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            <div ng-controller="ModalDemoCtrl">
+                <li  class="smallnav" ng-if="!currentUser"><a href="#" ng-click="open($event)">SignUp</a></li>
 
-            <li ng-if="!currentUser" class="openme">
-                <div class="opened" ng-controller="LoginCollapseCtrl">
-                    <button class="" ng-click="isCollapsed = !isCollapsed">Login</button>
-                    <div collapse="isCollapsed">
-                        <div class="well well-lg">
-                            <form ng-submit="login(username, password)" id="form-login">
-                                <label>Username</label>
-                                <input class="form-control" type="text" ng-model="username">
-                                <label>Password</label>
-                                <input class="form-control" type="password" ng-model="password">
-                                <input type="submit" value="Login to FullPixel" id="login-submit">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </li> -->
+                <li  class="smallnav" ng-if="!currentUser"><a href="#" ng-click="open($event)">Login</a></li>
+
+            </div>
             <li class="smallnav" ng-if="currentUser"><a href="/#/upload">Upload</a></li>
             <li class="smallnav"><a href="/#/members">Discover</a></li>
             <li class="smallnav" ng-if="currentUser"><a href="/#/{{currentUser.username}}">{{currentUser.username}}</a></li>

@@ -54,7 +54,9 @@ table {
 /* END RESET */
 .logo {
   font-size: 43px;
-  padding-bottom: 24px; }
+  padding-bottom: 24px;
+  float: left !important;
+  padding-left: 1.25em; }
 
 .smallnav {
   margin-top: 14px !important; }
@@ -136,11 +138,6 @@ table {
   /*text-shadow: 0px 1px 1px rgba(0,0,0,0.50);*/
   float: right;
   padding-right: 1.5em; }
-
-/* BRAND */
-.menu ul li:first-child {
-  float: left;
-  padding-left: 1.25em; }
 
 /* TOP RIGHT MENU SELECT (2nd because of float) */
 .menu ul li:nth-child(2) {
@@ -2054,11 +2051,6 @@ nav#upload-menu {
   /*text-shadow: 0px 1px 1px rgba(0,0,0,0.50);*/
   float: right;
   padding-right: 1.5em; }
-
-/* BRAND */
-.menu ul li:first-child {
-  float: left;
-  padding-left: 1.25em; }
 
 /* TOP RIGHT MENU SELECT (2nd because of float) */
 .menu ul li:nth-child(2) {
