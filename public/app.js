@@ -397,7 +397,6 @@ angular
             templateUrl: 'partials/slider.html'
         }
     }]);
-
 angular.module('pullPix')
     .service('ImgMetaSvc', ["$http", function($http){
         this.fetch = function(username){
@@ -456,3 +455,4 @@ angular.module('pullPix')
             });
         };
     }]);
+
