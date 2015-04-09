@@ -12,6 +12,16 @@ System Requirements
 
 	gulp - to run the server locally
 
+	Database setup
+
+		create mongo database - use DBName
+
+		Remove collection - db.collectionName.remove({})
+
+		import to a collection - 
+
+			mongoimport --db dbName --collection collectionName --file /absolutePath/fileName.json
+
 	
 
 
