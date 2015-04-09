@@ -1,4 +1,5 @@
 <div class="slider">
+    
     <div class="slide" ng-repeat="imgmeta in imgmetas" ng-show="imgmeta.visible">
         <img ng-src="{{imgmeta.path}}"/>
         <div class="membername">
@@ -8,12 +9,12 @@
 
     <div class="arrows leftarrow">
        <a href="#" ng-click="prev($event)">
-           <img src="assets/imgs/cut-left.svg"/>
+           <img src="assets/imgs/leftGreyArrow.png"/>
        </a>
     </div>
     <div class="arrows rightarrow">
        <a href="#" ng-click="next($event)">
-           <img src="assets/imgs/cut-right.svg"/>
+           <img src="assets/imgs/rightGreyArrow.png"/>
        </a>
     </div>
     <div class="fsbutton">
