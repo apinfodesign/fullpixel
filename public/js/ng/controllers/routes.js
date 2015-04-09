@@ -7,7 +7,7 @@ angular.module('pullPix')
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
             .when('/members', {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
-            .when('/fullscreen', {controller: 'FullscreenCtrl',    templateUrl: '/partials/fullscreen.html'})
+            .when('/about', {controller: '',    templateUrl: '/partials/about.html'})
             .when('/:userName',  {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      });
 
