@@ -380,12 +380,13 @@ angular
                 /* Start: For Automatic slideshow*/
 
                 var timer;
+                scope.delay = 50000; // interval /1000 = seconds delay
 
                 var sliderFunc=function(){
                     timer=$timeout(function(){
                         scope.next();
-                        timer=$timeout(sliderFunc,5000);
-                    },5000);
+                        timer=$timeout(sliderFunc, scope.delay );
+                    }, 100);
                 };
 
                 sliderFunc();
