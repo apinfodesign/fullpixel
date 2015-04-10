@@ -25,12 +25,16 @@
             </div>
             <li class="smallnav" ng-if="currentUser"><a href="/#/upload">Upload</a></li>
             <li class="smallnav"><a href="/#/members">Discover</a></li>
-            <li class="smallnav" ng-if="currentUser"><a href="/#/{{currentUser.username}}">{{currentUser.username}}</a></li>
+            <li class="smallnav" ng-if="currentUser"><a href="/#/{{currentUser.username}}">Photos by {{currentUser.username}}</a></li>
+
+            <li class="smallnav" ng-if="currentUser"><a href="/#/about">About {{currentUser.username}}</a></li>
+
 
         </ul>
     </nav>
 
-    <div class="ang-view" ng-view>
+    <div class="ang-view" ng-view>   
+
     </div>
 </div>
 

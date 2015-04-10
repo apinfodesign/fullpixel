@@ -34,12 +34,14 @@ angular
                 /* Start: For Automatic slideshow*/
 
                 var timer;
+                scope.delay = 9000000;  //very large but figure out how to turn off
+                // interval /1000 = seconds  is amount delay between auto slide change
 
                 var sliderFunc=function(){
                     timer=$timeout(function(){
                         scope.next();
-                        timer=$timeout(sliderFunc,5000);
-                    },5000);
+                        timer=$timeout(sliderFunc, scope.delay );
+                    }, 100);   //this appears to control start delay
                 };
 
                 sliderFunc();

@@ -10,6 +10,8 @@ angular.module('pullPix')
         $rootScope.$on('login', function(_, user){
             $rootScope.currentUser = user; //
             console.log('appctrl ' + user.username);
+       		console.log('appctrl ' + user.userphoto);
+                 
     });
 }]);
 
@@ -146,7 +148,7 @@ angular.module('pullPix')
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
             .when('/members', {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
-            .when('/fullscreen', {controller: 'FullscreenCtrl',    templateUrl: '/partials/fullscreen.html'})
+            .when('/about', {controller: '',    templateUrl: '/partials/about.html'})
             .when('/:userName',  {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      }]);
 
@@ -378,12 +380,14 @@ angular
                 /* Start: For Automatic slideshow*/
 
                 var timer;
+                scope.delay = 9000000;  //very large but figure out how to turn off
+                // interval /1000 = seconds  is amount delay between auto slide change
 
                 var sliderFunc=function(){
                     timer=$timeout(function(){
                         scope.next();
-                        timer=$timeout(sliderFunc,5000);
-                    },5000);
+                        timer=$timeout(sliderFunc, scope.delay );
+                    }, 100);   //this appears to control start delay
                 };
 
                 sliderFunc();
