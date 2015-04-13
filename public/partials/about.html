@@ -1,10 +1,68 @@
 <div id="about">
+	<div class="info-personal group">
+			<div class="info-main"  class="portrait-size">
+ 				<img src="/assets/userportraits-imgs/{{currentUser.userportrait}}" id="avatar" ></a>
+			</div>
+	</div>
 
-<h1>About {{currentUser.username}}  </h1>
-<h4>Photo is  {{currentUser.userphoto}}</h2>
-<img src="/assets/mbr-imgs/{{currentUser.userphoto}}  ">
-<h4>Insert user description of this slide show here.</h4>
+	<div class="caption">
+		<h3 class="caption-title"> About the Photographer</h3>
+		<h4 class="nameSmall"> Public Name: {{currentUser.userpublicname}}</h4>
+		<h4 class="nameSmall"> User Name: {{currentUser.username}}</h4>
+		<h4 class="nanameSmallme"> User Portrait: {{currentUser.userportrait}}<h4>
+		<h4 class="nameSmall"> Project Title: {{currentUser.userblogtitle}}<h4>
+		<h4 class="nameSmall"> Project Description: {{currentUser.useraboutstory}}</h4>
+		<h4 class="nameSmall"> Favorite Photo in Collection: {{currentUser.userphoto}}</h4>
+		<img src="/assets/mbr-imgs/{{currentUser.userphoto}}  ">
+  	</div>
+
+			 <fieldset name="exif" id="exif">
+                <label id="label-exif">About the Photographer</label>
+
+                <label for="userpublicname">Public Name:</label>
+                <input name="camera" value="{{currentUser.userpublicname}}">
+                <br>
+                <label for="username">User Name:</label>
+                <input name="date" value="{{currentUser.username}}">
+                <br>
+                <label for="userportrait">User Portrait</label>
+                <input name="shutter-speed" value="{{currentUser.userportrait}}">
+                <br>
+                <label for="userblogtitle">Project Title:</label>
+                <input name="aperture" value="{{currentUser.userblogtitle}}">
+                <br>
+                <label for="useraboutstory">Project Description</label>
+                <input name="iso" value="{{currentUser.useraboutstory}}">
+                 <br>
+                <label for="userphoto">Favorite Photo in Collection</label>
+                <input name="iso" value="{{currentUser.userphoto}}">
+            </fieldset>
+
+
+			 <fieldset name="exif" id="exif">
+                <label id="label-exif">About</label>
+                <label for="camera">Camera:</label>
+                <input name="camera" value="{{vm.cameraModel}}">
+                <br>
+                <label for="date">Taken On:</label>
+                <input name="date" value="{{vm.timeDate}}">
+                <br>
+                <label for="shutter-speed">Shutter Speed:</label>
+                <input name="shutter-speed" value="{{vm.shutterSpeed}}">
+                <br>
+                <label for="aperture">Aperture:</label>
+                <input name="aperture" value="{{vm.aperture}}">
+                <br>
+                <label for="iso">ISO:</label>
+                <input name="iso" value="{{vm.iso}}">
+            </fieldset>
+
+
+
+
 </div>
+
+
 
 
  
