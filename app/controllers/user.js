@@ -29,4 +29,7 @@ router.post('/users',function(req, res, next){
     });
 });
 
+
+//we need to add a section to update the post request
+
 module.exports = router;

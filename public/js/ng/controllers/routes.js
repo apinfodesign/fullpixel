@@ -6,8 +6,8 @@ angular.module('pullPix')
             .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'}) 
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
-            .when('/members', {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
-            .when('/about', {controller: '',    templateUrl: '/partials/about.html'})
+            .when('/members',    {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
+            .when('/about',      {controller: '',    templateUrl: '/partials/about.html'})
             .when('/:userName',  {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      });
 
