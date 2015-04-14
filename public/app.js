@@ -6,30 +6,34 @@ angular.module('pullPix',[
     'angularScreenfull'
 ]);
 angular.module('pullPix')
-    .controller('AboutInfoCtrl', ["$scope", "AboutInfoSvc", "CurrentUser", function($scope, AboutInfoSvc, CurrentUser){
-        $scope.UserUpdate = function(userdata){
-            if(userdata){
-                //maybe AboutInfoSvc.update? need to change the the actual database data
-                AboutInfoSvc.create({
-                    userid          : userdata.userid,
-                    path            : userdata.path,
-                    title           : userdata.title,
-                    caption         : metadata.caption,
-                    tags            : metadata.tags,
-                    camera          : metadata.camera,
-                    shutter         : metadata.shutter,
-                    aperture        : metadata.aperture,
-                    iso             : metadata.iso,
-                    date            : metadata.date
-                })
-                .success(function(usermeta){
-                    console.table(usermeta);
-                    
-                    $location.path('/about/' + currentUser.username);   
-                });
-            }
-
+    .controller('AboutInfoCtrl', //function($scope, AboutInfoSvc, '$routeParams', '$sanitize'){
+        ["$scope", "AboutInfoSvc", "$routeParams", function($scope, AboutInfoSvc, $routeParams){
+            AboutInfoService.getUsers(function(result){
+                $scope.userdata = result[0];
+                
+        });
+        $scope.update = function(userdata, callback){
+            AboutInfoSvc.updateUser(userdata);
+            console.log("test");
         };
+        // $scope.UserUpdate = function(userdata){
+        //     if(userdata){
+                
+        //         AboutInfoSvc.update({
+        //             userpublicname  : userdata.userpublicname,
+        //             userportrait    : userdata.userportrait,
+        //             userblogtitle   : userdata.userblogtitle,
+        //             useraboutstory  : userdata.useraboutstory,
+        //             usertags        : userdata.usertags
+        //         })
+        //         .success(function(userdata){
+        //             console.log(userdata);
+                    
+        //             $location.path('/#/');   
+        //         });
+        //     }
+
+        // };
     }]);
 angular.module('pullPix')
     .controller('ApplicationCtrl', ["$rootScope", function($rootScope){
@@ -174,7 +178,7 @@ angular.module('pullPix')
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
             .when('/members',    {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
-            .when('/about',      {controller: '',    templateUrl: '/partials/about.html'})
+            .when('/about',      {controller: 'AboutInfoCtrl',    templateUrl: '/partials/about.html'})
             .when('/:userName',  {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      }]);
 
@@ -429,14 +433,16 @@ angular
     }]);
 
 angular.module('pullPix')
-    .service('AboutInfoSvc', ["$http", function($http){
-        this.fetch = function(username){
-            return $http.get('/users');
-        };
-        this.create = function(imgmeta){
-            return $http.post('/users', currentUser);
-        }
-    }]);
+    .service('AboutInfoSvc', ["$http", "$routeParams", function($http, $routeParams){
+		return{
+		    getUsers: function(callback){
+		        $http.get('/users'+ $routeParams.userdata).success(callback);
+		    },
+		    updateUser: function(userdata, callback){
+		        $http.post('/updateUser', userdata);
+		    }
+	};
+}]);
 angular.module('pullPix')
     .service('ImgMetaSvc', ["$http", function($http){
         this.fetch = function(username){

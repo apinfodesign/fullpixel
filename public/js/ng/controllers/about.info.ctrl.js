@@ -1,26 +1,30 @@
 angular.module('pullPix')
-    .controller('AboutInfoCtrl', function($scope, AboutInfoSvc, CurrentUser){
-        $scope.UserUpdate = function(userdata){
-            if(userdata){
-                //maybe AboutInfoSvc.update? need to change the the actual database data
-                AboutInfoSvc.create({
-                    userid          : userdata.userid,
-                    path            : userdata.path,
-                    title           : userdata.title,
-                    caption         : metadata.caption,
-                    tags            : metadata.tags,
-                    camera          : metadata.camera,
-                    shutter         : metadata.shutter,
-                    aperture        : metadata.aperture,
-                    iso             : metadata.iso,
-                    date            : metadata.date
-                })
-                .success(function(usermeta){
-                    console.table(usermeta);
-                    
-                    $location.path('/about/' + currentUser.username);   
-                });
-            }
-
+    .controller('AboutInfoCtrl', //function($scope, AboutInfoSvc, '$routeParams', '$sanitize'){
+        function($scope, AboutInfoSvc, $routeParams){
+            AboutInfoService.getUsers(function(result){
+                $scope.userdata = result[0];
+                
+        });
+        $scope.update = function(userdata, callback){
+            AboutInfoSvc.updateUser(userdata);
+            console.log("test");
         };
+        // $scope.UserUpdate = function(userdata){
+        //     if(userdata){
+                
+        //         AboutInfoSvc.update({
+        //             userpublicname  : userdata.userpublicname,
+        //             userportrait    : userdata.userportrait,
+        //             userblogtitle   : userdata.userblogtitle,
+        //             useraboutstory  : userdata.useraboutstory,
+        //             usertags        : userdata.usertags
+        //         })
+        //         .success(function(userdata){
+        //             console.log(userdata);
+                    
+        //             $location.path('/#/');   
+        //         });
+        //     }
+
+        // };
     });
