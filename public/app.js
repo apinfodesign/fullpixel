@@ -5,75 +5,6 @@ angular.module('pullPix',[
     'ui.bootstrap',
     'angularScreenfull'
 ]);
-angular
-    .module('pullPix')
-    .directive('gears', ["$timeout", function($timeout){
-        return {
-            link: function (scope, element, attrs) {
-                $timeout(function () {
-                    var myEl = angular.element(document.querySelector('#myfullscreen'));
-                    myEl.removeClass('gears');
-                }, 6000);
-            }
-        }
-    }]);
-angular
-    .module('pullPix')
-    .directive('slider', ["$timeout", function($timeout){
-        return {
-            restrict: 'AE',
-            replace: true,
-            scope: {
-                imgmetas: '='
-            },
-            link: function(scope, elem, attrs){
-
-                scope.currentIndex = 0;
-                console.log('slid-dir ' + scope.imgmetas);
-                scope.next = function($event){
-                    if($event){$event.preventDefault();}
-                   scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
-                };
-
-                scope.prev = function($event){
-                    $event.preventDefault();
-                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
-                };
-
-                scope.$watch('currentIndex', function(){
-                    scope.imgmetas.forEach(function(imgmeta){
-                        imgmeta.visible = false;
-                    });
-                    scope.imgmetas[scope.currentIndex].visible = true;
-                });
-                scope.fullScreen = function(){
-
-                }
-
-                /* Start: For Automatic slideshow*/
-
-                var timer;
-                scope.delay = 9000000;  //very large but figure out how to turn off
-                // interval /1000 = seconds  is amount delay between auto slide change
-
-                var sliderFunc=function(){
-                    timer=$timeout(function(){
-                        scope.next();
-                        timer=$timeout(sliderFunc, scope.delay );
-                    }, 100);   //this appears to control start delay
-                };
-
-                sliderFunc();
-
-                scope.$on('$destroy',function(){
-                    $timeout.cancel(timer);
-                });
-
-                /* End : For Automatic slideshow*/
-            },
-            templateUrl: 'partials/slider.html'
-        }
-    }]);
 angular.module('pullPix')
     .controller('AboutInfoCtrl', ["$scope", "AboutInfoSvc", "CurrentUser", function($scope, AboutInfoSvc, CurrentUser){
         $scope.UserUpdate = function(userdata){
@@ -94,7 +25,7 @@ angular.module('pullPix')
                 .success(function(usermeta){
                     console.table(usermeta);
                     
-                    //$location.path('/about/' + currentUser.username);   
+                    $location.path('/about/' + currentUser.username);   
                 });
             }
 
@@ -427,7 +358,75 @@ function truncateDecimals (num, digits) {
     return parseFloat(finalResult);
 }
 
+angular
+    .module('pullPix')
+    .directive('gears', ["$timeout", function($timeout){
+        return {
+            link: function (scope, element, attrs) {
+                $timeout(function () {
+                    var myEl = angular.element(document.querySelector('#myfullscreen'));
+                    myEl.removeClass('gears');
+                }, 6000);
+            }
+        }
+    }]);
+angular
+    .module('pullPix')
+    .directive('slider', ["$timeout", function($timeout){
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                imgmetas: '='
+            },
+            link: function(scope, elem, attrs){
 
+                scope.currentIndex = 0;
+                console.log('slid-dir ' + scope.imgmetas);
+                scope.next = function($event){
+                    if($event){$event.preventDefault();}
+                   scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+                };
+
+                scope.prev = function($event){
+                    $event.preventDefault();
+                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
+                };
+
+                scope.$watch('currentIndex', function(){
+                    scope.imgmetas.forEach(function(imgmeta){
+                        imgmeta.visible = false;
+                    });
+                    scope.imgmetas[scope.currentIndex].visible = true;
+                });
+                scope.fullScreen = function(){
+
+                }
+
+                /* Start: For Automatic slideshow*/
+
+                var timer;
+                scope.delay = 9000000;  //very large but figure out how to turn off
+                // interval /1000 = seconds  is amount delay between auto slide change
+
+                var sliderFunc=function(){
+                    timer=$timeout(function(){
+                        scope.next();
+                        timer=$timeout(sliderFunc, scope.delay );
+                    }, 100);   //this appears to control start delay
+                };
+
+                sliderFunc();
+
+                scope.$on('$destroy',function(){
+                    $timeout.cancel(timer);
+                });
+
+                /* End : For Automatic slideshow*/
+            },
+            templateUrl: 'partials/slider.html'
+        }
+    }]);
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
         this.fetch = function(username){
@@ -495,3 +494,4 @@ angular.module('pullPix')
             });
         };
     }]);
+

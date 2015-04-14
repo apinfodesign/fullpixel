@@ -18,7 +18,7 @@ angular.module('pullPix')
                 .success(function(usermeta){
                     console.table(usermeta);
                     
-                    //$location.path('/about/' + currentUser.username);   
+                    $location.path('/about/' + currentUser.username);   
                 });
             }
 
