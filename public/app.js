@@ -8,32 +8,27 @@ angular.module('pullPix',[
 angular.module('pullPix')
     .controller('AboutInfoCtrl', //function($scope, AboutInfoSvc, '$routeParams', '$sanitize'){
         ["$scope", "AboutInfoSvc", "$routeParams", function($scope, AboutInfoSvc, $routeParams){
-            AboutInfoService.getUsers(function(result){
-                $scope.userdata = result[0];
-                
-        });
-        $scope.update = function(userdata, callback){
-            AboutInfoSvc.updateUser(userdata);
-            console.log("test");
-        };
-        // $scope.UserUpdate = function(userdata){
-        //     if(userdata){
-                
-        //         AboutInfoSvc.update({
-        //             userpublicname  : userdata.userpublicname,
-        //             userportrait    : userdata.userportrait,
-        //             userblogtitle   : userdata.userblogtitle,
-        //             useraboutstory  : userdata.useraboutstory,
-        //             usertags        : userdata.usertags
-        //         })
-        //         .success(function(userdata){
-        //             console.log(userdata);
-                    
-        //             $location.path('/#/');   
-        //         });
-        //     }
 
-        // };
+        $scope.UserUpdate = function(userdata){
+            console.log(userdata);
+            if(userdata){
+                
+                AboutInfoSvc.update({
+                    userpublicname  : userdata.userpublicname,
+                    userportrait    : userdata.userportrait,
+                    userblogtitle   : userdata.userblogtitle,
+                    useraboutstory  : userdata.useraboutstory,
+                    usertags        : userdata.usertags
+                })
+                .success(function(userdata){
+                    //console.log(userdata);
+                    console.log('hello');
+                    
+                    $location.path('/#/');   
+                });
+            }
+
+        };
     }]);
 angular.module('pullPix')
     .controller('ApplicationCtrl', ["$rootScope", function($rootScope){
@@ -433,16 +428,14 @@ angular
     }]);
 
 angular.module('pullPix')
-    .service('AboutInfoSvc', ["$http", "$routeParams", function($http, $routeParams){
-		return{
-		    getUsers: function(callback){
-		        $http.get('/users'+ $routeParams.userdata).success(callback);
-		    },
-		    updateUser: function(userdata, callback){
-		        $http.post('/updateUser', userdata);
-		    }
-	};
-}]);
+    .service('AboutInfoSvc', ["$http", function($http){
+		this.fetch = function(currentUser){
+            return $http.get('/users/'+ currentUser.username);
+        };
+        this.update = function(currentUser, userdata){
+            return $http.put('/users/' + currentUser.username, userdata);
+        }
+    }]);
 angular.module('pullPix')
     .service('ImgMetaSvc', ["$http", function($http){
         this.fetch = function(username){

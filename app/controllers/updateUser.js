@@ -2,7 +2,18 @@ var User = require('../models/user'),
     router = require('express').Router(),
 	config = require('../../config');
 
-	router.post('/updateUser', function(req, res){
+    router.get('/users/:username', function(req, res, next){
+    User.find({"username": req.params.username})
+        .lean()
+        .exec(function(err, users){
+
+//            console.log(typeof imgmetas);
+            if(err){ return next(err); }
+            res.json(users);
+        });
+});
+
+	router.put('/users/:username', function(req, res){
 		console.log("Updating User");
 		User.update(
     		{username: req.body.username},
