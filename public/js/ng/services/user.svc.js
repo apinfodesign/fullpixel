@@ -31,7 +31,7 @@ angular.module('pullPix')
 
 
 //***************creates the update functionality***************
-        svc.update = function(userdata) {
-            return $http.put('/users', userdata);
+        svc.update = function(User) {
+            return $http.put('/users', User);
         }
     });

@@ -4,9 +4,10 @@ angular.module('pullPix')
 
         $scope.UserUpdate = function(userdata){
             console.log(userdata);
-            if(userdata){
+            if(userdata) {
                 
                 UserSvc.update({
+                    username        : userdata.username,
                     userpublicname  : userdata.userpublicname,
                     userportrait    : userdata.userportrait,
                     userblogtitle   : userdata.userblogtitle,
