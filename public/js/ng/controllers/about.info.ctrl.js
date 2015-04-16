@@ -1,20 +1,20 @@
 angular.module('pullPix')
     .controller('AboutInfoCtrl', //function($scope, AboutInfoSvc, '$routeParams', '$sanitize'){
-        function($scope, AboutInfoSvc, $routeParams){
+        function($scope, UserSvc, $location){
 
         $scope.UserUpdate = function(userdata){
             console.log(userdata);
             if(userdata){
                 
-                AboutInfoSvc.update({
+                UserSvc.update({
                     userpublicname  : userdata.userpublicname,
                     userportrait    : userdata.userportrait,
                     userblogtitle   : userdata.userblogtitle,
                     useraboutstory  : userdata.useraboutstory,
                     usertags        : userdata.usertags
                 })
-                .success(function(userdata){
-                    //console.log(userdata);
+                .success(function(User){
+                    console.log(User);
                     console.log('hello');
                     
                     $location.path('/#/');   

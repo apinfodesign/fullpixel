@@ -7,21 +7,21 @@ angular.module('pullPix',[
 ]);
 angular.module('pullPix')
     .controller('AboutInfoCtrl', //function($scope, AboutInfoSvc, '$routeParams', '$sanitize'){
-        ["$scope", "AboutInfoSvc", "$routeParams", function($scope, AboutInfoSvc, $routeParams){
+        ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
 
         $scope.UserUpdate = function(userdata){
             console.log(userdata);
             if(userdata){
                 
-                AboutInfoSvc.update({
+                UserSvc.update({
                     userpublicname  : userdata.userpublicname,
                     userportrait    : userdata.userportrait,
                     userblogtitle   : userdata.userblogtitle,
                     useraboutstory  : userdata.useraboutstory,
                     usertags        : userdata.usertags
                 })
-                .success(function(userdata){
-                    //console.log(userdata);
+                .success(function(User){
+                    console.log(User);
                     console.log('hello');
                     
                     $location.path('/#/');   
@@ -357,6 +357,7 @@ function truncateDecimals (num, digits) {
     return parseFloat(finalResult);
 }
 
+
 angular
     .module('pullPix')
     .directive('gears', ["$timeout", function($timeout){
@@ -426,7 +427,6 @@ angular
             templateUrl: 'partials/slider.html'
         }
     }]);
-
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
 		this.fetch = function(currentUser){
@@ -493,4 +493,10 @@ angular.module('pullPix')
                 return svc.login(username, password);
             });
         };
+
+
+//***************creates the update functionality***************
+        svc.update = function(userdata) {
+            return $http.put('/users', userdata);
+        }
     }]);
