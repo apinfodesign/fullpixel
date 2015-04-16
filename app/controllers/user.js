@@ -15,7 +15,7 @@ router.get('/users', function(req, res, next){
         console.log(auth.username + ' Im authorized!');   
         res.json(user);
     });
-});
+}); 
 
 router.post('/users',function(req, res, next){
     var user = new User({username: req.body.username});
@@ -28,5 +28,8 @@ router.post('/users',function(req, res, next){
         });
     });
 });
+
+
+//we need to add a section to update the post request
 
 module.exports = router;

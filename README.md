@@ -4,13 +4,25 @@ A big stack of screen filling images (mixed with users’ story texts and ads).
 
 System Requirements
 
-	brew install Imagemagick
+	brew install imagemagick
 
-	brew install Graphicsmagick
+	brew install graphicsmagick
 
-	npm install  (may require sudo)
+	npm install  
 
-	bower install 
+	gulp - to run the server locally
+
+	Database setup
+
+		create mongo database - use DBName
+
+		Remove collection - db.collectionName.remove({})
+
+		import to a collection - 
+
+			mongoimport --db dbName --collection collectionName --file /absolutePath/fileName.json
+
+	
 
 
 Project Goals and Outline

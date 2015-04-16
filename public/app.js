@@ -6,12 +6,38 @@ angular.module('pullPix',[
     'angularScreenfull'
 ]);
 angular.module('pullPix')
+    .controller('AboutInfoCtrl', ["$scope", "AboutInfoSvc", "CurrentUser", function($scope, AboutInfoSvc, CurrentUser){
+        $scope.UserUpdate = function(userdata){
+            if(userdata){
+                //maybe AboutInfoSvc.update? need to change the the actual database data
+                AboutInfoSvc.create({
+                    userid          : userdata.userid,
+                    path            : userdata.path,
+                    title           : userdata.title,
+                    caption         : metadata.caption,
+                    tags            : metadata.tags,
+                    camera          : metadata.camera,
+                    shutter         : metadata.shutter,
+                    aperture        : metadata.aperture,
+                    iso             : metadata.iso,
+                    date            : metadata.date
+                })
+                .success(function(usermeta){
+                    console.table(usermeta);
+                    
+                    //$location.path('/about/' + currentUser.username);   
+                });
+            }
+
+        };
+    }]);
+angular.module('pullPix')
     .controller('ApplicationCtrl', ["$rootScope", function($rootScope){
         $rootScope.$on('login', function(_, user){
             $rootScope.currentUser = user; //
             console.log('appctrl ' + user.username);
        		console.log('appctrl ' + user.userphoto);
-                 
+            // we now have root scope access to the user object//  
     });
 }]);
 
@@ -147,8 +173,8 @@ angular.module('pullPix')
             .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'}) 
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
-            .when('/members', {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
-            .when('/about', {controller: '',    templateUrl: '/partials/about.html'})
+            .when('/members',    {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
+            .when('/about',      {controller: '',    templateUrl: '/partials/about.html'})
             .when('/:userName',  {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      }]);
 
@@ -402,6 +428,15 @@ angular
         }
     }]);
 
+angular.module('pullPix')
+    .service('AboutInfoSvc', ["$http", function($http){
+        this.fetch = function(username){
+            return $http.get('/users');
+        };
+        this.create = function(imgmeta){
+            return $http.post('/users', currentUser);
+        }
+    }]);
 angular.module('pullPix')
     .service('ImgMetaSvc', ["$http", function($http){
         this.fetch = function(username){
