@@ -49,6 +49,15 @@ router.put('/users', function(req, res, next){
             
     });
 
+//****delete*************************
+
+router.delete('/users', function(req, res, next){
+        console.log("Updating User");
+        console.log(req.body);
+        User.remove({username: req.body.username}, function(){} );
+
+     });
+
 
 
 module.exports = router;

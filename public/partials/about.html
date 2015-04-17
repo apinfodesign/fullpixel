@@ -49,7 +49,15 @@
                      <br>
                 </fieldset>
                 <input type="submit" ng-click="UserUpdate(userdata)" value="Submit Info" id="info-submit">
+
             </form>
+        </div>
+        
+        <p></p>
+        
+        <div ng-controller="deleteUserCtrl">
+                <input type="submit" 
+                ng-click="UserDelete(currentUser)" value="Delete User From System" id="info-delete">
         </div>
 
 </div>
