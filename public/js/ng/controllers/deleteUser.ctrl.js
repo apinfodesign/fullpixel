@@ -8,6 +8,7 @@ angular.module('pullPix')
 
             if(currentUser) {
             	UserSvc.delete({
+                    //may not be needed
                     password		: currentUser.password, 
                     username        : currentUser.username,
                     userphoto		: currentUser.userphoto,
