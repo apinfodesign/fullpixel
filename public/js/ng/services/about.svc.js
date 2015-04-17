@@ -1,9 +1,9 @@
 angular.module('pullPix')
     .service('AboutInfoSvc', function($http){
-        this.fetch = function(username){
-            return $http.get('/users');
+		this.fetch = function(currentUser){
+            return $http.get('/users/'+ currentUser.username);
         };
-        this.create = function(imgmeta){
-            return $http.post('/users', currentUser);
+        this.update = function(currentUser, userdata){
+            return $http.put('/users/' + currentUser.username, userdata);
         }
     });

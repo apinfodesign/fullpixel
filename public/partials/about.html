@@ -1,7 +1,7 @@
 <div id="about">
  
 
-	<div ng-controller="ApplicationCtrl">
+	
         
         <div class="info-personal group">
     			<div class="info-main"  class="portrait-size">
@@ -21,7 +21,7 @@
     		<img src="/assets/mbr-imgs/{{currentUser.userphoto}}  ">
       	</div>
 
-    </div>
+   
 
     <!-- Update user info form -->
         <div ng-controller="AboutInfoCtrl">
@@ -29,25 +29,26 @@
     			<fieldset name="exif" id="exif">
                     <label id="label-exif">About the Photographer</label>
 
-                    <label for="userpublicname">Public Name:</label>
-                    <input name="camera" value="{{currentUser.userpublicname}}">
+                    <label for="username">Username:</label>
+                    <input type="text" ng-model="userdata.username" id="input-username">
                     <br>
-                    <label for="username">User Name:</label>
-                    <input name="date" value="{{currentUser.username}}">
+                    <label for="userpublicname">Public Name:</label>
+                    <input type="text" ng-model="userdata.userpublicname" id="input-userpublicname">
                     <br>
                     <label for="userportrait">User Portrait</label>
-                    <input name="shutter-speed" value="{{currentUser.userportrait}}">
+                    <input type="text" ng-model="userdata.userportrait" id="input-userportrait">
                     <br>
                     <label for="userblogtitle">Project Title:</label>
-                    <input name="aperture" value="{{currentUser.userblogtitle}}">
+                    <input type="text" ng-model="userdata.userblogtitle" id="input-userblogtitle">
                     <br>
                     <label for="useraboutstory">Project Description</label>
-                    <input name="iso" value="{{currentUser.useraboutstory}}">
+                    <input type="text" ng-model="userdata.useraboutstory" id="input-useraboutstory">
                      <br>
-                    <label for="userphoto">Favorite Photo in Collection</label>
-                    <input name="iso" value="{{currentUser.userphoto}}">
+                     <label for="usertags">User # Tags</label>
+                    <input type="text" ng-model="userdata.usertags" id="input-usertags">
+                     <br>
                 </fieldset>
-                <input type="submit" ng-click="UserUpdate(userdata, currentUser)" value="Submit Info" id="info-submit">
+                <input type="submit" ng-click="UserUpdate(userdata)" value="Submit Info" id="info-submit">
             </form>
         </div>
 

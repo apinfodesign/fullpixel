@@ -1,24 +1,24 @@
 angular.module('pullPix')
-    .controller('AboutInfoCtrl', function($scope, AboutInfoSvc, CurrentUser){
+    .controller('AboutInfoCtrl', //function($scope, AboutInfoSvc, '$routeParams', '$sanitize'){
+        function($scope, UserSvc, $location){
+
         $scope.UserUpdate = function(userdata){
-            if(userdata){
-                //maybe AboutInfoSvc.update? need to change the the actual database data
-                AboutInfoSvc.create({
-                    userid          : userdata.userid,
-                    path            : userdata.path,
-                    title           : userdata.title,
-                    caption         : metadata.caption,
-                    tags            : metadata.tags,
-                    camera          : metadata.camera,
-                    shutter         : metadata.shutter,
-                    aperture        : metadata.aperture,
-                    iso             : metadata.iso,
-                    date            : metadata.date
+            console.log(userdata);
+            if(userdata) {
+                
+                UserSvc.update({
+                    username        : userdata.username,
+                    userpublicname  : userdata.userpublicname,
+                    userportrait    : userdata.userportrait,
+                    userblogtitle   : userdata.userblogtitle,
+                    useraboutstory  : userdata.useraboutstory,
+                    usertags        : userdata.usertags
                 })
-                .success(function(usermeta){
-                    console.table(usermeta);
+                .success(function(User){
+                    console.log(User);
+                    console.log('hello');
                     
-                    //$location.path('/about/' + currentUser.username);   
+                    $location.path('/#/');   
                 });
             }
 

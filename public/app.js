@@ -6,26 +6,26 @@ angular.module('pullPix',[
     'angularScreenfull'
 ]);
 angular.module('pullPix')
-    .controller('AboutInfoCtrl', ["$scope", "AboutInfoSvc", "CurrentUser", function($scope, AboutInfoSvc, CurrentUser){
+    .controller('AboutInfoCtrl', //function($scope, AboutInfoSvc, '$routeParams', '$sanitize'){
+        ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
+
         $scope.UserUpdate = function(userdata){
-            if(userdata){
-                //maybe AboutInfoSvc.update? need to change the the actual database data
-                AboutInfoSvc.create({
-                    userid          : userdata.userid,
-                    path            : userdata.path,
-                    title           : userdata.title,
-                    caption         : metadata.caption,
-                    tags            : metadata.tags,
-                    camera          : metadata.camera,
-                    shutter         : metadata.shutter,
-                    aperture        : metadata.aperture,
-                    iso             : metadata.iso,
-                    date            : metadata.date
+            console.log(userdata);
+            if(userdata) {
+                
+                UserSvc.update({
+                    username        : userdata.username,
+                    userpublicname  : userdata.userpublicname,
+                    userportrait    : userdata.userportrait,
+                    userblogtitle   : userdata.userblogtitle,
+                    useraboutstory  : userdata.useraboutstory,
+                    usertags        : userdata.usertags
                 })
-                .success(function(usermeta){
-                    console.table(usermeta);
+                .success(function(User){
+                    console.log(User);
+                    console.log('hello');
                     
-                    //$location.path('/about/' + currentUser.username);   
+                    $location.path('/#/');   
                 });
             }
 
@@ -174,7 +174,7 @@ angular.module('pullPix')
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
             .when('/members',    {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
-            .when('/about',      {controller: '',    templateUrl: '/partials/about.html'})
+            .when('/about',      {controller: 'AboutInfoCtrl',    templateUrl: '/partials/about.html'})
             .when('/:userName',  {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      }]);
 
@@ -430,11 +430,11 @@ angular
 
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
-        this.fetch = function(username){
-            return $http.get('/users');
+		this.fetch = function(currentUser){
+            return $http.get('/users/'+ currentUser.username);
         };
-        this.create = function(imgmeta){
-            return $http.post('/users', currentUser);
+        this.update = function(currentUser, userdata){
+            return $http.put('/users/' + currentUser.username, userdata);
         }
     }]);
 angular.module('pullPix')
@@ -494,4 +494,10 @@ angular.module('pullPix')
                 return svc.login(username, password);
             });
         };
+
+
+//***************creates the update functionality***************
+        svc.update = function(User) {
+            return $http.put('/users', User);
+        }
     }]);

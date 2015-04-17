@@ -30,6 +30,25 @@ router.post('/users',function(req, res, next){
 });
 
 
-//we need to add a section to update the post request
+
+//User update functionality **************************
+router.put('/users', function(req, res, next){
+        console.log("Updating User");
+        console.log(req.body);
+        User.findOneAndUpdate({username: req.body.username},
+            {$set: 
+                {
+                    username      : req.body.username,
+                    userpublicname: req.body.userpublicname, 
+                    userportrait  : req.body.userportrait,
+                    userblogtitle : req.body.userblogtitle,
+                    useraboutstory: req.body.useraboutstory,
+                    usertags      : req.body.usertags
+                
+            }}, {upsert: true} , function() {});
+            
+    });
+
+
 
 module.exports = router;

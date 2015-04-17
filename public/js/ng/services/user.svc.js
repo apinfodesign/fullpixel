@@ -28,4 +28,10 @@ angular.module('pullPix')
                 return svc.login(username, password);
             });
         };
+
+
+//***************creates the update functionality***************
+        svc.update = function(User) {
+            return $http.put('/users', User);
+        }
     });
