@@ -23,7 +23,7 @@ angular.module('pullPix')
                 })
                 .success(function(User){
                     console.log(User);
-                    console.log('hello');
+                    console.log('Updated');
                     
                     $location.path('/#/');   
                 });
@@ -91,6 +91,7 @@ angular.module('pullPix')
         MemberListSvc.fetch()
             .success(function(users){
                 $scope.members = users;
+                console.log($scope.members + 'hello');
             });
     }]);
 angular.module('pullPix')
@@ -501,3 +502,10 @@ angular.module('pullPix')
             return $http.put('/users', User);
         }
     }]);
+
+
+//************create the delete functionality*****************
+
+
+
+

@@ -3,5 +3,6 @@ angular.module('pullPix')
         MemberListSvc.fetch()
             .success(function(users){
                 $scope.members = users;
+                console.log($scope.members + 'hello');
             });
     });

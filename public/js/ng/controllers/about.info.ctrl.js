@@ -16,7 +16,7 @@ angular.module('pullPix')
                 })
                 .success(function(User){
                     console.log(User);
-                    console.log('hello');
+                    console.log('Updated');
                     
                     $location.path('/#/');   
                 });

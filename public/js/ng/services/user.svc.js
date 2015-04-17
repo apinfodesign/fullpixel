@@ -35,3 +35,10 @@ angular.module('pullPix')
             return $http.put('/users', User);
         }
     });
+
+
+//************create the delete functionality*****************
+
+
+
+
