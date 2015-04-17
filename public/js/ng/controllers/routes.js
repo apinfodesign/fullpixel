@@ -8,6 +8,8 @@ angular.module('pullPix')
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
             .when('/members',    {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
             .when('/about',      {controller: 'AboutInfoCtrl',    templateUrl: '/partials/about.html'})
+            .when('/publicUserAbout',{controller: 'MemberListCtrl',    templateUrl: '/partials/publicUserAbout.html'})
+            
             .when('/:userName',  {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      });
 

@@ -1,8 +1,8 @@
 angular.module('pullPix')
-    .controller('MemberListCtrl', function($scope, MemberListSvc){
+    .controller('MemberListCtrl', function($rootScope, MemberListSvc){
         MemberListSvc.fetch()
             .success(function(users){
-                $scope.members = users;
-                console.log($scope.members + 'hello');
+                $rootScope.members = users;
+//*****************changed to root
             });
     });

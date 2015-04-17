@@ -42,6 +42,33 @@ angular.module('pullPix')
 }]);
 
 angular.module('pullPix')
+    .controller('deleteUserCtrl',  
+        ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
+ 		
+        $scope.UserDelete = function(currentUser){
+              
+            console.log("before deletion" + currentUser);
+
+            if(currentUser) {
+            	UserSvc.delete({
+                    password		: currentUser.password, 
+                    username        : currentUser.username,
+                    userphoto		: currentUser.userphoto,
+                    userpublicname  : currentUser.userpublicname,
+                    userportrait    : currentUser.userportrait,
+                    userblogtitle   : currentUser.userblogtitle,
+                    useraboutstory  : currentUser.useraboutstory,
+                    usertags        : currentUser.usertags
+                })
+            	.success(function(User){
+            		console.log(User);
+            		console.log("User Has Been Deleted");
+            		$location.path('/#/');
+            	});
+            }
+         };
+ }]);
+angular.module('pullPix')
     .controller('ListCtrl',["ListSvc", function(ListSvc){
         var vm = this;
    vm.ListAdd = function () {
@@ -87,11 +114,15 @@ angular.module('pullPix')
     }]);
 
 angular.module('pullPix')
-    .controller('MemberListCtrl', ["$scope", "MemberListSvc", function($scope, MemberListSvc){
+    .controller('MemberListCtrl', ["$rootScope", "MemberListSvc", function($rootScope, MemberListSvc){
         MemberListSvc.fetch()
             .success(function(users){
+<<<<<<< HEAD
                 $scope.members = users;
                 console.log($scope.members + 'hello');
+=======
+                $rootScope.members = users;
+>>>>>>> master
             });
     }]);
 angular.module('pullPix')
@@ -176,6 +207,8 @@ angular.module('pullPix')
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
             .when('/members',    {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
             .when('/about',      {controller: 'AboutInfoCtrl',    templateUrl: '/partials/about.html'})
+            .when('/publicUserAbout',{controller: 'MemberListCtrl',    templateUrl: '/partials/publicUserAbout.html'})
+            
             .when('/:userName',  {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      }]);
 
@@ -428,7 +461,6 @@ angular
             templateUrl: 'partials/slider.html'
         }
     }]);
-
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
 		this.fetch = function(currentUser){
@@ -503,9 +535,12 @@ angular.module('pullPix')
         }
     }]);
 
+<<<<<<< HEAD
 
 //************create the delete functionality*****************
 
 
 
 
+=======
+>>>>>>> master

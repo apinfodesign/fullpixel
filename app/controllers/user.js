@@ -15,7 +15,7 @@ router.get('/users', function(req, res, next){
         console.log(auth.username + ' Im authorized!');   
         res.json(user);
     });
-});
+}); 
 
 router.post('/users',function(req, res, next){
     var user = new User({username: req.body.username});
@@ -48,6 +48,15 @@ router.put('/users', function(req, res, next){
             }}, {upsert: true} , function() {});
             
     });
+
+//****delete*************************
+
+router.delete('/users', function(req, res, next){
+        console.log("Updating User");
+        console.log(req.body);
+        User.remove({username: req.body.username}, function(){} );
+
+     });
 
 
 
