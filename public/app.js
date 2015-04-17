@@ -87,10 +87,10 @@ angular.module('pullPix')
     }]);
 
 angular.module('pullPix')
-    .controller('MemberListCtrl', ["$scope", "MemberListSvc", function($scope, MemberListSvc){
+    .controller('MemberListCtrl', ["$rootScope", "MemberListSvc", function($rootScope, MemberListSvc){
         MemberListSvc.fetch()
             .success(function(users){
-                $scope.members = users;
+                $rootScope.members = users;
             });
     }]);
 angular.module('pullPix')
@@ -175,6 +175,8 @@ angular.module('pullPix')
             .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
             .when('/members',    {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
             .when('/about',      {controller: 'AboutInfoCtrl',    templateUrl: '/partials/about.html'})
+            .when('/publicUserAbout',{controller: 'MemberListCtrl',    templateUrl: '/partials/publicUserAbout.html'})
+            
             .when('/:userName',  {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      }]);
 
@@ -427,7 +429,6 @@ angular
             templateUrl: 'partials/slider.html'
         }
     }]);
-
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
 		this.fetch = function(currentUser){
@@ -501,3 +502,4 @@ angular.module('pullPix')
             return $http.put('/users', User);
         }
     }]);
+
