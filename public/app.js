@@ -43,31 +43,21 @@ angular.module('pullPix')
 
 angular.module('pullPix')
     .controller('deleteUserCtrl',  
-        ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
+        ["$http", "$scope", function($http, $scope){
  		
-        $scope.UserDelete = function(currentUser){
-              
-            console.log("before deletion" + currentUser);
-
-            if(currentUser) {
-            	UserSvc.delete({
-                    password		: currentUser.password, 
-                    username        : currentUser.username,
-                    userphoto		: currentUser.userphoto,
-                    userpublicname  : currentUser.userpublicname,
-                    userportrait    : currentUser.userportrait,
-                    userblogtitle   : currentUser.userblogtitle,
-                    useraboutstory  : currentUser.useraboutstory,
-                    usertags        : currentUser.usertags
-                })
-            	.success(function(User){
-            		console.log(User);
-            		console.log("User Has Been Deleted");
-            		$location.path('/#/');
-            	});
-            }
+        $scope.UserDelete = function(username){
+            $http.delete('/users')
+            .success(function(data) {
+                console.log('success');
+                $scope.username = data;
+            })
+            .error(function(err) {
+                console.log('Error: ' + data);
+                $scope.username = err;
+            });
          };
- }]);
+    }]);
+
 angular.module('pullPix')
     .controller('ListCtrl',["ListSvc", function(ListSvc){
         var vm = this;
@@ -117,12 +107,8 @@ angular.module('pullPix')
     .controller('MemberListCtrl', ["$rootScope", "MemberListSvc", function($rootScope, MemberListSvc){
         MemberListSvc.fetch()
             .success(function(users){
-<<<<<<< HEAD
-                $scope.members = users;
-                console.log($scope.members + 'hello');
-=======
                 $rootScope.members = users;
->>>>>>> master
+//*****************changed to root
             });
     }]);
 angular.module('pullPix')
@@ -461,6 +447,7 @@ angular
             templateUrl: 'partials/slider.html'
         }
     }]);
+
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
 		this.fetch = function(currentUser){
@@ -535,12 +522,9 @@ angular.module('pullPix')
         }
     }]);
 
-<<<<<<< HEAD
 
 //************create the delete functionality*****************
 
 
 
 
-=======
->>>>>>> master
