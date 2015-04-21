@@ -1,7 +1,7 @@
 angular.module('pullPix')
     .controller('deleteUserCtrl',  
         function($http, $scope){
- 		
+ 		//delete functionality
         $scope.UserDelete = function(username){
             $http.delete('/users')
             .success(function(data) {
