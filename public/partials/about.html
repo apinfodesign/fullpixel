@@ -55,9 +55,9 @@
         
         <p></p>
         
-        <div ng-controller="deleteUserCtrl">
+        <div ng-controller="deleteUserCtrl" ng-model="currentUser">
                 <input type="submit" 
-                ng-click="UserDelete(currentUser.username)" value="Delete User From System" id="info-delete">
+                ng-click="UserDelete(currentUser)" value="Delete User From System" id="info-delete">
         </div>
 
 
