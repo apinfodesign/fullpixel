@@ -1,27 +1,17 @@
 angular.module('pullPix')
     .controller('deleteUserCtrl',  
-        function($scope, UserSvc, $location){
+        function($http, $scope) {
+
  		
         $scope.UserDelete = function(currentUser){
-              
-            console.log("before deletion" + currentUser);
-
-            if(currentUser) {
-            	UserSvc.delete({
-                    password		: currentUser.password, 
-                    username        : currentUser.username,
-                    userphoto		: currentUser.userphoto,
-                    userpublicname  : currentUser.userpublicname,
-                    userportrait    : currentUser.userportrait,
-                    userblogtitle   : currentUser.userblogtitle,
-                    useraboutstory  : currentUser.useraboutstory,
-                    usertags        : currentUser.usertags
-                })
-            	.success(function(User){
-            		console.log(User);
-            		console.log("User Has Been Deleted");
-            		$location.path('/#/');
-            	});
-            }
+            return $http.delete('/users', currentUser)
+            .success(function(data) {
+                console.log('success');
+                //$scope.currentUser = data;
+            })
+            .error(function(err) {
+                console.log('Error: ' + data);
+                //$scope.currentUser = err;
+            });
          };
- });
+    });

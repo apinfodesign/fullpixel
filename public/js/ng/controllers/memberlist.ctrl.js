@@ -3,5 +3,6 @@ angular.module('pullPix')
         MemberListSvc.fetch()
             .success(function(users){
                 $rootScope.members = users;
+//*****************changed to root
             });
     });
