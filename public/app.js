@@ -212,7 +212,7 @@ angular.module('pullPix')
             .when('/members',    {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
             .when('/about',      {controller: 'AboutInfoCtrl',    templateUrl: '/partials/about.html'})
             .when('/publicUserAbout',{controller: 'MemberListCtrl',    templateUrl: '/partials/publicUserAbout.html'})
-            
+            .when('/info',       {controller: '',    templateUrl: '/partials/info.html'})
             .when('/:userName',  {controller: 'ProfileCtrl',  templateUrl: '/partials/profile-page.html'});
      }]);
 
