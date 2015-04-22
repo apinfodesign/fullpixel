@@ -8,8 +8,10 @@
 
     <div class="leftclick">
        <a href="#" ng-click="prev($event)">
-          <div class = "clickableAreaLeft">
-              <img class="arrowsizeLeft"  src="assets/imgs/leftGreyArrow.png"/>
+          <div  entering="activeClass" leaving >
+            <div class = "clickableAreaLeft" >
+                <img class="arrowsizeLeft"  src="assets/imgs/leftGreyArrow.png"/>
+            </div>          
           </div>
        </a>
     </div>
@@ -30,10 +32,13 @@
     </div>
 
     <div class="backbutton">
-        <button class="backX" ngsf-toggle-backscreen></button>
+        <button class="backX"          ></button>
     </div>
 
+          <div  entering="activeClass" leaving >
 
-            <h3>{{imgmeta.username}}</h>
+            <h3>{{imgmeta.username}}  zzzzzzzz</h>
+
+          </div>
   </div>
 </div>

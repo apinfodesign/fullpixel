@@ -387,6 +387,7 @@ function truncateDecimals (num, digits) {
     return parseFloat(finalResult);
 }
 
+
 angular
     .module('pullPix')
     .directive('gears', ["$timeout", function($timeout){
@@ -399,6 +400,25 @@ angular
             }
         }
     }]);
+
+angular
+    .module('pullPix')
+           .directive('entering', function(){
+         return function(scope, element, attrs) {
+              element.bind("mouseenter", function(){
+            element.addClass(attrs.entering);
+              })
+            }
+        })
+
+        .directive('leaving', function(){
+         return function(scope, element, attrs) {
+              element.bind("mouseleave", function(){
+            element.removeClass(attrs.entering);
+
+              })
+            }
+        });
 angular
     .module('pullPix')
     .directive('slider', ["$timeout", function($timeout){
@@ -529,4 +549,3 @@ angular.module('pullPix')
             return $http.put('/users', User);
         }
     }]);
-

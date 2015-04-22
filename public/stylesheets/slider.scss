@@ -84,9 +84,15 @@
 
 }
 
+.activeClass 
+  {font-size: 30px;
+  z-index: 0;
+  }
+
+
 .clickableAreaRight {
   text-align:right;
-  height: 90%;
+  height: 99%;
   width: 100%;
   position: absolute;
   top:0;
@@ -95,7 +101,7 @@
 }
 
 .clickableAreaLeft {
-  height: 90%;
+  height: 99%;
   width: 100%;
  
   position: absolute;
