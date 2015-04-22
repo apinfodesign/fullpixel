@@ -2,8 +2,18 @@
   margin-top: 100px;
   margin-left: 30px; }
 
+ 
 .delete {
   width: 57.5%;
+ 
+.aboutPartial {
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 500px;
+  width: 500px;
+  background-color: #ffffff;
+ 
   margin: 0 auto; }
 
 .fullBg {
@@ -1762,6 +1772,12 @@ striping:
   height: 50px;
   width: 50px;
   background: url("assets/imgs/backX.svg") no-repeat; }
+
+.cleanbackground {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  z-index: 28; }
 
 nav.menu {
   position: absolute;

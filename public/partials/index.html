@@ -23,9 +23,9 @@
         <ul class="group">
             <li class="logo"><a href="/#/">FullPixel</a></li>
             <div ng-controller="ModalDemoCtrl">
-                <li  class="smallnav" ng-if="!currentUser"><a href="#" ng-click="open($event)">SignUp</a></li>
+                <li  class="smallnav" ng-if="!currentUser"><a href="#" ng-click="openSignUp($event)">SignUp</a></li>
 
-                <li  class="smallnav" ng-if="!currentUser"><a href="#" ng-click="open($event)">Login</a></li>
+                <li  class="smallnav" ng-if="!currentUser"><a href="#" ng-click="openLogIn($event)">Login</a></li>
 
             </div>
             <li class="smallnav" ng-if="currentUser"><a href="/#/upload">Upload</a></li>
@@ -44,7 +44,7 @@
 </div>
 
 <footer>
-    <a href="/#/info">FullPixel &hearts;</a>
+    <a href="/#/info">&hearts; About the FullPixel Project &hearts;</a>
 </footer>
 
 <script src="/bower.js"></script>

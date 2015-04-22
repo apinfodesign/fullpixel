@@ -175,3 +175,11 @@
   width: 50px;
   background: url("assets/imgs/backX.svg") no-repeat ;
 }
+
+.cleanbackground{
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  z-index: 28;
+
+}

@@ -1,0 +1,24 @@
+
+<div class='signup'id="sign">
+
+   <div class="modal-body" class="check-element animate-show"  >
+
+      <form ng-submit="login(username, password)" id="form-login">
+         <label>Username</label>
+         <input class="form-control" type="text" ng-model="username">
+
+         <label>Password</label>
+         <input class="form-control" type="password" ng-model="password">
+
+         <input type="submit" value="Login to FullPixel" id="login-submit" ng-click="cancel()">
+      </form>
+
+   </div>
+
+
+<div class="modal-footer">
+
+   <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
+
+</div>
