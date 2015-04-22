@@ -27,7 +27,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 
-
+.group {height: 25px;}
 
 html {
   -webkit-box-sizing: border-box;
@@ -46,7 +46,7 @@ body {
   font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
 }
 body {
-  line-height: 1;
+  line-height: 0;
   background-color: #ccc;
 }
 ol, ul {
@@ -72,14 +72,16 @@ $txt-clr: #0f2b33;
 $font-stack: 'Raleway, san-serif';
 
 .logo {
-  font-size: 43px;
-  padding-bottom: 24px;
+  font-size: 20px;
+  padding-bottom: 5px;
   float: left!important;
   padding-left: 1.25em;
+
 }
 .smallnav {
-  margin-top: 14px!important;
+  margin-top: 5px!important;
 }
+
 .openme {
   position: relative;
   width: 105px;

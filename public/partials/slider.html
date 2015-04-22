@@ -3,19 +3,37 @@
   <div class="slide" ng-repeat="imgmeta in imgmetas" ng-show="imgmeta.visible">
         <img ng-src="{{imgmeta.path}}"/>  
 
-    <div class="arrows leftarrow">
+
+<!--     <div class="arrows leftarrow"> </div>-->
+
+    <div class="leftclick">
        <a href="#" ng-click="prev($event)">
-           <img src="assets/imgs/leftGreyArrow.png"/>
+          <div class = "clickableAreaLeft">
+              <img class="arrowsizeLeft"  src="assets/imgs/leftGreyArrow.png"/>
+          </div>
        </a>
     </div>
-    <div class="arrows rightarrow">
+ 
+<!--     <div class="arrows rightarrow"> </div>--> 
+
+    <div class="rightclick">
        <a href="#" ng-click="next($event)">
-           <img src="assets/imgs/rightGreyArrow.png"/>
+          <div class = "clickableAreaRight">
+              <img class="arrowsizeRight" src="assets/imgs/rightGreyArrow.png"/>
+          </div>
        </a>
     </div>
+    
+
     <div class="fsbutton">
         <button class="fs" ngsf-toggle-fullscreen></button>
     </div>
+
+    <div class="backbutton">
+        <button class="backX" ngsf-toggle-backscreen></button>
+    </div>
+
+
             <h3>{{imgmeta.username}}</h>
   </div>
 </div>

@@ -23,6 +23,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block; }
 
+.group {
+  height: 25px; }
+
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -38,7 +41,7 @@ body {
   font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif; }
 
 body {
-  line-height: 1;
+  line-height: 0;
   background-color: #ccc; }
 
 ol, ul {
@@ -57,13 +60,13 @@ table {
 
 /* END RESET */
 .logo {
-  font-size: 43px;
-  padding-bottom: 24px;
+  font-size: 20px;
+  padding-bottom: 5px;
   float: left !important;
   padding-left: 1.25em; }
 
 .smallnav {
-  margin-top: 14px !important; }
+  margin-top: 5px !important; }
 
 .openme {
   position: relative;
@@ -134,7 +137,7 @@ table {
 
 .menu ul {
   list-style-type: none;
-  padding-top: 1.4em; }
+  padding-top: .6em; }
 
 .menu ul li {
   display: inline-block;
@@ -1633,11 +1636,10 @@ striping:
 
 .slide img {
   /*width: 100%;*/
-  /*height: 100%;*/
   height: 100%; }
 
 .leftarrow {
-  height: 100%;
+  height: 100px;
   width: 100px;
   position: absolute;
   top: 0;
@@ -1645,11 +1647,58 @@ striping:
   z-index: 31; }
 
 .rightarrow {
-  height: 100%;
+  height: 100px;
   width: 100px;
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 31; }
+
+.arrowsizeRight {
+  height: 50px !important;
+  width: 50px;
+  position: absolute;
+  right: 0;
+  top: 300px; }
+
+.arrowsizeLeft {
+  height: 50px !important;
+  width: 50px;
+  position: absolute;
+  left: 0;
+  top: 300px; }
+
+.rightclick {
+  height: 100%;
+  width: 40%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 31; }
+
+.leftclick {
+  height: 100%;
+  width: 40%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 31; }
+
+.clickableAreaRight {
+  text-align: right;
+  height: 90%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 31; }
+
+.clickableAreaLeft {
+  height: 90%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 31; }
 
 .arrows a {
@@ -1671,6 +1720,12 @@ striping:
   right: 9px;
   z-index: 31; }
 
+.backbutton {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  z-index: 31; }
+
 .slide.ng-hide-add, .slide.ng-hide-remove {
   -webkit-transition: all linear 0.5s;
   -moz-transition: all linear 0.5s;
@@ -1688,6 +1743,11 @@ striping:
   height: 50px;
   width: 50px;
   background: url("assets/imgs/move.svg") no-repeat; }
+
+.backX {
+  height: 50px;
+  width: 50px;
+  background: url("assets/imgs/backX.svg") no-repeat; }
 
 nav.menu {
   position: absolute;
@@ -2058,7 +2118,7 @@ nav#upload-menu {
 
 .menu ul {
   list-style-type: none;
-  padding-top: 1.4em; }
+  padding-top: .6em; }
 
 .menu ul li {
   display: inline-block;
