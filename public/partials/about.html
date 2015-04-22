@@ -1,31 +1,24 @@
-<div id="about">
+<div id="upload-main">
  
-
-	
-        
-        <div class="info-personal group">
-    			<div class="info-main"  class="portrait-size">
-     				<img src="/assets/userportraits-imgs/{{currentUser.userportrait}}" id="avatar" ></a>
-    			</div>
-    	</div>
 
     <!-- hardcoded info about user obtained through the application controller -->
     	<div class="caption">
-    		<h3 class="caption-title"> About the Photographer</h3>
-    		<h4 class="nameSmall"> Public Name: {{currentUser.userpublicname}}</h4>
-    		<h4 class="nameSmall"> User Name: {{currentUser.username}}</h4>
-    		<h4 class="nanameSmallme"> User Portrait: {{currentUser.userportrait}}<h4>
+            <div class="info-main"  class="portrait-size">
+                <img src="/assets/userportraits-imgs/{{currentUser.userportrait}}" id="avatar" >
+            </div>
+    		<h2 class="caption-title"> About the Photographer</h3>
+    		<h3 class="nameSmall">{{currentUser.userpublicname}}</h4>
     		<h4 class="nameSmall"> Project Title: {{currentUser.userblogtitle}}<h4>
     		<h4 class="nameSmall"> Project Description: {{currentUser.useraboutstory}}</h4>
     		<h4 class="nameSmall"> Favorite Photo in Collection: {{currentUser.userphoto}}</h4>
-    		<img src="/assets/mbr-imgs/{{currentUser.userphoto}}  ">
+    		<img src="/assets/mbr-imgs/{{currentUser.userphoto}}">
       	</div>
 
    
 
     <!-- Update user info form -->
         <div ng-controller="AboutInfoCtrl">
-            <form>
+            <form novalidate id="upload-form">
     			<fieldset name="exif" id="exif">
                     <label id="label-exif">About the Photographer</label>
 
@@ -53,9 +46,7 @@
             </form>
         </div>
         
-        <p></p>
-        
-        <div ng-controller="deleteUserCtrl" ng-model="currentUser">
+        <div ng-controller="deleteUserCtrl" ng-model="currentUser" class="delete">
                 <input type="submit" 
                 ng-click="UserDelete(currentUser)" value="Delete User From System" id="info-delete">
         </div>
@@ -63,6 +54,7 @@
 
         <!-- Delete functionality -->
 
+    </div>
 </div>
 
 
