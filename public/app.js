@@ -123,9 +123,26 @@ angular.module('pullPix')
         controller: 'ModalInstanceCtrl'
     });
   };
+ 
+
+ $scope.openSignUp = function ($event) {
+     $event.preventDefault();
+     var modalInstance = $modal.open({
+        templateUrl: 'partials/signInOnly.html',
+        controller: 'ModalInstanceCtrl'
+    });
+  };
+ 
+
+ $scope.openLogIn = function ($event) {
+     $event.preventDefault();
+     var modalInstance = $modal.open({
+        templateUrl: 'partials/logInOnly.html',
+        controller: 'ModalInstanceCtrl'
+    });
+  };
+  
 }]);
-
-
 
 
 // Please note that $modalInstance represents a modal window (instance) dependency.
@@ -379,7 +396,6 @@ function truncateDecimals (num, digits) {
     return parseFloat(finalResult);
 }
 
-
 angular
     .module('pullPix')
     .directive('gears', ["$timeout", function($timeout){
@@ -468,6 +484,7 @@ angular
             templateUrl: 'partials/slider.html'
         }
     }]);
+
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
 		this.fetch = function(currentUser){

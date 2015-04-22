@@ -9,9 +9,26 @@ angular.module('pullPix')
         controller: 'ModalInstanceCtrl'
     });
   };
+ 
+
+ $scope.openSignUp = function ($event) {
+     $event.preventDefault();
+     var modalInstance = $modal.open({
+        templateUrl: 'partials/signInOnly.html',
+        controller: 'ModalInstanceCtrl'
+    });
+  };
+ 
+
+ $scope.openLogIn = function ($event) {
+     $event.preventDefault();
+     var modalInstance = $modal.open({
+        templateUrl: 'partials/logInOnly.html',
+        controller: 'ModalInstanceCtrl'
+    });
+  };
+  
 });
-
-
 
 
 // Please note that $modalInstance represents a modal window (instance) dependency.
