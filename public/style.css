@@ -2,10 +2,10 @@
   margin-top: 100px;
   margin-left: 30px; }
 
- 
 .delete {
   width: 57.5%;
- 
+  margin: 0 auto; }
+
 .aboutPartial {
   padding-top: 30px;
   padding-left: 10px;
@@ -13,7 +13,6 @@
   height: 500px;
   width: 500px;
   background-color: #ffffff;
- 
   margin: 0 auto; }
 
 .fullBg {
