@@ -43,7 +43,8 @@ angular.module('pullPix')
 
 angular.module('pullPix')
     .controller('deleteUserCtrl',  
-        ["$http", "$scope", function($http, $scope){
+        ["$http", "$scope", function($http, $scope) {
+
  		
         $scope.UserDelete = function(currentUser){
             return $http.delete('/users', currentUser)
@@ -378,7 +379,6 @@ function truncateDecimals (num, digits) {
     return parseFloat(finalResult);
 }
 
-<<<<<<< HEAD
 
 angular
     .module('pullPix')
@@ -428,9 +428,46 @@ angular
                     if($event){$event.preventDefault();}
                    scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
                 };
-=======
->>>>>>> 74110884d00b2213c1a201be6c9442c5b8398858
 
+                scope.prev = function($event){
+                    $event.preventDefault();
+                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
+                };
+
+                scope.$watch('currentIndex', function(){
+                    scope.imgmetas.forEach(function(imgmeta){
+                        imgmeta.visible = false;
+                    });
+                    scope.imgmetas[scope.currentIndex].visible = true;
+                });
+                scope.fullScreen = function(){
+
+                }
+
+                /* Start: For Automatic slideshow*/
+
+                var timer;
+                scope.delay = 9000000;  //very large but figure out how to turn off
+                // interval /1000 = seconds  is amount delay between auto slide change
+
+                var sliderFunc=function(){
+                    timer=$timeout(function(){
+                        scope.next();
+                        timer=$timeout(sliderFunc, scope.delay );
+                    }, 100);   //this appears to control start delay
+                };
+
+                sliderFunc();
+
+                scope.$on('$destroy',function(){
+                    $timeout.cancel(timer);
+                });
+
+                /* End : For Automatic slideshow*/
+            },
+            templateUrl: 'partials/slider.html'
+        }
+    }]);
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
 		this.fetch = function(currentUser){
@@ -504,8 +541,6 @@ angular.module('pullPix')
             return $http.put('/users', User);
         }
     }]);
-<<<<<<< HEAD
-=======
 
 
 //************create the delete functionality*****************
@@ -513,74 +548,3 @@ angular.module('pullPix')
 
 
 
-
-angular
-    .module('pullPix')
-    .directive('gears', ["$timeout", function($timeout){
-        return {
-            link: function (scope, element, attrs) {
-                $timeout(function () {
-                    var myEl = angular.element(document.querySelector('#myfullscreen'));
-                    myEl.removeClass('gears');
-                }, 6000);
-            }
-        }
-    }]);
-angular
-    .module('pullPix')
-    .directive('slider', ["$timeout", function($timeout){
-        return {
-            restrict: 'AE',
-            replace: true,
-            scope: {
-                imgmetas: '='
-            },
-            link: function(scope, elem, attrs){
-
-                scope.currentIndex = 0;
-                console.log('slid-dir ' + scope.imgmetas);
-                scope.next = function($event){
-                    if($event){$event.preventDefault();}
-                   scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
-                };
-
-                scope.prev = function($event){
-                    $event.preventDefault();
-                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
-                };
-
-                scope.$watch('currentIndex', function(){
-                    scope.imgmetas.forEach(function(imgmeta){
-                        imgmeta.visible = false;
-                    });
-                    scope.imgmetas[scope.currentIndex].visible = true;
-                });
-                scope.fullScreen = function(){
-
-                }
-
-                /* Start: For Automatic slideshow*/
-
-                var timer;
-                scope.delay = 9000000;  //very large but figure out how to turn off
-                // interval /1000 = seconds  is amount delay between auto slide change
-
-                var sliderFunc=function(){
-                    timer=$timeout(function(){
-                        scope.next();
-                        timer=$timeout(sliderFunc, scope.delay );
-                    }, 100);   //this appears to control start delay
-                };
-
-                sliderFunc();
-
-                scope.$on('$destroy',function(){
-                    $timeout.cancel(timer);
-                });
-
-                /* End : For Automatic slideshow*/
-            },
-            templateUrl: 'partials/slider.html'
-        }
-    }]);
->>>>>>> 74110884d00b2213c1a201be6c9442c5b8398858

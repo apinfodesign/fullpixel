@@ -1,5 +1,5 @@
 <div class="slider">
-    
+  <div class="cleanbackground"> 
   <div class="slide" ng-repeat="imgmeta in imgmetas" ng-show="imgmeta.visible">
         <img ng-src="{{imgmeta.path}}"/>  
 
@@ -32,13 +32,11 @@
     </div>
 
     <div class="backbutton">
-        <button class="backX"          ></button>
+      <a href="/#/members">
+        <button class="backX" > </button>
+      </a>
     </div>
 
-          <div  entering="activeClass" leaving >
-
-            <h3>{{imgmeta.username}}  zzzzzzzz</h>
-
-          </div>
-  </div>
+   </div>
+ </div>
 </div>

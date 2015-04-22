@@ -1,6 +1,6 @@
 
 <div class='signup'id="sign">
-   <div class="modal-body" class="check-element animate-show" ng-show="checked">
+   <div class="modal-body" class="check-element animate-show" ng-hide="checked">
 
       <form ng-submit="login(username, password)" id="form-login">
          <label>Username</label>
@@ -16,7 +16,7 @@
 
 
 
-   <div class="modal-body" class="check-element animate-show" ng-hide="checked">
+   <div class="modal-body" class="check-element animate-show" ng-show="checked">
 
       <form ng-submit="register(username, password)" id="form-signup">
          <label>Username</label>
