@@ -67,7 +67,7 @@
 
 .rightclick {
   height: 100%;
-  width: 40%;
+  width: 45%;
   position: absolute;
   top:0;
   right: 0;
@@ -76,7 +76,7 @@
 
 .leftclick {
   height: 100%;
-  width: 40%;
+  width: 45%;
   position: absolute;
   top:0;
   left: 0;
@@ -85,7 +85,8 @@
 }
 
 .activeClass 
-  {font-size: 30px;
+  {font-size: 16px;
+  color: red;
   z-index: 0;
   }
 
