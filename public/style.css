@@ -128,7 +128,8 @@ table {
   bottom: 33px;
   font-size: 35px;
   text-align: center;
-  color: #FFFFF0; }
+  color: #FFFFF0;
+  line-height: 100%; }
 
 .ang-view {
   display: block;
