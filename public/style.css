@@ -152,6 +152,14 @@ table {
   font-size: 1.1em;
   line-height: 110%; }
 
+.nameSmall {
+  line-height: 100%; }
+
+.submitThingy {
+  width: 500px;
+  height: 100px;
+  background-color: #333333; }
+
 /* NAVIGATION */
 #photo-menu {
   background-color: #4a4a4a;
@@ -1894,7 +1902,7 @@ nav.menu ul li a:nth-child(2) {
 
 footer {
   font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
-  background-color: #f9f9f9;
+  /*background-color: #f9f9f9;*/
   text-align: center;
   padding: 1.5em;
   font-size: 1em;
@@ -2145,7 +2153,7 @@ html {
 body {
   font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 300;
-  background-color: #D8D8D8; }
+  background-color: #F6F6F6; }
 
 nav#upload-menu {
   background-color: #4a4a4a; }
@@ -2183,6 +2191,7 @@ nav#upload-menu {
 #upload-main {
   /*background-color: white;*/
   background-color: #F6F6F6;
+  /*		  background-color: #333333;*/
   text-align: center;
   padding: 1em; }
 
@@ -2224,7 +2233,7 @@ nav#upload-menu {
 
 #upload-meta {
   padding: 1em;
-  background-color: #f9f9f9; }
+  background-color: #F6F6F6; }
 
 #upload-form {
   padding: 4em 0 2em;
