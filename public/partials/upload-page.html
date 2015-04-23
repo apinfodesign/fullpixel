@@ -1,8 +1,10 @@
+ 
 
 
 <div id="upload-container">
 
     <div id="upload-main">
+ 
 
         <h1 id="main-title">Upload A Photo</h1>
         <input id="upload-button" type="file" ng-file-select="vm.onFileSelect($files)" >
@@ -11,6 +13,7 @@
 
 
         <form novalidate class="group" id="upload-form">
+
             <fieldset name="description">
                <!-- <label for="title" id="label-username">UserName</label>
                 <input type="text" ng-model="metadata.username" id="input-username" value="{{currentUser.username}}" placeholder="{{currentUser.username}}">
@@ -53,15 +56,15 @@
                 </img>
                 </p>
 
-
             </fieldset>
 
+        <br><br>
 
+ 
             <input type="submit" ng-click="vm.imgUpdate(metadata, currentUser, vm.fileout)" value="Submit Photo" id="photo-submit">
         </form>
 
 
     </div>
 </div>
-
-
+ 

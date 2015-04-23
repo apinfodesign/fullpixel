@@ -65,7 +65,7 @@ table {
 /* END RESET */
 .logo {
   font-size: 20px;
-  padding-bottom: 5px;
+  padding-top: 4px;
   float: left !important;
   padding-left: 1.25em; }
 
@@ -103,7 +103,8 @@ table {
   font-size: 50px;
   text-align: center;
   color: #FFFFF0;
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  line-height: 110%; }
 
 .members-list {
   margin: 0;
@@ -127,7 +128,8 @@ table {
   bottom: 33px;
   font-size: 35px;
   text-align: center;
-  color: #FFFFF0; }
+  color: #FFFFF0;
+  line-height: 100%; }
 
 .ang-view {
   display: block;
@@ -135,18 +137,28 @@ table {
   width: 100%; }
 
 .aboutUs {
+  position: relative;
+  top: 30px;
   margin: 0 auto;
   text-align: left;
   padding-top: 30px;
   padding-left: 10px;
   padding-right: 10px;
   height: 600px;
-  width: 600px;
-  background-color: #ffffff; }
+  width: 500px;
+  border-color: #E8E8E8; }
 
 .aboutUsText {
   font-size: 1.1em;
   line-height: 110%; }
+
+.nameSmall {
+  line-height: 100%; }
+
+.submitThingy {
+  width: 500px;
+  height: 100px;
+  background-color: #333333; }
 
 /* NAVIGATION */
 #photo-menu {
@@ -1688,7 +1700,7 @@ striping:
 
 .rightclick {
   height: 100%;
-  width: 40%;
+  width: 45%;
   position: absolute;
   top: 0;
   right: 0;
@@ -1696,14 +1708,15 @@ striping:
 
 .leftclick {
   height: 100%;
-  width: 40%;
+  width: 45%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 31; }
 
 .activeClass {
-  font-size: 30px;
+  font-size: 16px;
+  color: red;
   z-index: 0; }
 
 .clickableAreaRight {
@@ -1889,7 +1902,7 @@ nav.menu ul li a:nth-child(2) {
 
 footer {
   font-family: 'Cabin', "Helvetica Neue", Helvetica, sans-serif;
-  background-color: #f9f9f9;
+  /*background-color: #f9f9f9;*/
   text-align: center;
   padding: 1.5em;
   font-size: 1em;
@@ -2140,7 +2153,7 @@ html {
 body {
   font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 300;
-  background-color: #D8D8D8; }
+  background-color: #F6F6F6; }
 
 nav#upload-menu {
   background-color: #4a4a4a; }
@@ -2178,6 +2191,7 @@ nav#upload-menu {
 #upload-main {
   /*background-color: white;*/
   background-color: #F6F6F6;
+  /*		  background-color: #333333;*/
   text-align: center;
   padding: 1em; }
 
@@ -2219,7 +2233,7 @@ nav#upload-menu {
 
 #upload-meta {
   padding: 1em;
-  background-color: #f9f9f9; }
+  background-color: #F6F6F6; }
 
 #upload-form {
   padding: 4em 0 2em;

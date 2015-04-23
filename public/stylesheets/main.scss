@@ -73,7 +73,7 @@ $font-stack: 'Raleway, san-serif';
 
 .logo {
   font-size: 20px;
-  padding-bottom: 5px;
+  padding-top: 4px;
   float: left!important;
   padding-left: 1.25em;
 
@@ -115,6 +115,8 @@ $font-stack: 'Raleway, san-serif';
   text-align: center;
   color: #FFFFF0;
   margin-bottom: 40px;
+  line-height: 110%;
+
 }
 .members-list {
   margin: 0;
@@ -139,6 +141,8 @@ $font-stack: 'Raleway, san-serif';
   font-size: 35px;
   text-align: center;
   color: #FFFFF0;
+  line-height: 100%;
+
 
 }
 .ang-view {
@@ -150,14 +154,16 @@ $font-stack: 'Raleway, san-serif';
 
 
 .aboutUs { 
+  position: relative;
+  top: 30px;
   margin: 0 auto;
   text-align: left;
   padding-top: 30px;
   padding-left: 10px;
   padding-right: 10px;
   height: 600px;
-  width: 600px;
-  background-color: #ffffff;
+  width: 500px;
+  border-color: #E8E8E8;
 }
 
 .aboutUsText{
@@ -165,3 +171,12 @@ $font-stack: 'Raleway, san-serif';
   line-height: 110%;
 }
 
+
+.nameSmall {line-height: 100%;}
+
+.submitThingy {
+     width: 500px;
+    height: 100px;
+    background-color: #333333;  
+
+}
