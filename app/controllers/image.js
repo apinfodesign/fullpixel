@@ -2,6 +2,7 @@ var router          = require('express').Router(),
     busboy          = require('connect-busboy'),
     fs              = require('fs'),
     gm              = require('gm'),
+    imageMagick     = gm.subClass({ imageMagick: true }),  //for the heroku dependencies
     degreeToDecimal = require('./degreeToDecimal'); //mh gps conversion function
 
 router.post('/api/user/upload', function(req, res, next){
