@@ -1815,7 +1815,7 @@ nav.menu ul li a:nth-child(2) {
 
 #picture-main {
   color: #f8f8f8;
-  background: #333 url('../pics/person.jpg') no-repeat center center/cover;
+  background: #333 url('../assets/imgs/person.jpg') no-repeat center center/cover;
   text-align: center;
   height: 100vh; }
 
