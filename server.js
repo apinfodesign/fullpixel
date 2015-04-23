@@ -18,12 +18,12 @@ app.use(require('./app/controllers/image'));
 app.use(require('./app/controllers/img-meta'));
 app.use(express.static('./public'));
 
-app.listen(3000, function () {
-   console.log('Server is listening on port ', 3000) ;
-});
+// app.listen(3000, function () {
+//    console.log('Server is listening on port ', 3000) ;
+// });
 //used for heroku
 
-// app.listen(process.env.PORT);
+app.listen(process.env.PORT);
 
 
 
