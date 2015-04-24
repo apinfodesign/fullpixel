@@ -1,19 +1,4 @@
-#about {
-  margin-top: 100px;
-  margin-left: 30px; }
-
-.delete {
-  width: 57.5%;
-  margin: 0 auto; }
-
-.fullBg {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-size: cover; }
-
+/***********  main.scss below ***************/
 /*RESET*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
@@ -160,6 +145,25 @@ table {
   height: 100px;
   background-color: #333333; }
 
+/***********  about.scss below ***************/
+#about {
+  margin-top: 100px;
+  margin-left: 30px; }
+
+.delete {
+  width: 57.5%;
+  margin: 0 auto; }
+
+/***********  fullscreen.scss below ***************/
+.fullBg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-size: cover; }
+
+/***********  photo-page.scss below ***************/
 /* NAVIGATION */
 #photo-menu {
   background-color: #4a4a4a;
@@ -328,7 +332,7 @@ footer {
     margin: 0 auto; } }
 
 /* XL SCREEN */
-
+/***********  profile-page.scss below ***************/
 #banner-photo, #banner-main, #banner-main-overlay {
   width: 100%;
   height: 25em; }
@@ -397,6 +401,7 @@ footer {
     height: 500px; } }
 
 /* END IOS STUFF */
+/***********  profile.scss below ***************/
 .profileview {
   display: block;
   float: left;
@@ -418,6 +423,7 @@ footer {
   color: red;
   text-align: center; }
 
+/***********   pure.scss below ***************/
 /*
 Pure v0.5.0
 Copyright 2014 Yahoo! Inc. All rights reserved.
@@ -1643,6 +1649,7 @@ striping:
 .pure-table-horizontal tbody > tr:last-child td {
   border-bottom-width: 0; }
 
+/***********   slider.scss below ***************/
 #myfullscreen {
   width: 100%;
   height: 100%;
@@ -1796,6 +1803,7 @@ striping:
   background-color: black;
   z-index: 28; }
 
+/***********   splash.scss below ***************/
 nav.menu {
   position: absolute;
   top: 0;
@@ -2134,6 +2142,7 @@ footer {
   background: white;
 }*/
 /* END IOS STUFF */
+/***********   upload.scss below ***************/
 /* CLEARFIX */
 .group:after {
   content: "";
