@@ -2361,9 +2361,9 @@ striping:
 }
 
 .activeClass 
-  {font-size: 16px;
+  {
   color: red;
-  z-index: 0;
+   
   }
 
 
@@ -2560,7 +2560,7 @@ nav.menu ul li a:nth-child(2) {
 }
 
 #callout-text {
-	margin: 5em auto;
+ 	margin: 5em auto;
 	padding-left: 0.75em;
 	padding-right: 0.75em;
 	color: #333;

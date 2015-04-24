@@ -396,6 +396,7 @@ function truncateDecimals (num, digits) {
     return parseFloat(finalResult);
 }
 
+
 angular
     .module('pullPix')
     .directive('gears', ["$timeout", function($timeout){
@@ -560,7 +561,6 @@ angular.module('pullPix')
 
 
 //************create the delete functionality*****************
-
 
 
 

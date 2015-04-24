@@ -1722,9 +1722,7 @@ striping:
   z-index: 31; }
 
 .activeClass {
-  font-size: 16px;
-  color: red;
-  z-index: 0; }
+  color: red; }
 
 .clickableAreaRight {
   text-align: right;
