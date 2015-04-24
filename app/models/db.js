@@ -9,9 +9,9 @@ var db = mongoose.connection;
  
 
 //FOR HEROKU ENVIRONMENT ONLY
-var mongolabConnectString = "process.env.MONGOLAB_URI";	
+var mongolabConnectString = MONGOLAB_URI;	
 
-mongoose.connect(mongolabConnectString, function(){
+mongoose.connect( mongolabConnectString , function(){
 	db.on('error', console.error.bind(console, 'connection error:')); //not logging error
 
     db.once('open', function(){
