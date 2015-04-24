@@ -6,9 +6,10 @@ var db = mongoose.connection;
 
 //FOR LOCAL DEPLOYMENT
 //deleted for deployment
+ 
 
 //FOR HEROKU ENVIRONMENT ONLY
-var mongolabConnectString = "MONGOLAB_CONNECT"
+var mongolabConnectString = "MONGOLAB_CONNECT";	
 
 mongoose.connect(mongolabConnectString, function(){
 	db.on('error', console.error.bind(console, 'connection error:')); //not logging error
