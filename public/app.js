@@ -507,10 +507,10 @@ angular.module('pullPix')
 angular.module('pullPix')
     .service('ListSvc', ["$http", function($http){
        this.fetch = function(){
-            return $http.get('http://localhost:3000/api/posts');
+            return $http.get('https://localhost:3000/api/posts');
        };
         this.create = function(post){
-            return $http.post('http://localhost:3000/api/posts', post);
+            return $http.post('https://localhost:3000/api/posts', post);
         };
     }]);
 
@@ -518,7 +518,7 @@ angular.module('pullPix')
 angular.module('pullPix')
     .service('MemberListSvc', ["$http", function($http){
         this.fetch = function(){
-            return $http.get('http://localhost:3000/member');
+            return $http.get('https://localhost:3000/member');
         }
     }]);
 angular.module('pullPix')
