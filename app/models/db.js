@@ -7,9 +7,6 @@ var db = mongoose.connection;
 //keep mongolabs in .gitignore external file never uploaded to github
 //this is for local testing only
 
-//var connectstring = require('./mongolabinfo.js');
-//console.log("Secret connectstring is: " + connectstring.name);
-//var mongolabConnectString=connectstring.name;	
 
 //EXAMPLE OF MONGOLAB CONNECT STRING
 //mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
