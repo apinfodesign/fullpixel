@@ -23,7 +23,7 @@ app.listen(3000, function () {
 });
 //used for heroku
 
-// app.listen(process.env.PORT);
+app.listen(process.env.PORT);
 
 
 
