@@ -5,18 +5,18 @@ var db = mongoose.connection;
 //deleted for deployment
  
 //FOR HEROKU ENVIRONMENT ONLY
-// var uristring = process.env.MONGOLAB_URI;	
-// var theport = process.env.PORT || 5000;
+var uristring = process.env.MONGOLAB_URI;	
+var theport = process.env.PORT || 5000;
 
-// // Makes connection asynchronously.  Mongoose will queue up database
-// // operations and release them when the connection is complete.
-// mongoose.connect(uristring, function (err, res) {
-//   if (err) {
-//   console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-//   } else {
-//   console.log ('Succeeded connected to: ' + uristring);
-//   }
-// });
+// Makes connection asynchronously.  Mongoose will queue up database
+// operations and release them when the connection is complete.
+mongoose.connect(uristring, function (err, res) {
+  if (err) {
+  console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+  console.log ('Succeeded connected to: ' + uristring);
+  }
+});
 
 // mongoose.connect( uristring , function(){
 // 	db.on('error', console.error.bind(console, 'connection error:')); //not logging error
