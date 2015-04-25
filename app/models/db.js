@@ -6,8 +6,8 @@ var db = mongoose.connection;
 
 //FOR LOCAL DEPLOYMENT
 //deleted for deployment
-var mongolabConnectString =
-"mongodb://mike1234:wtgttf789@ds037447.mongolab.com:37447/fullpixelmongolabdb";
+
+
 
 //FOR HEROKU ENVIRONMENT ONLY
 //var mongolabConnectString = "MONGOLAB_CONNECT"
