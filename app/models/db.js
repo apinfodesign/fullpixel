@@ -1,3 +1,5 @@
+var http = require ('http');  //necssary?
+
 var mongoose = require('mongoose');
 var db = mongoose.connection;
  
@@ -5,6 +7,9 @@ var db = mongoose.connection;
 //deleted for deployment
  
 //FOR HEROKU ENVIRONMENT ONLY
+
+// The http server will listen to an appropriate port, or default to
+// port 5000.
 var uristring = process.env.MONGOLAB_URI;	
 var theport = process.env.PORT || 5000;
 
