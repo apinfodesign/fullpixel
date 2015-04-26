@@ -7,10 +7,9 @@ var db = mongoose.connection;
 //keep mongolabs in .gitignore external file never uploaded to github
 //this is for local testing only
 
-
 //EXAMPLE OF MONGOLAB CONNECT STRING
 //mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
-
+			
 //FOR HEROKU ENVIRONMENT ONLY
 //var mongolabConnectString = MONGOLAB_URI;
 
@@ -26,7 +25,7 @@ console.log(uristring + " is uristring!!!	");
 mongoose.connect(uristring, function (err, res) {
   if (err) {
   console.log ('ERROR connecting to::: ' + uristring + '. ' + err);
-  } else {
+  } else {	
   console.log ('Succeeded connected to::: ' + uristring);
   }
 });
