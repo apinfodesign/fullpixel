@@ -6,7 +6,7 @@ angular
                 $timeout(function () {
                     var myEl = angular.element(document.querySelector('#myfullscreen'));
                     myEl.removeClass('gears');
-                }, 6000);
+                }, 500);
             }
         }
     });
