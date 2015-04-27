@@ -1,28 +1,26 @@
 var mongoose = require('mongoose');
 var db = mongoose.connection;
+var uristring;
 
-//keep mongolabs in .gitignore external file never uploaded to github
-var connectstring = require('./mongolabsinfo.js');
- console.log("Secret connectstring is: " + connectstring.name);
+try{
+	uristring = require('./mongolabinfo.js').name;
+}
+catch(err){
+	console.log("no connection file so go on to Heroku config var")
+	uristring = process.env.MONGOLAB_URI;   //if Heroku env
+}
 
-//EXAMPLE OF MONGOLAB CONNECT STRING
-//mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 
-//FOR LOCAL DEPLOYMENT
-//Deleted for deployment
-var mongolabConnectString=connectstring.name;	
 
-//FOR HEROKU ENVIRONMENT ONLY
-//var mongolabConnectString = "MONGOLAB_URI"
-var uristring = process.env.MONGOLAB_URI;
+console.log("uristring is "+ uristring);
 
-mongoose.connect(uristring, function(){
-	db.on('error', console.error.bind(console, 'connection error:')); //not logging error
 
+mongoose.connect( uristring , function(){
+	db.on('error', console.error.bind(console, 'connection error:')); 
+	//not logging error
     db.once('open', function(){
         console.log("Successfully connected to MongoDB for FullPixel at Monglolabs.com");
     });
 });
-
-
+ 
 module.exports = mongoose;

@@ -396,6 +396,7 @@ function truncateDecimals (num, digits) {
     return parseFloat(finalResult);
 }
 
+
 angular
     .module('pullPix')
     .directive('gears', ["$timeout", function($timeout){
@@ -484,7 +485,6 @@ angular
             templateUrl: 'partials/slider.html'
         }
     }]);
-
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
 		this.fetch = function(currentUser){
