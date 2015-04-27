@@ -404,7 +404,7 @@ angular
                 $timeout(function () {
                     var myEl = angular.element(document.querySelector('#myfullscreen'));
                     myEl.removeClass('gears');
-                }, 6000);
+                }, 500);
             }
         }
     }]);
@@ -507,10 +507,10 @@ angular.module('pullPix')
 angular.module('pullPix')
     .service('ListSvc', ["$http", function($http){
        this.fetch = function(){
-            return $http.get('https://localhost:3000/api/posts');
+            return $http.get('https://serene-temple-9683.herokuapp.com/api/posts');
        };
         this.create = function(post){
-            return $http.post('https://localhost:3000/api/posts', post);
+            return $http.post('https://serene-temple-9683.herokuapp.com/api/posts', post);
         };
     }]);
 
@@ -518,7 +518,7 @@ angular.module('pullPix')
 angular.module('pullPix')
     .service('MemberListSvc', ["$http", function($http){
         this.fetch = function(){
-            return $http.get('https://serene-temple-9683.herokuapp.com/member');
+            return $http.get('/member');
         }
     }]);
 angular.module('pullPix')
