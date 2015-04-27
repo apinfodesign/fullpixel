@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var db = mongoose.connection;
- 
+var uristring;
 //FOR LOCAL DEPLOYMENT
 //keep mongolabs in .gitignore external file never uploaded to github
 //this is for local testing only
@@ -10,10 +10,19 @@ var db = mongoose.connection;
 			
 //FOR HEROKU ENVIRONMENT ONLY
 //var mongolabConnectString = MONGOLAB_URI;
-var uristring = process.env.MONGOLAB_URI;	
- 
-console.log(uristring + " is uristring!!!	");
-// Makes connection asynchronously.  Mongoose will queue up database
+
+if (MONGOLAB_URI = true)
+{
+uristring = process.env.MONGOLAB_URI;	
+}
+else
+{
+var connectstring = require('./mongolabinfo.js');
+uristring = connectstring.name;
+};
+
+
+ // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
 mongoose.connect(uristring, function (err, res) {
   if (err) {
