@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var db = mongoose.connection;
-var connectstring = require('./mongolabinfo.js');
+//var connectstring = require('./mongolabinfo.js');
 
 //FOR LOCAL DEPLOYMENT
 //keep mongolabs in .gitignore external file never uploaded to github
