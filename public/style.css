@@ -154,8 +154,14 @@ table {
   margin-left: 30px; }
 
 .delete {
-  width: 57.5%;
+  width: 100%;
   margin: 0 auto; }
+
+.aboutInfoBox {
+  margin: 0 auto;
+  width: 500px;
+  border-width: 3px;
+  border-color: #000000; }
 
 /***********  fullscreen.scss below ***************/
 .fullBg {
@@ -2249,6 +2255,14 @@ nav#upload-menu {
 #upload-form {
   padding: 4em 0 2em;
   background-color: #F6F6F6; }
+
+.info-delete {
+  margin: 0 auto;
+  width: 500px; }
+
+.info-submit {
+  margin: 0 auto;
+  width: 500px; }
 
 label {
   display: block;
