@@ -49,7 +49,7 @@ router.put('/users', function(req, res, next){
             
     });
 
-//****delete*************************
+//****delete***********************************
 
 router.delete('/users', function(req, res, next){
         console.log("Deleting User");

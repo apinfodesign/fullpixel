@@ -97,8 +97,8 @@ angular.module('pullPix')
     .controller('AboutInfoCtrl', //function($scope, AboutInfoSvc, '$routeParams', '$sanitize'){
         ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
 
-        $scope.UserUpdate = function(userdata){
-            console.log(userdata);
+        $scope.UserUpdate = function(userdata, $location){
+            //console.log("about " + userdata);
             if(userdata) {
                 
                 UserSvc.update({
@@ -109,11 +109,11 @@ angular.module('pullPix')
                     useraboutstory  : userdata.useraboutstory,
                     usertags        : userdata.usertags
                 })
-                .success(function(User, $location){
+                .success(function(User){
                     console.log(User);
-                    console.log('Updated');
+                    //console.log('Updated');
                     
-                    $location.path('/#/');   
+                    $location.path('/members');   
                 });
             }
 
@@ -134,8 +134,8 @@ angular.module('pullPix')
         ["$http", "$scope", function($http, $scope) {
 
  		
-        $scope.UserDelete = function(currentUser){
-            return $http.delete('/users', currentUser)
+        $scope.UserDelete = function($scope, currentUser){
+            return $http.delete('/users', $scope.currentUser)
             .success(function(data) {
                 console.log('success');
                 //$scope.currentUser = data;
