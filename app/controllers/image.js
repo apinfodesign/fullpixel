@@ -22,10 +22,11 @@ router.post('/api/user/upload', function(req, res, next){
 			console.log(uploadPath + " is uploadPath");
  
  	
- 			gm(uploadPath)
+ 			imageMagick(uploadPath)
  				.identify(function (error, data) {
  				// console.log(Date.now()+ " is 1");
 			  	if (!error) {
+			  		console.log(data);
 			   		var cameraModel = data["Profile-EXIF"].Model;
 
  			   		var lat = data["Profile-EXIF"]['GPS Latitude'];

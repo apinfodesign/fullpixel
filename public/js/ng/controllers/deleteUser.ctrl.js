@@ -1,9 +1,9 @@
 angular.module('pullPix')
     .controller('deleteUserCtrl',  
-        function($http, $scope) {
+        function($scope, $http) {
  		
-        $scope.UserDelete = function($http, currentUser){
-            return $http.delete('/users', currentUser)
+        $scope.UserDelete = function(currentUser){
+            return $http.delete('/users/' + currentUser.username)
             .success(function(data) {
                 console.log('success');
                 //$scope.currentUser = data;

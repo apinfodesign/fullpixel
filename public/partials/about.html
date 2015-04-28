@@ -41,12 +41,12 @@
                     <input type="text" ng-model="userdata.usertags" id="input-usertags">
                      <br>
                 </fieldset>
-                <input type="submit" ng-click="UserUpdate(userdata)" value="Submit Info" id="info-submit">
+                <input type="submit" ng-click="UserUpdate(userdata, $location)" value="Submit Info" id="info-submit">
 
             </form>
         </div>
         
-        <div ng-controller="deleteUserCtrl" ng-model="currentUser" class="delete">
+        <div ng-controller="deleteUserCtrl" class="delete">
                 <input type="submit" 
                 ng-click="UserDelete(currentUser)" value="Delete User From System" id="info-delete">
         </div>

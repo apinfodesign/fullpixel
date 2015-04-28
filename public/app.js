@@ -97,12 +97,86 @@ angular
             templateUrl: 'partials/slider.html'
         }
     }]);
+
+angular.module('pullPix')
+    .service('AboutInfoSvc', ["$http", function($http){
+		this.fetch = function(currentUser){
+            return $http.get('/users/'+ currentUser.username);
+        };
+        this.update = function(currentUser, userdata){
+            return $http.put('/users/' + currentUser.username, userdata);
+        }
+    }]);
+angular.module('pullPix')
+    .service('ImgMetaSvc', ["$http", function($http){
+        this.fetch = function(username){
+            return $http.get('/img-meta/' + username);
+        };
+        this.create = function(imgmeta){
+            return $http.post('/img-meta', imgmeta);
+        }
+    }]);
+
+angular.module('pullPix')
+    .service('MemberListSvc', ["$http", function($http){
+        this.fetch = function(){
+            return $http.get('/member');
+        }
+    }]);
+angular.module('pullPix')
+    .service('UserSvc', ["$http", "$window", function ($http, $window) {
+        var svc = this;
+        svc.getUser = function () {
+            return $http.get('/users',{
+                headers: {'X-Auth': this.token}
+            })
+                .then(function (response) {
+                    return response.data;
+                });
+        };
+        svc.login = function (username, password) {
+            return $http.post('/sessions', {
+                username: username, password: password
+            }).then(function (response) {
+                console.log("Res data " + response.data);
+                $window.localStorage.setItem('access_token', response.data);
+                $window.localStorage.setItem('username', username);
+                svc.token = response.data;
+                $http.defaults.headers.common['X-Auth'] = response.data;
+                return svc.getUser();
+            });
+        };
+        svc.register = function (username, password) {
+            return $http.post('/users', {
+                username: username, password: password
+            }).then(function () {
+                return svc.login(username, password);
+            });
+        };
+
+
+//***************creates the update functionality***************
+        svc.update = function(User) {
+            return $http.put('/users', User);
+        }
+  
+
+
+//************create the delete functionality*****************
+    svc.delete = function(User) {
+        return $http.delete('/users', User);
+    }
+
+  }]); //close userservice function
+
+
+
 angular.module('pullPix')
     .controller('AboutInfoCtrl', //function($scope, AboutInfoSvc, '$routeParams', '$sanitize'){
         ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
 
-        $scope.UserUpdate = function(userdata){
-            console.log(userdata);
+        $scope.UserUpdate = function(userdata, $location){
+            //console.log("about " + userdata);
             if(userdata) {
                 
                 UserSvc.update({
@@ -113,11 +187,11 @@ angular.module('pullPix')
                     useraboutstory  : userdata.useraboutstory,
                     usertags        : userdata.usertags
                 })
-                .success(function(User, $location){
+                .success(function(User){
                     console.log(User);
-                    console.log('Updated');
+                    //console.log('Updated');
                     
-                    $location.path('/#/');   
+                    $location.path('/members');   
                 });
             }
 
@@ -135,11 +209,10 @@ angular.module('pullPix')
 
 angular.module('pullPix')
     .controller('deleteUserCtrl',  
-        ["$http", "$scope", function($http, $scope) {
-
+        ["$scope", "$http", function($scope, $http) {
  		
         $scope.UserDelete = function(currentUser){
-            return $http.delete('/users', currentUser)
+            return $http.delete('/users/' + currentUser.username)
             .success(function(data) {
                 console.log('success');
                 //$scope.currentUser = data;
@@ -487,74 +560,3 @@ function truncateDecimals (num, digits) {
 
     return parseFloat(finalResult);
 }
-
-
-angular.module('pullPix')
-    .service('AboutInfoSvc', ["$http", function($http){
-		this.fetch = function(currentUser){
-            return $http.get('/users/'+ currentUser.username);
-        };
-        this.update = function(currentUser, userdata){
-            return $http.put('/users/' + currentUser.username, userdata);
-        }
-    }]);
-angular.module('pullPix')
-    .service('ImgMetaSvc', ["$http", function($http){
-        this.fetch = function(username){
-            return $http.get('/img-meta/' + username);
-        };
-        this.create = function(imgmeta){
-            return $http.post('/img-meta', imgmeta);
-        }
-    }]);
-
-angular.module('pullPix')
-    .service('MemberListSvc', ["$http", function($http){
-        this.fetch = function(){
-            return $http.get('/member');
-        }
-    }]);
-angular.module('pullPix')
-    .service('UserSvc', ["$http", "$window", function ($http, $window) {
-        var svc = this;
-        svc.getUser = function () {
-            return $http.get('/users',{
-                headers: {'X-Auth': this.token}
-            })
-                .then(function (response) {
-                    return response.data;
-                });
-        };
-        svc.login = function (username, password) {
-            return $http.post('/sessions', {
-                username: username, password: password
-            }).then(function (response) {
-                console.log("Res data " + response.data);
-                $window.localStorage.setItem('access_token', response.data);
-                $window.localStorage.setItem('username', username);
-                svc.token = response.data;
-                $http.defaults.headers.common['X-Auth'] = response.data;
-                return svc.getUser();
-            });
-        };
-        svc.register = function (username, password) {
-            return $http.post('/users', {
-                username: username, password: password
-            }).then(function () {
-                return svc.login(username, password);
-            });
-        };
-
-
-//***************creates the update functionality***************
-        svc.update = function(User) {
-            return $http.put('/users', User);
-        }
-    }]);
-
-
-//************create the delete functionality*****************
-
-
-
-

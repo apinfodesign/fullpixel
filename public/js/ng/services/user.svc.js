@@ -34,11 +34,14 @@ angular.module('pullPix')
         svc.update = function(User) {
             return $http.put('/users', User);
         }
-    });
+  
 
 
 //************create the delete functionality*****************
+    svc.delete = function(User) {
+        return $http.delete('/users', User);
+    }
 
-
+  }); //close userservice function
 
 
