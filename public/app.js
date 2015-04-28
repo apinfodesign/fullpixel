@@ -443,7 +443,7 @@ angular
             },
             link: function(scope, elem, attrs){
 
-                scope.currentIndex = 0;
+                scope.currentIndex = -1;
                 console.log('slid-dir ' + scope.imgmetas);
                 scope.next = function($event){
                     if($event){$event.preventDefault();}

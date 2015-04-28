@@ -1,6 +1,6 @@
 <div class="slider">
   <div class="cleanbackground"> 
-  <div class="slide" ng-repeat="imgmeta in imgmetas" ng-show="imgmeta.visible">
+  <div class="slide" ng-repeat="imgmeta in imgmetas | orderBy: '-date'" ng-show="imgmeta.visible">
         <img ng-src="{{imgmeta.path}}"/>  
 
 
