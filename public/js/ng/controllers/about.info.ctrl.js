@@ -14,7 +14,7 @@ angular.module('pullPix')
                     useraboutstory  : userdata.useraboutstory,
                     usertags        : userdata.usertags
                 })
-                .success(function(User){
+                .success(function(User, $location){
                     console.log(User);
                     console.log('Updated');
                     

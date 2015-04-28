@@ -21,7 +21,7 @@ angular.module('pullPix')
                     useraboutstory  : userdata.useraboutstory,
                     usertags        : userdata.usertags
                 })
-                .success(function(User){
+                .success(function(User, $location){
                     console.log(User);
                     console.log('Updated');
                     
@@ -484,7 +484,6 @@ angular
             templateUrl: 'partials/slider.html'
         }
     }]);
-
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
 		this.fetch = function(currentUser){
@@ -503,17 +502,6 @@ angular.module('pullPix')
             return $http.post('/img-meta', imgmeta);
         }
     }]);
-
-angular.module('pullPix')
-    .service('ListSvc', ["$http", function($http){
-       this.fetch = function(){
-            return $http.get('https://serene-temple-9683.herokuapp.com/api/posts');
-       };
-        this.create = function(post){
-            return $http.post('https://serene-temple-9683.herokuapp.com/api/posts', post);
-        };
-    }]);
-
 
 angular.module('pullPix')
     .service('MemberListSvc', ["$http", function($http){
@@ -561,6 +549,7 @@ angular.module('pullPix')
 
 
 //************create the delete functionality*****************
+
 
 
 
