@@ -10,8 +10,6 @@ catch(err){
 	uristring = process.env.MONGOLAB_URI;   //if Heroku env
 }
 
-
-
 console.log("uristring is "+ uristring);
 
 
