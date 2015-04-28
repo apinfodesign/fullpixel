@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var db = mongoose.connection;
- var uristring;
+var uristring;
 
 try{
 	uristring = require('./mongolabinfo.js').name;
@@ -19,4 +19,4 @@ mongoose.connect( uristring , function(){
         console.log("Successfully connected to MongoDB for FullPixel at Monglolabs.com");
     });
 });
- module.exports = mongoose;
+module.exports = mongoose;

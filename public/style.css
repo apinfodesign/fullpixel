@@ -131,8 +131,8 @@ table {
   padding-top: 30px;
   padding-left: 10px;
   padding-right: 10px;
-  height: 600px;
-  width: 500px;
+  height: 700px;
+  width: 400px;
   border-color: #E8E8E8; }
 
 .aboutUsText {
@@ -704,7 +704,8 @@ form {
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em; }
+  /* padding: 0.35em 0.625em 0.75em;*/
+  padding: 1em 1em 1em 1em; }
 
 /**
  * 1. Correct color not being inherited in IE 6/7/8/9.
@@ -2195,7 +2196,7 @@ nav#upload-menu {
 #upload-container {
   margin: 0;
   padding: 0;
-  width: 100%; }
+  width: 90% px; }
 
 #upload-main {
   /*background-color: white;*/
@@ -2355,6 +2356,7 @@ textarea:focus, textarea:active {
   border: 2px solid transparent; }
 
 footer {
+  margin-top: 6em;
   background-color: #f9f9f9;
   text-align: center;
   padding: 1.25em;
