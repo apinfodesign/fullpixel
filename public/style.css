@@ -124,6 +124,7 @@ table {
   width: 100%; }
 
 .aboutUs {
+  margin: 1em 1em 1em 1em;
   position: relative;
   top: 30px;
   margin: 0 auto;
