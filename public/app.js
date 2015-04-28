@@ -5,172 +5,6 @@ angular.module('pullPix',[
     'ui.bootstrap',
     'angularScreenfull'
 ]);
-angular
-    .module('pullPix')
-    .directive('gears', ["$timeout", function($timeout){
-        return {
-            link: function (scope, element, attrs) {
-                $timeout(function () {
-                    var myEl = angular.element(document.querySelector('#myfullscreen'));
-                    myEl.removeClass('gears');
-                }, 500);
-            }
-        }
-    }]);
-
-angular
-    .module('pullPix')
-           .directive('entering', function(){
-         return function(scope, element, attrs) {
-              element.bind("mouseenter", function(){
-            element.addClass(attrs.entering);
-              })
-            }
-        })
-
-        .directive('leaving', function(){
-         return function(scope, element, attrs) {
-              element.bind("mouseleave", function(){
-            element.removeClass(attrs.entering);
-
-              })
-            }
-        });
-angular
-    .module('pullPix')
-    .directive('slider', ["$timeout", function($timeout){
-        return {
-            restrict: 'AE',
-            replace: true,
-            scope: {
-                imgmetas: '='
-            },
-            link: function(scope, elem, attrs){
-
-                scope.currentIndex = 0;
-                console.log('slid-dir ' + scope.imgmetas);
-                scope.next = function($event){
-                    if($event){$event.preventDefault();}
-                   scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
-                };
-
-                scope.prev = function($event){
-                    $event.preventDefault();
-                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
-                };
-
-                scope.$watch('currentIndex', function(){
-                    scope.imgmetas.forEach(function(imgmeta){
-                        imgmeta.visible = false;
-                    });
-                    scope.imgmetas[scope.currentIndex].visible = true;
-                });
-                scope.fullScreen = function(){
-
-                }
-
-                /* Start: For Automatic slideshow*/
-
-                var timer;
-                scope.delay = 9000000;  
-
-                //very large but figure out how to turn off
-                //interval /1000 = seconds  is amount delay between auto slide change
-
-                var sliderFunc=function(){
-
-                    // timer=$timeout(function(){
-                    //     scope.next();
-                    //     timer=$timeout(sliderFunc, scope.delay );
-                    // }, 100);   //this appears to control start delay
-                
-                };
-
-                sliderFunc();
-
-                scope.$on('$destroy',function(){
-                    $timeout.cancel(timer);
-                });
-
-                /* End : For Automatic slideshow*/
-            },
-            templateUrl: 'partials/slider.html'
-        }
-    }]);
-
-angular.module('pullPix')
-    .service('AboutInfoSvc', ["$http", function($http){
-		this.fetch = function(currentUser){
-            return $http.get('/users/'+ currentUser.username);
-        };
-        this.update = function(currentUser, userdata){
-            return $http.put('/users/' + currentUser.username, userdata);
-        }
-    }]);
-angular.module('pullPix')
-    .service('ImgMetaSvc', ["$http", function($http){
-        this.fetch = function(username){
-            return $http.get('/img-meta/' + username);
-        };
-        this.create = function(imgmeta){
-            return $http.post('/img-meta', imgmeta);
-        }
-    }]);
-
-angular.module('pullPix')
-    .service('MemberListSvc', ["$http", function($http){
-        this.fetch = function(){
-            return $http.get('/member');
-        }
-    }]);
-angular.module('pullPix')
-    .service('UserSvc', ["$http", "$window", function ($http, $window) {
-        var svc = this;
-        svc.getUser = function () {
-            return $http.get('/users',{
-                headers: {'X-Auth': this.token}
-            })
-                .then(function (response) {
-                    return response.data;
-                });
-        };
-        svc.login = function (username, password) {
-            return $http.post('/sessions', {
-                username: username, password: password
-            }).then(function (response) {
-                console.log("Res data " + response.data);
-                $window.localStorage.setItem('access_token', response.data);
-                $window.localStorage.setItem('username', username);
-                svc.token = response.data;
-                $http.defaults.headers.common['X-Auth'] = response.data;
-                return svc.getUser();
-            });
-        };
-        svc.register = function (username, password) {
-            return $http.post('/users', {
-                username: username, password: password
-            }).then(function () {
-                return svc.login(username, password);
-            });
-        };
-
-
-//***************creates the update functionality***************
-        svc.update = function(User) {
-            return $http.put('/users', User);
-        }
-  
-
-
-//************create the delete functionality*****************
-    svc.delete = function(User) {
-        return $http.delete('/users', User);
-    }
-
-  }]); //close userservice function
-
-
-
 angular.module('pullPix')
     .controller('AboutInfoCtrl', //function($scope, AboutInfoSvc, '$routeParams', '$sanitize'){
         ["$scope", "UserSvc", "$location", function($scope, UserSvc, $location){
@@ -444,15 +278,21 @@ angular
           console.log(data);
 
           // convert deg to dec here
-          var lat = data["Profile-EXIF"]['GPS Latitude'];
-          var latDirection = data["Profile-EXIF"]['GPS Latitude Ref'];
-          var lon = data["Profile-EXIF"]['GPS Longitude'];
-          var lonDirection = data["Profile-EXIF"]['GPS Longitude Ref'];
-          var iso = data["Profile-EXIF"]['ISO Speed Ratings'];
-          var cameraModel = data["Profile-EXIF"].Model;
-          var shutterSpeed = data["Profile-EXIF"]['Shutter Speed Value'];
-          var aperture = data["Profile-EXIF"]['Aperture Value'];
-          var timeDate = data["Profile-EXIF"]['Date Time'];
+
+            var cameraModel = data.Properties['exif:Model'];
+
+            var lat = data.Properties['exif:GPSLatitude'];
+            var latDirection = data.Properties['exif:GPSLatitudeRef'];        
+            var lon = data.Properties['exif:GPSLongitude'];
+            var lonDirection = data.Properties['exif:GPSLongitudeRef'];
+              
+            // var latOut = degreeToDecimal(lat, latDirection);
+            // var lonOut = degreeToDecimal(lon, lonDirection);
+
+          var iso = data.Properties['exif:ISOSpeedRatings'];
+          var shutterSpeed = data.Properties['exif:ShutterSpeedValue'];
+          var aperture = data.Properties['exif:ApertureValue'];
+          var timeDate = data.Properties['exif:DateTime'];
 
           var shutterCalc = function (shutterSpeed){
               var speed=  (Math.pow(2,(shutterSpeed[0]/shutterSpeed[1]) ) ) ;
@@ -560,3 +400,169 @@ function truncateDecimals (num, digits) {
 
     return parseFloat(finalResult);
 }
+
+angular
+    .module('pullPix')
+    .directive('gears', ["$timeout", function($timeout){
+        return {
+            link: function (scope, element, attrs) {
+                $timeout(function () {
+                    var myEl = angular.element(document.querySelector('#myfullscreen'));
+                    myEl.removeClass('gears');
+                }, 500);
+            }
+        }
+    }]);
+
+angular
+    .module('pullPix')
+           .directive('entering', function(){
+         return function(scope, element, attrs) {
+              element.bind("mouseenter", function(){
+            element.addClass(attrs.entering);
+              })
+            }
+        })
+
+        .directive('leaving', function(){
+         return function(scope, element, attrs) {
+              element.bind("mouseleave", function(){
+            element.removeClass(attrs.entering);
+
+              })
+            }
+        });
+angular
+    .module('pullPix')
+    .directive('slider', ["$timeout", function($timeout){
+        return {
+            restrict: 'AE',
+            replace: true,
+            scope: {
+                imgmetas: '='
+            },
+            link: function(scope, elem, attrs){
+
+                scope.currentIndex = 0;
+                console.log('slid-dir ' + scope.imgmetas);
+                scope.next = function($event){
+                    if($event){$event.preventDefault();}
+                   scope.currentIndex < scope.imgmetas.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+                };
+
+                scope.prev = function($event){
+                    $event.preventDefault();
+                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.imgmetas.length - 1;
+                };
+
+                scope.$watch('currentIndex', function(){
+                    scope.imgmetas.forEach(function(imgmeta){
+                        imgmeta.visible = false;
+                    });
+                    scope.imgmetas[scope.currentIndex].visible = true;
+                });
+                scope.fullScreen = function(){
+
+                }
+
+                /* Start: For Automatic slideshow*/
+
+                var timer;
+                scope.delay = 9000000;  
+
+                //very large but figure out how to turn off
+                //interval /1000 = seconds  is amount delay between auto slide change
+
+                var sliderFunc=function(){
+
+                    timer=$timeout(function(){
+                        scope.next();
+                        timer=$timeout(sliderFunc, scope.delay );
+                    }, 100);   //this appears to control start delay
+                
+                };
+
+                sliderFunc();
+
+                scope.$on('$destroy',function(){
+                    $timeout.cancel(timer);
+                });
+
+                /* End : For Automatic slideshow*/
+            },
+            templateUrl: 'partials/slider.html'
+        }
+    }]);
+
+angular.module('pullPix')
+    .service('AboutInfoSvc', ["$http", function($http){
+		this.fetch = function(currentUser){
+            return $http.get('/users/'+ currentUser.username);
+        };
+        this.update = function(currentUser, userdata){
+            return $http.put('/users/' + currentUser.username, userdata);
+        }
+    }]);
+angular.module('pullPix')
+    .service('ImgMetaSvc', ["$http", function($http){
+        this.fetch = function(username){
+            return $http.get('/img-meta/' + username);
+        };
+        this.create = function(imgmeta){
+            return $http.post('/img-meta', imgmeta);
+        }
+    }]);
+
+angular.module('pullPix')
+    .service('MemberListSvc', ["$http", function($http){
+        this.fetch = function(){
+            return $http.get('/member');
+        }
+    }]);
+angular.module('pullPix')
+    .service('UserSvc', ["$http", "$window", function ($http, $window) {
+        var svc = this;
+        svc.getUser = function () {
+            return $http.get('/users',{
+                headers: {'X-Auth': this.token}
+            })
+                .then(function (response) {
+                    return response.data;
+                });
+        };
+        svc.login = function (username, password) {
+            return $http.post('/sessions', {
+                username: username, password: password
+            }).then(function (response) {
+                console.log("Res data " + response.data);
+                $window.localStorage.setItem('access_token', response.data);
+                $window.localStorage.setItem('username', username);
+                svc.token = response.data;
+                $http.defaults.headers.common['X-Auth'] = response.data;
+                return svc.getUser();
+            });
+        };
+        svc.register = function (username, password) {
+            return $http.post('/users', {
+                username: username, password: password
+            }).then(function () {
+                return svc.login(username, password);
+            });
+        };
+
+
+//***************creates the update functionality***************
+        svc.update = function(User) {
+            return $http.put('/users', User);
+        }
+  
+
+
+//************create the delete functionality*****************
+    svc.delete = function(User) {
+        return $http.delete('/users', User);
+    }
+
+  }]); //close userservice function
+
+

@@ -27,12 +27,14 @@ router.post('/api/user/upload', function(req, res, next){
  				// console.log(Date.now()+ " is 1");
 			  	if (!error) {
 			  		console.log(data);
-			   		var cameraModel = data["Profile-EXIF"].Model;
+			  		console.log(data.Properties['exif:Model'] + " xxxxx");
+			   		
+			   		var cameraModel = data.Properties['exif:Model'];
 
- 			   		var lat = data["Profile-EXIF"]['GPS Latitude'];
-			        var latDirection = data["Profile-EXIF"]['GPS Latitude Ref'];				
-					var lon = data["Profile-EXIF"]['GPS Longitude'];
-			        var lonDirection = data["Profile-EXIF"]['GPS Longitude Ref'];
+ 			   		var lat = data.Properties['exif:GPSLatitude'];
+			        var latDirection = data.Properties['exif:GPSLatitudeRef'];				
+					var lon = data.Properties['exif:GPSLongitude'];
+			        var lonDirection = data.Properties['exif:GPSLongitudeRef'];
 			        
 					var latOut = degreeToDecimal(lat, latDirection);
 			        var lonOut = degreeToDecimal(lon, lonDirection);
@@ -42,7 +44,7 @@ router.post('/api/user/upload', function(req, res, next){
 	  		  	console.log(data + " is EXIF blob");
 				console.log(latOut + " is latOut..........");
 				console.log(lonOut + " is lonOut..........");
-	  			console.log('1 '+ data.Compression);//jpeg
+	  		//console.log('1 '+ data.Compression);//jpeg
   	  			console.log('2 '+ cameraModel);  	//nexus
  		  		
  		  		// console.log(Date.now()+ " is 2");

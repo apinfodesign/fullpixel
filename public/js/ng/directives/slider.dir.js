@@ -41,10 +41,10 @@ angular
 
                 var sliderFunc=function(){
 
-                    // timer=$timeout(function(){
-                    //     scope.next();
-                    //     timer=$timeout(sliderFunc, scope.delay );
-                    // }, 100);   //this appears to control start delay
+                    timer=$timeout(function(){
+                        scope.next();
+                        timer=$timeout(sliderFunc, scope.delay );
+                    }, 100);   //this appears to control start delay
                 
                 };
 

@@ -46,15 +46,21 @@ angular
           console.log(data);
 
           // convert deg to dec here
-          var lat = data["Profile-EXIF"]['GPS Latitude'];
-          var latDirection = data["Profile-EXIF"]['GPS Latitude Ref'];
-          var lon = data["Profile-EXIF"]['GPS Longitude'];
-          var lonDirection = data["Profile-EXIF"]['GPS Longitude Ref'];
-          var iso = data["Profile-EXIF"]['ISO Speed Ratings'];
-          var cameraModel = data["Profile-EXIF"].Model;
-          var shutterSpeed = data["Profile-EXIF"]['Shutter Speed Value'];
-          var aperture = data["Profile-EXIF"]['Aperture Value'];
-          var timeDate = data["Profile-EXIF"]['Date Time'];
+
+            var cameraModel = data.Properties['exif:Model'];
+
+            var lat = data.Properties['exif:GPSLatitude'];
+            var latDirection = data.Properties['exif:GPSLatitudeRef'];        
+            var lon = data.Properties['exif:GPSLongitude'];
+            var lonDirection = data.Properties['exif:GPSLongitudeRef'];
+              
+            // var latOut = degreeToDecimal(lat, latDirection);
+            // var lonOut = degreeToDecimal(lon, lonDirection);
+
+          var iso = data.Properties['exif:ISOSpeedRatings'];
+          var shutterSpeed = data.Properties['exif:ShutterSpeedValue'];
+          var aperture = data.Properties['exif:ApertureValue'];
+          var timeDate = data.Properties['exif:DateTime'];
 
           var shutterCalc = function (shutterSpeed){
               var speed=  (Math.pow(2,(shutterSpeed[0]/shutterSpeed[1]) ) ) ;
