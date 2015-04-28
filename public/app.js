@@ -43,11 +43,10 @@ angular.module('pullPix')
 
 angular.module('pullPix')
     .controller('deleteUserCtrl',  
-        ["$http", "$scope", function($http, $scope) {
-
+        ["$scope", "$http", function($scope, $http) {
  		
-        $scope.UserDelete = function($scope, currentUser){
-            return $http.delete('/users', $scope.currentUser)
+        $scope.UserDelete = function(currentUser){
+            return $http.delete('/users/' + currentUser.username)
             .success(function(data) {
                 console.log('success');
                 //$scope.currentUser = data;
@@ -396,7 +395,6 @@ function truncateDecimals (num, digits) {
     return parseFloat(finalResult);
 }
 
-
 angular
     .module('pullPix')
     .directive('gears', ["$timeout", function($timeout){
@@ -485,6 +483,7 @@ angular
             templateUrl: 'partials/slider.html'
         }
     }]);
+
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
 		this.fetch = function(currentUser){
@@ -546,11 +545,14 @@ angular.module('pullPix')
         svc.update = function(User) {
             return $http.put('/users', User);
         }
-    }]);
+  
 
 
 //************create the delete functionality*****************
+    svc.delete = function(User) {
+        return $http.delete('/users', User);
+    }
 
-
+  }]); //close userservice function
 
 

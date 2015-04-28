@@ -1986,12 +1986,12 @@ footer {
   padding-bottom: 0.6em; }
 
 #login-submit, #signup-submit {
-  background-color: #00af1b;
+  background-color: #28C2F7;
   color: #fff;
   transition: 250ms; }
 
 #login-submit:hover, #signup-submit:hover {
-  background-color: #28C2F7; }
+  background-color: #0489b6; }
 
 #check-title {
   display: inline;
@@ -2228,11 +2228,11 @@ nav#upload-menu {
 #upload-button:hover, #upload-button:active, #upload-button:focus {
   outline: none;
   border-radius: 4px;
-  background-color: transparent;
+  background-color: #0489b6;
   font-size: 1.5em;
-  color: #58D4FF;
+  color: #ffffff;
   padding: 0.8em 1.5em;
-  border: 2px solid #58D4FF;
+  border: 2px solid #0489b6;
   border-radius: 4px;
   cursor: pointer; }
 
@@ -2253,7 +2253,7 @@ nav#upload-menu {
 label {
   display: block;
   font-size: 1.5em;
-  color: #00af1b;
+  color: #000000;
   text-transform: uppercase;
   background-color: #F6F6F6; }
 
@@ -2343,16 +2343,16 @@ textarea:focus, textarea:active {
   font-family: 'Nunito', "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 300;
   border-radius: 4px;
-  background-color: transparent;
+  background-color: #58D4FF;
   font-size: 1.5em;
-  color: #58D4FF;
+  color: #ffffff;
   padding: 0.6em 1.2em;
   border: 2px solid #58D4FF;
   cursor: pointer;
   transition: 250ms; }
 
 #photo-submit:hover, #photo-submit:active, #photo-submit:focus {
-  background-color: #58D4FF;
+  background-color: #0489b6;
   color: #FFF;
   border: 2px solid transparent; }
 
