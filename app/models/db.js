@@ -12,13 +12,11 @@ catch(err){
 
 console.log("uristring is "+ uristring);
 
-
 mongoose.connect( uristring , function(){
 	db.on('error', console.error.bind(console, 'connection error:')); 
-	//not logging error
+ 
     db.once('open', function(){
         console.log("Successfully connected to MongoDB for FullPixel at Monglolabs.com");
     });
 });
- 
 module.exports = mongoose;

@@ -158,7 +158,8 @@ $font-stack: 'Raleway, san-serif';
 
 
 
-.aboutUs { 
+.aboutUs {
+  margin: 1em 1em 1em 1em; 
   position: relative;
   top: 30px;
   margin: 0 auto;
@@ -166,8 +167,8 @@ $font-stack: 'Raleway, san-serif';
   padding-top: 30px;
   padding-left: 10px;
   padding-right: 10px;
-  height: 600px;
-  width: 500px;
+  height: 700px;
+  width: 400px;
   border-color: #E8E8E8;
 }
 
@@ -992,7 +993,8 @@ form {
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+ /* padding: 0.35em 0.625em 0.75em;*/
+  padding: 1em 1em 1em 1em;
 }
 
 /**
@@ -2990,7 +2992,7 @@ nav#upload-menu {
 #upload-container {
 	margin: 0;
 	padding: 0;
-	width: 100%;
+	width: 90%px;
 }
 
 #upload-main {
@@ -3209,6 +3211,7 @@ text-align: left;
 
 
 footer {
+  margin-top:6em; 
 	background-color: #f9f9f9;
 	text-align: center;
 	padding: 1.25em;
