@@ -19,7 +19,7 @@ angular.module('pullPix')
                     //console.log('Updated');
                     
                     $location.path('/members');   
-                });
+                })
             }
 
         };

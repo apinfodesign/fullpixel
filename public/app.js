@@ -26,7 +26,7 @@ angular.module('pullPix')
                     //console.log('Updated');
                     
                     $location.path('/members');   
-                });
+                })
             }
 
         };
@@ -207,7 +207,7 @@ angular.module('pullPix')
             .when('/upload',     {controller: 'UploadCtrl', controllerAs: 'vm', templateUrl: '/partials/upload-page.html'})
             .when('/photo',      {controller: 'ImgMetaCtrl', templateUrl: '/partials/photo-page.html'}) 
             .when('/photo-map',  {controller: '',            templateUrl: '/partials/map-page.html'})
-            .when('/photo-page', {controller: '',            templateUrl: '/partials/photo-page.html'})
+            .when('/404', {controller: '',            templateUrl: '/partials/404.html'})
             .when('/members',    {controller: 'MemberListCtrl',            templateUrl: '/partials/members.html'})
             .when('/about',      {controller: 'AboutInfoCtrl',    templateUrl: '/partials/about.html'})
             .when('/publicUserAbout',{controller: 'MemberListCtrl',    templateUrl: '/partials/publicUserAbout.html'})
