@@ -2,7 +2,7 @@ angular.module('pullPix')
     .controller('AboutInfoCtrl', //function($scope, AboutInfoSvc, '$routeParams', '$sanitize'){
         function($scope, UserSvc, $location){
 
-        $scope.UserUpdate = function(userdata, $location){
+        $scope.UserUpdate = function(userdata){
             //console.log("about " + userdata);
             if(userdata) {
                 

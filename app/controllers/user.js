@@ -44,7 +44,7 @@ router.put('/users', function(req, res, next){
                     userblogtitle : req.body.userblogtitle,
                     useraboutstory: req.body.useraboutstory,
                     usertags      : req.body.usertags   
-            }}, {upsert: true} , function() {res.json(user);});
+            }}, {upsert: true} , function() {res.json(User);});
             
     });
 
