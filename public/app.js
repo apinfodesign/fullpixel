@@ -43,18 +43,18 @@ angular.module('pullPix')
 
 angular.module('pullPix')
     .controller('deleteUserCtrl',  
-        ["$scope", "$http", function($scope, $http) {
+        ["$scope", "$http", "$location", function($scope, $http, $location) {
  		
         $scope.UserDelete = function(currentUser){
-            return $http.delete('/users/' + currentUser.username)
-            .success(function(data) {
+            $http.delete('/users/' + currentUser.username)
+            .success(function() {
                 console.log('success');
-                //$scope.currentUser = data;
+                $location.path('/members');   
             })
             .error(function(err) {
                 console.log('Error: ' + data);
                 //$scope.currentUser = err;
-            });
+            })
          };
     }]);
 

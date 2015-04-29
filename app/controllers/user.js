@@ -43,9 +43,8 @@ router.put('/users', function(req, res, next){
                     userportrait  : req.body.userportrait,
                     userblogtitle : req.body.userblogtitle,
                     useraboutstory: req.body.useraboutstory,
-                    usertags      : req.body.usertags
-                
-            }}, {upsert: true} , function() {});
+                    usertags      : req.body.usertags   
+            }}, {upsert: true} , function() {res.json(user);});
             
     });
 
@@ -54,8 +53,8 @@ router.put('/users', function(req, res, next){
 router.delete('/users/:username', function(req, res, next){
         console.log("Deleting User");
         console.log(req.params);
-        User.remove({username: req.params.username}, function() {} );
-
+        User.remove({username: req.params.username}, function() {res.sendStatus(201);} )
+        
      });
 
 
