@@ -16,10 +16,8 @@ angular.module('pullPix')
                 })
                 .success(function(User){
                     console.log(User);
-                    //console.log('Updated');
-                    
                     $location.path('/members');   
-                })
+                });
             }
 
         };
