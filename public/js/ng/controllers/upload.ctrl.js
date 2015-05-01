@@ -26,6 +26,7 @@ angular
     function onFileSelect(files) {
  
       vm.upload = $upload.upload({
+        //READ DOCS ON AWS to post to the bucket
         url: '/api/user/upload',  
         method: 'POST',
         // data: {myObj: $scope.myModelObj},

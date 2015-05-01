@@ -23,10 +23,8 @@ angular.module('pullPix')
                 })
                 .success(function(User){
                     console.log(User);
-                    //console.log('Updated');
-                    
                     $location.path('/members');   
-                })
+                });
             }
 
         };
@@ -493,6 +491,7 @@ angular
             templateUrl: 'partials/slider.html'
         }
     }]);
+
 angular.module('pullPix')
     .service('AboutInfoSvc', ["$http", function($http){
 		this.fetch = function(currentUser){
@@ -563,6 +562,5 @@ angular.module('pullPix')
     }
 
   }]); //close userservice function
-
 
 
