@@ -5,10 +5,24 @@ var router          = require('express').Router(),
     imageMagick     = gm.subClass({ imageMagick: true }),  //for the heroku dependencies
     AWS				= require('aws-sdk');
 
-// AWS.config.loadFromPath('../../config.json');
 // // example from AWS
-// var s3 = new AWS.S3(); 
+var s3 = new AWS.S3();
+AWS.config.loadFromPath('./config.json');
+// var config = new AWS.Config({
+//   accessKeyId: 'AKIAIXNSFRK3J5CPRCTA', secretAccessKey: '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', region: 'us-west-2'
+// });
 
+ 
+var s3bucket = new AWS.S3({ params: {Bucket: 'fullpixel'} });
+
+	s3.listBuckets(function(error, data) {
+	  if (error) {
+	    console.log(error); // error is Response.error
+	  } else {
+	    console.log(data); // data is Response.data
+	  }
+	});
+// s3bucket.getObject{(Key: '')}
 //  s3.createBucket({Bucket: 'fullpixel'}, function() {
 
 //   var params = {Bucket: 'myBucket', Key: 'myKey', Body: 'Hello!'};
